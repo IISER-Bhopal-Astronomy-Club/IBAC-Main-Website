@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IBARG Research | IISER Bhopal Astronomy Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Official scientific research division of IBAC: IISER Bhopal Astronomy Research Group (IBARG). Explore observational astrophysics, the 14-inch Cassegrain telescope, research themes, and student intake.">
+
+    <link rel="icon" type="image/png" href="images/ibac.png">
+  <link rel="shortcut icon" href="images/ibac.png">
+  <link rel="apple-touch-icon" href="images/ibac.png">
+  <meta name="theme-color" content="#040b19">
+  <meta name="msapplication-navbutton-color" content="#040b19">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#040b19">
+
+  <!-- Stylesheets & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Rock+Salt&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0056b3;
+      --accent-cyan: #00c6ff;
+      --royal-blue: #0072ff;
+      --deep-navy: #040b19;
+      --midnight-blue: #081226;
+      --card-bg: #ffffff;
+      --card-border: rgba(0, 114, 255, 0.15);
+      --text-dark: #121d33;
+      --text-muted: #4e5d78;
+      --footer-bg: #000106;
+      --radius-card: 16px;
+      --radius-img: 14px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', sans-serif;
+      background: #060e20;
+      color: #e2ecf9;
+      line-height: 1.6;
+    }
+
+    /* ==================== NAVBAR ==================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 11, 25, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+        .brand-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(15deg) scale(1.05);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: #8da4c4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #c9dbf2;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transition: var(--transition);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .contain {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #0d224d 0%, #040b19 80%);
+      padding: 90px 20px 70px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 300px 80px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 600px 50px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 900px 90px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 1050px 260px, #a8d4ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 1200px 40px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 1350px 150px, #00c6ff, rgba(0, 0, 0, 0));
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .contain_header {
+      position: relative;
+      z-index: 2;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: 0.5px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #ii,
+    .club-slogan {
+      font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
+      font-size: 2.3rem;
+      color: #b2d5ff;
+      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      margin: 15px 0 25px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      color: #d1e2fc;
+      max-width: 820px;
+      margin: 0 auto 35px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 45px;
+    }
+
+    .btn-cta {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-cta-primary {
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 198, 255, 0.35);
+    }
+
+    .btn-cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.55);
+      color: #ffffff;
+    }
+
+    .btn-cta-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      transform: translateY(-3px);
+      color: #ffffff;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 950px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-stat-item {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00c6ff;
+      text-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+    }
+
+    .hero-stat-label {
+      font-size: 0.85rem;
+      color: #b5c7e3;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==================== COMMON SECTIONS ==================== */
+    .content-section {
+      padding: 85px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 50px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-cyan);
+      margin-bottom: 10px;
+      background: rgba(0, 198, 255, 0.1);
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #a8bede;
+      line-height: 1.7;
+    }
+
+    .section-cosmic {
+      background: linear-gradient(180deg, #060e20 0%, #030814 100%);
+    }
+
+    .section-darker {
+      background: #020610;
+      border-top: 1px solid rgba(0, 198, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.15);
+    }
+
+    /* Cards & Layouts */
+    .research-intro-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 198, 255, 0.22);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      margin-bottom: 45px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .research-intro-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .research-intro-card h3 i {
+      color: var(--accent-cyan);
+    }
+
+    .research-intro-card p {
+      color: #c5d8f7;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .research-facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .facility-box {
+      background: rgba(8, 25, 59, 0.75);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      border-radius: var(--radius-card);
+      padding: 32px 26px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .facility-box:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 12px 30px rgba(0, 198, 255, 0.22);
+    }
+
+    .facility-icon {
+      font-size: 2.4rem;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+
+    .facility-box h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .facility-box p {
+      font-size: 0.96rem;
+      color: #9cb5db;
+      line-height: 1.65;
+    }
+
+    .research-domains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 45px;
+    }
+
+    .research-domain-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 10px;
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .research-domain-card:hover {
+      background: rgba(0, 198, 255, 0.09);
+      transform: translateX(5px);
+      border-color: rgba(0, 198, 255, 0.4);
+    }
+
+    .research-domain-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.22rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .research-domain-card p {
+      font-size: 0.94rem;
+      color: #a8bede;
+      line-height: 1.6;
+    }
+
+    .research-apply-box {
+      background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.1));
+      border: 1px dashed var(--accent-cyan);
+      border-radius: var(--radius-card);
+      padding: 38px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .research-apply-box h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .research-apply-box h4 i {
+      color: var(--accent-cyan);
+    }
+
+    .research-apply-box p {
+      color: #c9dbf7;
+      max-width: 820px;
+      margin: 0 auto 22px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    /* Highlights / Achievements */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .highlight-card {
+      background: rgba(14, 28, 59, 0.6);
+      border: 1px solid rgba(0, 114, 255, 0.25);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    .highlight-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+    }
+
+    .highlight-pill {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(0, 198, 255, 0.12);
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .highlight-card p {
+      font-size: 0.94rem;
+      color: #a2b7db;
+      line-height: 1.6;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 70px 20px 25px;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .inner-footer {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .footer-about-text {
+      color: #8fa5c7;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: #8fa5c7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+    }
+
+    .footer-address {
+      color: #9cb1d6;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-social-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: #7e94b8;
+      font-size: 0.88rem;
+    }
+
+    .scroll-top-btn {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+
+      #ii,
+      .club-slogan {
+        font-size: 1.8rem;
+      }
+
+      .inner-footer {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(4, 11, 25, 0.98);
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
+        transition: 0.35s ease;
+      }
+
+      .nav-menu.show {
+        left: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      #ii,
+      .club-slogan {
+        font-size: 1.4rem;
+      }
+
+      .inner-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .research-domains-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html#top" class="brand-logo">
+        <img src="images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+        <div class="brand-title-wrap">
+          <span class="brand-title">IBAC <span>IISERB</span></span>
+          <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#top" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="research.html" class="nav-link active">Research (IBARG)</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+        <li><a href="index.html#events" class="nav-link">Events</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Research Hero Showcase Section -->
+  <section class="contain" id="research-hero">
+    <div class="stars-overlay"></div>
+
+    <div class="contain_header">
+      <div class="hero-badge">
+        <i class="fa-solid fa-satellite"></i> Scientific Research Division &bull; IISER Bhopal
+      </div>
+
+      <h1 class="hero-title">
+        IBARG <span>Research</span>
+      </h1>
+
+      <div id="ii" class="club-slogan">|| नासदीये स्थितो मनः ||</div>
+
+      <p class="hero-description">
+        IISER Bhopal Astronomy Research Group (IBARG) is the scientific wing of IBAC — conducting observational
+        astronomy, computational astrophysics, and data-driven cosmology atop Academic Building 1.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#facilities" class="btn-cta btn-cta-primary">
+          <i class="fa-solid fa-landmark-dome"></i> Observational Facilities
+        </a>
+        <a href="#themes" class="btn-cta btn-cta-secondary">
+          <i class="fa-solid fa-atom"></i> Research Themes
+        </a>
+        <a href="#intake" class="btn-cta btn-cta-secondary">
+          <i class="fa-solid fa-paper-plane"></i> Join IBARG
+        </a>
+        <a href="index.html#top" class="btn-cta btn-cta-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Main Site
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">2018</div>
+          <div class="hero-stat-label">Founded</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">14"</div>
+          <div class="hero-stat-label">Cassegrain Dome</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">6</div>
+          <div class="hero-stat-label">Research Domains</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">10+</div>
+          <div class="hero-stat-label">Global Fellowships</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">AB-1</div>
+          <div class="hero-stat-label">Observatory Location</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genesis & Overview Section -->
+  <section class="content-section section-cosmic" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About The Group</span>
+        <h2 class="section-title">The Student Research Wing (IBARG)</h2>
+        <p class="section-subtitle">
+          Bridging foundational undergraduate coursework with professional astrophysical research methodologies.
+        </p>
+      </div>
+
+      <div class="research-intro-card">
+        <h3><i class="fa-solid fa-satellite-dish"></i> Genesis & Scientific Mission</h3>
+        <p>
+          Founded in December 2018 by Parth Nayak, IBARG is the student-led research wing of the IISER Bhopal Astronomy
+          Club. We maintain privileged operational access to IISER Bhopal's rooftop observatory and work closely with
+          faculty mentors from the Department of Physics on high-impact astrophysical questions.
+        </p>
+        <p>
+          Our mission is two-fold: to train students in the rigorous methodologies of observational data acquisition, CCD
+          reduction, and telescope mount operation, while cultivating active research projects spanning pulsar timing,
+          AGN spectra, exoplanetary characterization, and computational cosmological simulations.
+        </p>
+        <p>
+          Today, IBARG alumni and members hold research fellowships, author peer-reviewed manuscripts, and pursue
+          doctoral and postdoctoral studies at top institutions worldwide, including Columbia University, Adam Mickiewicz
+          University, IUCAA, NCRA-TIFR, and the Max Planck Institutes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilities Section -->
+  <section class="content-section section-darker" id="facilities">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Infrastructure & Instruments</span>
+        <h2 class="section-title">Observation Facilities</h2>
+        <p class="section-subtitle">
+          State-of-the-art optical and tracking hardware housed atop Academic Building 1 (AB-1) on the IISER Bhopal campus.
+        </p>
+      </div>
+
+      <div class="research-facility-grid">
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-landmark-dome"></i></div>
+          <h4>AB-1 Observatory Dome</h4>
+          <p>
+            Perched atop Academic Building 1 (AB-1), our fully rotating dome provides unobstructed 360-degree viewing of
+            the night sky over the Bhopal campus, isolating precision instruments from local ambient light and campus
+            wind currents.
+          </p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-crosshairs"></i></div>
+          <h4>14-inch Cassegrain Telescope</h4>
+          <p>
+            A research-grade 14" Cassegrain optical system designed for high-resolution planetary imaging, deep-sky
+            astrophotography, variable star time-series photometry, and narrowband spectroscopic follow-ups.
+          </p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-gears"></i></div>
+          <h4>German Equatorial Mount (GEM)</h4>
+          <p>
+            Heavy-duty motorized computer-controlled equatorial tracking mount ensuring sub-arcsecond tracking precision
+            and extended exposure stability necessary for faint deep-sky targets and transit light curves.
+          </p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-camera"></i></div>
+          <h4>Cooled CCD & Filter Wheel</h4>
+          <p>
+            Equipped with thermoelectrically cooled astronomical CCD cameras and standardized Johnson-Cousins (UBVRI)
+            photometric filters, enabling calibrated stellar magnitude determination and colour-magnitude diagram synthesis.
+          </p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h4>Astrophysical Data Pipeline</h4>
+          <p>
+            Dedicated computational workflows utilizing AstroPy, IRAF, SAOImage DS9, and custom Python pipelines for dark
+            subtraction, flat fielding, aperture photometry, and cosmic ray removal.
+          </p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon"><i class="fa-solid fa-satellite"></i></div>
+          <h4>Multi-Wavelength Archival Access</h4>
+          <p>
+            Student researchers routinely cross-match on-campus optical observations with multi-wavelength space and ground
+            surveys, including Chandra, XMM-Newton, Gaia, SDSS, JWST, and GMRT data archives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Themes Section -->
+  <section class="content-section section-cosmic" id="themes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Scientific Frontier</span>
+        <h2 class="section-title">Key Research Themes & Domains</h2>
+        <p class="section-subtitle">
+          Core domains explored by IBARG student researchers under the guidance of IISER Bhopal faculty and international
+          collaborators.
+        </p>
+      </div>
+
+      <div class="research-domains-grid">
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-bolt" style="color: var(--accent-cyan); margin-right: 8px;"></i> High-Energy Astrophysics & Relativistic Jets</h4>
+          <p>Investigating accretion disc dynamics around stellar-mass and supermassive black holes, relativistic jet
+            launching mechanisms, high-energy X-ray flaring episodes, and multimessenger signals from compact binary mergers.</p>
+        </div>
+
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-wave-square" style="color: var(--accent-cyan); margin-right: 8px;"></i> Pulsar Timing & Gravitational Waves</h4>
+          <p>Studying nanoHertz gravitational wave backgrounds and compact star physics utilizing Indian Pulsar Timing
+            Array (InPTA) and International Pulsar Timing Array (IPTA) datasets and pulse dispersion delay analysis.</p>
+        </div>
+
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-circle-dot" style="color: var(--accent-cyan); margin-right: 8px;"></i> Quasars & Active Galactic Nuclei (AGN)</h4>
+          <p>Computational analysis, SED fitting, and spectral decomposition of active galactic nuclei to understand
+            early galaxy co-evolution, supermassive black hole seed formation, and broad emission line kinematics.</p>
+        </div>
+
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-shapes" style="color: var(--accent-cyan); margin-right: 8px;"></i> Star Clusters & Stellar Kinematics</h4>
+          <p>Analyzing embedded clusters in molecular clouds, blue straggler populations, stellar velocity dispersions,
+            mass segregation, and the dynamical evolution of Galactic open and globular clusters.</p>
+        </div>
+
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-earth-americas" style="color: var(--accent-cyan); margin-right: 8px;"></i> Exoplanetary Habitability & Astrobiology</h4>
+          <p>Atmospheric biosignatures, pebble accretion mechanisms in super-Earths and mini-Neptunes, and host star
+            stellar flare activity impacts on exoplanetary atmospheres and habitable zone boundaries.</p>
+        </div>
+
+        <div class="research-domain-card">
+          <h4><i class="fa-solid fa-brain" style="color: var(--accent-cyan); margin-right: 8px;"></i> Deep Learning & AI in Cosmology</h4>
+          <p>Applying convolutional neural networks, vision transformers, and generative adversarial networks to
+            astronomical image denoising, gravitational lens detection, transient identification, and cosmological simulation analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Highlights & Alumni Pathways -->
+  <section class="content-section section-darker" id="highlights">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Impact & Output</span>
+        <h2 class="section-title">Research Highlights & Alumni Pathways</h2>
+        <p class="section-subtitle">
+          From first observations atop AB-1 to international research contributions and doctoral programs.
+        </p>
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <span class="highlight-pill">JWST Observations</span>
+          <h4>Submillimetre Galaxy Dynamics</h4>
+          <p>
+            Alumni work with international consortia examining the physical properties and dust attenuations of high-redshift
+            submillimetre galaxies using integral field spectroscopy (IFU) and James Webb Space Telescope observations.
+          </p>
+        </div>
+
+        <div class="highlight-card">
+          <span class="highlight-pill">InPTA Collaboration</span>
+          <h4>Pulsar Astrometry & InPTA</h4>
+          <p>
+            Active collaboration with Indian and international pulsar timing arrays to search for ultra-low frequency
+            gravitational waves and investigate microsecond pulse profile variations from millisecond pulsars.
+          </p>
+        </div>
+
+        <div class="highlight-card">
+          <span class="highlight-pill">Academic Fellowships</span>
+          <h4>Doctoral & Master's Placements</h4>
+          <p>
+            IBARG alumni have successfully secured admission and prestigious fellowships at world-renowned institutions,
+            including Columbia University, Adam Mickiewicz University (Poland), IUCAA Pune, and TIFR.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intake / Join Section -->
+  <section class="content-section section-cosmic" id="intake">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Join The Research Wing</span>
+        <h2 class="section-title">Applying to Join IBARG</h2>
+        <p class="section-subtitle">
+          We invite curious minds with passion for coding, data analysis, and observational physics.
+        </p>
+      </div>
+
+      <div class="research-apply-box">
+        <h4><i class="fa-solid fa-clipboard-user"></i> Semester Intake Cycles</h4>
+        <p>
+          Recruitment for the IISER Bhopal Astronomy Research Group opens each semester:
+          typically the <strong>second week of January</strong> for even semesters, and the
+          <strong>second week of August</strong> for odd semesters.
+        </p>
+        <p>
+          Open to all IISER Bhopal students regardless of year or major. Prospective members are evaluated based on their
+          statement of research interest, fundamental problem-solving aptitude, programming experience (Python, C++, or Julia),
+          or enthusiasm for telescope hardware and observational nights.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 25px;">
+          <a href="mailto:ibac.official@gmail.com?subject=IBARG%20Research%20Intake%20Inquiry" class="btn-cta btn-cta-primary">
+            <i class="fa-solid fa-paper-plane"></i> Inquire About Research Intake
+          </a>
+          <a href="index.html#team" class="btn-cta btn-cta-secondary">
+            <i class="fa-solid fa-users"></i> Meet The IBAC Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="contact">
+    <div class="inner-footer">
+      <div class="footer-col about-col">
+        <div class="footer-logo-wrap" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><img src="images/ibac.png" alt="IBAC Logo" style="width: 34px; height: 34px; border-radius: 50%; object-fit: contain;"><h3 class="footer-heading" style="margin-bottom: 0;">IISER Bhopal Astronomy Club</h3></div>
+        <div style="font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif; font-size: 1.15rem; color: var(--accent-cyan); margin: 6px 0 12px; font-weight: 600; letter-spacing: 1px;">|| नासदीये स्थितो मनः ||</div>
+        <p class="footer-about-text">
+          IBAC is dedicated to fostering interest, knowledge, and scientific practice in astronomy, astrophysics, and
+          space science among students, researchers, and space enthusiasts across IISER Bhopal and beyond.
+        </p>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/ibac_iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/ibac-iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/@ibaciiserbhopal" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/ibac.iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html#top"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="index.html#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="research.html"><i class="fa-solid fa-angle-right"></i> Research (IBARG)</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Resources</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Institute Portals</div>
+        <ul class="footer-links-list">
+          <li><a href="https://www.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> IISER Bhopal Main</a></li>
+          <li><a href="http://phy.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Department of Physics</a></li>
+          <li><a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Science Council</a></li>
+          <li><a href="https://students.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Student Affairs Council</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Club & Observatory Location</div>
+        <p class="footer-address">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-door-open" style="color: var(--accent-cyan); margin-right: 6px;"></i>Club Room:</strong><br>
+          Room 106, Above Mess-4, IISERB<br>
+          Bhopal Bypass Road, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="margin-top: 10px;">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-satellite-dish" style="color: var(--accent-cyan); margin-right: 6px;"></i>Observatory Facility:</strong><br>
+          Observatory Facility atop AB-1<br>
+          IISER Bhopal, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="color: var(--accent-cyan); margin-top: 8px;">
+          <i class="fa-solid fa-envelope"></i> ibac.official@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</p>
+      <a href="#top" class="scroll-top-btn">
+        Back to Top <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileBtn && navMenu) {
+      mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu) navMenu.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+
+</html>

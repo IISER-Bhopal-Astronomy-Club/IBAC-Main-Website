@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Curated Resources | IISER Bhopal Astronomy Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Comprehensive curated astronomy & astrophysics resources by IBAC: recommended textbooks, lecture notes, astronomical software, documentaries, and celestial observation calendars.">
+
+    <link rel="icon" type="image/png" href="images/ibac.png">
+  <link rel="shortcut icon" href="images/ibac.png">
+  <link rel="apple-touch-icon" href="images/ibac.png">
+  <meta name="theme-color" content="#040b19">
+
+  <!-- Stylesheets & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0056b3;
+      --accent-cyan: #00c6ff;
+      --royal-blue: #0072ff;
+      --deep-navy: #040b19;
+      --midnight-blue: #081226;
+      --card-bg: #ffffff;
+      --card-border: rgba(0, 114, 255, 0.15);
+      --text-dark: #121d33;
+      --text-muted: #4e5d78;
+      --footer-bg: #000106;
+      --radius-card: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', sans-serif;
+      background: #060e20;
+      color: #e2ecf9;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 11, 25, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+        .brand-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(15deg) scale(1.05);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: #8da4c4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #c9dbf2;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transition: var(--transition);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .contain {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #0d224d 0%, #040b19 80%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 300px 80px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 600px 50px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 900px 90px, #ffffff, rgba(0, 0, 0, 0));
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .contain_header {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .club-slogan {
+      font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
+      font-size: 2.2rem;
+      color: #b2d5ff;
+      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      margin: 12px 0 22px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      color: #d1e2fc;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Content & Resource Tabs */
+    .content-section {
+      padding: 70px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .resource-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .res-tab-btn {
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #b0cbf2;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .res-tab-btn:hover,
+    .res-tab-btn.active {
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 198, 255, 0.35);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .res-tab-pane {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .res-tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .resource-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .res-item-card {
+      background: rgba(10, 24, 54, 0.7);
+      border: 1px solid rgba(0, 114, 255, 0.22);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .res-item-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 12px 30px rgba(0, 198, 255, 0.18);
+    }
+
+    .res-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(0, 198, 255, 0.12);
+      border-radius: 20px;
+      padding: 3px 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .res-item-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .res-author {
+      font-size: 0.88rem;
+      color: #00c6ff;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .res-desc {
+      font-size: 0.94rem;
+      color: #9cb3d6;
+      line-height: 1.6;
+    }
+
+    .res-action-btn {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .res-action-btn:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 70px 20px 25px;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .inner-footer {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .footer-about-text {
+      color: #8fa5c7;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: #8fa5c7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+    }
+
+    .footer-address {
+      color: #9cb1d6;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-social-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: #7e94b8;
+      font-size: 0.88rem;
+    }
+
+    .scroll-top-btn {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.6rem;
+      }
+      .club-slogan {
+        font-size: 1.8rem;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(4, 11, 25, 0.98);
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 18px;
+        transition: 0.35s ease;
+      }
+      .nav-menu.show {
+        left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .club-slogan {
+        font-size: 1.4rem;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html#top" class="brand-logo">
+        <img src="images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+        <div class="brand-title-wrap">
+          <span class="brand-title">IBAC <span>IISERB</span></span>
+          <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#top" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link active">Resources</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+        <li><a href="index.html#events" class="nav-link">Events</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contain">
+    <div class="stars-overlay"></div>
+    <div class="contain_header">
+      <div class="hero-badge">
+        <i class="fa-solid fa-book-bookmark"></i> Academic & Observation Repository
+      </div>
+      <h1 class="hero-title">
+        Curated <span>Resources</span>
+      </h1>
+      <div class="club-slogan">|| नासदीये स्थितो मनः ||</div>
+      <p class="hero-description">
+        Explore our curated collection of textbooks, research-grade software, lecture notes, astronomical media, and
+        celestial event calendars for amateur stargazers and researchers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Resources Hub Section -->
+  <section class="content-section">
+    <div class="container">
+      <!-- Tabs -->
+      <div class="resource-tabs">
+        <button class="res-tab-btn active" data-target="tab-books">
+          <i class="fa-solid fa-book"></i> Books & Textbooks
+        </button>
+        <button class="res-tab-btn" data-target="tab-talks">
+          <i class="fa-solid fa-chalkboard-user"></i> Talks & Lecture Notes
+        </button>
+        <button class="res-tab-btn" data-target="tab-media">
+          <i class="fa-solid fa-film"></i> Movies & Series
+        </button>
+        <button class="res-tab-btn" data-target="tab-tools">
+          <i class="fa-solid fa-laptop-code"></i> Software & Tools
+        </button>
+        <button class="res-tab-btn" data-target="tab-events">
+          <i class="fa-solid fa-calendar-days"></i> Celestial Calendar
+        </button>
+      </div>
+
+      <!-- 1. Books Pane -->
+      <div class="res-tab-pane active" id="tab-books">
+        <div class="resource-cards-grid">
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Academic Standard</span>
+              <h4>An Introduction to Modern Astrophysics</h4>
+              <div class="res-author">Bradley W. Carroll & Dale A. Ostlie</div>
+              <div class="res-desc">The definitive "Big Orange Book" covering everything from stellar atmospheres, celestial mechanics, and galaxies to general relativity and modern cosmology.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Astrophysics Classic</span>
+              <h4>The Physical Universe: An Introduction to Astronomy</h4>
+              <div class="res-author">Frank Shu</div>
+              <div class="res-desc">A masterpiece text providing clear physical intuition on stellar interiors, interstellar medium, and large-scale structures in astrophysics.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Cosmology Graduate</span>
+              <h4>Cosmology</h4>
+              <div class="res-author">Steven Weinberg</div>
+              <div class="res-desc">Rigorous modern treatment of the homogeneous and isotropic universe, cosmic microwave background, inflation, and perturbations by Nobel laureate Steven Weinberg.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Cosmology</span>
+              <h4>Modern Cosmology</h4>
+              <div class="res-author">Scott Dodelson</div>
+              <div class="res-desc">Essential reading for understanding CMB anisotropies, structure formation, dark matter, and cosmic evolution theory.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Early Universe</span>
+              <h4>The Early Universe</h4>
+              <div class="res-author">Edward Kolb & Michael Turner</div>
+              <div class="res-desc">Foundational text exploring the intersection of particle physics and early-universe cosmology, baryogenesis, and phase transitions.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Radio Astronomy</span>
+              <h4>Handbook of Pulsar Astronomy</h4>
+              <div class="res-author">D. R. Lorimer & Michael Kramer</div>
+              <div class="res-desc">Comprehensive reference for pulsar observation, interstellar dispersion, pulse timing techniques, and testing gravitational theories.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Observational Astronomy</span>
+              <h4>To Measure the Sky: An Introduction to Observational Astronomy</h4>
+              <div class="res-author">Frederick R. Chromey</div>
+              <div class="res-desc">A hands-on guide to telescopes, detectors, optical instrumentation, CCD photometry, and spectroscopic measurements.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">General Relativity</span>
+              <h4>Spacetime and Geometry: An Introduction to General Relativity</h4>
+              <div class="res-author">Sean M. Carroll</div>
+              <div class="res-desc">Lucid pedagogical introduction to curved spacetime geometry, black holes, gravitational radiation, and cosmological models.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Stellar Dynamics</span>
+              <h4>Galactic Dynamics</h4>
+              <div class="res-author">James Binney & Scott Tremaine</div>
+              <div class="res-desc">The undisputed bible of stellar kinematics, potential theory, collisionless Boltzmann equation, and galactic equilibrium.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Talks & Lecture Notes Pane -->
+      <div class="res-tab-pane" id="tab-talks">
+        <div class="resource-cards-grid">
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Frontier Lecture</span>
+              <h4>Hunting Nanohertz Gravitational Waves with InPTA</h4>
+              <div class="res-author">Dr. Mayuresh Surnis · IISER Bhopal Department of Physics</div>
+              <div class="res-desc">In-depth lecture addressing pulsar timing arrays, multi-frequency dispersion corrections, and the global quest to isolate supermassive black hole binary signals.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Observational Series</span>
+              <h4>Amateur Astrophotography & Stacking Masterclass</h4>
+              <div class="res-author">IBAC Technical Core</div>
+              <div class="res-desc">Practical handbook covering light frame capture, bias/dark/flat calibration, DeepSkyStacker workflows, and Siril post-processing.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Astrobiology Workshop</span>
+              <h4>Biosignatures & Exoplanet Atmospheres</h4>
+              <div class="res-author">IBAC Colloquium Archive</div>
+              <div class="res-desc">Transmission spectroscopy, transit depth signatures, and detecting chemical disequilibrium indicators like methane and ozone in habitable zone exoplanets.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Computational Tutorial</span>
+              <h4>AstroPy Essentials for Data Reduction</h4>
+              <div class="res-author">IBARG Data Core</div>
+              <div class="res-desc">Interactive notebook series walking through FITS file handling, WCS coordinate transformations, aperture photometry, and cosmology modeling.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Telescope Workshop</span>
+              <h4>German Equatorial Mount (GEM) Polar Alignment Guide</h4>
+              <div class="res-author">IBAC Observatory Team</div>
+              <div class="res-desc">Step-by-step drift alignment and polar alignment methodology for high-precision astrophotography and long-exposure tracking atop the AB-1 dome.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Sky Guide</span>
+              <h4>Constellations & Messier Object Star-Hopping Guide</h4>
+              <div class="res-author">IBAC Outreach Division</div>
+              <div class="res-desc">Comprehensive visual roadmap for locating all 110 Messier deep-sky objects using simple star-hopping from prominent seasonal constellations.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Movies & Media Pane -->
+      <div class="res-tab-pane" id="tab-media">
+        <div class="resource-cards-grid">
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Docuseries</span>
+              <h4>Cosmos: A Spacetime Odyssey / Possible Worlds</h4>
+              <div class="res-author">Hosted by Neil deGrasse Tyson</div>
+              <div class="res-desc">Spectacular cinematic voyage through 13.8 billion years of cosmic evolution and scientific human discovery, carrying forward Carl Sagan's legacy.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Sci-Fi Masterpiece</span>
+              <h4>Interstellar (2014)</h4>
+              <div class="res-author">Directed by Christopher Nolan · Scientific Advisor: Kip Thorne</div>
+              <div class="res-desc">A landmark depiction of general relativity, time dilation near supermassive black holes (Gargantua), wormhole topology, and interstellar navigation.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Documentary</span>
+              <h4>Black Holes: The Edge of All We Know</h4>
+              <div class="res-author">Event Horizon Telescope Collaboration</div>
+              <div class="res-desc">Follows the international network of millimeter-wave radio observatories in their historic quest to capture the first direct shadow of M87* supermassive black hole.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Hard Sci-Fi</span>
+              <h4>Contact (1997)</h4>
+              <div class="res-author">Based on Carl Sagan's Novel · Directed by Robert Zemeckis</div>
+              <div class="res-desc">A tribute to radio astronomy, SETI radio telescopes (Arecibo and the VLA), and the philosophical ramifications of first extraterrestrial communication.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Historical Drama</span>
+              <h4>First Man (2018)</h4>
+              <div class="res-author">Directed by Damien Chazelle</div>
+              <div class="res-desc">A gripping, visceral look at the intense engineering hurdles, personal sacrifice, and perilous trajectory of NASA's Apollo 11 lunar landing mission.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Docuseries</span>
+              <h4>The Universe (History Channel)</h4>
+              <div class="res-author">Narrated by Erik Thompson</div>
+              <div class="res-desc">Exhaustive multi-season visual deep-dive exploring extreme cosmic phenomena: gamma-ray bursts, magnetars, solar storms, and the fate of the multiverse.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Software & Tools Pane -->
+      <div class="res-tab-pane" id="tab-tools">
+        <div class="resource-cards-grid">
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Desktop Planetarium</span>
+              <h4>Stellarium</h4>
+              <div class="res-author">Open-Source Planetarium Software</div>
+              <div class="res-desc">Realistic 3D sky simulator rendering 600,000+ stars, nebulae, satellites, planetary orbits, and telescope ocular simulation in real-time.</div>
+            </div>
+            <a href="https://stellarium.org/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Download Stellarium <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Python Ecosystem</span>
+              <h4>AstroPy</h4>
+              <div class="res-author">Community Python Library for Astronomy</div>
+              <div class="res-desc">The core library for astronomical computation in Python, providing unit transformations, celestial coordinates, FITS I/O, and cosmological parameters.</div>
+            </div>
+            <a href="https://www.astropy.org/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Visit AstroPy Docs <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Astronomical Imaging</span>
+              <h4>SAOImage DS9</h4>
+              <div class="res-author">Smithsonian Astrophysical Observatory</div>
+              <div class="res-desc">Professional astronomical imaging and data visualization application supporting FITS images, multi-frame comparisons, and WCS coordinate overlays.</div>
+            </div>
+            <a href="https://ds9.si.edu/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Download SAOImage DS9 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Astrophotography Stacking</span>
+              <h4>Siril</h4>
+              <div class="res-author">Open-Source Astronomical Image Processing</div>
+              <div class="res-desc">Powerful tool tailored for preprocessing, registration, normalization, and stacking of deep-sky astrophotography frames with photometric color calibration.</div>
+            </div>
+            <a href="https://siril.org/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Visit Siril Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Telescope Control</span>
+              <h4>N.I.N.A. (Nighttime Imaging 'N' Astronomy)</h4>
+              <div class="res-author">Open-Source Astrophotography Suite</div>
+              <div class="res-desc">Advanced astrophotography imaging suite handling automated sequence scheduling, meridian flips, autoguiding via PHD2, plate solving, and dome rotation.</div>
+            </div>
+            <a href="https://nighttime-imaging.eu/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Visit N.I.N.A. Suite <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Multi-Wavelength Sky</span>
+              <h4>Aladin Sky Atlas</h4>
+              <div class="res-author">Strasbourg Astronomical Data Center (CDS)</div>
+              <div class="res-desc">Interactive software sky atlas allowing visualization of digitized astronomical images, superimposing survey data from Simbad, VizieR, and NED archives.</div>
+            </div>
+            <a href="https://aladin.cds.unistra.fr/" target="_blank" rel="noopener noreferrer" class="res-action-btn">
+              Open Aladin Sky Atlas <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Celestial Calendar Pane -->
+      <div class="res-tab-pane" id="tab-events">
+        <div class="resource-cards-grid">
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Meteor Shower</span>
+              <h4>Perseids Meteor Shower</h4>
+              <div class="res-author">Peak: August 12-13 Annually</div>
+              <div class="res-desc">One of the brightest meteor showers of the year, caused by debris from Comet Swift-Tuttle. Produces up to 60-100 swift, luminous meteors per hour under dark skies.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Meteor Shower</span>
+              <h4>Geminids Meteor Shower</h4>
+              <div class="res-author">Peak: December 13-14 Annually</div>
+              <div class="res-desc">The king of meteor showers, originating from the asteroid 3200 Phaethon. Capable of yielding up to 120 multicolored shooting stars per hour with bright fireballs.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Planetary Event</span>
+              <h4>Saturn & Jupiter at Opposition</h4>
+              <div class="res-author">Prime Observing Window: Late Summer / Autumn</div>
+              <div class="res-desc">When gas giants sit opposite the Sun relative to Earth, they remain fully illuminated all night long, offering optimal views of Saturn's ring system and Jupiter's Great Red Spot.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Observation Challenge</span>
+              <h4>Messier Marathon Season</h4>
+              <div class="res-author">New Moon Window: Mid to Late March</div>
+              <div class="res-desc">The legendary dusk-to-dawn observing challenge where observers attempt to spot all 110 Messier deep-sky objects in a single night from sunset to sunrise.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Solar System</span>
+              <h4>Solstices & Equinoxes</h4>
+              <div class="res-author">Vernal (Mar 20), Summer (Jun 21), Autumnal (Sep 22), Winter (Dec 21)</div>
+              <div class="res-desc">Milestone astronomical occurrences marking the Sun's position relative to the celestial equator and tropics, establishing seasonal astronomical milestones worldwide.</div>
+            </div>
+          </div>
+
+          <div class="res-item-card">
+            <div>
+              <span class="res-tag">Lunar Astronomy</span>
+              <h4>Supermoons & Lunar Occultations</h4>
+              <div class="res-author">Periodic Annual Cycles</div>
+              <div class="res-desc">Perigee full moons appearing up to 14% larger and 30% brighter, alongside precision telescopic observation of background stars disappearing behind the lunar limb.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="contact">
+    <div class="inner-footer">
+      <div class="footer-col about-col">
+        <div class="footer-logo-wrap" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><img src="images/ibac.png" alt="IBAC Logo" style="width: 34px; height: 34px; border-radius: 50%; object-fit: contain;"><h3 class="footer-heading" style="margin-bottom: 0;">IISER Bhopal Astronomy Club</h3></div>
+        <div style="font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif; font-size: 1.15rem; color: var(--accent-cyan); margin: 6px 0 12px; font-weight: 600; letter-spacing: 1px;">|| नासदीये स्थितो मनः ||</div>
+        <p class="footer-about-text">
+          IBAC is dedicated to fostering interest, knowledge, and scientific practice in astronomy, astrophysics, and
+          space science among students, researchers, and space enthusiasts across IISER Bhopal and beyond.
+        </p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com/ibac_official" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/iiser-bhopal-astronomy-club-ibac/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCdkA06-HCpNFWT3ieamk9jw" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/IBACofficial" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="mailto:ibac.official@gmail.com" class="footer-social-btn" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Science Council">
+            <i class="fa-solid fa-atom"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="index.html#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="research.html"><i class="fa-solid fa-angle-right"></i> IBARG Research</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Tenure 2026-27 Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Institute Portals</div>
+        <ul class="footer-links-list">
+          <li><a href="https://www.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> IISER Bhopal Main</a></li>
+          <li><a href="http://phy.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Department of Physics</a></li>
+          <li><a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Science Council</a></li>
+          <li><a href="https://students.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Student Affairs Council</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Club & Observatory Location</div>
+        <p class="footer-address">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-door-open" style="color: var(--accent-cyan); margin-right: 6px;"></i>Club Room:</strong><br>
+          Room 106, Above Mess-4, IISERB<br>
+          Bhopal Bypass Road, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="margin-top: 10px;">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-satellite-dish" style="color: var(--accent-cyan); margin-right: 6px;"></i>Observatory Facility:</strong><br>
+          Observatory Facility atop AB-1<br>
+          IISER Bhopal, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="color: var(--accent-cyan); margin-top: 8px;">
+          <i class="fa-solid fa-envelope"></i> ibac.official@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</p>
+      <a href="#top" class="scroll-top-btn">
+        Back to Top <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileBtn && navMenu) {
+      mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu) navMenu.classList.remove('show');
+      });
+    });
+
+    // Resources Tab Switcher
+    const tabBtns = document.querySelectorAll('.res-tab-btn');
+    const tabPanes = document.querySelectorAll('.res-tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const activePane = document.getElementById(target);
+        if (activePane) {
+          activePane.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

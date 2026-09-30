@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery | IISER Bhopal Astronomy Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Astrophotography and observation gallery of the IISER Bhopal Astronomy Club (IBAC). Telescopic captures of planets, nebulae, lunar craters, and campus stargazing camps.">
+
+    <link rel="icon" type="image/png" href="images/ibac.png">
+  <link rel="shortcut icon" href="images/ibac.png">
+  <link rel="apple-touch-icon" href="images/ibac.png">
+  <meta name="theme-color" content="#040b19">
+
+  <!-- Stylesheets & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0056b3;
+      --accent-cyan: #00c6ff;
+      --royal-blue: #0072ff;
+      --deep-navy: #040b19;
+      --midnight-blue: #081226;
+      --card-bg: rgba(14, 28, 59, 0.65);
+      --card-border: rgba(0, 198, 255, 0.22);
+      --text-muted: #8da4c4;
+      --footer-bg: #000106;
+      --radius-card: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', sans-serif;
+      background: #060e20;
+      color: #e2ecf9;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 11, 25, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+        .brand-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(15deg) scale(1.05);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: #8da4c4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #c9dbf2;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transition: var(--transition);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .contain {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #0d224d 0%, #040b19 80%);
+      padding: 85px 20px 65px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 120px 90px, #70b8ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 240px 180px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 380px 70px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 520px 220px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 680px 140px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 850px 80px, #00c6ff, rgba(0, 0, 0, 0));
+      background-size: 900px 300px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .club-slogan {
+      font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
+      font-size: 2.2rem;
+      color: #b2d5ff;
+      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      margin: 10px 0 22px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      color: #c9dbf2;
+      max-width: 820px;
+      margin: 0 auto 15px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .stock-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 114, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: #9cb3d6;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+
+    /* Featured Carousel Section */
+    .carousel-section {
+      max-width: 1200px;
+      margin: 50px auto 30px;
+      padding: 0 20px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      background: #000000;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .carousel-slides-container {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: scale(1.04);
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 30px 25px;
+      background: linear-gradient(180deg, rgba(4, 11, 25, 0) 0%, rgba(4, 11, 25, 0.85) 50%, rgba(4, 11, 25, 0.98) 100%);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .slide-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(0, 198, 255, 0.25);
+      border: 1px solid var(--accent-cyan);
+      color: #ffffff;
+      padding: 3px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .slide-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .slide-desc {
+      font-size: 0.95rem;
+      color: #c9dbf2;
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+    /* Carousel Nav Buttons */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(4, 11, 25, 0.75);
+      border: 1px solid rgba(0, 198, 255, 0.4);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .carousel-arrow:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      box-shadow: 0 0 20px var(--accent-cyan);
+    }
+
+    .arrow-prev {
+      left: 20px;
+    }
+
+    .arrow-next {
+      right: 20px;
+    }
+
+    /* Thumbnail Selector Strip */
+    .carousel-thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: #050d1e;
+      overflow-x: auto;
+    }
+
+    .thumb-item {
+      width: 80px;
+      height: 52px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.5;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .thumb-item.active,
+    .thumb-item:hover {
+      border-color: var(--accent-cyan);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Filter Controls */
+    .gallery-filter-wrap {
+      max-width: 1320px;
+      margin: 50px auto 30px;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      background: rgba(14, 28, 59, 0.6);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      color: #c9dbf2;
+      padding: 9px 20px;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.35);
+    }
+
+    /* Gallery Grid */
+    .gallery-container {
+      max-width: 1320px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 25px;
+    }
+
+    .gallery-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 15px 35px rgba(0, 114, 255, 0.25);
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover .gallery-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(4, 11, 25, 0.85);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(5px);
+    }
+
+    .gallery-info {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gallery-item-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .gallery-item-desc {
+      font-size: 0.9rem;
+      color: #9cb3d6;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .gallery-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 12px;
+      font-size: 0.82rem;
+      color: #7d96ba;
+    }
+
+    .gallery-meta i {
+      color: var(--accent-cyan);
+      margin-right: 5px;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 2500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 1000px;
+      width: 100%;
+      background: #091734;
+      border: 1px solid rgba(0, 198, 255, 0.4);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .lightbox-img-box {
+      width: 100%;
+      max-height: 65vh;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .lightbox-img-box img {
+      max-width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
+    }
+
+    .lightbox-details {
+      padding: 24px 28px;
+      background: #08142c;
+    }
+
+    .lightbox-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .lightbox-desc {
+      color: #b0c7e6;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: rgba(4, 11, 25, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 70px 20px 25px;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .inner-footer {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: #8fa5c7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+    }
+
+    .footer-address {
+      color: #9cb1d6;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-social-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: #7e94b8;
+      font-size: 0.88rem;
+    }
+
+    .scroll-top-btn {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.7rem;
+      }
+      .club-slogan {
+        font-size: 1.8rem;
+      }
+      .carousel-slides-container {
+        height: 400px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      }
+      .inner-footer {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(4, 11, 25, 0.98);
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 18px;
+        transition: 0.35s ease;
+      }
+      .nav-menu.show {
+        left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .club-slogan {
+        font-size: 1.4rem;
+      }
+      .carousel-slides-container {
+        height: 280px;
+      }
+      .slide-title {
+        font-size: 1.3rem;
+      }
+      .slide-desc {
+        display: none;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html#top" class="brand-logo">
+        <img src="images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+        <div class="brand-title-wrap">
+          <span class="brand-title">IBAC <span>IISERB</span></span>
+          <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#top" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+        <li><a href="index.html#events" class="nav-link">Events</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contain">
+    <div class="stars-overlay"></div>
+    <div class="contain_header">
+      <div class="hero-badge">
+        <i class="fa-solid fa-camera-retro"></i> Visual Showcase & Astrophotography
+      </div>
+      <h1 class="hero-title">
+        Cosmic <span>Gallery</span>
+      </h1>
+      <div class="club-slogan">|| नासदीये स्थितो मनः ||</div>
+      <p class="hero-description">
+        Immerse yourself in celestial vistas, deep sky wonders, planetary portraits, and community stargazing sessions
+        conducted through IBAC's observatory dome and portable telescopes across IISER Bhopal.
+      </p>
+      <div class="stock-notice">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>Showcase imagery: Curated stock demonstration frames ready to be updated with raw club observatory captures.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Carousel Slideshow -->
+  <section class="carousel-section">
+    <div class="carousel-wrapper">
+      <div class="carousel-slides-container" id="carouselSlides">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide active" data-title="Deep Space Emission Nebula"
+          data-desc="Deep cosmic nebulae showcasing ionizing hydrogen clouds and interstellar star-forming nurseries, demonstrating deep sky imaging capabilities.">
+          <img src="images/deep_sky.jpg" alt="Deep Sky Nebula Astrophotography">
+          <div class="carousel-overlay">
+            <span class="slide-badge"><i class="fa-solid fa-star"></i> Deep Sky & Nebulae</span>
+            <h3 class="slide-title">Cosmic Emission Nebula & Star Nurseries</h3>
+            <p class="slide-desc">
+              Long-exposure astrophotography revealing cosmic dust filaments, ionized hydrogen gas, and newborn stellar
+              clusters deep within the interstellar medium.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide" data-title="IBAC Campus Dome Under the Stars"
+          data-desc="Nighttime silhouette of the campus observatory dome facility housing the 14-inch Cassegrain telescope under a brilliant Milky Way sky.">
+          <img src="images/observatory_night.jpg" alt="Observatory Dome Night Sky">
+          <div class="carousel-overlay">
+            <span class="slide-badge"><i class="fa-solid fa-landmark"></i> Observatory Facility</span>
+            <h3 class="slide-title">Campus Observatory Dome Under the Milky Way</h3>
+            <p class="slide-desc">
+              Housed atop the IISER Bhopal campus, our professional dome facility safeguards the 14-inch Cassegrain
+              telescope with a German Equatorial mount.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide" data-title="Telescopic Lunar Craters & Terminator"
+          data-desc="Ultra high-resolution telescopic lunar photography captured through our 6-inch Newtonian Dobsonian 'Dobby', highlighting rugged crater rims.">
+          <img src="images/moon_craters.jpg" alt="Lunar Craters High-Resolution">
+          <div class="carousel-overlay">
+            <span class="slide-badge"><i class="fa-solid fa-moon"></i> Solar System Targets</span>
+            <h3 class="slide-title">The Moon Through Our 6-Inch 'Dobby'</h3>
+            <p class="slide-desc">
+              Sharp topographic detail along the lunar terminator line, bringing Tycho, Copernicus, and rugged mountain
+              ranges into crystal focus for campus observers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide" data-title="Saturn and the Cassini Division"
+          data-desc="Planetary astrophotography revealing Saturn's majestic ring system, Cassini division, and atmospheric banding.">
+          <img src="images/saturn_rings.jpg" alt="Saturn Rings Planetary Observation">
+          <div class="carousel-overlay">
+            <span class="slide-badge"><i class="fa-solid fa-ring"></i> Planetary System</span>
+            <h3 class="slide-title">Saturn & Its Majestic Ring System</h3>
+            <p class="slide-desc">
+              Planetary imaging capturing the breathtaking Cassini Division and cloud bands, a favorite celestial highlight
+              during IISERB open-house stargazing camps.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-slide" data-title="Campus Night Stargazing Camp"
+          data-desc="IISER Bhopal students gathered around telescopes for night-sky stargazing, constellation hunting, and astrophotography sessions.">
+          <img src="images/stargazing_camp.jpg" alt="Campus Stargazing Camp">
+          <div class="carousel-overlay">
+            <span class="slide-badge"><i class="fa-solid fa-users"></i> Campus Stargazing Camp</span>
+            <h3 class="slide-title">Community Sky Observation Nights</h3>
+            <p class="slide-desc">
+              Bringing science to life — students and enthusiasts exploring the night sky, peering through binoculars and
+              Dobsonians under Bhopal's cosmic canopy.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Prev / Next Controls -->
+      <button class="carousel-arrow arrow-prev" id="carouselPrevBtn" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="carousel-arrow arrow-next" id="carouselNextBtn" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Thumbnails Strip -->
+      <div class="carousel-thumbs" id="carouselThumbs">
+        <div class="thumb-item active" onclick="jumpToSlide(0)">
+          <img src="images/deep_sky.jpg" alt="Thumb Deep Sky">
+        </div>
+        <div class="thumb-item" onclick="jumpToSlide(1)">
+          <img src="images/observatory_night.jpg" alt="Thumb Observatory">
+        </div>
+        <div class="thumb-item" onclick="jumpToSlide(2)">
+          <img src="images/moon_craters.jpg" alt="Thumb Moon">
+        </div>
+        <div class="thumb-item" onclick="jumpToSlide(3)">
+          <img src="images/saturn_rings.jpg" alt="Thumb Saturn">
+        </div>
+        <div class="thumb-item" onclick="jumpToSlide(4)">
+          <img src="images/stargazing_camp.jpg" alt="Thumb Camp">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <div class="gallery-filter-wrap">
+    <button class="filter-btn active" data-filter="all">All Showcase Captures</button>
+    <button class="filter-btn" data-filter="deep-sky">Deep Sky & Nebulae</button>
+    <button class="filter-btn" data-filter="solar-system">Solar System & Moon</button>
+    <button class="filter-btn" data-filter="observatory">Observatory & Equipment</button>
+    <button class="filter-btn" data-filter="events">Campus Stargazing & Events</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <main class="gallery-container">
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- Item 1: Deep Sky -->
+      <div class="gallery-item" data-category="deep-sky"
+        onclick="openLightbox('images/deep_sky.jpg', 'Cosmic Emission Nebula & Star Nurseries', 'High-gain astrophotographic capture of gaseous ionization zones and bright young star clusters in deep space.')">
+        <div class="gallery-img-wrap">
+          <img src="images/deep_sky.jpg" alt="Deep Space Nebula">
+          <span class="gallery-badge"><i class="fa-solid fa-star"></i> Deep Sky</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Cosmic Emission Nebula</h4>
+            <p class="gallery-item-desc">
+              Long-exposure stack resolving nebulous hydrogen-alpha glow and fine stellar dust lanes.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-crosshairs"></i> 14" Cassegrain GEM</span>
+            <span><i class="fa-regular fa-image"></i> High-Res</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Observatory Night -->
+      <div class="gallery-item" data-category="observatory"
+        onclick="openLightbox('images/observatory_night.jpg', 'Campus Observatory Dome Under Milky Way', 'The dome facility at IISER Bhopal beneath a star-strewn galactic core, housing the research telescope.')">
+        <div class="gallery-img-wrap">
+          <img src="images/observatory_night.jpg" alt="Observatory Under Night Sky">
+          <span class="gallery-badge"><i class="fa-solid fa-landmark"></i> Facility</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Dome Facility at IISERB</h4>
+            <p class="gallery-item-desc">
+              Night scape capturing the observatory dome engineered for university-level astrophysical observations.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Above CDH, IISERB</span>
+            <span><i class="fa-solid fa-eye"></i> Stargazing Dome</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Moon Craters -->
+      <div class="gallery-item" data-category="solar-system"
+        onclick="openLightbox('images/moon_craters.jpg', 'The Moon Through Our 6-Inch Dobsonian', 'Detailed topographic lunar capture showing impact craters and ejecta blankets along the terminator.')">
+        <div class="gallery-img-wrap">
+          <img src="images/moon_craters.jpg" alt="Lunar Craters Close-Up">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Solar System</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Lunar Surface & Craters</h4>
+            <p class="gallery-item-desc">
+              Pristine focus through the 6-inch Dobsonian "Dobby", resolving mountainous ejecta rims.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-crosshairs"></i> 6" Newtonian "Dobby"</span>
+            <span><i class="fa-solid fa-camera"></i> Eyepiece Projection</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Saturn Rings -->
+      <div class="gallery-item" data-category="solar-system"
+        onclick="openLightbox('images/saturn_rings.jpg', 'Saturn & Cassini Ring Division', 'Planetary capture highlighting the ring structure, shadow of the planet on the rings, and cloud atmospheric bands.')">
+        <div class="gallery-img-wrap">
+          <img src="images/saturn_rings.jpg" alt="Saturn Planetary Imaging">
+          <span class="gallery-badge"><i class="fa-solid fa-ring"></i> Planetary</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Saturn & Its Rings</h4>
+            <p class="gallery-item-desc">
+              Magnified planetary view showcasing the Cassini Division and subtle yellowish atmospheric clouds.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-crosshairs"></i> High-Power Planetary Stack</span>
+            <span><i class="fa-solid fa-circle-nodes"></i> Solar System</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: Stargazing Camp -->
+      <div class="gallery-item" data-category="events"
+        onclick="openLightbox('images/stargazing_camp.jpg', 'Community Night Stargazing Camp', 'IISER Bhopal students gathered on the field with telescopes and binoculars during the annual astronomical observation camp.')">
+        <div class="gallery-img-wrap">
+          <img src="images/stargazing_camp.jpg" alt="Campus Stargazing Camp">
+          <span class="gallery-badge"><i class="fa-solid fa-users"></i> Campus Event</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Campus Stargazing Camp</h4>
+            <p class="gallery-item-desc">
+              Enthusiastic students exploring planets, deep-sky targets, and constellations under expert club guidance.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-binoculars"></i> Olympus & Nikon Optics</span>
+            <span><i class="fa-solid fa-people-group"></i> Campus Night</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: Solar Eclipse & Sun Observation -->
+      <div class="gallery-item" data-category="events"
+        onclick="openLightbox('images/observatory_night.jpg', 'Solar Eclipse Observation Session', 'Specialized solar projection and filter observations conducted safely for the campus community during solar eclipses.')">
+        <div class="gallery-img-wrap">
+          <img src="images/observatory_night.jpg" alt="Solar Eclipse Observation Session">
+          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Eclipse Session</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Solar Eclipse Observation</h4>
+            <p class="gallery-item-desc">
+              Campus-wide solar observation sessions organized with Baader solar filters and projection pinholes.
+            </p>
+          </div>
+          <div class="gallery-meta">
+            <span><i class="fa-solid fa-solar-panel"></i> Solar Projection</span>
+            <span><i class="fa-regular fa-calendar-check"></i> Campus Session</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Preview">&times;</button>
+      <div class="lightbox-img-box">
+        <img id="lightboxImg" src="" alt="Full view">
+      </div>
+      <div class="lightbox-details">
+        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="inner-footer">
+      <div class="footer-col">
+        <div class="footer-logo-wrap" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><img src="images/ibac.png" alt="IBAC Logo" style="width: 34px; height: 34px; border-radius: 50%; object-fit: contain;"><h3 class="footer-heading" style="margin-bottom: 0;">IISER Bhopal Astronomy Club</h3></div>
+        <p style="color: #a0b7d6; font-size: 0.95rem; line-height: 1.7; margin-bottom: 15px;">
+          Promoting amateur astronomy, astrophotography, astrophysics research, and scientific curiosity at the Indian
+          Institute of Science Education and Research Bhopal since 2015.
+        </p>
+        <div style="font-family: 'Noto Serif Devanagari', serif; color: var(--accent-cyan); font-size: 1.1rem;">
+          || नासदीये स्थितो मनः ||
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links-list">
+          <li><a href="index.html#top"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+          <li><a href="index.html#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="research.html"><i class="fa-solid fa-chevron-right"></i> Research (IBARG)</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-chevron-right"></i> Resources</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-chevron-right"></i> Articles</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-chevron-right"></i> Newsletters</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-chevron-right"></i> Events</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-chevron-right"></i> Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Institute Portals</h3>
+        <ul class="footer-links-list">
+          <li><a href="http://iiserb.ac.in" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> IISERB Home</a></li>
+          <li><a href="http://phy.iiserb.ac.in" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Physics Dept</a></li>
+          <li><a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Science Council</a></li>
+          <li><a href="https://forms.gle/XQXwA9U4BSzuxuBT9" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i> Newsletter Form</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Club Location & Socials</h3>
+        <p class="footer-address">
+          <strong><i class="fa-solid fa-location-dot" style="color: var(--accent-cyan);"></i> Club Room:</strong><br>
+          Room 106, Above Mess-4, IISERB<br>
+          Indore-Bypass Road, Bhauri, Bhopal, M.P. (IN) PIN - 462 066
+        </p>
+        <p class="footer-address" style="margin-top: 5px;">
+          <strong><i class="fa-solid fa-building-columns" style="color: var(--accent-cyan);"></i> Observatory:</strong><br>
+          Above Central Dining Hall (CDH), IISER Bhopal
+        </p>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/ibac_iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/ibac-iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@ibaciiserbhopal" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/ibac.iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</div>
+      <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to Top</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileBtn && navMenu) {
+      mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+
+    // Carousel slideshow logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const thumbs = document.querySelectorAll('.thumb-item');
+    const totalSlides = slides.length;
+    let autoSlideTimer = null;
+
+    function showSlide(index) {
+      if (index >= totalSlides) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else {
+        currentSlide = index;
+      }
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function jumpToSlide(index) {
+      showSlide(index);
+      resetAutoSlide();
+    }
+
+    document.getElementById('carouselNextBtn').addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    document.getElementById('carouselPrevBtn').addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    function startAutoSlide() {
+      autoSlideTimer = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideTimer);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    // Pause on hover
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    if (carouselWrapper) {
+      carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
+      carouselWrapper.addEventListener('mouseleave', () => startAutoSlide());
+    }
+
+    // Category Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox modal logic
+    function openLightbox(imgSrc, title, desc) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDesc').textContent = desc;
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (e.target === modal) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Starsight Newsletter | IISER Bhopal Astronomy Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Starsight is the official newsletter of IBAC (IISER Bhopal Astronomy Club). Featuring interstellar discoveries, solar system origins, student research, observational calendars, and cosmic puzzles.">
+
+    <link rel="icon" type="image/png" href="images/ibac.png">
+  <link rel="shortcut icon" href="images/ibac.png">
+  <link rel="apple-touch-icon" href="images/ibac.png">
+  <meta name="theme-color" content="#040b19">
+
+  <!-- Stylesheets & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0056b3;
+      --accent-cyan: #00c6ff;
+      --royal-blue: #0072ff;
+      --deep-navy: #040b19;
+      --midnight-blue: #081226;
+      --card-bg: rgba(14, 28, 59, 0.65);
+      --card-border: rgba(0, 198, 255, 0.22);
+      --text-dark: #121d33;
+      --text-muted: #8da4c4;
+      --footer-bg: #000106;
+      --radius-card: 18px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', sans-serif;
+      background: #060e20;
+      color: #e2ecf9;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 11, 25, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+        .brand-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(15deg) scale(1.05);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: #8da4c4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #c9dbf2;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transition: var(--transition);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .contain {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #0d224d 0%, #040b19 80%);
+      padding: 85px 20px 65px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 120px 90px, #70b8ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 240px 180px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 380px 70px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 520px 220px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 680px 140px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 850px 80px, #00c6ff, rgba(0, 0, 0, 0));
+      background-size: 900px 300px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .club-slogan {
+      font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
+      font-size: 2.2rem;
+      color: #b2d5ff;
+      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      margin: 10px 0 22px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      color: #c9dbf2;
+      max-width: 820px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Subscription Callout Banner */
+    .subscribe-banner {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(0, 114, 255, 0.22) 0%, rgba(0, 198, 255, 0.12) 100%);
+      border: 1px solid rgba(0, 198, 255, 0.4);
+      border-radius: 20px;
+      padding: 30px 35px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .sub-text-col {
+      flex: 1;
+      min-width: 280px;
+      text-align: left;
+    }
+
+    .sub-text-col h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sub-text-col h3 i {
+      color: var(--accent-cyan);
+    }
+
+    .sub-text-col p {
+      color: #a8bede;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .sub-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .sub-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6);
+      color: #ffffff;
+    }
+
+    /* Main Section */
+    .newsletters-section {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    .section-intro-header {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .section-intro-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .section-intro-header p {
+      color: #9cb3d6;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    /* Editions Grid */
+    .editions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 35px;
+    }
+
+    .newsletter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .newsletter-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 16px 36px rgba(0, 114, 255, 0.25);
+    }
+
+    .card-top-bar {
+      background: rgba(0, 114, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.15);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tag-featured {
+      background: rgba(0, 198, 255, 0.2);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 198, 255, 0.4);
+    }
+
+    .tag-archive {
+      background: rgba(255, 255, 255, 0.08);
+      color: #a0b7d6;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .card-date {
+      color: #8da4c4;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.55rem;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.96rem;
+      color: #a8bede;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .highlights-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlights-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 26px;
+      flex: 1;
+    }
+
+    .highlights-list li {
+      font-size: 0.92rem;
+      color: #d1e2fc;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .highlights-list li i {
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .card-footer {
+      border-top: 1px solid rgba(0, 198, 255, 0.12);
+      padding: 20px 24px;
+      background: rgba(4, 11, 25, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .file-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #8da4c4;
+      font-size: 0.86rem;
+    }
+
+    .file-meta i {
+      color: #e63946;
+      font-size: 1.1rem;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-download:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-2px);
+    }
+
+    /* Modal for PDF Preview or Notice */
+    .notice-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .notice-modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #091734;
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      border-radius: 18px;
+      max-width: 500px;
+      width: 100%;
+      padding: 35px 30px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #8da4c4;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .modal-close-btn:hover {
+      color: #ffffff;
+    }
+
+    .modal-icon {
+      font-size: 3rem;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+
+    .modal-box h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: #a8bede;
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    /* Contribute Callout */
+    .contribute-box {
+      margin-top: 60px;
+      background: radial-gradient(circle at 50% 50%, rgba(14, 30, 66, 0.9) 0%, rgba(6, 14, 32, 0.95) 100%);
+      border: 1px dashed rgba(0, 198, 255, 0.35);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contribute-box i {
+      font-size: 2.6rem;
+      color: var(--accent-cyan);
+      margin-bottom: 14px;
+    }
+
+    .contribute-box h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.7rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .contribute-box p {
+      color: #9cb3d6;
+      max-width: 680px;
+      margin-bottom: 24px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 70px 20px 25px;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .inner-footer {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: #8fa5c7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+    }
+
+    .footer-address {
+      color: #9cb1d6;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-social-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: #7e94b8;
+      font-size: 0.88rem;
+    }
+
+    .scroll-top-btn {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.7rem;
+      }
+      .club-slogan {
+        font-size: 1.8rem;
+      }
+      .editions-grid {
+        grid-template-columns: 1fr;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(4, 11, 25, 0.98);
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 18px;
+        transition: 0.35s ease;
+      }
+      .nav-menu.show {
+        left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .club-slogan {
+        font-size: 1.4rem;
+      }
+      .editions-grid {
+        grid-template-columns: 1fr;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr;
+      }
+      .subscribe-banner {
+        padding: 22px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html#top" class="brand-logo">
+        <img src="images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+        <div class="brand-title-wrap">
+          <span class="brand-title">IBAC <span>IISERB</span></span>
+          <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#top" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="newsletters.html" class="nav-link active">Newsletters</a></li>
+        <li><a href="index.html#events" class="nav-link">Events</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contain">
+    <div class="stars-overlay"></div>
+    <div class="contain_header">
+      <div class="hero-badge">
+        <i class="fa-solid fa-newspaper"></i> Official Club Publication
+      </div>
+      <h1 class="hero-title">
+        Starsight <span>Newsletters</span>
+      </h1>
+      <div class="club-slogan">|| नासदीये स्थितो मनः ||</div>
+      <p class="hero-description">
+        Starsight is IBAC's flagship seasonal newsletter and space periodical — featuring deep dives into cosmic
+        phenomena, interstellar discoveries, summaries of campus talks, astronomical calendars, and celestial puzzles.
+      </p>
+
+      <!-- Subscription Banner -->
+      <div class="subscribe-banner">
+        <div class="sub-text-col">
+          <h3><i class="fa-solid fa-envelope-open-text"></i> Subscribe to Starsight</h3>
+          <p>Get new seasonal issues, astro-calendars, and celestial digests delivered straight to your inbox as soon as
+            they release.</p>
+        </div>
+        <a href="https://forms.gle/XQXwA9U4BSzuxuBT9" target="_blank" rel="noopener noreferrer" class="sub-btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Fill Out Subscription Form
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletters Content -->
+  <main class="newsletters-section">
+    <div class="section-intro-header">
+      <h2>Published Editions</h2>
+      <p>Browse and read through all editions of Starsight published by the IISER Bhopal Astronomy Club.</p>
+    </div>
+
+    <div class="editions-grid">
+
+      <!-- Issue 1: Summer 25 -->
+      <article class="newsletter-card">
+        <div class="card-top-bar">
+          <span class="card-tag tag-featured"><i class="fa-solid fa-star"></i> Latest Issue</span>
+          <span class="card-date"><i class="fa-regular fa-calendar"></i> Summer 2025</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Starsight Summer '25</h3>
+          <p class="card-desc">
+            After a long wait, we are pleased to bring you our newest issue of Starsight for Summer '25, delving into
+            interstellar voyagers, cosmic genesis, and the existential timeline of our universe.
+          </p>
+          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+          <ul class="highlights-list">
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>3I/ATLAS (C/2025 N1):</strong> An introduction to the third known interstellar comet and what
+                it reveals about planetary formation beyond our solar system.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Origin of our Solar System:</strong> From swirling clouds of primordial dust to the cosmic
+                forces that molded planets.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Astrobiology & Rare Earth:</strong> An exploration into the ingredients that constitute life
+                and why intelligent life is extraordinarily rare.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Fate of the Universe:</strong> From uncanny scenarios to heat death and the Big Rip.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Regular Features:</strong> Sky News, fresh puzzle in the Game section, and our special
+                Astro-Calendar!</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="file-meta">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Starsight 25'.pdf</span>
+          </div>
+          <button class="btn-download" onclick="openPdfModal('Starsight Summer \'25', 'Starsight 25\'.pdf')">
+            <i class="fa-solid fa-download"></i> Read / Download PDF
+          </button>
+        </div>
+      </article>
+
+      <!-- Issue 2: Summer 24 -->
+      <article class="newsletter-card">
+        <div class="card-top-bar">
+          <span class="card-tag tag-archive">Seasonal Edition</span>
+          <span class="card-date"><i class="fa-regular fa-calendar"></i> Summer 2024</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Starsight Summer '24</h3>
+          <p class="card-desc">
+            Following tremendous community support, the Summer '24 edition documents May, June, and July activities,
+            recapping insightful talks and student research breakthroughs.
+          </p>
+          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+          <ul class="highlights-list">
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Summer Talk Summaries:</strong> Comprehensive recaps of astrophysical seminars and classroom
+                talks conducted over the summer.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Student Research Abstracts:</strong> Abstracts and direct pointers to latest research articles
+                written by IBAC core members.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Sky News Digest:</strong> Highlights of rare astronomical events and observation notes from
+                the campus dome observatory.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Did You Know? Section:</strong> Astonishing cosmic facts and curiosities to broaden your
+                scientific horizons.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Game & Puzzle Section:</strong> Brand new astronomical challenge and crosswords for space
+                enthusiasts.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="file-meta">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Starsight24summer.pdf</span>
+          </div>
+          <button class="btn-download" onclick="openPdfModal('Starsight Summer \'24', 'Starsight24summer.pdf')">
+            <i class="fa-solid fa-download"></i> Read / Download PDF
+          </button>
+        </div>
+      </article>
+
+      <!-- Issue 3: Sep-Oct 23 -->
+      <article class="newsletter-card">
+        <div class="card-top-bar">
+          <span class="card-tag tag-archive">Autumn Issue</span>
+          <span class="card-date"><i class="fa-regular fa-calendar"></i> Sep – Oct 2023</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Starsight Sep-Oct '23</h3>
+          <p class="card-desc">
+            The platform for budding stargazers and space enthusiasts to delve even deeper into the mysteries of the
+            cosmos and stay attuned to campus astronomical initiatives (think IBAC Pro!).
+          </p>
+          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+          <ul class="highlights-list">
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Condensed Talk Digests:</strong> Quick-read summaries of guest lectures for students caught in
+                lectures and quizzes.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Livestream Reports:</strong> Special coverages of the Aditya-L1 launch and Chandrayaan-3 lunar
+                landing screenings on campus.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Forthcoming Astronomical Events:</strong> Calendar of conjunctions, meteor showers, and sky
+                alignments.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Fun Trivia & Games:</strong> Teasers of intriguing articles, astrophysics trivia, and
+                skygazing challenges.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="file-meta">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Starsight_septOct23.pdf</span>
+          </div>
+          <button class="btn-download" onclick="openPdfModal('Starsight Sep-Oct \'23', 'Starsight_septOct23.pdf')">
+            <i class="fa-solid fa-download"></i> Read / Download PDF
+          </button>
+        </div>
+      </article>
+
+      <!-- Issue 4: August 23 -->
+      <article class="newsletter-card">
+        <div class="card-top-bar">
+          <span class="card-tag tag-archive">Inaugural Issue</span>
+          <span class="card-date"><i class="fa-regular fa-calendar"></i> August 2023</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Starsight August '23</h3>
+          <p class="card-desc">
+            The inaugural edition of Starsight that ignited IBAC's newsletter tradition! Featuring introductory essays,
+            observatory equipment features, and community spotlights.
+          </p>
+          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+          <ul class="highlights-list">
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>The Launch of Starsight:</strong> Establishing an open astronomical dialogue across IISER
+                Bhopal.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Observatory Showcase:</strong> Insights into our 14-inch Cassegrain telescope and Dobsonian
+                "Dobby".</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Planetary Viewing Guides:</strong> Beginner tutorials on observing Saturn's rings and Jupiter's
+                Galilean moons.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span><strong>Student Astrophotography:</strong> The inaugural portfolio of lunar craters and stellar
+                clusters.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="file-meta">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Starsight August 2023.pdf</span>
+          </div>
+          <button class="btn-download" onclick="openPdfModal('Starsight August \'23', 'Starsight August 2023.pdf')">
+            <i class="fa-solid fa-download"></i> Read / Download PDF
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Pitch / Contribute Callout -->
+    <div class="contribute-box">
+      <i class="fa-solid fa-pen-fancy"></i>
+      <h3>Have an Article or Feature for Starsight?</h3>
+      <p>
+        The IBAC editorial team invites write-ups, astrophotographs, astronomical artwork, and research summaries from
+        students, faculty, and astronomy enthusiasts.
+      </p>
+      <a href="articles.html" class="sub-btn-primary">
+        <i class="fa-solid fa-arrow-right"></i> Submit via Articles Portal
+      </a>
+    </div>
+  </main>
+
+  <!-- PDF Modal Notice -->
+  <div class="notice-modal" id="pdfModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
+      <div class="modal-icon">
+        <i class="fa-solid fa-file-pdf"></i>
+      </div>
+      <h4 id="modalIssueTitle">Starsight Issue</h4>
+      <p id="modalIssueDesc">
+        You are accessing the archived PDF copy. If the campus intranet copy is currently syncing, you can also access
+        issue digests directly via the newsletter subscription mailing list.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a id="modalIssueLink" href="#" target="_blank" class="sub-btn-primary">
+          <i class="fa-solid fa-up-right-from-square"></i> Open Issue File
+        </a>
+        <button class="btn-download" onclick="closePdfModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="inner-footer">
+      <div class="footer-col">
+        <div class="footer-logo-wrap" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><img src="images/ibac.png" alt="IBAC Logo" style="width: 34px; height: 34px; border-radius: 50%; object-fit: contain;"><h3 class="footer-heading" style="margin-bottom: 0;">IISER Bhopal Astronomy Club</h3></div>
+        <p style="color: #a0b7d6; font-size: 0.95rem; line-height: 1.7; margin-bottom: 15px;">
+          Promoting amateur astronomy, astrophotography, astrophysics research, and scientific curiosity at the Indian
+          Institute of Science Education and Research Bhopal since 2015.
+        </p>
+        <div style="font-family: 'Noto Serif Devanagari', serif; color: var(--accent-cyan); font-size: 1.1rem;">
+          || नासदीये स्थितो मनः ||
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links-list">
+          <li><a href="index.html#top"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+          <li><a href="index.html#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="research.html"><i class="fa-solid fa-chevron-right"></i> Research (IBARG)</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-chevron-right"></i> Resources</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-chevron-right"></i> Articles</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-chevron-right"></i> Newsletters</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-chevron-right"></i> Events</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-chevron-right"></i> Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Institute Portals</h3>
+        <ul class="footer-links-list">
+          <li><a href="http://iiserb.ac.in" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> IISERB Home</a></li>
+          <li><a href="http://phy.iiserb.ac.in" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Physics Dept</a></li>
+          <li><a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Science Council</a></li>
+          <li><a href="https://forms.gle/XQXwA9U4BSzuxuBT9" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i> Newsletter Form</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Club Location & Socials</h3>
+        <p class="footer-address">
+          <strong><i class="fa-solid fa-location-dot" style="color: var(--accent-cyan);"></i> Club Room:</strong><br>
+          Room 106, Above Mess-4, IISERB<br>
+          Indore-Bypass Road, Bhauri, Bhopal, M.P. (IN) PIN - 462 066
+        </p>
+        <p class="footer-address" style="margin-top: 5px;">
+          <strong><i class="fa-solid fa-building-columns" style="color: var(--accent-cyan);"></i> Observatory:</strong><br>
+          Above Central Dining Hall (CDH), IISER Bhopal
+        </p>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/ibac_iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/ibac-iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@ibaciiserbhopal" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/ibac.iiserb/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</div>
+      <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to Top</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileBtn && navMenu) {
+      mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+
+    // Modal logic
+    function openPdfModal(title, filename) {
+      const modal = document.getElementById('pdfModal');
+      const modalTitle = document.getElementById('modalIssueTitle');
+      const modalLink = document.getElementById('modalIssueLink');
+      const modalDesc = document.getElementById('modalIssueDesc');
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = `Accessing ${filename}. You can view the document or subscribe to receive upcoming copies automatically.`;
+      modalLink.href = 'https://forms.gle/XQXwA9U4BSzuxuBT9';
+      modalLink.innerHTML = '<i class="fa-solid fa-envelope"></i> Subscribe to Starsight';
+      modal.classList.add('active');
+    }
+
+    function closePdfModal() {
+      const modal = document.getElementById('pdfModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('pdfModal');
+      if (event.target === modal) {
+        closePdfModal();
+      }
+    };
+  </script>
+</body>
+
+</html>

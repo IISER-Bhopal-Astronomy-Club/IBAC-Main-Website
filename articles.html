@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cosmic Stories & Articles | IISER Bhopal Astronomy Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cosmic Stories & Astrophotography Articles written by student members of the IISER Bhopal Astronomy Club (IBAC). Covering astrophysics, machine learning, space missions, solar physics, and celestial lore.">
+
+    <link rel="icon" type="image/png" href="images/ibac.png">
+  <link rel="shortcut icon" href="images/ibac.png">
+  <link rel="apple-touch-icon" href="images/ibac.png">
+  <meta name="theme-color" content="#040b19">
+
+  <!-- Stylesheets & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0056b3;
+      --accent-cyan: #00c6ff;
+      --royal-blue: #0072ff;
+      --deep-navy: #040b19;
+      --midnight-blue: #081226;
+      --card-bg: #ffffff;
+      --card-border: rgba(0, 114, 255, 0.15);
+      --text-dark: #121d33;
+      --text-muted: #4e5d78;
+      --footer-bg: #000106;
+      --radius-card: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', sans-serif;
+      background: #060e20;
+      color: #e2ecf9;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 11, 25, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+        .brand-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(15deg) scale(1.05);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: #8da4c4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #c9dbf2;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transition: var(--transition);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .contain {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #0d224d 0%, #040b19 80%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 300px 80px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 600px 50px, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0, 0, 0, 0));
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .contain_header {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.35);
+      color: var(--accent-cyan);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .club-slogan {
+      font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
+      font-size: 2.2rem;
+      color: #b2d5ff;
+      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      margin: 12px 0 22px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      color: #d1e2fc;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Controls & Filter */
+    .controls-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .article-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-filter-btn {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      border-radius: 30px;
+      color: #b0cbf2;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .article-filter-btn:hover,
+    .article-filter-btn.active {
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.35);
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 18px 10px 40px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 198, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+    }
+
+    /* Articles Grid */
+    .content-section {
+      padding: 70px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .article-card {
+      background: rgba(10, 24, 54, 0.75);
+      border: 1px solid rgba(0, 114, 255, 0.22);
+      border-radius: var(--radius-card);
+      padding: 30px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .article-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2);
+    }
+
+    .article-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(0, 198, 255, 0.12);
+      border-radius: 20px;
+      padding: 3px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .article-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: #79a6db;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .article-meta i {
+      color: var(--accent-cyan);
+    }
+
+    .article-desc {
+      font-size: 0.94rem;
+      color: #a4bede;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .article-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .article-read-btn:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    /* Submit Section */
+    .article-submit-box {
+      margin-top: 60px;
+      background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.12));
+      border: 1px dashed var(--accent-cyan);
+      border-radius: var(--radius-card);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .article-submit-box h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.7rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .article-submit-box p {
+      color: #c9dbf7;
+      max-width: 750px;
+      margin: 0 auto 24px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .btn-cta {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 198, 255, 0.35);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.55);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 70px 20px 25px;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .inner-footer {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .footer-about-text {
+      color: #8fa5c7;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: #8fa5c7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+    }
+
+    .footer-address {
+      color: #9cb1d6;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-social-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: #7e94b8;
+      font-size: 0.88rem;
+    }
+
+    .scroll-top-btn {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.6rem;
+      }
+      .club-slogan {
+        font-size: 1.8rem;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(4, 11, 25, 0.98);
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 18px;
+        transition: 0.35s ease;
+      }
+      .nav-menu.show {
+        left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .club-slogan {
+        font-size: 1.4rem;
+      }
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+      .inner-footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html#top" class="brand-logo">
+        <img src="images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+        <div class="brand-title-wrap">
+          <span class="brand-title">IBAC <span>IISERB</span></span>
+          <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#top" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="articles.html" class="nav-link active">Articles</a></li>
+        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+        <li><a href="index.html#events" class="nav-link">Events</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contain">
+    <div class="stars-overlay"></div>
+    <div class="contain_header">
+      <div class="hero-badge">
+        <i class="fa-solid fa-feather-pointed"></i> Cosmic Stories & Science Writing
+      </div>
+      <h1 class="hero-title">
+        Astrophysics <span>Articles</span>
+      </h1>
+      <div class="club-slogan">|| नासदीये स्थितो मनः ||</div>
+      <p class="hero-description">
+        Explore student research writeups, cosmic narratives, space mission engineering reviews, and astrophysics tutorials
+        penned by the members of the IISER Bhopal Astronomy Club.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Articles Section -->
+  <section class="content-section">
+    <div class="container">
+      <!-- Search & Filters -->
+      <div class="controls-wrap">
+        <div class="article-filter-bar">
+          <button class="article-filter-btn active" data-filter="all">All Articles</button>
+          <button class="article-filter-btn" data-filter="astrophysics">Astrophysics</button>
+          <button class="article-filter-btn" data-filter="computational">AI & Data</button>
+          <button class="article-filter-btn" data-filter="missions">Missions & Telescopes</button>
+          <button class="article-filter-btn" data-filter="planetary">Solar & Planetary</button>
+          <button class="article-filter-btn" data-filter="culture">Culture & Lore</button>
+        </div>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="articleSearch" placeholder="Search articles or authors...">
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid" id="articlesGrid">
+
+        <div class="article-card" data-category="computational">
+          <div>
+            <span class="article-badge">AI & Astronomy</span>
+            <h3>Machine Learning in Astronomy</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Niharika Shrivastava · BS-MS 2021</div>
+            <div class="article-desc">An exploration into how deep neural networks, CNNs, and unsupervised clustering are transforming huge cosmological surveys and automated transient identification.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/machine-learning-in-astronomy" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Astrophysics</span>
+            <h3>Riding on Fire</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Mohit Mahapatra · BS-MS 2022</div>
+            <div class="article-desc">Delving into the energetic stellar environments, solar winds, coronal mass ejections, and the fiery mechanics driving stellar atmospheres.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/riding-on-fire?authuser=2" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Stellar Physics</span>
+            <h3>Variable Stars</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Mudit Parakh · BS-MS 2023</div>
+            <div class="article-desc">Understanding pulsating Cepheids, eclipsing binaries, cataclysmic variables, and how variable star periods serve as standard candles to measure cosmic distances.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/variable-stars?authuser=2" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Galactic Morphology</span>
+            <h3>Hubble Sequence of Galaxy Classification</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Vedant Girnare · BS-MS 2022</div>
+            <div class="article-desc">A fast-paced guide to the classic Hubble tuning fork diagram: ellipticals, lenticulars, barred spirals, and irregular galaxies explained with clarity.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/hubble-sequence-of-galaxy-classification-for-people-in-a-hurry" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Observational Guide</span>
+            <h3>Charting the Heavens</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Mohit Mahapatra · BS 2022</div>
+            <div class="article-desc">How ancient and modern sky-watchers mapped the stars: celestial coordinate systems, Right Ascension, Declination, and celestial navigation basics.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/st1-charting-the-heavens" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="computational">
+          <div>
+            <span class="article-badge">Data Science</span>
+            <h3>Data Calibration in Optical Telescopes</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Goutham Vinjamuri · BS-MS 2021</div>
+            <div class="article-desc">An essential guide to astronomical image calibration: the physics of thermal dark noise, bias offsets, vignetting flat fields, and signal-to-noise ratio optimization.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/data-calibration-in-optical-telescopes" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Particle Astrophysics</span>
+            <h3>Neutrinos: Here, There and Everywhere</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Samyak Parashar · BS-MS 2021</div>
+            <div class="article-desc">Unraveling the ghostly subatomic particles that stream freely through light-years of lead: neutrino oscillations, solar neutrino problems, and ice-cube detectors.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/neutrinos-here-there-and-everywhere" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Radio Astronomy</span>
+            <h3>Radio Galaxies: Fantastic Bursts & How to Find Them</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Devang Somawanshi · BS-MS 2020</div>
+            <div class="article-desc">Discover the violent radio lobes powered by supermassive black hole relativistic jets, synchrotron radiation mechanisms, and discovery pipelines using giant radio telescopes.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/radio-galaxies-part-1-fantastic-bursts-how-to-find-them" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Astrobiology</span>
+            <h3>CONTACT: Prerequisites to Astrobiology</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ranjan Bassi & Anushka Khobragade</div>
+            <div class="article-desc">Examining the biochemical foundations of life, prebiotic chemistry, circumstellar habitable zones, and the Drake equation for technological civilizations.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/astrobiology-1" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="planetary">
+          <div>
+            <span class="article-badge">Interstellar Objects</span>
+            <h3>A Visitor From Outer Space: 'Oumuamua</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ayush Pandey · BS-MS 2020</div>
+            <div class="article-desc">The thrilling discovery of 1I/2017 U1 ('Oumuamua), our solar system's first confirmed interstellar visitor: its extreme aspect ratio, non-gravitational acceleration, and origin theories.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/a-visitor-from-outer-space-oumuamua" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="missions">
+          <div>
+            <span class="article-badge">Space Exploration</span>
+            <h3>Artemis Mission: Deep Space Exploration System</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Himadri Sonowal · BS-MS 2020</div>
+            <div class="article-desc">Comprehensive analysis of the Space Launch System (SLS), Orion spacecraft, Lunar Gateway station, and the roadmap to establish a permanent human outpost on the Moon.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/artemis-mission-deep-space-exploration-system" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Cosmology</span>
+            <h3>A Leap Out of the Galaxy</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Muhammed Roshan · BS-MS 2020</div>
+            <div class="article-desc">Stepping across the vast intergalactic medium to understand the Local Group, the Virgo Supercluster, dark matter filaments, and the cosmic web.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/a-leap-out-of-the-galaxy" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="planetary">
+          <div>
+            <span class="article-badge">Solar Physics</span>
+            <h3>Basics of Solar Physics: Part I & II</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Hardik Kuralkar · BS-MS 2020</div>
+            <div class="article-desc">Two-part treatise on the solar dynamo, differential rotation, sunspot solar cycles, coronal heating problem, and magnetic reconnection dynamics.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/basics-of-solar-physics" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="missions">
+          <div>
+            <span class="article-badge">Robotics & Exploration</span>
+            <h3>Engineering the Perseverance Mars Rover</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Aayush Verma · BS-MS 2020</div>
+            <div class="article-desc">An engineering breakdown of NASA's Mars 2020 mission: the sky crane descent, MOXIE oxygen generator, SuperCam laser spectrometer, and Ingenuity helicopter.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/the-incredible-engineering-of-perseverance-rovers" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Orbital Mechanics</span>
+            <h3>Lagrange Points: The Cosmic Pit-Stops</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Shaunak Padhyegurjar · BS-MS 2019</div>
+            <div class="article-desc">The physics of three-body gravitational balance: why L1, L2, and L3 provide ideal orbits for flagships like JWST and SOHO, and Trojan asteroid dynamics at L4/L5.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/lagrange-points" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Large Scale Structure</span>
+            <h3>Venturing Deep into the Great Attractor</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Jyotiraditya Chatterjee · BS-MS 2020</div>
+            <div class="article-desc">Uncovering the gravitational anomaly in the Zone of Avoidance drawing the Milky Way and hundreds of thousands of galaxies across the Laniakea Supercluster.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/venturing-deep-into-the-great-attractor" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="culture">
+          <div>
+            <span class="article-badge">Archaeoastronomy</span>
+            <h3>The Indian Sky Culture</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Hardik Kuralkar · BS-MS 2020</div>
+            <div class="article-desc">A deep dive into ancient Vedic astronomy, the 27 Nakshatras system, historical observatories (Jantar Mantar), and celestial folklore embedded in Indian heritage.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/indian-sky-culture" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="missions">
+          <div>
+            <span class="article-badge">Radio Astronomy</span>
+            <h3>ARECIBO: An Epic Anecdote</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Adarsh Kumar · BS-MS 2019</div>
+            <div class="article-desc">A memorial tribute to the legendary 305-metre Arecibo Observatory in Puerto Rico: from the 1974 interstellar message to pulsar discovery and its tragic collapse.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/arecibo" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="planetary">
+          <div>
+            <span class="article-badge">Planetary Science</span>
+            <h3>Retrograde Motion of Venus and Uranus</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ayush Pandey · BS-MS 2020</div>
+            <div class="article-desc">Why do Venus and Uranus rotate backwards compared to the rest of the solar system? Giant impact hypotheses, atmospheric tidal drag, and planetary spin evolution.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/retrograde-motion" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="planetary">
+          <div>
+            <span class="article-badge">Ice Giants</span>
+            <h3>An Interesting Theory of Uranus & Neptune</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Kartav Kesri · BS-MS 2020</div>
+            <div class="article-desc">Investigating supercritical water-ammonia ionic mantles, diamond rain phenomena, and why Neptune radiates 2.6 times more heat than it absorbs while Uranus remains quiescent.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/an-interesting-theory-of-outer-icy-gas-giants-uranus-and-neptune" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="astrophysics">
+          <div>
+            <span class="article-badge">Stellar Evolution</span>
+            <h3>The Dimming of the Red Supergiant (Betelgeuse)</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Abhisek Swain · BS-MS 2019</div>
+            <div class="article-desc">Anatomy of the Great Dimming of Betelgeuse in 2019-20: surface convective photospheric pulsations versus massive dust cloud ejections and supernova anticipation.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/the-dimming-of-the-red-supergiant" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="article-card" data-category="planetary">
+          <div>
+            <span class="article-badge">Planetary Evolution</span>
+            <h3>The Red Planet's Lost Atmosphere</h3>
+            <div class="article-meta"><i class="fa-solid fa-user-pen"></i> NR Kavin · BS-MS 2018</div>
+            <div class="article-desc">How early Mars transitioned from a warm, water-rich planet to a frigid desert: magnetic field collapse, core dynamo extinction, and solar wind stripping measured by MAVEN.</div>
+          </div>
+          <a href="https://sites.google.com/view/astronomyiiserb/articles/the-red-planets-lost-atmosphere" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+            Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Submission Box -->
+      <div class="article-submit-box">
+        <h3><i class="fa-solid fa-pen-nib" style="color: var(--accent-cyan); margin-right: 10px;"></i> Have an article to showcase to the world?</h3>
+        <p>
+          We welcome original articles, observational night logs, computational tutorials, and book reviews from all IISER Bhopal students, faculty, and space enthusiasts!
+          Submit your draft to the IBAC editorial team.
+        </p>
+        <a href="mailto:ibac.official@gmail.com?subject=Article%20Submission%20for%20IBAC%20Website" class="btn-cta">
+          <i class="fa-solid fa-paper-plane"></i> Submit an Article via Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="contact">
+    <div class="inner-footer">
+      <div class="footer-col about-col">
+        <div class="footer-logo-wrap" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><img src="images/ibac.png" alt="IBAC Logo" style="width: 34px; height: 34px; border-radius: 50%; object-fit: contain;"><h3 class="footer-heading" style="margin-bottom: 0;">IISER Bhopal Astronomy Club</h3></div>
+        <div style="font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif; font-size: 1.15rem; color: var(--accent-cyan); margin: 6px 0 12px; font-weight: 600; letter-spacing: 1px;">|| नासदीये स्थितो मनः ||</div>
+        <p class="footer-about-text">
+          IBAC is dedicated to fostering interest, knowledge, and scientific practice in astronomy, astrophysics, and
+          space science among students, researchers, and space enthusiasts across IISER Bhopal and beyond.
+        </p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com/ibac_official" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/iiser-bhopal-astronomy-club-ibac/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCdkA06-HCpNFWT3ieamk9jw" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/IBACofficial" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="mailto:ibac.official@gmail.com" class="footer-social-btn" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-btn" title="Science Council">
+            <i class="fa-solid fa-atom"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="index.html#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="research.html"><i class="fa-solid fa-angle-right"></i> IBARG Research</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Tenure 2026-27 Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Institute Portals</div>
+        <ul class="footer-links-list">
+          <li><a href="https://www.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> IISER Bhopal Main</a></li>
+          <li><a href="http://phy.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Department of Physics</a></li>
+          <li><a href="https://students.iiserb.ac.in/science-council/" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Science Council</a></li>
+          <li><a href="https://students.iiserb.ac.in" target="_blank" rel="noopener noreferrer"><i
+                class="fa-solid fa-angle-right"></i> Student Affairs Council</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">Club & Observatory Location</div>
+        <p class="footer-address">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-door-open" style="color: var(--accent-cyan); margin-right: 6px;"></i>Club Room:</strong><br>
+          Room 106, Above Mess-4, IISERB<br>
+          Bhopal Bypass Road, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="margin-top: 10px;">
+          <strong style="color: #ffffff;"><i class="fa-solid fa-satellite-dish" style="color: var(--accent-cyan); margin-right: 6px;"></i>Observatory Facility:</strong><br>
+          Observatory Facility atop AB-1<br>
+          IISER Bhopal, Bhauri, Bhopal - 462 066<br>
+          Madhya Pradesh, India
+        </p>
+        <p class="footer-address" style="color: var(--accent-cyan); margin-top: 8px;">
+          <i class="fa-solid fa-envelope"></i> ibac.official@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</p>
+      <a href="#top" class="scroll-top-btn">
+        Back to Top <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Interactive Search & Filtering Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileBtn && navMenu) {
+      mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu) navMenu.classList.remove('show');
+      });
+    });
+
+    // Filtering & Search
+    const filterBtns = document.querySelectorAll('.article-filter-btn');
+    const cards = document.querySelectorAll('.article-card');
+    const searchInput = document.getElementById('articleSearch');
+
+    function applyFilterAndSearch() {
+      const activeFilter = document.querySelector('.article-filter-btn.active').getAttribute('data-filter');
+      const query = (searchInput.value || '').toLowerCase().trim();
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const text = card.textContent.toLowerCase();
+        const matchesCategory = activeFilter === 'all' || cat === activeFilter;
+        const matchesQuery = !query || text.includes(query);
+
+        if (matchesCategory && matchesQuery) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilterAndSearch();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilterAndSearch);
+    }
+  </script>
+</body>
+
+</html>
