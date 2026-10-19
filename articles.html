@@ -24,18 +24,19 @@
 
   <style>
     :root {
-      --primary-blue: #0056b3;
-      --accent-cyan: #00c6ff;
-      --royal-blue: #0072ff;
-      --deep-navy: #040b19;
-      --midnight-blue: #081226;
-      --card-bg: #ffffff;
-      --card-border: rgba(0, 114, 255, 0.15);
-      --text-dark: #121d33;
-      --text-muted: #4e5d78;
-      --footer-bg: #000106;
+      --primary-blue: #ffffff;
+      --accent-cyan: #fbbf24;
+      --royal-blue: #ffffff;
+      --gold-warm: #fbbf24;
+      --deep-navy: #000000;
+      --midnight-blue: #020307;
+      --card-bg: rgba(10, 12, 18, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-dark: #f8fafc;
+      --text-muted: #94a3b8;
+      --footer-bg: #000000;
       --radius-card: 16px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     * {
@@ -47,12 +48,13 @@
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
+      background: #000000;
     }
 
     body {
       font-family: 'Lato', 'Inter', sans-serif;
-      background: #030712;
-      color: #e2ecf9;
+      background: #000000;
+      color: #cbd5e1;
       line-height: 1.6;
     }
 
@@ -61,11 +63,11 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(4, 11, 25, 0.92);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(4, 7, 14, 0.94) 100%), url('images/earth_header.jpg') center 60% / cover no-repeat;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
     }
 
     .nav-container {
@@ -85,22 +87,21 @@
       color: #ffffff;
     }
 
-        .brand-logo-img {
+    .brand-logo-img {
       width: 38px;
       height: 38px;
       border-radius: 50%;
       object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
       transition: var(--transition);
     }
 
     .brand-logo:hover .brand-logo-img {
-      transform: rotate(15deg) scale(1.05);
+      transform: scale(1.06);
     }
+
     .brand-logo i {
       font-size: 1.8rem;
-      color: var(--accent-cyan);
-      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      color: #ffffff;
     }
 
     .brand-title-wrap {
@@ -114,15 +115,16 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       line-height: 1.1;
+      color: #ffffff;
     }
 
     .brand-title span {
-      color: var(--accent-cyan);
+      color: var(--gold-warm);
     }
 
     .brand-subtitle {
       font-size: 0.72rem;
-      color: #8da4c4;
+      color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -138,7 +140,7 @@
       font-family: 'Poppins', sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
-      color: #c9dbf2;
+      color: #cbd5e1;
       text-decoration: none;
       transition: var(--transition);
       position: relative;
@@ -147,7 +149,7 @@
 
     .nav-link:hover,
     .nav-link.active {
-      color: var(--accent-cyan);
+      color: #ffffff;
     }
 
     .nav-link::after {
@@ -157,9 +159,8 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent-cyan);
+      background: var(--gold-warm);
       transition: var(--transition);
-      box-shadow: 0 0 8px var(--accent-cyan);
     }
 
     .nav-link:hover::after,
@@ -176,18 +177,48 @@
       cursor: pointer;
     }
 
+    /* Subpage Breadcrumb Bar */
+    .subpage-breadcrumb-bar {
+      max-width: 1320px;
+      margin: 25px auto 0;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .subpage-breadcrumb-bar a {
+      color: #94a3b8;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .subpage-breadcrumb-bar a:hover {
+      color: var(--gold-warm);
+    }
+
+    .subpage-breadcrumb-bar .sep {
+      color: #475569;
+    }
+
+    .subpage-breadcrumb-bar .current {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     /* Hero */
     .contain {
       position: relative;
-      background: radial-gradient(circle at 50% 20%, rgba(13, 34, 77, 0.45) 0%, rgba(4, 11, 25, 0.15) 80%);
-      padding: 80px 20px 60px;
+      padding: 60px 20px 45px;
       text-align: center;
       overflow: hidden;
-      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
-    }
-
-    .stars-overlay {
-      display: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent;
     }
 
     .contain_header {
@@ -201,20 +232,19 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0, 198, 255, 0.12);
-      border: 1px solid rgba(0, 198, 255, 0.35);
-      color: var(--accent-cyan);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--gold-warm);
       padding: 6px 18px;
       border-radius: 30px;
       font-size: 0.88rem;
       font-weight: 600;
-      margin-bottom: 20px;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
+      margin-bottom: 18px;
     }
 
     .hero-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 3.4rem;
+      font-size: 3.2rem;
       font-weight: 800;
       color: #ffffff;
       line-height: 1.15;
@@ -222,27 +252,25 @@
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }
 
     .club-slogan {
       font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
       font-size: 2.2rem;
-      color: #b2d5ff;
-      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
-      margin: 12px 0 22px;
+      color: var(--gold-warm);
+      text-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
+      margin: 10px 0 20px;
       letter-spacing: 2px;
       font-weight: 600;
     }
 
     .hero-description {
       font-family: 'Inter', sans-serif;
-      font-size: 1.15rem;
-      color: #d1e2fc;
+      font-size: 1.12rem;
+      color: #cbd5e1;
       max-width: 800px;
-      margin: 0 auto 30px;
+      margin: 0 auto 25px;
       font-weight: 300;
       line-height: 1.7;
     }
@@ -266,9 +294,9 @@
     .article-filter-btn {
       padding: 8px 18px;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 198, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 30px;
-      color: #b0cbf2;
+      color: #94a3b8;
       font-family: 'Poppins', sans-serif;
       font-size: 0.88rem;
       font-weight: 600;
@@ -276,12 +304,17 @@
       transition: var(--transition);
     }
 
-    .article-filter-btn:hover,
-    .article-filter-btn.active {
-      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+    .article-filter-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
       color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.35);
+    }
+
+    .article-filter-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
     }
 
     .search-box {
@@ -294,7 +327,7 @@
       padding: 10px 18px 10px 40px;
       border-radius: 30px;
       background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(0, 198, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
@@ -303,9 +336,9 @@
     }
 
     .search-box input:focus {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 12px rgba(0, 198, 255, 0.3);
-      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--gold-warm);
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+      background: rgba(255, 255, 255, 0.09);
     }
 
     .search-box i {
@@ -313,13 +346,13 @@
       left: 15px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--accent-cyan);
+      color: var(--gold-warm);
       font-size: 0.9rem;
     }
 
     /* Articles Grid */
     .content-section {
-      padding: 70px 20px;
+      padding: 50px 20px 80px;
       position: relative;
     }
 
@@ -335,29 +368,30 @@
     }
 
     .article-card {
-      background: rgba(10, 24, 54, 0.75);
-      border: 1px solid rgba(0, 114, 255, 0.22);
+      background: rgba(10, 12, 18, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-card);
       padding: 30px;
       transition: var(--transition);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
 
     .article-card:hover {
       transform: translateY(-6px);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
     }
 
     .article-badge {
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--accent-cyan);
-      background: rgba(0, 198, 255, 0.12);
+      color: var(--gold-warm);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       padding: 3px 12px;
       text-transform: uppercase;
@@ -660,11 +694,9 @@
       <ul class="nav-menu" id="navMenu">
         <li><a href="index.html#top" class="nav-link">Home</a></li>
         <li><a href="index.html#about" class="nav-link">About</a></li>
-        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="ibarg.html" class="nav-link">IBARG</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="resources.html" class="nav-link">Resources</a></li>
-        <li><a href="articles.html" class="nav-link active">Articles</a></li>
-        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
         <li><a href="index.html#events" class="nav-link">Events</a></li>
         <li><a href="index.html#team" class="nav-link">Team</a></li>
         <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -676,9 +708,15 @@
     </div>
   </header>
 
+  <!-- Subpage Breadcrumb Bar -->
+  <div class="subpage-breadcrumb-bar">
+    <a href="resources.html"><i class="fa-solid fa-arrow-left"></i> Resources Hub</a>
+    <span class="sep">/</span>
+    <span class="current">Articles & Cosmic Stories</span>
+  </div>
+
   <!-- Hero Section -->
   <section class="contain">
-    <div class="stars-overlay"></div>
     <div class="contain_header">
       <div class="hero-badge">
         <i class="fa-solid fa-feather-pointed"></i> Cosmic Stories & Science Writing
@@ -1036,15 +1074,14 @@
       <div class="footer-col">
         <div class="footer-heading">Quick Links</div>
         <ul class="footer-links-list">
-          <li><a href="index.html#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="index.html#top"><i class="fa-solid fa-angle-right"></i> Home</a></li>
           <li><a href="index.html#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-          <li><a href="research.html"><i class="fa-solid fa-angle-right"></i> IBARG Research</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
-          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources</a></li>
-          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles</a></li>
-          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters</a></li>
-          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events</a></li>
-          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Tenure 2026-27 Team</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Astrophotography</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources Hub</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles Subpage</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters Subpage</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events & Observations</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Core Committee</a></li>
         </ul>
       </div>
 

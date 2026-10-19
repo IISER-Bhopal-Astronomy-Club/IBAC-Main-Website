@@ -1,9 +1,49 @@
 /* ==========================================================================
-   IBAC COSMIC BACKGROUND SYSTEM
-   Starfield, Twinkling & Steady Lights, Shooting Stars, and Galaxies
+   IBAC COSMIC BACKGROUND & SKYROOT-INSPIRED SPACE MISSION SYSTEM
+   - Authentic Pitch-Black Deep Space Background (#000000)
+   - Natural Stellar Spectrum Typography (Refined HR Diagram Warmth, Zero Neon Clutter)
+   - Earth Surface Photographic Horizon Header (images/earth_header.jpg)
+   - Moon Surface Photographic Regolith Footer (images/moon_footer.jpg)
+   - Skyroot-Inspired Aerospace Scrollbar (Rocket to Lunar Rover, Staged Decoupling, Zero Altitude Numbers)
+   - Resources Hyperlink Showcase Hub
    ========================================================================== */
 
-/* Root universe container fixed behind all page content */
+:root {
+  /* HR Diagram Natural Stellar Spectrum Colors */
+  --hr-o: #38bdf8; /* Class O (Deep Blue > 30,000 K) */
+  --hr-b: #93c5fd; /* Class B (Blue-White 10,000 - 30,000 K) */
+  --hr-a: #f8fafc; /* Class A (Vega Stark White 7,500 - 10,000 K) */
+  --hr-f: #fef08a; /* Class F (Warm Yellow-White 6,000 - 7,500 K) */
+  --hr-g: #facc15; /* Class G (Sun-like Solar Gold 5,000 - 6,000 K) */
+  --hr-k: #fb923c; /* Class K (Arcturus Orange 3,500 - 5,000 K) */
+  --hr-m: #f87171; /* Class M (Betelgeuse Cool Red 2,500 - 3,500 K) */
+
+  /* Pure Deep Space Palette */
+  --space-black: #000000;
+  --space-void: #020204;
+  --space-card: rgba(8, 10, 16, 0.82);
+  --space-card-border: rgba(255, 255, 255, 0.08);
+  --space-border-hover: rgba(255, 255, 255, 0.22);
+  --text-white: #ffffff;
+  --text-slate: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* Natural Celestial Accents (Thermal Gold & Subtle Starlight) */
+  --gold-warm: #fbbf24;
+  --gold-amber: #f59e0b;
+  --gold-deep: #d97706;
+  --starlight-glow: 0 0 12px rgba(251, 191, 36, 0.45);
+}
+
+/* Global Reset for Deep Space Background */
+html,
+body {
+  background-color: var(--space-black) !important;
+  color: var(--text-slate);
+  overflow-x: hidden;
+}
+
+/* Deep Space Pitch-Black Universe Layer */
 .cosmic-universe {
   position: fixed;
   top: 0;
@@ -13,10 +53,10 @@
   z-index: -9999;
   pointer-events: none;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 20%, #0a1633 0%, #040a1c 45%, #02050e 100%);
+  background: var(--space-black);
 }
 
-/* Deep space ambient nebulae layer */
+/* Subtle, authentic galactic dust veil (no garish neon) */
 .cosmic-universe::before {
   content: '';
   position: absolute;
@@ -25,13 +65,11 @@
   width: 140%;
   height: 140%;
   background: 
-    radial-gradient(circle at 15% 30%, rgba(0, 198, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 85% 20%, rgba(140, 40, 255, 0.09) 0%, transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(0, 114, 255, 0.07) 0%, transparent 55%),
-    radial-gradient(circle at 75% 70%, rgba(255, 60, 160, 0.06) 0%, transparent 45%);
-  filter: blur(40px);
+    radial-gradient(ellipse at 30% 40%, rgba(56, 189, 248, 0.025) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(251, 191, 36, 0.02) 0%, transparent 55%);
+  filter: blur(80px);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.5;
 }
 
 /* Galaxy plane */
@@ -45,15 +83,15 @@
   z-index: 1;
 }
 
-/* Galaxy image celestial bodies */
+/* Deep space real celestial galaxies (subtle, authentic) */
 .cosmic-galaxy {
   position: absolute;
   border-radius: 50%;
   mix-blend-mode: screen;
   pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.7) 55%, transparent 75%);
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.7) 55%, transparent 75%);
-  filter: contrast(1.15) brightness(0.95) drop-shadow(0 0 35px rgba(0, 198, 255, 0.25));
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0.6) 55%, transparent 75%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0.6) 55%, transparent 75%);
+  filter: contrast(1.1) brightness(0.85);
   will-change: transform, opacity;
   transition: opacity 1.5s ease;
 }
@@ -66,96 +104,39 @@
   border-radius: 50%;
 }
 
-/* Galaxy 1: Spiral (M101 / M51 style) */
 .galaxy-spiral {
-  top: 6%;
-  right: 3%;
-  width: clamp(260px, 28vw, 450px);
-  height: clamp(260px, 28vw, 450px);
-  opacity: 0.42;
-  animation: cosmicFloat1 50s ease-in-out infinite alternate;
-}
-
-/* Galaxy 2: Sombrero (M104 tilted edge-on) */
-.galaxy-sombrero {
-  top: 46%;
-  left: -4%;
-  width: clamp(280px, 32vw, 480px);
-  height: clamp(280px, 32vw, 480px);
-  opacity: 0.38;
-  animation: cosmicFloat2 60s ease-in-out infinite alternate;
-}
-
-/* Galaxy 3: Andromeda (M31 tilted grand spiral) */
-.galaxy-andromeda {
-  bottom: 5%;
-  right: 5%;
-  width: clamp(280px, 30vw, 460px);
-  height: clamp(280px, 30vw, 460px);
-  opacity: 0.36;
-  animation: cosmicFloat3 55s ease-in-out infinite alternate;
-}
-
-/* Galaxy 4: Starburst Ring Galaxy */
-.galaxy-ring {
-  top: 22%;
-  left: 6%;
+  top: 8%;
+  right: 4%;
   width: clamp(220px, 22vw, 360px);
   height: clamp(220px, 22vw, 360px);
-  opacity: 0.34;
-  animation: cosmicFloat4 45s ease-in-out infinite alternate;
+  opacity: 0.28;
 }
 
-/* Gentle cosmic float animations */
-@keyframes cosmicFloat1 {
-  0% {
-    transform: rotate(0deg) translate(0, 0) scale(1);
-  }
-  50% {
-    transform: rotate(6deg) translate(-15px, 20px) scale(1.03);
-  }
-  100% {
-    transform: rotate(-4deg) translate(10px, -15px) scale(0.97);
-  }
+.galaxy-sombrero {
+  top: 48%;
+  left: -2%;
+  width: clamp(220px, 24vw, 380px);
+  height: clamp(220px, 24vw, 380px);
+  opacity: 0.25;
 }
 
-@keyframes cosmicFloat2 {
-  0% {
-    transform: rotate(-14deg) translate(0, 0) scale(1);
-  }
-  50% {
-    transform: rotate(-8deg) translate(20px, -20px) scale(1.04);
-  }
-  100% {
-    transform: rotate(-18deg) translate(-10px, 15px) scale(0.98);
-  }
+.galaxy-andromeda {
+  bottom: 8%;
+  right: 6%;
+  width: clamp(230px, 24vw, 380px);
+  height: clamp(230px, 24vw, 380px);
+  opacity: 0.24;
 }
 
-@keyframes cosmicFloat3 {
-  0% {
-    transform: rotate(35deg) translate(0, 0) scale(1);
-  }
-  50% {
-    transform: rotate(42deg) translate(-25px, -15px) scale(1.03);
-  }
-  100% {
-    transform: rotate(28deg) translate(15px, 20px) scale(0.96);
-  }
+.galaxy-ring {
+  top: 26%;
+  left: 5%;
+  width: clamp(190px, 18vw, 300px);
+  height: clamp(190px, 18vw, 300px);
+  opacity: 0.22;
 }
 
-@keyframes cosmicFloat4 {
-  0% {
-    transform: rotate(5deg) translate(0, 0) scale(1);
-  }
-  50% {
-    transform: rotate(18deg) translate(15px, 18px) scale(1.05);
-  }
-  100% {
-    transform: rotate(-8deg) translate(-20px, -10px) scale(0.95);
-  }
-}
-
-/* Dynamic Starfield & Shooting Stars Canvas */
+/* Starfield Canvas */
 #cosmicCanvas {
   position: absolute;
   top: 0;
@@ -166,31 +147,545 @@
   pointer-events: none;
 }
 
-/* Ensure smooth transparency across pages */
-body {
-  background-color: #030712 !important;
+/* ==========================================================================
+   2. REFINED TYPOGRAPHY & ZERO NEON HALO SYSTEM
+   ========================================================================== */
+.hero-title,
+.hero-title span,
+h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .galaxy-spiral {
-    top: 3%;
-    right: -8%;
-    opacity: 0.35;
+/* Sacred Sanskrit Slogan - Dignified Warm Solar Gold */
+.club-slogan,
+#ii {
+  color: var(--gold-warm) !important;
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.45) !important;
+  letter-spacing: 2px;
+  font-weight: 600;
+  transition: text-shadow 0.3s ease;
+}
+
+.club-slogan:hover,
+#ii:hover {
+  text-shadow: 0 0 24px rgba(251, 191, 36, 0.75) !important;
+}
+
+/* Clean, crisp section headers */
+.section-title,
+h2.section-title,
+.about-banner-text h2,
+.footer-heading {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+h3, h4, .mem_name, .event-top h3 {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Clean badges (No garish cyan neon) */
+.hero-badge,
+.section-tag,
+.slide-badge,
+.event-tag {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--gold-warm) !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Modern clean card styling */
+.timeline-card,
+.event-card,
+.profile-box,
+.equip-card,
+.resources-spotlight-box,
+.history-card-box,
+.about-banner-box,
+.event-subscribe-card,
+.facility-box,
+.research-domain-card,
+.highlight-card {
+  background: var(--space-card) !important;
+  border: 1px solid var(--space-card-border) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+.timeline-card:hover,
+.event-card:hover,
+.profile-box:hover,
+.equip-card:hover,
+.facility-box:hover,
+.research-domain-card:hover {
+  border-color: var(--space-border-hover) !important;
+}
+
+/* ==========================================================================
+   3. EARTH SURFACE PHOTOGRAPHIC HEADER (images/earth_header.jpg)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(4, 7, 14, 0.92) 100%), url('images/earth_header.jpg') center 60% / cover no-repeat !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.85) !important;
+  overflow: visible;
+}
+
+/* Subtle atmospheric limb edge along header bottom */
+.earth-horizon-layer {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, 
+    rgba(56, 189, 248, 0.2) 0%, 
+    rgba(255, 255, 255, 0.8) 50%, 
+    rgba(56, 189, 248, 0.2) 100%);
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6));
+}
+
+/* Minimalist Earth Station Tag */
+.earth-spaceport-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  margin-left: 14px;
+  margin-right: auto;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  color: #e2e8f0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+  .earth-spaceport-badge {
+    display: none;
   }
-  .galaxy-sombrero {
-    top: 50%;
-    left: -15%;
-    opacity: 0.30;
+}
+
+.earth-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: beaconPulse 2s ease-in-out infinite;
+}
+
+@keyframes beaconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ==========================================================================
+   4. MOON SURFACE PHOTOGRAPHIC FOOTER (images/moon_footer.jpg)
+   ========================================================================== */
+.footer {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.96) 0%, rgba(8, 10, 15, 0.72) 25%, rgba(0, 0, 0, 0.95) 100%), url('images/moon_footer.jpg') center top / cover no-repeat !important;
+  color: #ffffff;
+  padding: 80px 20px 30px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.9) !important;
+  overflow: hidden;
+}
+
+/* Lunar Landing Site Unit in Footer (ZERO ALTITUDE NUMBERS) */
+.lunar-landing-site {
+  max-width: 1350px;
+  margin: 0 auto 35px;
+  padding: 16px 24px;
+  background: rgba(10, 12, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.lunar-site-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lunar-touchdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 20px;
+  color: #4ade80;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.lunar-rover-unit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rover-svg-wrap {
+  width: 48px;
+  height: 34px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+}
+
+.rover-caption {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.rover-caption strong {
+  color: #ffffff;
+  display: block;
+}
+
+/* ==========================================================================
+   5. SKYROOT-INSPIRED MINIMALIST SCROLLBAR (ROCKET TO ROVER)
+   - Slender vertical guide rail
+   - Precision aerospace vehicle thumb that jettisons components as user scrolls
+   - Transforms into Lunar Rover at the Moon footer
+   - STRICTLY NO ALTITUDE NUMBERS
+   ========================================================================== */
+
+/* Native Browser Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Skyroot Flight Track Corridor on Right Edge */
+.rocket-flight-corridor {
+  position: fixed;
+  top: 85px;
+  right: 18px;
+  width: 32px;
+  height: calc(100vh - 120px);
+  z-index: 9998;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hairline Trajectory Guide Rail (Skyroot Aerospace Style) */
+.flight-trajectory-line {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0.15) 30%, 
+    rgba(255, 255, 255, 0.15) 70%, 
+    rgba(251, 191, 36, 0.5) 100%);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Earth Icon Node at Top of Corridor */
+.corridor-node-earth {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #38bdf8 0%, #0369a1 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.2s ease;
+}
+
+.corridor-node-earth:hover {
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Moon Icon Node at Bottom of Corridor */
+.corridor-node-moon {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f1f5f9 0%, #475569 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.2s ease;
+}
+
+.corridor-node-moon:hover {
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Flying Vehicle / Scroll Indicator Thumb */
+.flying-rocket-vehicle {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 52px;
+  pointer-events: auto;
+  cursor: grab;
+  z-index: 5;
+  transition: transform 0.06s ease-out;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+}
+
+.flying-rocket-vehicle:active {
+  cursor: grabbing;
+}
+
+.rocket-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Staging Detach Transitions */
+.stage-srb {
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center top;
+}
+
+.stage-core {
+  transition: all 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center top;
+}
+
+.stage-service {
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center top;
+}
+
+.stage-lander {
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center;
+}
+
+.stage-rover {
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Detached Stage Animations */
+.jettisoned-srb-left {
+  opacity: 0 !important;
+  transform: translate(-25px, 25px) rotate(-35deg) scale(0.6) !important;
+}
+
+.jettisoned-srb-right {
+  opacity: 0 !important;
+  transform: translate(25px, 25px) rotate(35deg) scale(0.6) !important;
+}
+
+.jettisoned-core {
+  opacity: 0 !important;
+  transform: translate(0, 35px) rotate(10deg) scale(0.6) !important;
+}
+
+.jettisoned-service {
+  opacity: 0 !important;
+  transform: translate(15px, 25px) rotate(-20deg) scale(0.6) !important;
+}
+
+/* Thruster flame */
+.rocket-flame {
+  transform-origin: center top;
+  animation: flameFlicker 0.12s infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% { transform: scaleY(0.9) scaleX(0.95); opacity: 0.8; }
+  100% { transform: scaleY(1.15) scaleX(1.05); opacity: 1; }
+}
+
+/* ==========================================================================
+   6. RESOURCES HYPERLINK SHOWCASE BOX (Wedged between Gallery and Events)
+   ========================================================================== */
+.resources-hyperlink-box {
+  background: var(--space-card);
+  border: 1px solid var(--space-card-border);
+  border-radius: 16px;
+  padding: 40px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+}
+
+.resources-hyperlink-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resources-hyperlink-header .section-title {
+  margin: 8px 0;
+}
+
+.resources-hyperlink-header .section-subtitle {
+  text-align: left;
+  margin: 0;
+  max-width: 720px;
+}
+
+.resources-main-btn {
+  white-space: nowrap;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+}
+
+.resources-subpages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.resource-subpage-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+}
+
+.resource-subpage-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.subpage-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--gold-warm);
+}
+
+.subpage-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.subpage-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--gold-warm);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.subpage-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.subpage-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.subpage-link-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.resource-subpage-card:hover .subpage-link-label {
+  color: var(--gold-warm);
+}
+
+.resource-subpage-card:hover .subpage-link-label i {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .rocket-flight-corridor {
+    right: 8px;
+    width: 24px;
   }
-  .galaxy-andromeda {
-    bottom: 2%;
-    right: -10%;
-    opacity: 0.30;
-  }
-  .galaxy-ring {
-    top: 25%;
-    left: -10%;
-    opacity: 0.28;
+  .resources-hyperlink-box {
+    padding: 24px;
   }
 }

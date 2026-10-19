@@ -1,27 +1,28 @@
 /**
- * IBAC Cosmic Background Engine
+ * IBAC Cosmic Background & Skyroot-Inspired Mission Engine
  * Features:
- * - Dynamic Starfield with blinking and non-blinking stars of varied sizes
- * - Telescope-style diffraction spikes & glowing halos on bright stars
- * - Random shooting stars (meteors) with glowing heads, fading plasma tails, and spark dust
- * - Deep-space galaxy background images with smooth cosmic blend & gentle parallax
+ * - Authentic Morgan-Keenan spectral classification (HR Diagram) starfield on pitch-black space canvas
+ * - Real deep-space galaxy plane with gentle parallax
+ * - Earth Surface Photographic Horizon Header
+ * - Moon Surface Photographic Touchdown Footer
+ * - Skyroot-Inspired Aerospace Scrollbar: Modular rocket that jettisons strap-on boosters,
+ *   core stage, and deploys lunar rover at the Moon footer. Zero altitude numbers.
  */
 
 (function () {
   'use strict';
 
-  // Prevent multiple initializations
   if (window.__IBAC_COSMIC_INITIALIZED__) return;
   window.__IBAC_COSMIC_INITIALIZED__ = true;
 
   // Configuration
   const CONFIG = {
-    starDensityDivisor: 3400, // Pixels per star
-    minStars: 220,
-    maxStars: 520,
-    blinkingRatio: 0.45,      // ~45% blinking, ~55% non-blinking steady lights
-    meteorMinInterval: 2000,  // Min ms between shooting stars
-    meteorMaxInterval: 4500,  // Max ms between shooting stars
+    starDensityDivisor: 2800, // Realistic stellar density
+    minStars: 300,
+    maxStars: 600,
+    blinkingRatio: 0.3,
+    meteorMinInterval: 4000,
+    meteorMaxInterval: 8000,
     galaxies: [
       { id: 'spiral', class: 'galaxy-spiral', src: 'images/galaxies/galaxy1.jpg', alt: 'Whirlpool Spiral Galaxy' },
       { id: 'sombrero', class: 'galaxy-sombrero', src: 'images/galaxies/galaxy2.jpg', alt: 'Sombrero Galaxy' },
@@ -30,14 +31,14 @@
     ]
   };
 
-  // Color palettes for stars (astronomical spectral classes)
-  const STAR_COLORS = [
-    { r: 255, g: 255, b: 255, name: 'white' },        // Pure diamond white
-    { r: 215, g: 238, b: 255, name: 'ice-blue' },     // Spectral B-type
-    { r: 140, g: 225, b: 255, name: 'cyan' },         // Vibrant electric cyan
-    { r: 255, g: 242, b: 200, name: 'gold' },         // Solar G-type
-    { r: 255, g: 215, b: 195, name: 'amber' },        // Warm K-type
-    { r: 225, g: 205, b: 255, name: 'violet' }        // Ionized nebula tint
+  // Astronomical Spectral Classes (HR Diagram Morgan-Keenan classification)
+  const HR_STAR_COLORS = [
+    { r: 180, g: 210, b: 255 }, // Class O / B (Blue-White)
+    { r: 245, g: 248, b: 255 }, // Class A (Vega Stark White)
+    { r: 255, g: 250, b: 230 }, // Class F (Yellow-White)
+    { r: 255, g: 235, b: 175 }, // Class G (Solar Gold)
+    { r: 255, g: 190, b: 130 }, // Class K (Arcturus Orange)
+    { r: 255, g: 130, b: 110 }  // Class M (Betelgeuse Red)
   ];
 
   // DOM Elements
@@ -46,7 +47,7 @@
   let canvas = null;
   let ctx = null;
 
-  // State
+  // Starfield State
   let width = window.innerWidth;
   let height = window.innerHeight;
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -58,8 +59,12 @@
   let scrollY = window.scrollY || 0;
   let tickingScroll = false;
 
+  // Skyroot Rocket Flight System State
+  let rocketVehicleEl = null;
+  let flightCorridorEl = null;
+
   /**
-   * Ensure Universe DOM structure exists
+   * 1. DOM INITIALIZATION
    */
   function initDOM() {
     universeContainer = document.getElementById('cosmic-universe');
@@ -70,7 +75,7 @@
       document.body.prepend(universeContainer);
     }
 
-    // Build Galaxy Plane if not present
+    // Galaxy Plane
     galaxyPlane = universeContainer.querySelector('.galaxy-plane');
     if (!galaxyPlane) {
       galaxyPlane = document.createElement('div');
@@ -100,422 +105,526 @@
       universeContainer.appendChild(canvas);
     }
     ctx = canvas.getContext('2d');
+
+    setupEarthNavbar();
+    setupMoonFooter();
+    setupSkyrootRocketScrollbar();
   }
 
   /**
-   * Handle Canvas Resize
+   * 2. EARTH HORIZON ON NAVBAR
+   */
+  function setupEarthNavbar() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    if (!header.querySelector('.earth-horizon-layer')) {
+      const horizonLayer = document.createElement('div');
+      horizonLayer.className = 'earth-horizon-layer';
+      header.appendChild(horizonLayer);
+    }
+
+    const brandLogo = header.querySelector('.brand-logo');
+    if (brandLogo && !header.querySelector('.earth-spaceport-badge')) {
+      const spaceportBadge = document.createElement('div');
+      spaceportBadge.className = 'earth-spaceport-badge';
+      spaceportBadge.innerHTML = `<span class="earth-beacon"></span> Earth Station &bull; Pad 39A`;
+      brandLogo.after(spaceportBadge);
+    }
+  }
+
+  /**
+   * 3. MOON HORIZON ON FOOTER (NO ALTITUDE TEXT)
+   */
+  function setupMoonFooter() {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    const innerFooter = footer.querySelector('.inner-footer');
+    if (innerFooter && !footer.querySelector('.lunar-landing-site')) {
+      const landingSite = document.createElement('div');
+      landingSite.className = 'lunar-landing-site';
+      landingSite.id = 'lunarLandingSite';
+      landingSite.innerHTML = `
+        <div class="lunar-site-meta">
+          <span class="lunar-touchdown-badge">
+            <i class="fa-solid fa-flag"></i> Tranquility Base &bull; Touchdown Site
+          </span>
+          <span style="color: #94a3b8; font-size: 0.82rem; font-family: 'Space Grotesk', sans-serif;">
+            <i class="fa-solid fa-satellite-dish" style="color: #fbbf24;"></i> Telemetry: Touchdown Confirmed
+          </span>
+        </div>
+        <div class="lunar-rover-unit">
+          <div class="rover-svg-wrap">
+            <svg viewBox="0 0 100 60" width="100%" height="100%">
+              <rect x="20" y="24" width="55" height="14" rx="3" fill="#e2e8f0" stroke="#475569" stroke-width="1" />
+              <circle cx="28" cy="12" r="9" fill="none" stroke="#fbbf24" stroke-width="2" />
+              <line x1="28" y1="12" x2="35" y2="24" stroke="#fbbf24" stroke-width="1.8" />
+              <rect x="52" y="10" width="22" height="7" rx="1.5" fill="#ca8a04" stroke="#fef08a" stroke-width="0.8" />
+              <line x1="62" y1="17" x2="62" y2="24" stroke="#94a3b8" stroke-width="1.8" />
+              <rect x="36" y="16" width="12" height="8" rx="2" fill="#334155" />
+              <circle cx="25" cy="42" r="9" fill="#0f172a" stroke="#94a3b8" stroke-width="2" />
+              <circle cx="25" cy="42" r="4" fill="#64748b" />
+              <circle cx="70" cy="42" r="9" fill="#0f172a" stroke="#94a3b8" stroke-width="2" />
+              <circle cx="70" cy="42" r="4" fill="#64748b" />
+              <line x1="25" y1="36" x2="30" y2="28" stroke="#cbd5e1" stroke-width="2" />
+              <line x1="70" y1="36" x2="65" y2="28" stroke="#cbd5e1" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="rover-caption">
+            <strong>Autonomous Surface Explorer</strong>
+            Active on Lunar Regolith
+          </div>
+        </div>
+      `;
+      innerFooter.before(landingSite);
+    }
+  }
+
+  /**
+   * 4. SKYROOT-INSPIRED MINIMALIST SCROLLBAR (ROCKET TO ROVER)
+   * - Slender vertical hairline rail
+   * - Vector rocket thumb that drops stages as user scrolls down
+   * - Converts into Lunar Rover at the Moon footer
+   * - ZERO ALTITUDE NUMBERS
+   */
+  function setupSkyrootRocketScrollbar() {
+    flightCorridorEl = document.getElementById('rocketFlightCorridor');
+    if (flightCorridorEl) return;
+
+    flightCorridorEl = document.createElement('div');
+    flightCorridorEl.className = 'rocket-flight-corridor';
+    flightCorridorEl.id = 'rocketFlightCorridor';
+
+    flightCorridorEl.innerHTML = `
+      <!-- Top Earth Waypoint Node -->
+      <div class="corridor-node-earth" id="corridorEarth" title="Earth - Click to return to top"></div>
+
+      <!-- Slender Hairline Trajectory Track -->
+      <div class="flight-trajectory-line" id="flightTrajectoryLine" title="Flight Trajectory (Click to navigate)"></div>
+
+      <!-- Bottom Moon Waypoint Node -->
+      <div class="corridor-node-moon" id="corridorMoon" title="Moon - Click to land at Tranquility Base"></div>
+
+      <!-- Flying Rocket Vehicle (Scroll Thumb) -->
+      <div class="flying-rocket-vehicle" id="flyingRocket">
+        <svg class="rocket-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rocketBodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#cbd5e1" />
+              <stop offset="50%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#94a3b8" />
+            </linearGradient>
+            <linearGradient id="rocketBoosterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#94a3b8" />
+              <stop offset="50%" stop-color="#f1f5f9" />
+              <stop offset="100%" stop-color="#64748b" />
+            </linearGradient>
+            <linearGradient id="goldMliGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fef08a" />
+              <stop offset="50%" stop-color="#eab308" />
+              <stop offset="100%" stop-color="#ca8a04" />
+            </linearGradient>
+            <linearGradient id="rocketFlameGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="25%" stop-color="#fde047" />
+              <stop offset="65%" stop-color="#f97316" />
+              <stop offset="100%" stop-color="rgba(239, 68, 68, 0)" />
+            </linearGradient>
+          </defs>
+
+          <!-- 1. SOLID ROCKET BOOSTERS (SRBs) - Jettison at ~18% scroll -->
+          <g class="stage-srb stage-srb-left" id="stageSrbLeft">
+            <path d="M 23 48 Q 26 34 29 48 L 29 106 L 23 106 Z" fill="url(#rocketBoosterGrad)" stroke="#1e293b" stroke-width="1" />
+            <polygon points="21,106 31,106 28,112 24,112" fill="#0f172a" />
+            <polygon class="rocket-flame booster-flame" points="23,112 29,112 26,128" fill="url(#rocketFlameGrad)" />
+          </g>
+
+          <g class="stage-srb stage-srb-right" id="stageSrbRight">
+            <path d="M 71 48 Q 74 34 77 48 L 77 106 L 71 106 Z" fill="url(#rocketBoosterGrad)" stroke="#1e293b" stroke-width="1" />
+            <polygon points="69,106 79,106 76,112 72,112" fill="#0f172a" />
+            <polygon class="rocket-flame booster-flame" points="71,112 77,112 74,128" fill="url(#rocketFlameGrad)" />
+          </g>
+
+          <!-- 2. MAIN CORE STAGE 1 - Decouples at ~48% scroll -->
+          <g class="stage-core" id="stageCore">
+            <rect x="33" y="48" width="34" height="64" rx="2" fill="url(#rocketBodyGrad)" stroke="#1e293b" stroke-width="1.2" />
+            <line x1="33" y1="70" x2="67" y2="70" stroke="#64748b" stroke-width="1" />
+            <line x1="33" y1="92" x2="67" y2="92" stroke="#64748b" stroke-width="1" />
+            <!-- Clean ISRO/Mission Tricolor -->
+            <rect x="44" y="74" width="12" height="2" fill="#f97316" />
+            <rect x="44" y="76" width="12" height="2" fill="#ffffff" />
+            <rect x="44" y="78" width="12" height="2" fill="#16a34a" />
+            <!-- Core Engine Nozzle -->
+            <polygon points="38,112 62,112 58,118 42,118" fill="#0f172a" />
+            <polygon class="rocket-flame core-flame" id="coreFlame" points="40,118 60,118 50,144" fill="url(#rocketFlameGrad)" />
+          </g>
+
+          <!-- 3. SERVICE / ORBITAL MODULE - Decouples at ~75% scroll -->
+          <g class="stage-service" id="stageService">
+            <rect x="37" y="34" width="26" height="15" rx="1.5" fill="#334155" stroke="#0f172a" stroke-width="1" />
+            <!-- Solar Array Panels -->
+            <rect x="14" y="38" width="22" height="6" rx="1" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" />
+            <rect x="64" y="38" width="22" height="6" rx="1" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" />
+          </g>
+
+          <!-- 4. LUNAR LANDER MODULE (Payload) -->
+          <g class="stage-lander" id="stageLander">
+            <!-- Command Module Nose Cone -->
+            <path d="M 50 12 L 62 34 L 38 34 Z" fill="url(#rocketBodyGrad)" stroke="#1e293b" stroke-width="1.2" />
+            <!-- Gold MLI Thermal Foil Descent Stage -->
+            <rect x="40" y="28" width="20" height="9" rx="1.5" fill="url(#goldMliGrad)" stroke="#a16207" stroke-width="0.8" />
+            <!-- Spider Landing Gear Legs -->
+            <g id="landerSpiderLegs">
+              <line x1="40" y1="36" x2="30" y2="46" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+              <line x1="60" y1="36" x2="70" y2="46" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="30" cy="46" r="2" fill="#64748b" />
+              <circle cx="70" cy="46" r="2" fill="#64748b" />
+            </g>
+          </g>
+
+          <!-- 5. LUNAR ROVER (Revealed & Active at Moon Footer) -->
+          <g class="stage-rover" id="stageRover" style="opacity: 0; display: none;">
+            <rect x="25" y="26" width="50" height="12" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" />
+            <!-- Rover Antenna Mast -->
+            <line x1="34" y1="14" x2="34" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+            <circle cx="34" cy="14" r="3" fill="#fbbf24" />
+            <!-- Rover Solar Panel -->
+            <rect x="52" y="16" width="18" height="6" rx="1" fill="#ca8a04" stroke="#fef08a" stroke-width="0.6" />
+            <!-- Rover Wheels -->
+            <circle cx="32" cy="40" r="6" fill="#0f172a" stroke="#94a3b8" stroke-width="1.8" />
+            <circle cx="68" cy="40" r="6" fill="#0f172a" stroke="#94a3b8" stroke-width="1.8" />
+          </g>
+        </svg>
+      </div>
+    `;
+
+    document.body.appendChild(flightCorridorEl);
+    rocketVehicleEl = document.getElementById('flyingRocket');
+
+    // Smooth navigation click on top Earth waypoint
+    const earthNode = document.getElementById('corridorEarth');
+    if (earthNode) {
+      earthNode.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Smooth navigation click on bottom Moon waypoint
+    const moonNode = document.getElementById('corridorMoon');
+    if (moonNode) {
+      moonNode.addEventListener('click', () => {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      });
+    }
+
+    // Click anywhere on trajectory track line to scrub position
+    const trackLine = document.getElementById('flightTrajectoryLine');
+    if (trackLine) {
+      trackLine.addEventListener('click', (e) => {
+        const rect = trackLine.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        window.scrollTo({ top: ratio * maxScroll, behavior: 'smooth' });
+      });
+    }
+
+    // Drag rocket thumb
+    let isDraggingRocket = false;
+    if (rocketVehicleEl) {
+      rocketVehicleEl.addEventListener('mousedown', (e) => {
+        isDraggingRocket = true;
+        e.preventDefault();
+      });
+      window.addEventListener('mouseup', () => { isDraggingRocket = false; });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDraggingRocket) return;
+        const corridorRect = flightCorridorEl.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientY - corridorRect.top) / corridorRect.height));
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        window.scrollTo({ top: ratio * maxScroll });
+      });
+    }
+
+    updateRocketPosition();
+  }
+
+  /**
+   * 5. UPDATE ROCKET POSITION & PROGRESSIVE STAGING (NO ALTITUDE NUMBERS)
+   */
+  function updateRocketPosition() {
+    if (!rocketVehicleEl || !flightCorridorEl) return;
+
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+
+    const corridorHeight = flightCorridorEl.clientHeight;
+    const rocketY = progress * corridorHeight;
+    rocketVehicleEl.style.top = `${rocketY}px`;
+
+    const srbLeft = document.getElementById('stageSrbLeft');
+    const srbRight = document.getElementById('stageSrbRight');
+    const stageCore = document.getElementById('stageCore');
+    const stageService = document.getElementById('stageService');
+    const stageLander = document.getElementById('stageLander');
+    const stageRover = document.getElementById('stageRover');
+    const coreFlame = document.getElementById('coreFlame');
+    const boosterFlames = document.querySelectorAll('.booster-flame');
+
+    // Staging thresholds:
+    // 0.00 - 0.18: Earth ascent, full rocket configuration
+    // 0.18 - 0.48: Solid rocket boosters decoupled
+    // 0.48 - 0.75: Main core decoupled, second stage orbital cruise
+    // 0.75 - 0.92: Service module decoupled, lunar descent lander configuration
+    // 0.92 - 1.00: Lunar touchdown at Moon footer -> Rover deployed!
+
+    if (progress < 0.18) {
+      if (srbLeft) srbLeft.classList.remove('jettisoned-srb-left');
+      if (srbRight) srbRight.classList.remove('jettisoned-srb-right');
+      if (stageCore) stageCore.classList.remove('jettisoned-core');
+      if (stageService) stageService.classList.remove('jettisoned-service');
+      if (stageLander) { stageLander.style.display = 'block'; stageLander.style.opacity = '1'; }
+      if (stageRover) { stageRover.style.display = 'none'; stageRover.style.opacity = '0'; }
+      boosterFlames.forEach(f => { f.style.display = 'block'; });
+      if (coreFlame) coreFlame.style.display = 'block';
+    } else if (progress < 0.48) {
+      if (srbLeft) srbLeft.classList.add('jettisoned-srb-left');
+      if (srbRight) srbRight.classList.add('jettisoned-srb-right');
+      if (stageCore) stageCore.classList.remove('jettisoned-core');
+      if (stageService) stageService.classList.remove('jettisoned-service');
+      if (stageLander) { stageLander.style.display = 'block'; stageLander.style.opacity = '1'; }
+      if (stageRover) { stageRover.style.display = 'none'; stageRover.style.opacity = '0'; }
+      boosterFlames.forEach(f => { f.style.display = 'none'; });
+      if (coreFlame) coreFlame.style.display = 'block';
+    } else if (progress < 0.75) {
+      if (srbLeft) srbLeft.classList.add('jettisoned-srb-left');
+      if (srbRight) srbRight.classList.add('jettisoned-srb-right');
+      if (stageCore) stageCore.classList.add('jettisoned-core');
+      if (stageService) stageService.classList.remove('jettisoned-service');
+      if (stageLander) { stageLander.style.display = 'block'; stageLander.style.opacity = '1'; }
+      if (stageRover) { stageRover.style.display = 'none'; stageRover.style.opacity = '0'; }
+      boosterFlames.forEach(f => { f.style.display = 'none'; });
+      if (coreFlame) coreFlame.style.display = 'none';
+    } else if (progress < 0.92) {
+      if (srbLeft) srbLeft.classList.add('jettisoned-srb-left');
+      if (srbRight) srbRight.classList.add('jettisoned-srb-right');
+      if (stageCore) stageCore.classList.add('jettisoned-core');
+      if (stageService) stageService.classList.add('jettisoned-service');
+      if (stageLander) { stageLander.style.display = 'block'; stageLander.style.opacity = '1'; }
+      if (stageRover) { stageRover.style.display = 'none'; stageRover.style.opacity = '0'; }
+      boosterFlames.forEach(f => { f.style.display = 'none'; });
+      if (coreFlame) coreFlame.style.display = 'none';
+    } else {
+      // Touchdown at Moon footer: Deploy Lunar Rover!
+      if (srbLeft) srbLeft.classList.add('jettisoned-srb-left');
+      if (srbRight) srbRight.classList.add('jettisoned-srb-right');
+      if (stageCore) stageCore.classList.add('jettisoned-core');
+      if (stageService) stageService.classList.add('jettisoned-service');
+      if (stageLander) {
+        stageLander.style.transition = 'opacity 0.4s ease';
+        stageLander.style.opacity = '0';
+        setTimeout(() => { if (stageLander) stageLander.style.display = 'none'; }, 400);
+      }
+      if (stageRover) {
+        stageRover.style.display = 'block';
+        stageRover.style.opacity = '1';
+        stageRover.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      }
+      boosterFlames.forEach(f => { f.style.display = 'none'; });
+      if (coreFlame) coreFlame.style.display = 'none';
+    }
+  }
+
+  /**
+   * 6. CANVAS STARFIELD WITH MORGAN-KEENAN SPECTRAL CLASSES
    */
   function resizeCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
+    if (canvas) {
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+    }
 
-    ctx.scale(dpr, dpr);
-    createStarfield();
+    if (ctx) {
+      ctx.scale(dpr, dpr);
+    }
+
+    generateStars();
   }
 
-  /**
-   * Generate Stars with distinct blinking vs non-blinking behaviors and diverse sizes
-   */
-  function createStarfield() {
-    const starCount = Math.min(
+  function generateStars() {
+    stars = [];
+    const targetCount = Math.min(
       CONFIG.maxStars,
       Math.max(CONFIG.minStars, Math.floor((width * height) / CONFIG.starDensityDivisor))
     );
 
-    stars = [];
-
-    for (let i = 0; i < starCount; i++) {
+    for (let i = 0; i < targetCount; i++) {
+      const colorDef = HR_STAR_COLORS[Math.floor(Math.random() * HR_STAR_COLORS.length)];
+      const radiusBase = Math.random() < 0.92 ? (Math.random() * 0.9 + 0.4) : (Math.random() * 1.3 + 1.2);
       const isBlinking = Math.random() < CONFIG.blinkingRatio;
-      const roll = Math.random();
-
-      let radius, baseAlpha, hasSpikes = false, hasGlow = false;
-
-      // Size distribution:
-      // ~50% Micro faint background stars
-      // ~30% Small standard stars
-      // ~15% Medium bright stars
-      // ~5%  Major telescope beacon stars with diffraction spikes
-      if (roll < 0.50) {
-        radius = 0.5 + Math.random() * 0.5; // 0.5 - 1.0px
-        baseAlpha = 0.35 + Math.random() * 0.45;
-      } else if (roll < 0.80) {
-        radius = 1.0 + Math.random() * 0.7; // 1.0 - 1.7px
-        baseAlpha = 0.60 + Math.random() * 0.35;
-        hasGlow = Math.random() < 0.3;
-      } else if (roll < 0.95) {
-        radius = 1.7 + Math.random() * 0.9; // 1.7 - 2.6px
-        baseAlpha = 0.75 + Math.random() * 0.25;
-        hasGlow = true;
-      } else {
-        radius = 2.7 + Math.random() * 1.1; // 2.7 - 3.8px
-        baseAlpha = 0.85 + Math.random() * 0.15;
-        hasGlow = true;
-        hasSpikes = true; // 4-pointed cross diffraction spikes
-      }
-
-      // Color selection
-      const colorObj = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
 
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: radius,
-        color: colorObj,
+        baseX: 0,
+        baseY: 0,
+        r: radiusBase,
+        baseAlpha: Math.random() * 0.5 + 0.35,
+        alpha: 0.6,
+        color: colorDef,
+        hasSpikes: radiusBase > 1.8 && Math.random() < 0.4,
         isBlinking: isBlinking,
-        baseAlpha: baseAlpha,
-        // Blinking parameters
-        minAlpha: isBlinking ? (baseAlpha * (0.15 + Math.random() * 0.25)) : baseAlpha,
-        maxAlpha: isBlinking ? Math.min(1.0, baseAlpha * (1.1 + Math.random() * 0.3)) : baseAlpha,
-        blinkSpeed: 0.8 + Math.random() * 3.4, // Radians per sec
+        blinkSpeed: Math.random() * 0.002 + 0.0008,
         blinkPhase: Math.random() * Math.PI * 2,
-        blinkStyle: Math.random() < 0.25 ? 'shimmer' : 'sine', // Subtle occasional sparkle vs smooth pulse
-        hasGlow: hasGlow,
-        hasSpikes: hasSpikes,
-        // Faint cosmic drift
-        vx: (Math.random() - 0.5) * 0.02,
-        vy: (Math.random() - 0.5) * 0.02
+        parallaxFactor: (radiusBase / 2.5) * 0.035
       });
     }
+
+    stars.forEach(s => {
+      s.baseX = s.x;
+      s.baseY = s.y;
+    });
   }
 
-  /**
-   * Spawn a shooting star (meteor) at random intervals
-   */
-  function spawnShootingStar() {
-    if (document.hidden) return;
-
-    // Angle: typically streaking diagonally down (between 25° and 60°)
-    const angleDeg = 30 + Math.random() * 35;
-    const angleRad = (angleDeg * Math.PI) / 180;
-
-    // Start position: top edge or upper half of left/right edges
-    const startSide = Math.random();
-    let startX, startY;
-
-    if (startSide < 0.7) {
-      // Start from top
-      startX = Math.random() * width * 0.9;
-      startY = -20;
-    } else {
-      // Start from upper left
-      startX = -20;
-      startY = Math.random() * (height * 0.4);
-    }
-
-    const speed = 15 + Math.random() * 12; // 15 - 27 px per frame
-    const length = 140 + Math.random() * 160; // Tail length
-    const maxLife = 40 + Math.floor(Math.random() * 30); // 40 - 70 frames
-
-    // Color: White core with cyan, electric blue, or golden trail
-    const meteorColorRoll = Math.random();
-    let trailColor;
-    if (meteorColorRoll < 0.6) {
-      trailColor = '0, 220, 255'; // Cyan
-    } else if (meteorColorRoll < 0.85) {
-      trailColor = '100, 160, 255'; // Electric blue
-    } else {
-      trailColor = '255, 215, 140'; // Warm gold
-    }
+  function spawnMeteor() {
+    const startX = Math.random() * width * 0.8 + width * 0.1;
+    const startY = Math.random() * (height * 0.35);
+    const angle = (Math.PI / 4) + (Math.random() * 0.25 - 0.12);
+    const speed = Math.random() * 800 + 700;
+    const length = Math.random() * 120 + 80;
 
     shootingStars.push({
       x: startX,
       y: startY,
-      dx: Math.cos(angleRad) * speed,
-      dy: Math.sin(angleRad) * speed,
-      angleRad: angleRad,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
       length: length,
-      thickness: 1.6 + Math.random() * 1.2,
-      trailColor: trailColor,
-      life: 0,
-      maxLife: maxLife,
-      particles: []
+      alpha: 1.0,
+      decay: Math.random() * 0.02 + 0.015,
+      color: Math.random() < 0.6 ? '#ffffff' : '#fbbf24'
     });
-
-    // 15% chance to spawn an accompanying secondary twin meteor
-    if (Math.random() < 0.15) {
-      setTimeout(() => {
-        shootingStars.push({
-          x: startX + (Math.random() - 0.5) * 80,
-          y: startY + (Math.random() - 0.5) * 40,
-          dx: Math.cos(angleRad) * (speed * 0.95),
-          dy: Math.sin(angleRad) * (speed * 0.95),
-          angleRad: angleRad,
-          length: length * 0.85,
-          thickness: 1.4,
-          trailColor: trailColor,
-          life: 0,
-          maxLife: maxLife * 0.9,
-          particles: []
-        });
-      }, 150 + Math.random() * 200);
-    }
 
     scheduleNextMeteor();
   }
 
   function scheduleNextMeteor() {
     if (nextMeteorTimeout) clearTimeout(nextMeteorTimeout);
-    const delay = CONFIG.meteorMinInterval + Math.random() * (CONFIG.meteorMaxInterval - CONFIG.meteorMinInterval);
-    nextMeteorTimeout = setTimeout(spawnShootingStar, delay);
+    const interval = Math.random() * (CONFIG.meteorMaxInterval - CONFIG.meteorMinInterval) + CONFIG.meteorMinInterval;
+    nextMeteorTimeout = setTimeout(spawnMeteor, interval);
   }
 
-  /**
-   * Draw diffraction spike cross on major stars
-   */
-  function drawDiffractionSpike(context, x, y, size, alpha, color) {
-    const spikeLen = size * 5.5;
-    const spikeWidth = 0.75;
+  function render(now) {
+    const dt = Math.min((now - lastTime) / 1000, 0.1);
+    lastTime = now;
 
-    context.save();
-    context.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.75})`;
-    context.lineWidth = spikeWidth;
-
-    // Horizontal spike
-    context.beginPath();
-    context.moveTo(x - spikeLen, y);
-    context.lineTo(x + spikeLen, y);
-    context.stroke();
-
-    // Vertical spike
-    context.beginPath();
-    context.moveTo(x, y - spikeLen);
-    context.lineTo(x, y + spikeLen);
-    context.stroke();
-
-    // Inner bright core
-    context.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
-    context.lineWidth = 1.2;
-    context.beginPath();
-    context.moveTo(x - (spikeLen * 0.4), y);
-    context.lineTo(x + (spikeLen * 0.4), y);
-    context.moveTo(x, y - (spikeLen * 0.4));
-    context.lineTo(x, y + (spikeLen * 0.4));
-    context.stroke();
-
-    context.restore();
-  }
-
-  /**
-   * Main Render Loop
-   */
-  function render(time) {
-    animFrameId = requestAnimationFrame(render);
-
-    const dt = Math.min((time - lastTime) / 1000, 0.1);
-    lastTime = time;
-
+    if (!ctx) return;
     ctx.clearRect(0, 0, width, height);
 
-    // 1. Render Stars
+    // Stars
     for (let i = 0; i < stars.length; i++) {
       const star = stars[i];
 
-      // Slight drift
-      star.x += star.vx;
-      star.y += star.vy;
-      if (star.x < 0) star.x = width;
-      if (star.x > width) star.x = 0;
-      if (star.y < 0) star.y = height;
-      if (star.y > height) star.y = 0;
-
-      let currentAlpha;
-
-      if (!star.isBlinking) {
-        // Steady non-blinking light
-        currentAlpha = star.baseAlpha;
+      if (star.isBlinking) {
+        star.alpha = star.baseAlpha + Math.sin(now * star.blinkSpeed + star.blinkPhase) * 0.25;
       } else {
-        // Blinking light with sinusoidal or shimmering oscillations
-        const cycle = Math.sin((time / 1000) * star.blinkSpeed + star.blinkPhase);
-        if (star.blinkStyle === 'shimmer') {
-          // Add a high-frequency micro harmonic for organic sparkling
-          const shimmer = Math.sin((time / 1000) * (star.blinkSpeed * 2.8) + star.blinkPhase * 1.5) * 0.15;
-          const normalized = Math.max(0, Math.min(1, 0.5 + 0.5 * cycle + shimmer));
-          currentAlpha = star.minAlpha + (star.maxAlpha - star.minAlpha) * normalized;
-        } else {
-          const normalized = 0.5 + 0.5 * cycle;
-          currentAlpha = star.minAlpha + (star.maxAlpha - star.minAlpha) * normalized;
-        }
+        star.alpha = star.baseAlpha;
       }
 
-      // Draw Star Core
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${currentAlpha})`;
-      ctx.fill();
-
-      // Soft Glow Halo for medium & bright stars
-      if (star.hasGlow && currentAlpha > 0.4) {
-        const glowRadius = star.radius * 3.2;
-        const grad = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, glowRadius);
-        grad.addColorStop(0, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${currentAlpha * 0.5})`);
-        grad.addColorStop(0.5, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${currentAlpha * 0.15})`);
-        grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, glowRadius, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
-
-      // Diffraction Spikes for major stars
-      if (star.hasSpikes && currentAlpha > 0.5) {
-        drawDiffractionSpike(ctx, star.x, star.y, star.radius, currentAlpha, star.color);
-      }
-    }
-
-    // 2. Render & Update Shooting Stars (Meteors)
-    for (let m = shootingStars.length - 1; m >= 0; m--) {
-      const meteor = shootingStars[m];
-      meteor.life++;
-
-      // Progress alpha: fades in fast, stays luminous, fades out toward end
-      const lifeRatio = meteor.life / meteor.maxLife;
-      let meteorAlpha = 1;
-      if (lifeRatio < 0.15) {
-        meteorAlpha = lifeRatio / 0.15;
-      } else if (lifeRatio > 0.65) {
-        meteorAlpha = Math.max(0, 1 - (lifeRatio - 0.65) / 0.35);
-      }
-
-      // Move meteor
-      meteor.x += meteor.dx;
-      meteor.y += meteor.dy;
-
-      // Tail coordinates
-      const tailX = meteor.x - Math.cos(meteor.angleRad) * meteor.length;
-      const tailY = meteor.y - Math.sin(meteor.angleRad) * meteor.length;
-
-      // Draw Meteor Trail
-      const trailGrad = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
-      trailGrad.addColorStop(0, `rgba(255, 255, 255, ${meteorAlpha})`);
-      trailGrad.addColorStop(0.18, `rgba(${meteor.trailColor}, ${meteorAlpha * 0.95})`);
-      trailGrad.addColorStop(0.65, `rgba(${meteor.trailColor}, ${meteorAlpha * 0.35})`);
-      trailGrad.addColorStop(1, `rgba(${meteor.trailColor}, 0)`);
+      const drawY = (star.baseY - scrollY * star.parallaxFactor) % height;
+      const finalY = drawY < 0 ? drawY + height : drawY;
 
       ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(tailX, tailY);
-      ctx.lineTo(meteor.x, meteor.y);
-      ctx.strokeStyle = trailGrad;
-      ctx.lineWidth = meteor.thickness;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-
-      // Glowing Head
-      const headGlow = ctx.createRadialGradient(meteor.x, meteor.y, 0, meteor.x, meteor.y, meteor.thickness * 4.5);
-      headGlow.addColorStop(0, `rgba(255, 255, 255, ${meteorAlpha})`);
-      headGlow.addColorStop(0.35, `rgba(${meteor.trailColor}, ${meteorAlpha * 0.8})`);
-      headGlow.addColorStop(1, `rgba(${meteor.trailColor}, 0)`);
+      ctx.globalAlpha = Math.max(0.05, Math.min(1, star.alpha));
+      ctx.fillStyle = `rgb(${star.color.r}, ${star.color.g}, ${star.color.b})`;
 
       ctx.beginPath();
-      ctx.arc(meteor.x, meteor.y, meteor.thickness * 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = headGlow;
+      ctx.arc(star.x, finalY, star.r, 0, Math.PI * 2);
       ctx.fill();
 
-      // Emit spark dust particles
-      if (Math.random() < 0.6 && meteorAlpha > 0.3) {
-        meteor.particles.push({
-          x: meteor.x - Math.cos(meteor.angleRad) * (Math.random() * 25),
-          y: meteor.y - Math.sin(meteor.angleRad) * (Math.random() * 25),
-          vx: (Math.random() - 0.5) * 1.5,
-          vy: (Math.random() - 0.5) * 1.5,
-          alpha: meteorAlpha * 0.9,
-          decay: 0.05 + Math.random() * 0.04,
-          size: 0.8 + Math.random() * 1.0
-        });
-      }
-
-      // Draw & update spark dust
-      for (let p = meteor.particles.length - 1; p >= 0; p--) {
-        const pt = meteor.particles[p];
-        pt.x += pt.vx;
-        pt.y += pt.vy;
-        pt.alpha -= pt.decay;
-
-        if (pt.alpha <= 0) {
-          meteor.particles.splice(p, 1);
-          continue;
-        }
-
+      // Subtle diffraction spike for prominent stars
+      if (star.hasSpikes && star.alpha > 0.5) {
+        ctx.strokeStyle = `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${star.alpha * 0.4})`;
+        ctx.lineWidth = 0.75;
+        const spikeLen = star.r * 4.5;
         ctx.beginPath();
-        ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${meteor.trailColor}, ${pt.alpha})`;
-        ctx.fill();
+        ctx.moveTo(star.x - spikeLen, finalY);
+        ctx.lineTo(star.x + spikeLen, finalY);
+        ctx.moveTo(star.x, finalY - spikeLen);
+        ctx.lineTo(star.x, finalY + spikeLen);
+        ctx.stroke();
       }
 
       ctx.restore();
-
-      // Terminate when dead or offscreen
-      if (
-        meteor.life >= meteor.maxLife ||
-        meteor.x > width + 300 ||
-        meteor.y > height + 300
-      ) {
-        shootingStars.splice(m, 1);
-      }
     }
+
+    // Meteors
+    for (let i = shootingStars.length - 1; i >= 0; i--) {
+      const m = shootingStars[i];
+      m.x += m.vx * dt;
+      m.y += m.vy * dt;
+      m.alpha -= m.decay;
+
+      if (m.alpha <= 0 || m.x > width + 100 || m.y > height + 100) {
+        shootingStars.splice(i, 1);
+        continue;
+      }
+
+      const tailX = m.x - (m.vx / 800) * m.length;
+      const tailY = m.y - (m.vy / 800) * m.length;
+
+      ctx.save();
+      const grad = ctx.createLinearGradient(tailX, tailY, m.x, m.y);
+      grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      grad.addColorStop(1, m.color);
+
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(m.x, m.y);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    animFrameId = requestAnimationFrame(render);
   }
 
-  /**
-   * Subtle Parallax Drift for Galaxy Layer on Page Scroll
-   */
-  function handleScroll() {
-    scrollY = window.scrollY || window.pageYOffset;
+  function onScroll() {
+    scrollY = window.scrollY || window.pageYOffset || 0;
     if (!tickingScroll) {
       window.requestAnimationFrame(() => {
-        if (galaxyPlane) {
-          const parallaxOffset = scrollY * -0.06; // Slow majestic parallax
-          galaxyPlane.style.transform = `translate3d(0, ${parallaxOffset}px, 0)`;
-        }
+        updateRocketPosition();
         tickingScroll = false;
       });
       tickingScroll = true;
     }
   }
 
-  /**
-   * Visibility Change Handler (save CPU / GPU when tab is inactive)
-   */
-  function handleVisibilityChange() {
-    if (document.hidden) {
-      if (animFrameId) cancelAnimationFrame(animFrameId);
-      if (nextMeteorTimeout) clearTimeout(nextMeteorTimeout);
-    } else {
-      lastTime = performance.now();
-      animFrameId = requestAnimationFrame(render);
-      scheduleNextMeteor();
-    }
-  }
+  // Window Event Listeners
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    updateRocketPosition();
+  });
 
-  /**
-   * Initialization
-   */
-  function init() {
+  // Kickstart
+  function boot() {
     initDOM();
     resizeCanvas();
-
-    window.addEventListener('resize', resizeCanvas, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    // Initial shooting star kick-off
     scheduleNextMeteor();
-
-    // Start render loop
-    lastTime = performance.now();
     animFrameId = requestAnimationFrame(render);
   }
 
-  // Run on DOM ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    init();
+    boot();
   }
 })();

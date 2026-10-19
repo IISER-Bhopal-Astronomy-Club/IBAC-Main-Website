@@ -24,18 +24,19 @@
 
   <style>
     :root {
-      --primary-blue: #0056b3;
-      --accent-cyan: #00c6ff;
-      --royal-blue: #0072ff;
-      --deep-navy: #040b19;
-      --midnight-blue: #081226;
-      --card-bg: #ffffff;
-      --card-border: rgba(0, 114, 255, 0.15);
-      --text-dark: #121d33;
-      --text-muted: #4e5d78;
-      --footer-bg: #000106;
+      --primary-blue: #ffffff;
+      --accent-cyan: #fbbf24;
+      --royal-blue: #ffffff;
+      --gold-warm: #fbbf24;
+      --deep-navy: #000000;
+      --midnight-blue: #020307;
+      --card-bg: rgba(10, 12, 18, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-dark: #f8fafc;
+      --text-muted: #94a3b8;
+      --footer-bg: #000000;
       --radius-card: 16px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     * {
@@ -47,12 +48,13 @@
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
+      background: #000000;
     }
 
     body {
       font-family: 'Lato', 'Inter', sans-serif;
-      background: #030712;
-      color: #e2ecf9;
+      background: #000000;
+      color: #cbd5e1;
       line-height: 1.6;
     }
 
@@ -61,11 +63,11 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(4, 11, 25, 0.92);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(4, 7, 14, 0.94) 100%), url('images/earth_header.jpg') center 60% / cover no-repeat;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0, 198, 255, 0.25);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
     }
 
     .nav-container {
@@ -85,22 +87,21 @@
       color: #ffffff;
     }
 
-        .brand-logo-img {
+    .brand-logo-img {
       width: 38px;
       height: 38px;
       border-radius: 50%;
       object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
       transition: var(--transition);
     }
 
     .brand-logo:hover .brand-logo-img {
-      transform: rotate(15deg) scale(1.05);
+      transform: scale(1.06);
     }
+
     .brand-logo i {
       font-size: 1.8rem;
-      color: var(--accent-cyan);
-      filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6));
+      color: #ffffff;
     }
 
     .brand-title-wrap {
@@ -114,15 +115,16 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       line-height: 1.1;
+      color: #ffffff;
     }
 
     .brand-title span {
-      color: var(--accent-cyan);
+      color: var(--gold-warm);
     }
 
     .brand-subtitle {
       font-size: 0.72rem;
-      color: #8da4c4;
+      color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -138,7 +140,7 @@
       font-family: 'Poppins', sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
-      color: #c9dbf2;
+      color: #cbd5e1;
       text-decoration: none;
       transition: var(--transition);
       position: relative;
@@ -147,7 +149,7 @@
 
     .nav-link:hover,
     .nav-link.active {
-      color: var(--accent-cyan);
+      color: #ffffff;
     }
 
     .nav-link::after {
@@ -157,9 +159,8 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent-cyan);
+      background: var(--gold-warm);
       transition: var(--transition);
-      box-shadow: 0 0 8px var(--accent-cyan);
     }
 
     .nav-link:hover::after,
@@ -179,15 +180,11 @@
     /* Hero */
     .contain {
       position: relative;
-      background: radial-gradient(circle at 50% 20%, rgba(13, 34, 77, 0.45) 0%, rgba(4, 11, 25, 0.15) 80%);
-      padding: 80px 20px 60px;
+      padding: 85px 20px 65px;
       text-align: center;
       overflow: hidden;
-      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
-    }
-
-    .stars-overlay {
-      display: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent;
     }
 
     .contain_header {
@@ -201,15 +198,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0, 198, 255, 0.12);
-      border: 1px solid rgba(0, 198, 255, 0.35);
-      color: var(--accent-cyan);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--gold-warm);
       padding: 6px 18px;
       border-radius: 30px;
       font-size: 0.88rem;
       font-weight: 600;
       margin-bottom: 20px;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.15);
     }
 
     .hero-title {
@@ -222,16 +218,14 @@
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, #ffffff 30%, #70b8ff 70%, #00c6ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }
 
     .club-slogan {
       font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Sanskrit', serif;
       font-size: 2.2rem;
-      color: #b2d5ff;
-      text-shadow: 0 0 20px rgba(0, 198, 255, 0.6), 0 0 40px rgba(0, 114, 255, 0.4);
+      color: var(--gold-warm);
+      text-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
       margin: 12px 0 22px;
       letter-spacing: 2px;
       font-weight: 600;
@@ -240,16 +234,142 @@
     .hero-description {
       font-family: 'Inter', sans-serif;
       font-size: 1.15rem;
-      color: #d1e2fc;
+      color: #cbd5e1;
       max-width: 800px;
       margin: 0 auto 30px;
       font-weight: 300;
       line-height: 1.7;
     }
 
+    /* ==================== SUBPAGES SHOWCASE (Articles & Newsletters) ==================== */
+    .resources-subpages-section {
+      padding: 40px 20px 30px;
+      background: transparent;
+    }
+
+    .subpages-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .subpage-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-warm);
+      margin-bottom: 8px;
+    }
+
+    .subpages-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.85rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .subpages-header p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .resources-subpages-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .resource-portal-card {
+      background: rgba(10, 12, 18, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 30px;
+      text-decoration: none;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: var(--transition);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .resource-portal-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    .portal-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--gold-warm);
+      flex-shrink: 0;
+    }
+
+    .portal-card-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .portal-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gold-warm);
+      margin-bottom: 6px;
+    }
+
+    .portal-card-body h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .portal-card-body p {
+      color: #94a3b8;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      font-family: 'Poppins', sans-serif;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .resource-portal-card:hover .portal-btn {
+      color: var(--gold-warm);
+      gap: 10px;
+    }
+
     /* Content & Resource Tabs */
     .content-section {
-      padding: 70px 20px;
+      padding: 50px 20px 80px;
       position: relative;
     }
 
@@ -269,12 +389,12 @@
     .res-tab-btn {
       padding: 12px 24px;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 198, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 30px;
       font-family: 'Poppins', sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
-      color: #b0cbf2;
+      color: #94a3b8;
       cursor: pointer;
       transition: var(--transition);
       display: flex;
@@ -282,12 +402,18 @@
       gap: 8px;
     }
 
-    .res-tab-btn:hover,
-    .res-tab-btn.active {
-      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+    .res-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
       color: #ffffff;
-      box-shadow: 0 4px 18px rgba(0, 198, 255, 0.35);
-      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .res-tab-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
       transform: translateY(-2px);
     }
 
@@ -318,28 +444,30 @@
     }
 
     .res-item-card {
-      background: rgba(10, 24, 54, 0.7);
-      border: 1px solid rgba(0, 114, 255, 0.22);
+      background: rgba(10, 12, 18, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-card);
       padding: 28px;
       transition: var(--transition);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      backdrop-filter: blur(10px);
     }
 
     .res-item-card:hover {
       transform: translateY(-5px);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 12px 30px rgba(0, 198, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
     }
 
     .res-tag {
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--accent-cyan);
-      background: rgba(0, 198, 255, 0.12);
+      color: var(--gold-warm);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       padding: 3px 10px;
       text-transform: uppercase;
@@ -357,14 +485,14 @@
 
     .res-author {
       font-size: 0.88rem;
-      color: #00c6ff;
+      color: #cbd5e1;
       font-weight: 600;
       margin-bottom: 12px;
     }
 
     .res-desc {
       font-size: 0.94rem;
-      color: #9cb3d6;
+      color: #94a3b8;
       line-height: 1.6;
     }
 
@@ -373,11 +501,16 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--accent-cyan);
+      color: #ffffff;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 600;
       transition: var(--transition);
+    }
+
+    .res-action-btn:hover {
+      color: var(--gold-warm);
+      transform: translateX(4px);
     }
 
     .res-action-btn:hover {
@@ -585,11 +718,9 @@
       <ul class="nav-menu" id="navMenu">
         <li><a href="index.html#top" class="nav-link">Home</a></li>
         <li><a href="index.html#about" class="nav-link">About</a></li>
-        <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+        <li><a href="ibarg.html" class="nav-link">IBARG</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="resources.html" class="nav-link active">Resources</a></li>
-        <li><a href="articles.html" class="nav-link">Articles</a></li>
-        <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
         <li><a href="index.html#events" class="nav-link">Events</a></li>
         <li><a href="index.html#team" class="nav-link">Team</a></li>
         <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -603,7 +734,6 @@
 
   <!-- Hero Section -->
   <section class="contain">
-    <div class="stars-overlay"></div>
     <div class="contain_header">
       <div class="hero-badge">
         <i class="fa-solid fa-book-bookmark"></i> Academic & Observation Repository
@@ -616,6 +746,37 @@
         Explore our curated collection of textbooks, research-grade software, lecture notes, astronomical media, and
         celestial event calendars for amateur stargazers and researchers.
       </p>
+    </div>
+  </section>
+
+  <!-- Subpages Showcase: Articles & Newsletters -->
+  <section class="resources-subpages-section">
+    <div class="container">
+      <div class="subpages-header">
+        <span class="subpage-kicker"><i class="fa-solid fa-layer-group"></i> Publications & Periodicals</span>
+        <h2>Subpages of Resources</h2>
+        <p>Explore in-depth articles written by student astronomers and official monthly editions of The Celestial Herald newsletter.</p>
+      </div>
+      <div class="resources-subpages-cards-grid">
+        <a href="articles.html" class="resource-portal-card">
+          <div class="portal-card-icon"><i class="fa-solid fa-newspaper"></i></div>
+          <div class="portal-card-body">
+            <span class="portal-badge">Subpage &bull; Student Writings</span>
+            <h3>Articles & Cosmic Stories</h3>
+            <p>Astrophysics insights, observational astrophotography, computational algorithms, and cosmic deep dives authored by IBAC members.</p>
+            <span class="portal-btn">Access Articles Subpage <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="newsletters.html" class="resource-portal-card">
+          <div class="portal-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <div class="portal-card-body">
+            <span class="portal-badge">Subpage &bull; Official Periodical</span>
+            <h3>The Celestial Herald Newsletters</h3>
+            <p>Monthly editions covering night sky charts, club activities, astronomical alerts, quizzes, and campus stargazing recaps.</p>
+            <span class="portal-btn">Access Newsletters Subpage <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1023,15 +1184,14 @@
       <div class="footer-col">
         <div class="footer-heading">Quick Links</div>
         <ul class="footer-links-list">
-          <li><a href="index.html#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="index.html#top"><i class="fa-solid fa-angle-right"></i> Home</a></li>
           <li><a href="index.html#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-          <li><a href="research.html"><i class="fa-solid fa-angle-right"></i> IBARG Research</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
-          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources</a></li>
-          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles</a></li>
-          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters</a></li>
-          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events</a></li>
-          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Tenure 2026-27 Team</a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Astrophotography</a></li>
+          <li><a href="resources.html"><i class="fa-solid fa-angle-right"></i> Curated Resources Hub</a></li>
+          <li><a href="articles.html"><i class="fa-solid fa-angle-right"></i> Articles Subpage</a></li>
+          <li><a href="newsletters.html"><i class="fa-solid fa-angle-right"></i> Newsletters Subpage</a></li>
+          <li><a href="index.html#events"><i class="fa-solid fa-angle-right"></i> Events & Observations</a></li>
+          <li><a href="index.html#team"><i class="fa-solid fa-angle-right"></i> Core Committee</a></li>
         </ul>
       </div>
 
