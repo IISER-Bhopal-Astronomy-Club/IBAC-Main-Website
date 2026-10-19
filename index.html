@@ -17,6 +17,7 @@
 
   <!-- Stylesheets & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="cosmic-background.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -53,8 +54,8 @@
 
     body {
       font-family: 'Lato', 'Inter', sans-serif;
-      background: #060e20;
-      color: var(--text-dark);
+      background: #030712;
+      color: #e2ecf9;
       line-height: 1.6;
     }
 
@@ -187,31 +188,13 @@
       align-items: center;
       text-align: center;
       padding: 80px 20px 60px;
-      background: radial-gradient(circle at 50% 20%, #0d2757 0%, #060e20 60%, #020712 100%);
+      background: radial-gradient(circle at 50% 20%, rgba(13, 39, 87, 0.4) 0%, rgba(6, 14, 32, 0.1) 60%, transparent 100%);
       overflow: hidden;
     }
 
     /* Cosmic stars canvas/layer */
     .stars-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image:
-        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1.5px 1.5px at 100px 150px, #b2d5ff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 240px 70px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(2px 2px at 450px 220px, #00c6ff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 600px 350px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1.5px 1.5px at 800px 120px, #e3f2fd, rgba(0, 0, 0, 0)),
-        radial-gradient(2px 2px at 980px 280px, #00c6ff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 1200px 180px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1.5px 1.5px at 1350px 300px, #b2d5ff, rgba(0, 0, 0, 0));
-      background-repeat: repeat;
-      background-size: 700px 500px;
-      opacity: 0.65;
-      pointer-events: none;
+      display: none;
     }
 
     .contain_header {
@@ -372,17 +355,17 @@
     }
 
     .section-light {
-      background: #f7faff;
-      color: var(--text-dark);
+      background: transparent;
+      color: #e2ecf9;
     }
 
     .section-dark {
-      background: #071329;
+      background: rgba(7, 19, 41, 0.7);
       color: #ffffff;
     }
 
     .section-cosmic {
-      background: radial-gradient(circle at 50% 50%, #0d224d 0%, #050e1f 100%);
+      background: radial-gradient(circle at 50% 50%, rgba(13, 34, 77, 0.35) 0%, rgba(5, 14, 31, 0.1) 100%);
       color: #ffffff;
     }
 
@@ -403,12 +386,13 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--primary-blue);
+      color: var(--accent-cyan);
       margin-bottom: 8px;
     }
 
     .section-dark .section-tag,
-    .section-cosmic .section-tag {
+    .section-cosmic .section-tag,
+    .section-light .section-tag {
       color: var(--accent-cyan);
     }
 
@@ -421,10 +405,7 @@
       display: inline-block;
     }
 
-    .section-light .section-title {
-      color: #002b66;
-    }
-
+    .section-light .section-title,
     .section-dark .section-title,
     .section-cosmic .section-title {
       color: #ffffff;
@@ -445,14 +426,15 @@
     .section-subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 1.15rem;
-      color: var(--text-muted);
+      color: #b5cae6;
       max-width: 750px;
       margin: 18px auto 0;
     }
 
     .section-dark .section-subtitle,
-    .section-cosmic .section-subtitle {
-      color: #a9bede;
+    .section-cosmic .section-subtitle,
+    .section-light .section-subtitle {
+      color: #b5cae6;
     }
 
     /* ==================== ABOUT SECTION ==================== */
@@ -464,30 +446,31 @@
     }
 
     .about-card {
-      background: #ffffff;
+      background: rgba(10, 24, 54, 0.72);
       border-radius: var(--radius-card);
       padding: 35px 30px;
-      box-shadow: 0 10px 30px rgba(0, 59, 119, 0.06);
-      border: 1px solid rgba(0, 114, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(0, 198, 255, 0.22);
+      backdrop-filter: blur(10px);
       transition: var(--transition);
     }
 
     .about-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(0, 114, 255, 0.14);
-      border-color: rgba(0, 114, 255, 0.35);
+      box-shadow: 0 18px 40px rgba(0, 198, 255, 0.25);
+      border-color: var(--accent-cyan);
     }
 
     .about-card-icon {
       width: 60px;
       height: 60px;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0, 86, 179, 0.1), rgba(0, 198, 255, 0.2));
+      background: linear-gradient(135deg, rgba(0, 86, 179, 0.2), rgba(0, 198, 255, 0.3));
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.6rem;
-      color: var(--primary-blue);
+      color: var(--accent-cyan);
       margin-bottom: 20px;
     }
 
@@ -495,13 +478,13 @@
       font-family: 'Poppins', sans-serif;
       font-size: 1.35rem;
       font-weight: 700;
-      color: #002b66;
+      color: #ffffff;
       margin-bottom: 12px;
     }
 
     .about-card p {
       font-size: 1rem;
-      color: #4b586d;
+      color: #b3c7e6;
       line-height: 1.65;
     }
 
@@ -739,21 +722,22 @@
     }
 
     .res-item-card {
-      background: #ffffff;
+      background: rgba(10, 24, 54, 0.75);
       border-radius: var(--radius-card);
       padding: 24px;
-      border: 1px solid rgba(0, 86, 179, 0.12);
-      box-shadow: 0 6px 20px rgba(0, 43, 102, 0.05);
+      border: 1px solid rgba(0, 198, 255, 0.22);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: var(--transition);
+      backdrop-filter: blur(10px);
     }
 
     .res-item-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 86, 179, 0.12);
-      border-color: rgba(0, 86, 179, 0.3);
+      box-shadow: 0 12px 28px rgba(0, 198, 255, 0.25);
+      border-color: var(--accent-cyan);
     }
 
     .res-card-top {
@@ -768,28 +752,28 @@
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 10px;
-      background: #e4f0ff;
-      color: var(--primary-blue);
+      background: rgba(0, 198, 255, 0.15);
+      color: var(--accent-cyan);
     }
 
     .res-item-card h4 {
       font-family: 'Poppins', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: #002b66;
+      color: #ffffff;
       margin-bottom: 6px;
     }
 
     .res-author {
       font-size: 0.9rem;
       font-weight: 600;
-      color: #0072ff;
+      color: var(--accent-cyan);
       margin-bottom: 8px;
     }
 
     .res-desc {
       font-size: 0.92rem;
-      color: #55657d;
+      color: #b5cbe6;
       line-height: 1.55;
     }
 
@@ -896,8 +880,8 @@
 
     /* Rounded rectangle profile box as required */
     .profile-box {
-      background: #ffffff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      background: rgba(10, 24, 54, 0.75);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       border-radius: var(--radius-card);
       padding: 24px 20px 18px;
       width: 290px;
@@ -907,15 +891,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px solid rgba(0, 114, 255, 0.18);
+      border: 1px solid rgba(0, 198, 255, 0.22);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
+      color: #e2ecf9;
     }
 
     .profile-box:hover {
-      box-shadow: 0 18px 45px rgba(0, 198, 255, 0.28);
+      box-shadow: 0 18px 45px rgba(0, 198, 255, 0.3);
       transform: translateY(-8px);
-      border-color: rgba(0, 198, 255, 0.5);
+      border-color: var(--accent-cyan);
     }
 
     .profile-img-wrap {
@@ -958,7 +944,7 @@
     .mem_name {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      color: #002b66;
+      color: #ffffff;
       font-size: 1.25rem;
       margin: 6px 0 2px;
       line-height: 1.3;
@@ -968,7 +954,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: 0.85rem;
-      color: #0072ff;
+      color: var(--accent-cyan);
       margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -978,7 +964,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: 0.88rem;
-      color: #1e3a66;
+      color: #8da4c4;
       margin-bottom: 8px;
       line-height: 1.45;
     }
@@ -987,7 +973,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 400;
       font-size: 0.86rem;
-      color: #55657d;
+      color: #b5cbe6;
       line-height: 1.5;
       margin-bottom: 12px;
       text-align: center;
@@ -1000,7 +986,7 @@
       gap: 10px;
       margin-top: auto;
       padding-top: 10px;
-      border-top: 1px solid #eef3fb;
+      border-top: 1px solid rgba(0, 198, 255, 0.15);
       width: 100%;
     }
 
@@ -1008,22 +994,22 @@
       width: 36px;
       height: 36px;
       border-radius: 8px;
-      background: #f0f6ff;
-      color: #004b99;
+      background: rgba(255, 255, 255, 0.08);
+      color: #cde1ff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 1.05rem;
       text-decoration: none;
       transition: var(--transition);
-      border: 1px solid rgba(0, 114, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.2);
     }
 
     .social-icon-btn:hover {
-      background: #0056b3;
-      color: #ffffff;
+      background: var(--accent-cyan);
+      color: #040b19;
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 86, 179, 0.25);
+      box-shadow: 0 4px 10px rgba(0, 198, 255, 0.35);
     }
 
     /* Past Year Archives */
@@ -1473,6 +1459,433 @@
     }
 
     /* ==================== HOMEPAGE EVENTS SECTION ==================== */
+    .events-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      padding: 16px 22px;
+      background: rgba(14, 28, 59, 0.55);
+      border: 1px solid rgba(0, 198, 255, 0.22);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .events-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .event-filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #9cb3d6;
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .event-filter-btn:hover {
+      background: rgba(0, 198, 255, 0.15);
+      border-color: rgba(0, 198, 255, 0.4);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .event-filter-btn.active {
+      background: linear-gradient(135deg, rgba(0, 114, 255, 0.4) 0%, rgba(0, 198, 255, 0.3) 100%);
+      border-color: var(--accent-cyan);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 198, 255, 0.25);
+    }
+
+    .filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+    }
+
+    .filter-badge-pulse {
+      width: 8px;
+      height: 8px;
+      background: #00e5ff;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px #00e5ff;
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1.3);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+      }
+    }
+
+    .events-view-switcher {
+      display: inline-flex;
+      background: rgba(4, 11, 25, 0.75);
+      border: 1px solid rgba(0, 198, 255, 0.25);
+      border-radius: 30px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .view-switch-btn {
+      background: transparent;
+      border: none;
+      color: #8da4c4;
+      padding: 7px 16px;
+      border-radius: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .view-switch-btn:hover {
+      color: #ffffff;
+    }
+
+    .view-switch-btn.active {
+      background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 198, 255, 0.35);
+    }
+
+    /* --- TIMELINE VIEW STYLES --- */
+    .events-timeline {
+      position: relative;
+      margin: 40px auto 55px;
+      max-width: 1160px;
+      padding: 20px 0;
+    }
+
+    .timeline-spine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #00c6ff 0%, #7928ca 50%, #0072ff 100%);
+      box-shadow: 0 0 18px rgba(0, 198, 255, 0.45);
+      border-radius: 4px;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 50px;
+      display: flex;
+      z-index: 2;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .timeline-item.timeline-left {
+      justify-content: flex-start;
+    }
+
+    .timeline-item.timeline-right {
+      justify-content: flex-end;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #040e24;
+      border: 3px solid var(--accent-cyan);
+      box-shadow: 0 0 18px rgba(0, 198, 255, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-size: 1.15rem;
+      z-index: 3;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .timeline-item:hover .timeline-marker {
+      transform: translate(-50%, -50%) scale(1.18);
+      box-shadow: 0 0 26px rgba(0, 229, 255, 0.85);
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .marker-flagship {
+      border-color: #ffd166;
+      color: #ffd166;
+      box-shadow: 0 0 22px rgba(255, 209, 102, 0.65);
+      background: radial-gradient(circle, #241940 0%, #040e24 100%);
+      animation: flagshipBeacon 2.5s infinite;
+    }
+
+    @keyframes flagshipBeacon {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 16px rgba(255, 209, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0);
+      }
+    }
+
+    .marker-placeholder {
+      border-color: #ff9e00;
+      color: #ff9e00;
+      box-shadow: 0 0 20px rgba(255, 158, 0, 0.6);
+      animation: placeholderPulse 2s infinite;
+    }
+
+    @keyframes placeholderPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 158, 0, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 14px rgba(255, 158, 0, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 158, 0, 0);
+      }
+    }
+
+    .timeline-card {
+      position: relative;
+      width: calc(50% - 50px);
+      background: rgba(14, 28, 59, 0.72);
+      border: 1px solid rgba(0, 198, 255, 0.24);
+      border-radius: var(--radius-card);
+      padding: 28px 26px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .timeline-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(0, 114, 255, 0.28);
+    }
+
+    /* Connector pointers for desktop */
+    .timeline-item.timeline-left .timeline-card::after {
+      content: '';
+      position: absolute;
+      top: 26px;
+      right: -12px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 12px solid rgba(0, 198, 255, 0.3);
+      transition: border-left-color 0.3s;
+    }
+
+    .timeline-item.timeline-left .timeline-card:hover::after {
+      border-left-color: var(--accent-cyan);
+    }
+
+    .timeline-item.timeline-right .timeline-card::after {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: -12px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 12px solid rgba(0, 198, 255, 0.3);
+      transition: border-right-color 0.3s;
+    }
+
+    .timeline-item.timeline-right .timeline-card:hover::after {
+      border-right-color: var(--accent-cyan);
+    }
+
+    /* Card Top Meta */
+    .timeline-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 198, 255, 0.12);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      color: #9fe7ff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-completed {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.38);
+    }
+
+    .status-placeholder {
+      background: rgba(255, 158, 0, 0.18);
+      color: #ffb703;
+      border: 1px dashed rgba(255, 183, 3, 0.55);
+    }
+
+    .status-flagship {
+      background: linear-gradient(135deg, rgba(255, 209, 102, 0.22) 0%, rgba(121, 40, 202, 0.3) 100%);
+      color: #ffd166;
+      border: 1px solid rgba(255, 209, 102, 0.55);
+      box-shadow: 0 0 14px rgba(255, 209, 102, 0.25);
+    }
+
+    .card-flagship-special {
+      background: linear-gradient(145deg, rgba(16, 31, 68, 0.85) 0%, rgba(32, 17, 60, 0.85) 100%);
+      border: 1.5px solid rgba(255, 209, 102, 0.45);
+      box-shadow: 0 12px 40px rgba(121, 40, 202, 0.28);
+    }
+
+    .card-flagship-special:hover {
+      border-color: #ffd166;
+      box-shadow: 0 18px 50px rgba(255, 209, 102, 0.35);
+    }
+
+    .card-placeholder-special {
+      border: 1.5px dashed rgba(255, 183, 3, 0.5);
+    }
+
+    .timeline-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.32rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .timeline-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 14px 0 10px;
+    }
+
+    .highlight-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #bcd5f5;
+      font-size: 0.76rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .highlight-pill i {
+      color: var(--accent-cyan);
+      font-size: 0.72rem;
+    }
+
+    /* --- RESPONSIVE TIMELINE --- */
+    @media (max-width: 900px) {
+      .timeline-spine {
+        left: 24px;
+      }
+
+      .timeline-item {
+        justify-content: flex-start !important;
+        padding-left: 60px;
+        margin-bottom: 40px;
+      }
+
+      .timeline-marker {
+        left: 24px;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+      }
+
+      .timeline-card {
+        width: 100% !important;
+      }
+
+      .timeline-item.timeline-left .timeline-card::after,
+      .timeline-item.timeline-right .timeline-card::after {
+        left: -12px;
+        right: auto;
+        border-left: none;
+        border-right: 12px solid rgba(0, 198, 255, 0.3);
+      }
+    }
+
+    /* --- HOMEPAGE EVENTS GRID --- */
     .events-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1530,6 +1943,18 @@
       background: rgba(230, 57, 70, 0.2);
       color: #ff758f;
       border: 1px solid rgba(230, 57, 70, 0.4);
+    }
+
+    .tag-workshop {
+      background: rgba(121, 40, 202, 0.22);
+      color: #c4b5fd;
+      border: 1px solid rgba(167, 139, 250, 0.4);
+    }
+
+    .tag-observation {
+      background: rgba(14, 165, 233, 0.2);
+      color: #38bdf8;
+      border: 1px solid rgba(14, 165, 233, 0.4);
     }
 
     .event-card h3 {
@@ -2004,7 +2429,9 @@
           <div class="home-carousel-slides" id="homeCarouselSlides">
             <!-- Slide 1 -->
             <div class="home-carousel-slide active" data-index="0">
-              <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E" alt="Deep Sky Nebula Astrophotography">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E"
+                alt="Deep Sky Nebula Astrophotography">
               <div class="home-carousel-overlay">
                 <span class="home-slide-tag"><i class="fa-solid fa-star"></i> Deep Sky &bull; 14" Cassegrain GEM</span>
                 <h3 class="home-slide-title">Cosmic Emission Nebula & Star Nurseries</h3>
@@ -2017,7 +2444,9 @@
 
             <!-- Slide 2 -->
             <div class="home-carousel-slide" data-index="1">
-              <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E" alt="Campus Observatory Dome Under Night Sky">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E"
+                alt="Campus Observatory Dome Under Night Sky">
               <div class="home-carousel-overlay">
                 <span class="home-slide-tag"><i class="fa-solid fa-landmark"></i> Observatory Facility &bull; Above
                   CDH</span>
@@ -2031,7 +2460,9 @@
 
             <!-- Slide 3 -->
             <div class="home-carousel-slide" data-index="2">
-              <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E" alt="Lunar Craters High-Resolution">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E"
+                alt="Lunar Craters High-Resolution">
               <div class="home-carousel-overlay">
                 <span class="home-slide-tag"><i class="fa-solid fa-moon"></i> The Moon &bull; 6" Dobsonian
                   'Dobby'</span>
@@ -2045,7 +2476,9 @@
 
             <!-- Slide 4 -->
             <div class="home-carousel-slide" data-index="3">
-              <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E" alt="Saturn Planetary Imaging">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E"
+                alt="Saturn Planetary Imaging">
               <div class="home-carousel-overlay">
                 <span class="home-slide-tag"><i class="fa-solid fa-ring"></i> Planetary &bull; High-Magnification
                   Stack</span>
@@ -2059,7 +2492,9 @@
 
             <!-- Slide 5 -->
             <div class="home-carousel-slide" data-index="4">
-              <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E" alt="Campus Stargazing Camp">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E"
+                alt="Campus Stargazing Camp">
               <div class="home-carousel-overlay">
                 <span class="home-slide-tag"><i class="fa-solid fa-users"></i> Campus Stargazing &bull; Olympus & Nikon
                   Optics</span>
@@ -2164,81 +2599,358 @@
   <section class="content-section section-cosmic" id="events">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Campus Activities & Astronomical Sessions</span>
+        <span class="section-tag">Campus Activities & Astronomical Calendar</span>
         <h2 class="section-title">Events & Stargazing</h2>
         <p class="section-subtitle">
-          From our annual flagship festival Hunting the Heavens (HTH) to live broadcasts of historic space missions and
+          From our annual flagship festival Hunting the Heavens (HTH) to the IBAC 101 orientation series and hands-on
           midnight telescope camps under dark skies.
         </p>
       </div>
 
-      <div class="events-grid">
-        <!-- Event 1: HTH -->
-        <div class="event-card">
+      <!-- Events Toolbar: Category Filters & View Switcher -->
+      <div class="events-toolbar">
+        <div class="events-filter-bar">
+          <button class="event-filter-btn active" data-filter="all">
+            <i class="fa-solid fa-layer-group"></i> All Events <span class="filter-count">6</span>
+          </button>
+          <button class="event-filter-btn" data-filter="upcoming">
+            <i class="fa-solid fa-sparkles"></i> Upcoming <span class="filter-badge-pulse"></span> <span
+              class="filter-count">2</span>
+          </button>
+          <button class="event-filter-btn" data-filter="past">
+            <i class="fa-solid fa-clock-rotate-left"></i> Past Sessions <span class="filter-count">4</span>
+          </button>
+        </div>
+
+        <div class="events-view-switcher">
+          <button class="view-switch-btn active" id="viewTimelineBtn" title="Switch to Timeline View">
+            <i class="fa-solid fa-timeline"></i> Timeline View
+          </button>
+          <button class="view-switch-btn" id="viewGridBtn" title="Switch to Card Grid View">
+            <i class="fa-solid fa-border-all"></i> Grid View
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== TIMELINE VIEW ==================== -->
+      <div class="events-timeline" id="eventsTimeline">
+        <div class="timeline-spine"></div>
+
+        <!-- 1. IBAC 101: Session 1 (Sept 7, 2026) -->
+        <div class="timeline-item timeline-left" data-category="past">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"><i class="fa-regular fa-calendar-check"></i> 7th September 2026</span>
+              <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+            </div>
+            <div>
+              <span class="event-tag tag-workshop"><i class="fa-solid fa-book-open"></i> IBAC 101 &bull; Session
+                1</span>
+              <h3>IBAC 101: Cosmic Foundations & Orientation</h3>
+              <p class="event-desc">
+                The opening session of the annual IBAC 101 orientation series welcoming freshmen to amateur astronomy.
+                Covered cosmic distance scales, celestial sphere coordinates (RA/Dec), navigating night-sky
+                constellations, and an overview of IBAC club projects and the IBARG research group.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-compass"></i> Celestial Coordinates</span>
+                <span class="highlight-pill"><i class="fa-solid fa-users"></i> Club & IBARG Roadmap</span>
+                <span class="highlight-pill"><i class="fa-solid fa-star"></i> Naked-Eye Sky Navigation</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span><i class="fa-regular fa-calendar"></i> 7th Sept 2026</span>
+              <span><i class="fa-solid fa-location-dot"></i> LHC Lecture Hall &bull; Freshers Intro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. IBAC 101: Session 2 (Sept 9, 2026) -->
+        <div class="timeline-item timeline-right" data-category="past">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-camera-retro"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"><i class="fa-regular fa-calendar-check"></i> 9th September 2026</span>
+              <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+            </div>
+            <div>
+              <span class="event-tag tag-workshop"><i class="fa-solid fa-sliders"></i> IBAC 101 &bull; Session 2</span>
+              <h3>IBAC 101: Astrophotography & Sky Tools</h3>
+              <p class="event-desc">
+                The second installment of IBAC 101 dedicated to software tools and digital imaging. Interactive workshop
+                exploring Stellarium for sky tracking, followed by practical techniques for mobile and DSLR
+                astrophotography, sensor ISO calibrations, exposure settings, and frame stacking workflows.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-laptop-code"></i> Stellarium Planetarium</span>
+                <span class="highlight-pill"><i class="fa-solid fa-camera"></i> Mobile & DSLR Imaging</span>
+                <span class="highlight-pill"><i class="fa-solid fa-layer-group"></i> Deep-Sky Stacking</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span><i class="fa-regular fa-calendar"></i> 9th Sept 2026</span>
+              <span><i class="fa-solid fa-location-dot"></i> LHC Seminar Room &bull; Technical Workshop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. IBAC 101: Session 3 (Sept 11, 2026) -->
+        <div class="timeline-item timeline-left" data-category="past">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-binoculars"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"><i class="fa-regular fa-calendar-check"></i> 11th September 2026</span>
+              <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+            </div>
+            <div>
+              <span class="event-tag tag-observation"><i class="fa-solid fa-eye"></i> IBAC 101 &bull; Session 3</span>
+              <h3>IBAC 101: Telescopes & Night Observation</h3>
+              <p class="event-desc">
+                The hands-on finale of the IBAC 101 series! Students assembled and collimated our 6" Dobsonian reflector
+                ("Dobby"), practiced eyepiece alignment on bright celestial targets, and visited the AB1 Observatory
+                Dome for live telescope tracking of lunar craters and Saturn's rings.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-wrench"></i> 6" Dobsonian Assembly</span>
+                <span class="highlight-pill"><i class="fa-solid fa-ring"></i> Saturn & Lunar Tracking</span>
+                <span class="highlight-pill"><i class="fa-solid fa-building"></i> AB1 Dome Facility Tour</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span><i class="fa-regular fa-calendar"></i> 11th Sept 2026</span>
+              <span><i class="fa-solid fa-location-dot"></i> Main Ground & AB1 Observatory Dome</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Observation Session: Early November (Placeholder) -->
+        <div class="timeline-item timeline-right" data-category="upcoming">
+          <div class="timeline-marker marker-placeholder">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <div class="timeline-card card-placeholder-special">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"><i class="fa-regular fa-clock"></i> Early November 2026</span>
+              <span class="status-badge status-placeholder"><i class="fa-solid fa-hourglass-half"></i> Upcoming
+                Placeholder</span>
+            </div>
+            <div>
+              <span class="event-tag tag-campus"><i class="fa-solid fa-meteor"></i> Campus Stargazing Camp</span>
+              <h3>Autumn Night-Sky Observation Session</h3>
+              <p class="event-desc">
+                <em>[Placeholder Session]</em> Scheduled midnight stargazing camp taking advantage of crisp early winter
+                dark skies. We will deploy the 14" Meade LX200 Cassegrain telescope inside the AB1 dome and the 6"
+                Dobsonian on the fields to observe Jupiter's Great Red Spot, Saturn's rings, the Pleiades cluster, and
+                the Orion Nebula.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-binoculars"></i> 14" Cassegrain Dome Session</span>
+                <span class="highlight-pill"><i class="fa-solid fa-circle"></i> Jupiter & Galilean Moons</span>
+                <span class="highlight-pill"><i class="fa-solid fa-cloud-moon"></i> Orion Nebula & Pleiades</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span style="color: #ffb703;"><i class="fa-solid fa-cloud-sun"></i> Window: Early Nov (TBD)</span>
+              <span><i class="fa-solid fa-location-dot"></i> IISERB Main Ground & Campus Dome</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Hunting the Heavens: Jan 12 2027 (Flagship Yearly Event) -->
+        <div class="timeline-item timeline-left" data-category="upcoming">
+          <div class="timeline-marker marker-flagship">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="timeline-card card-flagship-special">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"
+                style="background: rgba(255, 209, 102, 0.15); border-color: rgba(255, 209, 102, 0.45); color: #ffd166;">
+                <i class="fa-regular fa-calendar-star"></i> 12th January 2027
+              </span>
+              <span class="status-badge status-flagship"><i class="fa-solid fa-crown"></i> Yearly Event &bull;
+                Flagship</span>
+            </div>
+            <div>
+              <span class="event-tag tag-flagship"><i class="fa-solid fa-award"></i> Flagship Annual Fest</span>
+              <h3>Hunting the Heavens (HTH 2027)</h3>
+              <p class="event-desc">
+                IBAC's signature annual inter-college astronomy festival, held as our premier yearly event! Students
+                from institutes across the nation gather for an intense day-and-night celebration featuring the
+                Interstellar Treasure Hunt, National Astro-Quiz, Astrophotography Exhibition, Telescope Assembly
+                sprints, keynote astrophysics seminars, and an all-night Messier observation marathon under dark skies.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-map-location-dot"></i> Cosmic Treasure Hunt</span>
+                <span class="highlight-pill"><i class="fa-solid fa-question"></i> National Astro-Quiz</span>
+                <span class="highlight-pill"><i class="fa-solid fa-camera"></i> Astrophotography Expo</span>
+                <span class="highlight-pill"><i class="fa-solid fa-star-half-stroke"></i> All-Night Messier Camp</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span style="color: #ffd166;"><i class="fa-regular fa-calendar-days" style="color: #ffd166;"></i> 12th
+                January 2027</span>
+              <span><i class="fa-solid fa-location-dot"></i> IISER Bhopal Campus (LHC & Dome)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Space Mission Livestreams (Past / Ongoing) -->
+        <div class="timeline-item timeline-right" data-category="past">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-tower-broadcast"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date-badge"><i class="fa-solid fa-satellite"></i> Milestone Broadcasts</span>
+              <span class="status-badge status-completed"><i class="fa-solid fa-check"></i> Campus Milestone</span>
+            </div>
+            <div>
+              <span class="event-tag tag-broadcast"><i class="fa-solid fa-tv"></i> Mission Screenings & Solar</span>
+              <h3>Space Mission Livestreams & Solar Sessions</h3>
+              <p class="event-desc">
+                Live-screened milestone astrophysics and space missions on LHC theater screens — including the
+                Chandrayaan-3 lunar landing and Aditya-L1 solar launch, drawing hundreds of students — alongside
+                certified Baader solar projection observations for solar eclipses and sunspots.
+              </p>
+              <div class="timeline-highlights">
+                <span class="highlight-pill"><i class="fa-solid fa-moon"></i> Chandrayaan-3 Landing</span>
+                <span class="highlight-pill"><i class="fa-solid fa-sun"></i> Aditya-L1 Launch Watch</span>
+                <span class="highlight-pill"><i class="fa-solid fa-circle-dot"></i> Baader Solar Projections</span>
+              </div>
+            </div>
+            <div class="event-footer-meta">
+              <span><i class="fa-solid fa-satellite-dish"></i> ISRO &bull; NASA Missions</span>
+              <span><i class="fa-solid fa-location-dot"></i> LHC Big Screen & Main Grounds</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== GRID VIEW (ALTERNATIVE VIEW) ==================== -->
+      <div class="events-grid" id="eventsGrid" style="display: none;">
+        <!-- Card 1: HTH 2027 -->
+        <div class="event-card card-flagship-special" data-category="upcoming">
           <div class="event-top">
-            <span class="event-tag tag-flagship"><i class="fa-solid fa-trophy"></i> Flagship Annual Fest</span>
-            <h3>Hunting the Heavens (HTH 2026)</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-flagship"><i class="fa-solid fa-crown"></i> Yearly Event</span>
+              <span class="status-badge status-flagship">Upcoming 2027</span>
+            </div>
+            <h3>Hunting the Heavens (HTH 2027)</h3>
             <p class="event-desc">
-              Inaugurated on National Science Day (28 February 2019), Hunting the Heavens is IBAC's signature
-              inter-college astronomy festival featuring sky treasure hunts, astro-quizzes, astrophotography
-              competitions, model-making, and dark-sky observation.
+              IBAC's signature annual inter-college astronomy festival, celebrated yearly! Features the Cosmic Treasure
+              Hunt, National Astro-Quiz, Astrophotography Exhibition, Telescope Workshops, and an all-night Messier
+              observation marathon.
             </p>
           </div>
           <div class="event-footer-meta">
-            <span><i class="fa-regular fa-calendar"></i> Annual Festival</span>
+            <span style="color: #ffd166;"><i class="fa-regular fa-calendar-days" style="color: #ffd166;"></i> 12th
+              January 2027</span>
             <span><i class="fa-solid fa-location-dot"></i> IISERB Campus</span>
           </div>
         </div>
 
-        <!-- Event 2: Space Livestreams -->
-        <div class="event-card">
+        <!-- Card 2: Nov Placeholder -->
+        <div class="event-card card-placeholder-special" data-category="upcoming">
           <div class="event-top">
-            <span class="event-tag tag-broadcast"><i class="fa-solid fa-tower-broadcast"></i> Large Screen
-              Broadcast</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-campus"><i class="fa-solid fa-eye"></i> Stargazing Camp</span>
+              <span class="status-badge status-placeholder">Placeholder</span>
+            </div>
+            <h3>Autumn Observation Session</h3>
+            <p class="event-desc">
+              <em>[Placeholder Session]</em> Hands-on telescope camp deploying our 14" Meade Cassegrain dome telescope
+              and 6" Dobsonian. Observers track Saturn's rings, Jupiter's moons, Orion Nebula, and the Pleiades.
+            </p>
+          </div>
+          <div class="event-footer-meta">
+            <span style="color: #ffb703;"><i class="fa-regular fa-clock" style="color: #ffb703;"></i> Early November
+              2026</span>
+            <span><i class="fa-solid fa-location-dot"></i> Dome & Ground</span>
+          </div>
+        </div>
+
+        <!-- Card 3: IBAC 101 - Day 1 -->
+        <div class="event-card" data-category="past">
+          <div class="event-top">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-workshop"><i class="fa-solid fa-book-open"></i> IBAC 101 &bull; Day 1</span>
+              <span class="status-badge status-completed">Completed</span>
+            </div>
+            <h3>IBAC 101: Cosmic Foundations</h3>
+            <p class="event-desc">
+              Orientation to amateur astronomy, celestial sphere coordinate systems, night sky navigation, and an
+              introduction to IBAC projects and research wings.
+            </p>
+          </div>
+          <div class="event-footer-meta">
+            <span><i class="fa-regular fa-calendar-check"></i> 7th September 2026</span>
+            <span><i class="fa-solid fa-location-dot"></i> LHC Hall</span>
+          </div>
+        </div>
+
+        <!-- Card 4: IBAC 101 - Day 2 -->
+        <div class="event-card" data-category="past">
+          <div class="event-top">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-workshop"><i class="fa-solid fa-camera"></i> IBAC 101 &bull; Day 2</span>
+              <span class="status-badge status-completed">Completed</span>
+            </div>
+            <h3>IBAC 101: Astrophotography & Tools</h3>
+            <p class="event-desc">
+              Practical workshop on Stellarium simulation, mobile and DSLR camera sensor settings, long exposure sky
+              tracking, and stacking basics.
+            </p>
+          </div>
+          <div class="event-footer-meta">
+            <span><i class="fa-regular fa-calendar-check"></i> 9th September 2026</span>
+            <span><i class="fa-solid fa-location-dot"></i> Seminar Room</span>
+          </div>
+        </div>
+
+        <!-- Card 5: IBAC 101 - Day 3 -->
+        <div class="event-card" data-category="past">
+          <div class="event-top">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-observation"><i class="fa-solid fa-binoculars"></i> IBAC 101 &bull; Day
+                3</span>
+              <span class="status-badge status-completed">Completed</span>
+            </div>
+            <h3>IBAC 101: Telescopes & Dome Night</h3>
+            <p class="event-desc">
+              Hands-on practical session collimating and operating the 6" Dobsonian reflector, followed by a tour of the
+              AB1 Observatory Dome and Moon observation.
+            </p>
+          </div>
+          <div class="event-footer-meta">
+            <span><i class="fa-regular fa-calendar-check"></i> 11th September 2026</span>
+            <span><i class="fa-solid fa-location-dot"></i> Ground & Dome</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Livestreams -->
+        <div class="event-card" data-category="past">
+          <div class="event-top">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="event-tag tag-broadcast"><i class="fa-solid fa-tower-broadcast"></i> Livestreams</span>
+              <span class="status-badge status-completed">Milestone</span>
+            </div>
             <h3>Space Mission Livestreams</h3>
             <p class="event-desc">
-              Live-screening milestone astrophysics and space exploration missions on large screens for the campus
-              community — including the Chandrayaan-3 lunar landing, Aditya-L1 solar launch, and NASA rover touchdowns,
-              drawing hundreds of students.
+              Large screen live-broadcasts of landmark space events (Chandrayaan-3 landing, Aditya-L1 launch) and solar
+              eclipse projection observations.
             </p>
           </div>
           <div class="event-footer-meta">
             <span><i class="fa-solid fa-satellite"></i> Chandrayaan-3 &bull; Aditya-L1</span>
             <span><i class="fa-solid fa-tv"></i> LHC Big Screen</span>
-          </div>
-        </div>
-
-        <!-- Event 3: Observation Camps -->
-        <div class="event-card">
-          <div class="event-top">
-            <span class="event-tag tag-campus"><i class="fa-solid fa-eye"></i> Stargazing Nights</span>
-            <h3>Night-Sky Observation Camps</h3>
-            <p class="event-desc">
-              Hands-on sky tracking sessions deploying our 14" Cassegrain telescope in the dome and the 6" Dobsonian
-              "Dobby" on the fields. Observers view Saturn's rings, Jupiter's Great Red Spot, Orion Nebula, and lunar
-              crater chains.
-            </p>
-          </div>
-          <div class="event-footer-meta">
-            <span><i class="fa-solid fa-moon"></i> Regular Night Camps</span>
-            <span><i class="fa-solid fa-telescope"></i> Dome & Main Ground</span>
-          </div>
-        </div>
-
-        <!-- Event 4: Solar Eclipses & Science Fairs -->
-        <div class="event-card">
-          <div class="event-top">
-            <span class="event-tag tag-campus"><i class="fa-solid fa-sun"></i> Solar Observation</span>
-            <h3>Solar Eclipse Sessions & SAC Fair</h3>
-            <p class="event-desc">
-              Equipped with certified Baader solar projection filters, IBAC organizes safe daytime viewing of solar
-              eclipses, sunspots, and solar flares, as well as the Singularity Fest Solar Walk and SAC Orientation Fair
-              for freshmen.
-            </p>
-          </div>
-          <div class="event-footer-meta">
-            <span><i class="fa-solid fa-certificate"></i> Solar Projection</span>
-            <span><i class="fa-solid fa-award"></i> Science Council Fair</span>
           </div>
         </div>
       </div>
@@ -2248,8 +2960,8 @@
         <div class="event-sub-info">
           <h3><i class="fa-solid fa-bell"></i> Subscribe to Our Event Alert Emails</h3>
           <p>
-            Never miss any cosmic and IBAC events. Get updates about upcoming club talks, upcoming astronomical events
-            (meteor showers, conjunctions, eclipses), and the latest articles on our blog!
+            Never miss any cosmic and IBAC events. Get updates about upcoming club talks, observation sessions, the
+            annual Hunting the Heavens fest, and celestial phenomena!
           </p>
         </div>
         <a href="https://forms.gle/XQXwA9U4BSzuxuBT9" target="_blank" rel="noopener noreferrer"
@@ -2423,25 +3135,6 @@
         <div class="team-subgroup" data-category-group="core">
           <h3 class="team-group-title"><i class="fa-solid fa-star-of-david"></i> The Core Committee</h3>
           <div class="page-wrapper">
-
-            <div class="profile-box" data-category="core">
-              <div class="profile-img-wrap">
-                <img src="images/Group/pics/Aanandi Pankaj Zamre.jpeg" alt="Aanandi Zamre" loading="lazy">
-                <span class="member-role-badge">Core Committee</span>
-              </div>
-              <h3 class="mem_name">Aanandi Zamre</h3>
-              <h4 class="mem_batch">BS-MS 2025</h4>
-
-              <div class="mem-social">
-                <a href="mailto:#" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
-                  title="Email Aanandi Zamre"><i class="fa-solid fa-envelope"></i></a><a
-                  href="https://www.linkedin.com/in/#" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
-                  title="Aanandi Zamre on LinkedIn"><i class="fa-brands fa-linkedin"></i></a><a
-                  href="https://www.instagram.com/#" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
-                  title="Aanandi Zamre on Instagram"><i class="fa-brands fa-instagram"></i></a>
-              </div>
-            </div>
-
             <div class="profile-box" data-category="core">
               <div class="profile-img-wrap">
                 <img src="images/Group/pics/Anushka Singh.jpg" alt="Anushka Singh" loading="lazy">
@@ -2560,27 +3253,6 @@
                   title="Email Riten kumar verma"><i class="fa-solid fa-envelope"></i></a><a
                   href="https://www.instagram.com/ritenkumarverma" target="_blank" rel="noopener noreferrer"
                   class="social-icon-btn" title="Riten kumar verma on Instagram"><i
-                    class="fa-brands fa-instagram"></i></a>
-              </div>
-            </div>
-
-            <div class="profile-box" data-category="core">
-              <div class="profile-img-wrap">
-                <img src="images/Group/pics/Shreyas Pakhale.jpg" alt="Shreyas Pakhale" loading="lazy">
-                <span class="member-role-badge">Core Committee</span>
-              </div>
-              <h3 class="mem_name">Shreyas Pakhale</h3>
-              <h4 class="mem_batch">BS-MS 2025</h4>
-
-
-              <div class="mem-social">
-                <a href="mailto: shreyas25@iiserb.ac.in" target="_blank" rel="noopener noreferrer"
-                  class="social-icon-btn" title="Email Shreyas Pakhale"><i class="fa-solid fa-envelope"></i></a><a
-                  href="https://www.linkedin.com/in/shreyas-pakhale-530516384?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                  target="_blank" rel="noopener noreferrer" class="social-icon-btn"
-                  title="Shreyas Pakhale on LinkedIn"><i class="fa-brands fa-linkedin"></i></a><a
-                  href="https://www.instagram.com/shreyas._2007" target="_blank" rel="noopener noreferrer"
-                  class="social-icon-btn" title="Shreyas Pakhale on Instagram"><i
                     class="fa-brands fa-instagram"></i></a>
               </div>
             </div>
@@ -3179,7 +3851,66 @@
         });
       });
     });
+
+    // Events Filtering & View Switching Logic
+    const eventFilterBtns = document.querySelectorAll('.event-filter-btn');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const gridCards = document.querySelectorAll('#eventsGrid .event-card');
+    const viewTimelineBtn = document.getElementById('viewTimelineBtn');
+    const viewGridBtn = document.getElementById('viewGridBtn');
+    const eventsTimeline = document.getElementById('eventsTimeline');
+    const eventsGrid = document.getElementById('eventsGrid');
+
+    // 1. Events Category Filtering
+    if (eventFilterBtns.length > 0) {
+      eventFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          eventFilterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterVal = btn.getAttribute('data-filter');
+
+          // Filter Timeline Items
+          timelineItems.forEach(item => {
+            const cat = item.getAttribute('data-category');
+            if (filterVal === 'all' || cat === filterVal) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          // Filter Grid Cards
+          gridCards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filterVal === 'all' || cat === filterVal) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // 2. View Switching (Timeline vs Grid)
+    if (viewTimelineBtn && viewGridBtn && eventsTimeline && eventsGrid) {
+      viewTimelineBtn.addEventListener('click', () => {
+        viewTimelineBtn.classList.add('active');
+        viewGridBtn.classList.remove('active');
+        eventsTimeline.style.display = 'block';
+        eventsGrid.style.display = 'none';
+      });
+
+      viewGridBtn.addEventListener('click', () => {
+        viewGridBtn.classList.add('active');
+        viewTimelineBtn.classList.remove('active');
+        eventsTimeline.style.display = 'none';
+        eventsGrid.style.display = 'grid';
+      });
+    }
   </script>
+  <script src="cosmic-background.js"></script>
 </body>
 
 </html>

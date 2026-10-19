@@ -26,6 +26,7 @@ IBAC is a premier student scientific activity club operating under the **IISERB 
 
 ## 🔭 Key Features & Highlights
 
+- **Cosmic Events Timeline & Stargazing**: Interactive chronological timeline view with category filtering (All, Upcoming, Past) and view toggle (Timeline vs. Grid). Features the 3-part **IBAC 101 Orientation Series** (7th, 9th, and 11th September 2026), the upcoming **Autumn Night-Sky Observation Session** (Early November 2026 placeholder), and the premier annual festival **Hunting the Heavens (HTH 2027)** on 12th January 2027.
 - **Astro Gallery Carousel**: High-resolution astrophotography slideshow with custom slide controls, captions, and indicator dots.
 - **Full History & Lineage**: Detailed chronicle of IBAC from founder Navin Sridhar (BS-MS 2013) through seven coordinator generations.
 - **Instrument Inventory**: Details on the 14" Cassegrain telescope (GEM mount in observatory dome), 6" Newtonian Dobsonian ("Dobby"), and Olympus & Nikon binoculars.
