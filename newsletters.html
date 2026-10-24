@@ -347,11 +347,11 @@
       font-size: 1.05rem;
     }
 
-    /* Editions Grid */
+    /* Editions List / Grid */
     .editions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
     }
 
     .newsletter-card {
@@ -361,15 +361,15 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       transition: var(--transition);
-      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     .newsletter-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 16px 36px rgba(0, 114, 255, 0.25);
+      border-color: rgba(0, 198, 255, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 114, 255, 0.22);
     }
 
     .card-top-bar {
@@ -409,24 +409,33 @@
       font-weight: 500;
     }
 
-    .card-body {
-      padding: 28px 24px;
-      flex: 1;
+    /* Side-by-Side Content Layout */
+    .card-content-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: 32px;
+      padding: 28px 28px;
+      align-items: stretch;
+    }
+
+    /* Left Column: Text Information */
+    .card-info-col {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
     }
 
     .card-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.55rem;
+      font-size: 1.65rem;
       color: #ffffff;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.3;
     }
 
     .card-desc {
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       color: #a8bede;
       line-height: 1.65;
       margin-bottom: 20px;
@@ -434,7 +443,7 @@
 
     .highlights-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--accent-cyan);
@@ -449,13 +458,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 26px;
+      gap: 9px;
+      margin-bottom: 24px;
       flex: 1;
     }
 
     .highlights-list li {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: #d1e2fc;
       line-height: 1.55;
       display: flex;
@@ -465,123 +474,162 @@
 
     .highlights-list li i {
       color: var(--accent-cyan);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       margin-top: 5px;
       flex-shrink: 0;
     }
 
-    .card-footer {
-      border-top: 1px solid rgba(0, 198, 255, 0.12);
-      padding: 20px 24px;
-      background: rgba(4, 11, 25, 0.5);
+
+
+    /* Right Column: Embedded PDF Preview Box */
+    .card-viewer-col {
+      display: flex;
+      flex-direction: column;
+      background: #040915;
+      border: 1px solid rgba(0, 198, 255, 0.28);
+      border-radius: 14px;
+      overflow: hidden;
+      height: 840px;
+      min-height: 840px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transition: var(--transition);
+    }
+
+    .card-viewer-col:hover {
+      border-color: rgba(0, 198, 255, 0.55);
+    }
+
+    .card-viewer-col:fullscreen {
+      border-radius: 0;
+      border: none;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    .card-viewer-col:fullscreen .preview-iframe-wrapper,
+    .card-viewer-col:fullscreen .preview-pdf-iframe {
+      height: calc(100vh - 46px);
+      min-height: calc(100vh - 46px);
+    }
+
+    .preview-box-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(6, 16, 38, 0.95);
+      border-bottom: 1px solid rgba(0, 198, 255, 0.2);
+      flex-shrink: 0;
     }
 
-    .file-meta {
+    .preview-box-title {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #d8e9ff;
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #8da4c4;
-      font-size: 0.86rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .file-meta i {
-      color: #e63946;
-      font-size: 1.1rem;
+    .preview-box-title i {
+      color: var(--accent-cyan);
     }
 
-    .btn-download {
+    .preview-box-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .preview-tool-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #cde4ff;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(0, 198, 255, 0.15);
-      border: 1px solid rgba(0, 198, 255, 0.35);
-      color: var(--accent-cyan);
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
+      justify-content: center;
+      font-size: 0.82rem;
+      cursor: pointer;
       text-decoration: none;
       transition: var(--transition);
-      cursor: pointer;
     }
 
-    .btn-download:hover {
+    .preview-tool-btn:hover {
       background: var(--accent-cyan);
       color: #040b19;
-      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
     }
 
-    /* Modal for PDF Preview or Notice */
-    .notice-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
+    .preview-iframe-wrapper {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: calc(100% - 46px);
+      min-height: calc(840px - 46px);
+      background: #040915;
+    }
+
+    .preview-pdf-iframe {
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .notice-modal.active {
-      display: flex;
-    }
-
-    .modal-box {
-      background: #091734;
-      border: 1px solid rgba(0, 198, 255, 0.3);
-      border-radius: 18px;
-      max-width: 500px;
-      width: 100%;
-      padding: 35px 30px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 18px;
-      background: none;
+      min-height: calc(840px - 46px);
       border: none;
-      color: #8da4c4;
-      font-size: 1.4rem;
-      cursor: pointer;
+      display: block;
+      background: #050b18;
     }
 
-    .modal-close-btn:hover {
-      color: #ffffff;
+    /* Responsive: Stack preview below text on phone/tablet */
+    @media (max-width: 992px) {
+      .card-content-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 22px 20px;
+      }
+
+      .card-info-col {
+        order: 1;
+      }
+
+      .card-viewer-col {
+        order: 2; /* Positioned directly below text on mobile/tablet */
+        height: 780px;
+        min-height: 780px;
+      }
+
+      .preview-iframe-wrapper,
+      .preview-pdf-iframe {
+        min-height: calc(780px - 46px);
+      }
     }
 
-    .modal-icon {
-      font-size: 3rem;
-      color: var(--accent-cyan);
-      margin-bottom: 16px;
-    }
+    @media (max-width: 600px) {
+      .card-content-layout {
+        padding: 18px 14px;
+        gap: 20px;
+      }
 
-    .modal-box h4 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
+      .card-title {
+        font-size: 1.35rem;
+      }
 
-    .modal-box p {
-      color: #a8bede;
-      font-size: 0.95rem;
-      margin-bottom: 22px;
-      line-height: 1.6;
+      .card-viewer-col {
+        height: 620px;
+        min-height: 620px;
+      }
+
+      .preview-iframe-wrapper,
+      .preview-pdf-iframe {
+        min-height: calc(620px - 46px);
+      }
     }
 
     /* Contribute Callout */
@@ -876,204 +924,297 @@
     <div class="editions-grid">
 
       <!-- Issue 1: Summer 25 -->
-      <article class="newsletter-card">
+      <article class="newsletter-card" id="card-summer25">
         <div class="card-top-bar">
           <span class="card-tag tag-featured"><i class="fa-solid fa-star"></i> Latest Issue</span>
           <span class="card-date"><i class="fa-regular fa-calendar"></i> Summer 2025</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Starsight Summer '25</h3>
-          <p class="card-desc">
-            After a long wait, we are pleased to bring you our newest issue of Starsight for Summer '25, delving into
-            interstellar voyagers, cosmic genesis, and the existential timeline of our universe.
-          </p>
-          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
-          <ul class="highlights-list">
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>3I/ATLAS (C/2025 N1):</strong> An introduction to the third known interstellar comet and what
-                it reveals about planetary formation beyond our solar system.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Origin of our Solar System:</strong> From swirling clouds of primordial dust to the cosmic
-                forces that molded planets.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Astrobiology & Rare Earth:</strong> An exploration into the ingredients that constitute life
-                and why intelligent life is extraordinarily rare.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Fate of the Universe:</strong> From uncanny scenarios to heat death and the Big Rip.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Regular Features:</strong> Sky News, fresh puzzle in the Game section, and our special
-                Astro-Calendar!</span>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <div class="file-meta">
-            <i class="fa-solid fa-file-pdf"></i>
-            <span>Starsight 25'.pdf</span>
+
+        <div class="card-content-layout">
+          <!-- Text Details Column -->
+          <div class="card-info-col">
+              <h3 class="card-title">Starsight Summer '25</h3>
+              <p class="card-desc">
+                After a long wait, we are pleased to bring you our newest issue of Starsight for Summer '25, delving into
+                interstellar voyagers, cosmic genesis, and the existential timeline of our universe.
+              </p>
+              <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+              <ul class="highlights-list">
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>3I/ATLAS (C/2025 N1):</strong> An introduction to the third known interstellar comet and what
+                    it reveals about planetary formation beyond our solar system.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Origin of our Solar System:</strong> From swirling clouds of primordial dust to the cosmic
+                    forces that molded planets.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Astrobiology & Rare Earth:</strong> An exploration into the ingredients that constitute life
+                    and why intelligent life is extraordinarily rare.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Fate of the Universe:</strong> From uncanny scenarios to heat death and the Big Rip.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Regular Features:</strong> Sky News, fresh puzzle in the Game section, and our special
+                    Astro-Calendar!</span>
+                </li>
+              </ul>
+
+
           </div>
-          <button class="btn-download" onclick="openPdfModal('Starsight Summer \'25', 'Starsight 25\'.pdf')">
-            <i class="fa-solid fa-download"></i> Read / Download PDF
-          </button>
+
+          <!-- Embedded PDF Preview Column (Loads automatically next to text, stacks below on phone) -->
+          <div class="card-viewer-col" id="viewer-summer25">
+            <div class="preview-box-header">
+              <div class="preview-box-title">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Starsight Summer '25 Preview</span>
+              </div>
+              <div class="preview-box-tools">
+                <a href="https://drive.google.com/file/d/1WmZ-BPTzB9PTgqG777UhHNisBb4mh-Nl/view" target="_blank" rel="noopener noreferrer" class="preview-tool-btn" title="Open full in new tab">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <button class="preview-tool-btn" onclick="toggleCardFullscreen('viewer-summer25')" title="Expand Fullscreen">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="preview-iframe-wrapper">
+              <iframe
+                class="preview-pdf-iframe"
+                src="https://drive.google.com/file/d/1WmZ-BPTzB9PTgqG777UhHNisBb4mh-Nl/preview"
+                title="Starsight Summer '25 PDF Preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
         </div>
       </article>
 
       <!-- Issue 2: Summer 24 -->
-      <article class="newsletter-card">
+      <article class="newsletter-card" id="card-summer24">
         <div class="card-top-bar">
           <span class="card-tag tag-archive">Seasonal Edition</span>
           <span class="card-date"><i class="fa-regular fa-calendar"></i> Summer 2024</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Starsight Summer '24</h3>
-          <p class="card-desc">
-            Following tremendous community support, the Summer '24 edition documents May, June, and July activities,
-            recapping insightful talks and student research breakthroughs.
-          </p>
-          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
-          <ul class="highlights-list">
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Summer Talk Summaries:</strong> Comprehensive recaps of astrophysical seminars and classroom
-                talks conducted over the summer.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Student Research Abstracts:</strong> Abstracts and direct pointers to latest research articles
-                written by IBAC core members.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Sky News Digest:</strong> Highlights of rare astronomical events and observation notes from
-                the campus dome observatory.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Did You Know? Section:</strong> Astonishing cosmic facts and curiosities to broaden your
-                scientific horizons.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Game & Puzzle Section:</strong> Brand new astronomical challenge and crosswords for space
-                enthusiasts.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <div class="file-meta">
-            <i class="fa-solid fa-file-pdf"></i>
-            <span>Starsight24summer.pdf</span>
+
+        <div class="card-content-layout">
+          <!-- Text Details Column -->
+          <div class="card-info-col">
+              <h3 class="card-title">Starsight Summer '24</h3>
+              <p class="card-desc">
+                Following tremendous community support, the Summer '24 edition documents May, June, and July activities,
+                recapping insightful talks and student research breakthroughs.
+              </p>
+              <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+              <ul class="highlights-list">
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Summer Talk Summaries:</strong> Comprehensive recaps of astrophysical seminars and classroom
+                    talks conducted over the summer.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Student Research Abstracts:</strong> Abstracts and direct pointers to latest research articles
+                    written by IBAC core members.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Sky News Digest:</strong> Highlights of rare astronomical events and observation notes from
+                    the campus dome observatory.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Did You Know? Section:</strong> Astonishing cosmic facts and curiosities to broaden your
+                    scientific horizons.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Game & Puzzle Section:</strong> Brand new astronomical challenge and crosswords for space
+                    enthusiasts.</span>
+                </li>
+              </ul>
+
+
           </div>
-          <button class="btn-download" onclick="openPdfModal('Starsight Summer \'24', 'Starsight24summer.pdf')">
-            <i class="fa-solid fa-download"></i> Read / Download PDF
-          </button>
+
+          <!-- Embedded PDF Preview Column -->
+          <div class="card-viewer-col" id="viewer-summer24">
+            <div class="preview-box-header">
+              <div class="preview-box-title">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Starsight Summer '24 Preview</span>
+              </div>
+              <div class="preview-box-tools">
+                <a href="https://drive.google.com/file/d/1lqgP8SBiqvFPMgFGVjyUbIXgKxKYjhyR/view" target="_blank" rel="noopener noreferrer" class="preview-tool-btn" title="Open full in new tab">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <button class="preview-tool-btn" onclick="toggleCardFullscreen('viewer-summer24')" title="Expand Fullscreen">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="preview-iframe-wrapper">
+              <iframe
+                class="preview-pdf-iframe"
+                src="https://drive.google.com/file/d/1lqgP8SBiqvFPMgFGVjyUbIXgKxKYjhyR/preview"
+                title="Starsight Summer '24 PDF Preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
         </div>
       </article>
 
       <!-- Issue 3: Sep-Oct 23 -->
-      <article class="newsletter-card">
+      <article class="newsletter-card" id="card-sepoct23">
         <div class="card-top-bar">
           <span class="card-tag tag-archive">Autumn Issue</span>
           <span class="card-date"><i class="fa-regular fa-calendar"></i> Sep – Oct 2023</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Starsight Sep-Oct '23</h3>
-          <p class="card-desc">
-            The platform for budding stargazers and space enthusiasts to delve even deeper into the mysteries of the
-            cosmos and stay attuned to campus astronomical initiatives (think IBAC Pro!).
-          </p>
-          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
-          <ul class="highlights-list">
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Condensed Talk Digests:</strong> Quick-read summaries of guest lectures for students caught in
-                lectures and quizzes.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Livestream Reports:</strong> Special coverages of the Aditya-L1 launch and Chandrayaan-3 lunar
-                landing screenings on campus.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Forthcoming Astronomical Events:</strong> Calendar of conjunctions, meteor showers, and sky
-                alignments.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Fun Trivia & Games:</strong> Teasers of intriguing articles, astrophysics trivia, and
-                skygazing challenges.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <div class="file-meta">
-            <i class="fa-solid fa-file-pdf"></i>
-            <span>Starsight_septOct23.pdf</span>
+
+        <div class="card-content-layout">
+          <!-- Text Details Column -->
+          <div class="card-info-col">
+              <h3 class="card-title">Starsight Sep-Oct '23</h3>
+              <p class="card-desc">
+                The platform for budding stargazers and space enthusiasts to delve even deeper into the mysteries of the
+                cosmos and stay attuned to campus astronomical initiatives (think IBAC Pro!).
+              </p>
+              <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+              <ul class="highlights-list">
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Condensed Talk Digests:</strong> Quick-read summaries of guest lectures for students caught in
+                    lectures and quizzes.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Livestream Reports:</strong> Special coverages of the Aditya-L1 launch and Chandrayaan-3 lunar
+                    landing screenings on campus.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Forthcoming Astronomical Events:</strong> Calendar of conjunctions, meteor showers, and sky
+                    alignments.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Fun Trivia & Games:</strong> Teasers of intriguing articles, astrophysics trivia, and
+                    skygazing challenges.</span>
+                </li>
+              </ul>
+
+
           </div>
-          <button class="btn-download" onclick="openPdfModal('Starsight Sep-Oct \'23', 'Starsight_septOct23.pdf')">
-            <i class="fa-solid fa-download"></i> Read / Download PDF
-          </button>
+
+          <!-- Embedded PDF Preview Column -->
+          <div class="card-viewer-col" id="viewer-sepoct23">
+            <div class="preview-box-header">
+              <div class="preview-box-title">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Starsight Sep-Oct '23 Preview</span>
+              </div>
+              <div class="preview-box-tools">
+                <a href="https://drive.google.com/file/d/1uMvHJj3Zchfn5qfLbRbFIb2ZXrCN7U50/view" target="_blank" rel="noopener noreferrer" class="preview-tool-btn" title="Open full in new tab">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <button class="preview-tool-btn" onclick="toggleCardFullscreen('viewer-sepoct23')" title="Expand Fullscreen">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="preview-iframe-wrapper">
+              <iframe
+                class="preview-pdf-iframe"
+                src="https://drive.google.com/file/d/1uMvHJj3Zchfn5qfLbRbFIb2ZXrCN7U50/preview"
+                title="Starsight Sep-Oct '23 PDF Preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
         </div>
       </article>
 
       <!-- Issue 4: August 23 -->
-      <article class="newsletter-card">
+      <article class="newsletter-card" id="card-august23">
         <div class="card-top-bar">
           <span class="card-tag tag-archive">Inaugural Issue</span>
           <span class="card-date"><i class="fa-regular fa-calendar"></i> August 2023</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Starsight August '23</h3>
-          <p class="card-desc">
-            The inaugural edition of Starsight that ignited IBAC's newsletter tradition! Featuring introductory essays,
-            observatory equipment features, and community spotlights.
-          </p>
-          <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
-          <ul class="highlights-list">
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>The Launch of Starsight:</strong> Establishing an open astronomical dialogue across IISER
-                Bhopal.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Observatory Showcase:</strong> Insights into our 14-inch Cassegrain telescope and Dobsonian
-                "Dobby".</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Planetary Viewing Guides:</strong> Beginner tutorials on observing Saturn's rings and Jupiter's
-                Galilean moons.</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-chevron-right"></i>
-              <span><strong>Student Astrophotography:</strong> The inaugural portfolio of lunar craters and stellar
-                clusters.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <div class="file-meta">
-            <i class="fa-solid fa-file-pdf"></i>
-            <span>Starsight August 2023.pdf</span>
+
+        <div class="card-content-layout">
+          <!-- Text Details Column -->
+          <div class="card-info-col">
+              <h3 class="card-title">Starsight August '23</h3>
+              <p class="card-desc">
+                The inaugural edition of Starsight that ignited IBAC's newsletter tradition! Featuring introductory essays,
+                observatory equipment features, and community spotlights.
+              </p>
+              <div class="highlights-title"><i class="fa-solid fa-list-check"></i> Featured Topics</div>
+              <ul class="highlights-list">
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>The Launch of Starsight:</strong> Establishing an open astronomical dialogue across IISER
+                    Bhopal.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Observatory Showcase:</strong> Insights into our 14-inch Cassegrain telescope and Dobsonian
+                    "Dobby".</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Planetary Viewing Guides:</strong> Beginner tutorials on observing Saturn's rings and Jupiter's
+                    Galilean moons.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span><strong>Student Astrophotography:</strong> The inaugural portfolio of lunar craters and stellar
+                    clusters.</span>
+                </li>
+              </ul>
+
+
           </div>
-          <button class="btn-download" onclick="openPdfModal('Starsight August \'23', 'Starsight August 2023.pdf')">
-            <i class="fa-solid fa-download"></i> Read / Download PDF
-          </button>
+
+          <!-- Embedded PDF Preview Column -->
+          <div class="card-viewer-col" id="viewer-august23">
+            <div class="preview-box-header">
+              <div class="preview-box-title">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Starsight August '23 Preview</span>
+              </div>
+              <div class="preview-box-tools">
+                <a href="https://drive.google.com/file/d/1qm50CTNmyky-Z8OFNuDlUrKG2qxhB7Cq/view" target="_blank" rel="noopener noreferrer" class="preview-tool-btn" title="Open full in new tab">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <button class="preview-tool-btn" onclick="toggleCardFullscreen('viewer-august23')" title="Expand Fullscreen">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="preview-iframe-wrapper">
+              <iframe
+                class="preview-pdf-iframe"
+                src="https://drive.google.com/file/d/1qm50CTNmyky-Z8OFNuDlUrKG2qxhB7Cq/preview"
+                title="Starsight August '23 PDF Preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
         </div>
       </article>
-
-    </div>
-
     <!-- Pitch / Contribute Callout -->
     <div class="contribute-box">
       <i class="fa-solid fa-pen-fancy"></i>
@@ -1087,27 +1228,6 @@
       </a>
     </div>
   </main>
-
-  <!-- PDF Modal Notice -->
-  <div class="notice-modal" id="pdfModal">
-    <div class="modal-box">
-      <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
-      <div class="modal-icon">
-        <i class="fa-solid fa-file-pdf"></i>
-      </div>
-      <h4 id="modalIssueTitle">Starsight Issue</h4>
-      <p id="modalIssueDesc">
-        You are accessing the archived PDF copy. If the campus intranet copy is currently syncing, you can also access
-        issue digests directly via the newsletter subscription mailing list.
-      </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a id="modalIssueLink" href="#" target="_blank" class="sub-btn-primary">
-          <i class="fa-solid fa-up-right-from-square"></i> Open Issue File
-        </a>
-        <button class="btn-download" onclick="closePdfModal()">Close</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="footer" id="contact">
@@ -1188,33 +1308,36 @@
       });
     }
 
-    // Modal logic
-    function openPdfModal(title, filename) {
-      const modal = document.getElementById('pdfModal');
-      const modalTitle = document.getElementById('modalIssueTitle');
-      const modalLink = document.getElementById('modalIssueLink');
-      const modalDesc = document.getElementById('modalIssueDesc');
+    // Fullscreen toggle for embedded preview box
+    function toggleCardFullscreen(viewerId) {
+      const viewer = document.getElementById(viewerId);
+      if (!viewer) return;
 
-      modalTitle.textContent = title;
-      modalDesc.textContent = `Accessing ${filename}. You can view the document or subscribe to receive upcoming copies automatically.`;
-      modalLink.href = 'https://forms.gle/XQXwA9U4BSzuxuBT9';
-      modalLink.innerHTML = '<i class="fa-solid fa-envelope"></i> Subscribe to Starsight';
-      modal.classList.add('active');
-    }
-
-    function closePdfModal() {
-      const modal = document.getElementById('pdfModal');
-      if (modal) {
-        modal.classList.remove('active');
+      if (!document.fullscreenElement) {
+        if (viewer.requestFullscreen) {
+          viewer.requestFullscreen();
+        } else if (viewer.webkitRequestFullscreen) {
+          viewer.webkitRequestFullscreen();
+        } else if (viewer.msRequestFullscreen) {
+          viewer.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
       }
     }
 
-    window.onclick = function (event) {
-      const modal = document.getElementById('pdfModal');
-      if (event.target === modal) {
-        closePdfModal();
-      }
-    };
+    document.addEventListener('fullscreenchange', () => {
+      document.querySelectorAll('.preview-tool-btn, .btn-action-secondary').forEach(btn => {
+        const icon = btn.querySelector('i.fa-expand, i.fa-compress');
+        if (icon) {
+          icon.className = document.fullscreenElement ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
+        }
+      });
+    });
   </script>
 </body>
 
