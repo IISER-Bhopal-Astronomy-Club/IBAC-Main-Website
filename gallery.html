@@ -841,6 +841,61 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .gallery-footer-tag {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      background: rgba(0, 198, 255, 0.08);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 8px;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .gallery-footer-tag i {
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(4, 11, 25, 0.88);
+      border: 1px solid rgba(0, 198, 255, 0.55);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 20;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--accent-cyan);
+      color: #040b19;
+      box-shadow: 0 0 16px var(--accent-cyan);
+    }
+
+    .lightbox-nav-prev {
+      left: 15px;
+    }
+
+    .lightbox-nav-next {
+      right: 15px;
+    }
+
   </style>
 </head>
 
@@ -891,9 +946,9 @@
         Immerse yourself in celestial vistas, deep sky wonders, planetary portraits, and community stargazing sessions
         conducted through IBAC's observatory dome and portable telescopes across IISER Bhopal.
       </p>
-      <div class="stock-notice">
-        <i class="fa-solid fa-circle-info"></i>
-        <span>Showcase imagery: Curated stock demonstration frames ready to be updated with raw club observatory captures.</span>
+      <div class="stock-notice" style="border-color: rgba(0, 198, 255, 0.45); background: rgba(0, 86, 179, 0.22);">
+        <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i>
+        <span>Official Observational Archive: Authentic captures from the IISER Bhopal Astronomy Club observatory, telescopic sessions, and campus events.</span>
       </div>
     </div>
   </section>
@@ -903,72 +958,67 @@
     <div class="carousel-wrapper">
       <div class="carousel-slides-container" id="carouselSlides">
 
-        <!-- Slide 1 -->
-        <div class="carousel-slide active" data-title="Deep Space Emission Nebula"
-          data-desc="Deep cosmic nebulae showcasing ionizing hydrogen clouds and interstellar star-forming nurseries, demonstrating deep sky imaging capabilities.">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E" alt="Deep Sky Nebula Astrophotography">
+        <!-- Slide 1: Orion Nebula -->
+        <div class="carousel-slide active" data-title="Orion Nebula (M42) Astrophotography"
+          data-desc="Long-exposure telescopic capture of Messier 42 Orion Nebula revealing cosmic ionization clouds and star-forming regions from Jaisalmer, Rajasthan.">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(6).jpg" alt="Orion Nebula Astrophotography">
           <div class="carousel-overlay">
-            <span class="slide-badge"><i class="fa-solid fa-star"></i> Deep Sky & Nebulae</span>
-            <h3 class="slide-title">Cosmic Emission Nebula & Star Nurseries</h3>
+            <span class="slide-badge"><i class="fa-solid fa-star"></i> Deep Sky &amp; Nebulae</span>
+            <h3 class="slide-title">Orion Nebula (M42) Astrophotography</h3>
             <p class="slide-desc">
-              Long-exposure astrophotography revealing cosmic dust filaments, ionized hydrogen gas, and newborn stellar
-              clusters deep within the interstellar medium.
+              Long-exposure telescopic capture of Messier 42 Orion Nebula revealing cosmic ionization clouds and star-forming regions from Jaisalmer, Rajasthan.
             </p>
           </div>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="carousel-slide" data-title="IBAC Campus Dome Under the Stars"
-          data-desc="Nighttime silhouette of the campus observatory dome facility housing the 14-inch Cassegrain telescope under a brilliant Milky Way sky.">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E" alt="Observatory Dome Night Sky">
+        <!-- Slide 2: 14" Telescope Dome -->
+        <div class="carousel-slide" data-title="14-Inch Telescope Dome Facility atop AB-1"
+          data-desc="Dedicated campus observatory dome facility atop Academic Block 1 housing IISER Bhopal's 14-inch research-grade telescope.">
+          <img src="images/Gallary/Observatory & Equipment/unnamed(7).jpg" alt="14-Inch Telescope Dome Facility">
           <div class="carousel-overlay">
             <span class="slide-badge"><i class="fa-solid fa-landmark"></i> Observatory Facility</span>
-            <h3 class="slide-title">Campus Observatory Dome Under the Milky Way</h3>
+            <h3 class="slide-title">14" Telescope Dome Facility atop AB-1</h3>
             <p class="slide-desc">
-              Housed atop the IISER Bhopal campus, our professional dome facility safeguards the 14-inch Cassegrain
-              telescope with a German Equatorial mount.
+              Dedicated campus observatory dome facility atop Academic Block 1 housing IISER Bhopal's 14-inch research-grade telescope.
             </p>
           </div>
         </div>
 
-        <!-- Slide 3 -->
-        <div class="carousel-slide" data-title="Telescopic Lunar Craters & Terminator"
-          data-desc="Ultra high-resolution telescopic lunar photography captured through our 6-inch Newtonian Dobsonian 'Dobby', highlighting rugged crater rims.">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E" alt="Lunar Craters High-Resolution">
+        <!-- Slide 3: Ascent of Moon -->
+        <div class="carousel-slide" data-title="Ascent of the Moon During Lunar Eclipse"
+          data-desc="Telescopic astrophotography documenting the dramatic ascent and atmospheric refraction of the Moon during the lunar eclipse.">
+          <img src="images/Gallary/Solar System & Moon/unnamed(11).jpg" alt="Ascent of Moon During Lunar Eclipse">
           <div class="carousel-overlay">
-            <span class="slide-badge"><i class="fa-solid fa-moon"></i> Solar System Targets</span>
-            <h3 class="slide-title">The Moon Through Our 6-Inch 'Dobby'</h3>
+            <span class="slide-badge"><i class="fa-solid fa-moon"></i> Solar System &amp; Moon</span>
+            <h3 class="slide-title">Ascent of the Moon During Lunar Eclipse</h3>
             <p class="slide-desc">
-              Sharp topographic detail along the lunar terminator line, bringing Tycho, Copernicus, and rugged mountain
-              ranges into crystal focus for campus observers.
+              Telescopic astrophotography documenting the dramatic ascent and atmospheric refraction of the Moon during the lunar eclipse.
             </p>
           </div>
         </div>
 
-        <!-- Slide 4 -->
-        <div class="carousel-slide" data-title="Saturn and the Cassini Division"
-          data-desc="Planetary astrophotography revealing Saturn's majestic ring system, Cassini division, and atmospheric banding.">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E" alt="Saturn Rings Planetary Observation">
+        <!-- Slide 4: Sun During Partial Solar Eclipse -->
+        <div class="carousel-slide" data-title="Sun During Partial Solar Eclipse via 'Dobby'"
+          data-desc="Solar disc captured with safety solar filtration through our 6-inch Newtonian Dobsonian telescope 'Dobby' during the eclipse.">
+          <img src="images/Gallary/Solar System & Moon/unnamed(3).jpg" alt="Sun During Partial Solar Eclipse">
           <div class="carousel-overlay">
-            <span class="slide-badge"><i class="fa-solid fa-ring"></i> Planetary System</span>
-            <h3 class="slide-title">Saturn & Its Majestic Ring System</h3>
+            <span class="slide-badge"><i class="fa-solid fa-sun"></i> Solar Observation</span>
+            <h3 class="slide-title">Sun During Partial Solar Eclipse via "Dobby"</h3>
             <p class="slide-desc">
-              Planetary imaging capturing the breathtaking Cassini Division and cloud bands, a favorite celestial highlight
-              during IISERB open-house stargazing camps.
+              Solar disc captured with safety solar filtration through our 6-inch Newtonian Dobsonian telescope "Dobby" during the eclipse.
             </p>
           </div>
         </div>
 
-        <!-- Slide 5 -->
-        <div class="carousel-slide" data-title="Campus Night Stargazing Camp"
-          data-desc="IISER Bhopal students gathered around telescopes for night-sky stargazing, constellation hunting, and astrophotography sessions.">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E" alt="Campus Stargazing Camp">
+        <!-- Slide 5: Campus Stargazing Camp -->
+        <div class="carousel-slide" data-title="Campus Solar & Night Sky Observation Camps"
+          data-desc="Students and club members gathered for solar observation and campus stargazing camps across IISER Bhopal.">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(14).jpg" alt="Campus Solar & Night Sky Observation Camps">
           <div class="carousel-overlay">
             <span class="slide-badge"><i class="fa-solid fa-users"></i> Campus Stargazing Camp</span>
-            <h3 class="slide-title">Community Sky Observation Nights</h3>
+            <h3 class="slide-title">Campus Solar &amp; Night Sky Observation Camps</h3>
             <p class="slide-desc">
-              Bringing science to life — students and enthusiasts exploring the night sky, peering through binoculars and
-              Dobsonians under Bhopal's cosmic canopy.
+              Students and club members gathered for solar observation and campus stargazing camps across IISER Bhopal.
             </p>
           </div>
         </div>
@@ -986,19 +1036,19 @@
       <!-- Thumbnails Strip -->
       <div class="carousel-thumbs" id="carouselThumbs">
         <div class="thumb-item active" onclick="jumpToSlide(0)">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E" alt="Thumb Deep Sky">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(6).jpg" alt="Thumb Orion Nebula">
         </div>
         <div class="thumb-item" onclick="jumpToSlide(1)">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E" alt="Thumb Observatory">
+          <img src="images/Gallary/Observatory & Equipment/unnamed(7).jpg" alt="Thumb Observatory Dome">
         </div>
         <div class="thumb-item" onclick="jumpToSlide(2)">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E" alt="Thumb Moon">
+          <img src="images/Gallary/Solar System & Moon/unnamed(11).jpg" alt="Thumb Ascent of Moon">
         </div>
         <div class="thumb-item" onclick="jumpToSlide(3)">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E" alt="Thumb Saturn">
+          <img src="images/Gallary/Solar System & Moon/unnamed(3).jpg" alt="Thumb Partial Eclipse">
         </div>
         <div class="thumb-item" onclick="jumpToSlide(4)">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E" alt="Thumb Camp">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(14).jpg" alt="Thumb Campus Session">
         </div>
       </div>
     </div>
@@ -1006,139 +1056,1067 @@
 
   <!-- Filter Bar -->
   <div class="gallery-filter-wrap">
-    <button class="filter-btn active" data-filter="all">All Showcase Captures</button>
-    <button class="filter-btn" data-filter="deep-sky">Deep Sky & Nebulae</button>
-    <button class="filter-btn" data-filter="solar-system">Solar System & Moon</button>
-    <button class="filter-btn" data-filter="observatory">Observatory & Equipment</button>
-    <button class="filter-btn" data-filter="events">Campus Stargazing & Events</button>
+    <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> All Captures (34)</button>
+    <button class="filter-btn" data-filter="deep-sky"><i class="fa-solid fa-star"></i> Deep Sky &amp; Nebulae (4)</button>
+    <button class="filter-btn" data-filter="solar-system"><i class="fa-solid fa-moon"></i> Solar System &amp; Moon (8)</button>
+    <button class="filter-btn" data-filter="observatory"><i class="fa-solid fa-landmark"></i> Observatory &amp; Equipment (1)</button>
+    <button class="filter-btn" data-filter="events"><i class="fa-solid fa-users"></i> Campus Stargazing &amp; Events (21)</button>
   </div>
 
   <!-- Gallery Grid -->
   <main class="gallery-container">
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- Item 1: Deep Sky -->
+      <!-- Item 1: Andromeda Galaxy (M31) -->
       <div class="gallery-item" data-category="deep-sky"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E', 'Cosmic Emission Nebula & Star Nurseries', 'High-gain astrophotographic capture of gaseous ionization zones and bright young star clusters in deep space.')">
+        data-img="images/Gallary/Deep Sky & Nebulae/unnamed(1).jpg"
+        data-title="Andromeda Galaxy (M31)"
+        data-desc="Deep space capture of our neighboring Andromeda Galaxy (Messier 31) revealing spiral structure and galactic core."
+        data-badge="Deep Sky"
+        data-badge-icon="fa-solid fa-star"
+        data-meta="<i class='fa-solid fa-star'></i> Deep Space Capture &amp;bull; <i class='fa-regular fa-calendar'></i> 12/12/2019"
+        data-archive="Andromeda Galaxy 12/12/2019">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22nb1%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c0736%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23080214%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23020008%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow1%22%20cx%3D%2242%25%22%20cy%3D%2245%25%22%20r%3D%2235%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%28255%2C%2045%2C%20120%2C%200.45%29%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22rgba%28140%2C%2020%2C%20255%2C%200.15%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22glow2%22%20cx%3D%2262%25%22%20cy%3D%2252%25%22%20r%3D%2232%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20210%2C%20255%2C%200.4%29%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22rgba%280%2C%2060%2C%20200%2C%200.1%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22dust%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%2230%25%22%20stop-color%3D%22transparent%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22rgba%28255%2C%20180%2C%2050%2C%200.18%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22transparent%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nb1%29%22/%3E%20%3Ccircle%20cx%3D%22500%22%20cy%3D%22320%22%20r%3D%22340%22%20fill%3D%22url%28%23glow1%29%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22380%22%20r%3D%22280%22%20fill%3D%22url%28%23glow2%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23dust%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2290%22%20r%3D%221.5%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22180%22%20r%3D%222%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22110%22%20r%3D%221.2%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%22820%22%20cy%3D%2280%22%20r%3D%222.5%22%20opacity%3D%220.95%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22210%22%20r%3D%221%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22130%22%20r%3D%221.8%22%20opacity%3D%220.8%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22460%22%20r%3D%221.2%22%20opacity%3D%220.7%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22560%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22310%22%20r%3D%223.2%22%20opacity%3D%221%22/%3E%20%3Ccircle%20cx%3D%22550%22%20cy%3D%22270%22%20r%3D%222.2%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22340%22%20r%3D%223%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22520%22%20r%3D%221.5%22%20opacity%3D%220.75%22/%3E%20%3Ccircle%20cx%3D%221040%22%20cy%3D%22480%22%20r%3D%222%22%20opacity%3D%220.85%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIBARG%20DEEP%20SPACE%20CAPTURE%20ARCHIVE%20%26bull%3B%2014%26quot%3B%20CASSEGRAIN%20GEM%3C/text%3E%20%3C/svg%3E" alt="Deep Space Nebula">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(1).jpg" alt="Andromeda Galaxy (M31)" loading="lazy">
           <span class="gallery-badge"><i class="fa-solid fa-star"></i> Deep Sky</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Cosmic Emission Nebula</h4>
-            <p class="gallery-item-desc">
-              Long-exposure stack resolving nebulous hydrogen-alpha glow and fine stellar dust lanes.
-            </p>
+            <h4 class="gallery-item-title">Andromeda Galaxy (M31)</h4>
+            <p class="gallery-item-desc">Deep space capture of our neighboring Andromeda Galaxy (Messier 31) revealing spiral structure and galactic core.</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-crosshairs"></i> 14" Cassegrain GEM</span>
-            <span><i class="fa-regular fa-image"></i> High-Res</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Deep Space Capture</span>
+              <span><i class="fa-regular fa-calendar"></i> 12/12/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Andromeda Galaxy 12/12/2019</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Item 2: Observatory Night -->
+      <!-- Item 2: Orion and Taurus Constellations -->
+      <div class="gallery-item" data-category="deep-sky"
+        data-img="images/Gallary/Deep Sky & Nebulae/unnamed(2).jpg"
+        data-title="Orion and Taurus Constellations"
+        data-desc="Wide-field astrophotography showcasing the rich stellar field of Orion and Taurus against the winter sky."
+        data-badge="Constellation"
+        data-badge-icon="fa-solid fa-star"
+        data-meta="<i class='fa-solid fa-star'></i> Wide-Field Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 25/01/2020"
+        data-archive="Orion and Taurus 25/01/2020">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(2).jpg" alt="Orion and Taurus Constellations" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-star"></i> Constellation</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Orion and Taurus Constellations</h4>
+            <p class="gallery-item-desc">Wide-field astrophotography showcasing the rich stellar field of Orion and Taurus against the winter sky.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Wide-Field Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 25/01/2020</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Orion and Taurus 25/01/2020</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Orion Nebula (M42) -->
+      <div class="gallery-item" data-category="deep-sky"
+        data-img="images/Gallary/Deep Sky & Nebulae/unnamed(6).jpg"
+        data-title="Orion Nebula (M42)"
+        data-desc="Stunning emission nebula capture resolving luminous interstellar gas clouds and stellar nurseries."
+        data-badge="Deep Sky Nebula"
+        data-badge-icon="fa-solid fa-star"
+        data-meta="<i class='fa-solid fa-star'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 19/12/2019"
+        data-archive="Orion Nebula 19/12/2019 From Jaiselmer, Rajasthan">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(6).jpg" alt="Orion Nebula (M42)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-star"></i> Deep Sky Nebula</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Orion Nebula (M42)</h4>
+            <p class="gallery-item-desc">Stunning emission nebula capture resolving luminous interstellar gas clouds and stellar nurseries.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 19/12/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Orion Nebula 19/12/2019 From Jaiselmer, Rajasthan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Orion Nebula Core (M42) -->
+      <div class="gallery-item" data-category="deep-sky"
+        data-img="images/Gallary/Deep Sky & Nebulae/unnamed(15).jpg"
+        data-title="Orion Nebula Core (M42)"
+        data-desc="High magnification view of the Trapezium cluster region and ionization nebulosity inside the Orion Nebula."
+        data-badge="Deep Sky Nebula"
+        data-badge-icon="fa-solid fa-star"
+        data-meta="<i class='fa-solid fa-star'></i> Telescopic Capture &amp;bull; <i class='fa-regular fa-calendar'></i> Astrophotography Archive"
+        data-archive="Orion Nebula">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Deep Sky & Nebulae/unnamed(15).jpg" alt="Orion Nebula Core (M42)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-star"></i> Deep Sky Nebula</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Orion Nebula Core (M42)</h4>
+            <p class="gallery-item-desc">High magnification view of the Trapezium cluster region and ionization nebulosity inside the Orion Nebula.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Capture</span>
+              <span><i class="fa-regular fa-calendar"></i> Astrophotography Archive</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Orion Nebula</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: 14" Telescope Dome atop AB-1 -->
       <div class="gallery-item" data-category="observatory"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E', 'Campus Observatory Dome Under Milky Way', 'The dome facility at IISER Bhopal beneath a star-strewn galactic core, housing the research telescope.')">
+        data-img="images/Gallary/Observatory & Equipment/unnamed(7).jpg"
+        data-title="14&quot; Telescope Dome atop AB-1"
+        data-desc="The primary campus astronomical observatory dome facility atop Academic Block 1 (AB-1) housing our 14-inch research telescope."
+        data-badge="Observatory"
+        data-badge-icon="fa-solid fa-landmark"
+        data-meta="<i class='fa-solid fa-landmark'></i> 14&quot; Cassegrain GEM Dome &amp;bull; <i class='fa-regular fa-calendar'></i> Campus Observatory"
+        data-archive="14&quot; Telescope Dome atop AB-1">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E" alt="Observatory Under Night Sky">
-          <span class="gallery-badge"><i class="fa-solid fa-landmark"></i> Facility</span>
+          <img src="images/Gallary/Observatory & Equipment/unnamed(7).jpg" alt="14&quot; Telescope Dome atop AB-1" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-landmark"></i> Observatory</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Dome Facility at IISERB</h4>
-            <p class="gallery-item-desc">
-              Night scape capturing the observatory dome engineered for university-level astrophysical observations.
-            </p>
+            <h4 class="gallery-item-title">14" Telescope Dome atop AB-1</h4>
+            <p class="gallery-item-desc">The primary campus astronomical observatory dome facility atop Academic Block 1 (AB-1) housing our 14-inch research telescope.</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Above CDH, IISERB</span>
-            <span><i class="fa-solid fa-eye"></i> Stargazing Dome</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> 14" Cassegrain GEM Dome</span>
+              <span><i class="fa-regular fa-calendar"></i> Campus Observatory</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>14" Telescope Dome atop AB-1</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Item 3: Moon Craters -->
+      <!-- Item 6: Snow Moon (Full Moon) -->
       <div class="gallery-item" data-category="solar-system"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E', 'The Moon Through Our 6-Inch Dobsonian', 'Detailed topographic lunar capture showing impact craters and ejecta blankets along the terminator.')">
+        data-img="images/Gallary/Solar System & Moon/unnamed.jpg"
+        data-title="Snow Moon (Full Moon)"
+        data-desc="Full disc capture of February&#x27;s Snow Moon highlighting lunar maria, highland contrast, and rayed craters."
+        data-badge="Lunar"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 19/02/2019"
+        data-archive="Snow Moon 19/02/2019">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22spaceDeep%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23080c14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010307%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarSurface%22%20cx%3D%2235%25%22%20cy%3D%2235%25%22%20r%3D%2265%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f3f8%22/%3E%3Cstop%20offset%3D%2265%25%22%20stop-color%3D%22%239aa5b5%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234a5360%22/%3E%3C/radialGradient%3E%20%3CradialGradient%20id%3D%22lunarShadow%22%20cx%3D%2280%25%22%20cy%3D%2275%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%285%2C%207%2C%2012%2C%200.95%29%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22rgba%2810%2C%2015%2C%2025%2C%200.4%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23spaceDeep%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.6%22%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%2280%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22190%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22950%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221080%22%20cy%3D%22300%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22550%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221040%22%20cy%3D%22590%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Moon%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarSurface%29%22/%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22350%22%20r%3D%22220%22%20fill%3D%22url%28%23lunarShadow%29%22/%3E%20%3C%21--%20Craters%20--%3E%20%3Cellipse%20cx%3D%22520%22%20cy%3D%22300%22%20rx%3D%2235%22%20ry%3D%2230%22%20fill%3D%22%23758296%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22580%22%20cy%3D%22400%22%20rx%3D%2245%22%20ry%3D%2238%22%20fill%3D%22%23606c80%22%20opacity%3D%220.7%22/%3E%20%3Cellipse%20cx%3D%22660%22%20cy%3D%22280%22%20rx%3D%2225%22%20ry%3D%2222%22%20fill%3D%22%23505b6e%22%20opacity%3D%220.65%22/%3E%20%3Cellipse%20cx%3D%22480%22%20cy%3D%22420%22%20rx%3D%2228%22%20ry%3D%2224%22%20fill%3D%22%236b778c%22%20opacity%3D%220.6%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ELUNAR%20TOPOGRAPHY%20%26bull%3B%206%26quot%3B%20DOBSONIAN%20%27DOBBY%27%3C/text%3E%20%3C/svg%3E" alt="Lunar Craters Close-Up">
-          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Solar System</span>
+          <img src="images/Gallary/Solar System & Moon/unnamed.jpg" alt="Snow Moon (Full Moon)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Lunar</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Lunar Surface & Craters</h4>
-            <p class="gallery-item-desc">
-              Pristine focus through the 6-inch Dobsonian "Dobby", resolving mountainous ejecta rims.
-            </p>
+            <h4 class="gallery-item-title">Snow Moon (Full Moon)</h4>
+            <p class="gallery-item-desc">Full disc capture of February's Snow Moon highlighting lunar maria, highland contrast, and rayed craters.</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-crosshairs"></i> 6" Newtonian "Dobby"</span>
-            <span><i class="fa-solid fa-camera"></i> Eyepiece Projection</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 19/02/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Snow Moon 19/02/2019</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Item 4: Saturn Rings -->
+      <!-- Item 7: Sun During Partial Solar Eclipse -->
       <div class="gallery-item" data-category="solar-system"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E', 'Saturn & Cassini Ring Division', 'Planetary capture highlighting the ring structure, shadow of the planet on the rings, and cloud atmospheric bands.')">
+        data-img="images/Gallary/Solar System & Moon/unnamed(3).jpg"
+        data-title="Sun During Partial Solar Eclipse"
+        data-desc="Solar disc during the partial solar eclipse, captured using solar safety filtration on our 6-inch Dobsonian &quot;Dobby&quot;."
+        data-badge="Solar Eclipse"
+        data-badge-icon="fa-solid fa-sun"
+        data-meta="<i class='fa-solid fa-sun'></i> 6&quot; Dobsonian &quot;Dobby&quot; &amp;bull; <i class='fa-regular fa-calendar'></i> 25/10/2022"
+        data-archive="Sun during a partial solar eclipse taken from Dobby 25/10/2022.">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22deepVoid%22%20cx%3D%2250%25%22%20cy%3D%2250%25%22%20r%3D%2275%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230a0a14%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23010105%22/%3E%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22saturnBody%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e3cb98%22/%3E%3Cstop%20offset%3D%2240%25%22%20stop-color%3D%22%23cbb17b%22/%3E%3Cstop%20offset%3D%2270%25%22%20stop-color%3D%22%23b09562%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238c7344%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23deepVoid%29%22/%3E%20%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.7%22%3E%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22100%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22220%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22420%22%20cy%3D%2290%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22890%22%20cy%3D%22110%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22240%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22520%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22980%22%20cy%3D%22540%22%20r%3D%222%22/%3E%20%3C/g%3E%20%3C%21--%20Back%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22340%22%20ry%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.75%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22300%22%20ry%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%22270%22%20ry%3D%2246%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.6%22/%3E%20%3C/g%3E%20%3C%21--%20Planet%20Body%20--%3E%20%3Ccircle%20cx%3D%22600%22%20cy%3D%22340%22%20r%3D%22115%22%20fill%3D%22url%28%23saturnBody%29%22/%3E%20%3C%21--%20Front%20Rings%20--%3E%20%3Cg%20transform%3D%22translate%28600%2C%20340%29%20rotate%28-18%29%22%3E%20%3Cpath%20d%3D%22M%20-340%200%20A%20340%2060%200%200%200%20340%200%22%20fill%3D%22none%22%20stroke%3D%22%23d5be8a%22%20stroke-width%3D%2226%22%20opacity%3D%220.9%22/%3E%20%3Cpath%20d%3D%22M%20-300%200%20A%20300%2052%200%200%200%20300%200%22%20fill%3D%22none%22%20stroke%3D%22%23010105%22%20stroke-width%3D%226%22/%3E%20%3Cpath%20d%3D%22M%20-270%200%20A%20270%2046%200%200%200%20270%200%22%20fill%3D%22none%22%20stroke%3D%22%23ba9e68%22%20stroke-width%3D%2216%22%20opacity%3D%220.7%22/%3E%20%3C/g%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EPLANETARY%20ASTROPHOTOGRAPHY%20%26bull%3B%20CASSINI%20DIVISION%3C/text%3E%20%3C/svg%3E" alt="Saturn Planetary Imaging">
-          <span class="gallery-badge"><i class="fa-solid fa-ring"></i> Planetary</span>
+          <img src="images/Gallary/Solar System & Moon/unnamed(3).jpg" alt="Sun During Partial Solar Eclipse" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Solar Eclipse</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Saturn & Its Rings</h4>
-            <p class="gallery-item-desc">
-              Magnified planetary view showcasing the Cassini Division and subtle yellowish atmospheric clouds.
-            </p>
+            <h4 class="gallery-item-title">Sun During Partial Solar Eclipse</h4>
+            <p class="gallery-item-desc">Solar disc during the partial solar eclipse, captured using solar safety filtration on our 6-inch Dobsonian "Dobby".</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-crosshairs"></i> High-Power Planetary Stack</span>
-            <span><i class="fa-solid fa-circle-nodes"></i> Solar System</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> 6" Dobsonian "Dobby"</span>
+              <span><i class="fa-regular fa-calendar"></i> 25/10/2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Sun during a partial solar eclipse taken from Dobby 25/10/2022.</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Item 5: Stargazing Camp -->
-      <div class="gallery-item" data-category="events"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E', 'Community Night Stargazing Camp', 'IISER Bhopal students gathered on the field with telescopes and binoculars during the annual astronomical observation camp.')">
+      <!-- Item 8: Waxing Gibbous Moon -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(4).jpg"
+        data-title="Waxing Gibbous Moon"
+        data-desc="High-contrast lunar portrait showing rugged mountain ranges and crater shadows along the lunar terminator line."
+        data-badge="Lunar"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 04/02/2020"
+        data-archive="Moon 04/02/2020">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22nightSky%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020512%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%23071b38%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a2c52%22/%3E%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23nightSky%29%22/%3E%20%3C%21--%20Constellation%20lines%20--%3E%20%3Cg%20stroke%3D%22rgba%280%2C%20229%2C%20255%2C%200.45%29%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%223%2C3%22%20fill%3D%22none%22%3E%20%3Cpolyline%20points%3D%22280%2C140%20340%2C110%20410%2C160%20480%2C130%20520%2C200%22/%3E%20%3Cpolyline%20points%3D%22720%2C100%20800%2C70%20860%2C130%20940%2C90%20990%2C170%22/%3E%20%3C/g%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22140%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22110%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%223.2%22/%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22200%22%20r%3D%223%22/%3E%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22100%22%20r%3D%222.5%22/%3E%3Ccircle%20cx%3D%22800%22%20cy%3D%2270%22%20r%3D%223.5%22/%3E%3Ccircle%20cx%3D%22860%22%20cy%3D%22130%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22940%22%20cy%3D%2290%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22170%22%20r%3D%222.5%22/%3E%20%3C%21--%20random%20stars%20--%3E%20%3Ccircle%20cx%3D%22120%22%20cy%3D%2280%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%22120%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%221060%22%20cy%3D%22320%22%20r%3D%221.5%22/%3E%20%3C/g%3E%20%3C%21--%20Hill%20%26%20Telescope%20Observers%20Silhouette%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20Q%20400%20500%20800%20530%20T%201200%20520%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Telescope%20on%20tripod%20--%3E%20%3Cline%20x1%3D%22560%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22620%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%224%22/%3E%20%3Cline%20x1%3D%22590%22%20y1%3D%22560%22%20x2%3D%22590%22%20y2%3D%22460%22%20stroke%3D%22%2300e5ff%22%20stroke-width%3D%223%22/%3E%20%3Crect%20x%3D%22540%22%20y%3D%22440%22%20width%3D%22100%22%20height%3D%2224%22%20rx%3D%226%22%20transform%3D%22rotate%28-30%20590%20452%29%22%20fill%3D%22%23cceeff%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3ECAMPUS%20STARGAZING%20COMMUNITY%20%26bull%3B%20CAMPUS%20OBSERVATION%3C/text%3E%20%3C/svg%3E" alt="Campus Stargazing Camp">
-          <span class="gallery-badge"><i class="fa-solid fa-users"></i> Campus Event</span>
+          <img src="images/Gallary/Solar System & Moon/unnamed(4).jpg" alt="Waxing Gibbous Moon" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Lunar</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Campus Stargazing Camp</h4>
-            <p class="gallery-item-desc">
-              Enthusiastic students exploring planets, deep-sky targets, and constellations under expert club guidance.
-            </p>
+            <h4 class="gallery-item-title">Waxing Gibbous Moon</h4>
+            <p class="gallery-item-desc">High-contrast lunar portrait showing rugged mountain ranges and crater shadows along the lunar terminator line.</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-binoculars"></i> Olympus & Nikon Optics</span>
-            <span><i class="fa-solid fa-people-group"></i> Campus Night</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 04/02/2020</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Moon 04/02/2020</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Item 6: Solar Eclipse & Sun Observation -->
-      <div class="gallery-item" data-category="events"
-        onclick="openLightbox('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E', 'Solar Eclipse Observation Session', 'Specialized solar projection and filter observations conducted safely for the campus community during solar eclipses.')">
+      <!-- Item 9: Annular Solar Eclipse -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(5).jpg"
+        data-title="Annular Solar Eclipse"
+        data-desc="Solar eclipse capture showing the solar crescent through specialized solar filtering equipment."
+        data-badge="Solar Eclipse"
+        data-badge-icon="fa-solid fa-sun"
+        data-meta="<i class='fa-solid fa-sun'></i> Solar Filtered Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 21/06/2020"
+        data-archive="Solar Eclipse 21/06/2020 From Surat, Gujarat">
         <div class="gallery-img-wrap">
-          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20700%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22skyGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23020814%22/%3E%3Cstop%20offset%3D%2260%25%22%20stop-color%3D%22%23051a36%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23082b4c%22/%3E%3C/linearGradient%3E%20%3CradialGradient%20id%3D%22aurora%22%20cx%3D%2250%25%22%20cy%3D%22100%25%22%20r%3D%2260%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22rgba%280%2C%20229%2C%20255%2C%200.28%29%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22transparent%22/%3E%3C/radialGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23skyGrad%29%22/%3E%20%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23aurora%29%22/%3E%20%3C%21--%20Milky%20Way%20band%20--%3E%20%3Cpath%20d%3D%22M%20150%200%20Q%20600%20350%201050%20700%22%20stroke%3D%22rgba%28255%2C%20230%2C%20200%2C%200.08%29%22%20stroke-width%3D%22240%22%20fill%3D%22none%22/%3E%20%3C%21--%20Stars%20--%3E%20%3Cg%20fill%3D%22%23ffffff%22%3E%20%3Ccircle%20cx%3D%2280%22%20cy%3D%22120%22%20r%3D%221.5%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%2260%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22140%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22560%22%20cy%3D%2280%22%20r%3D%222.2%22/%3E%3Ccircle%20cx%3D%22710%22%20cy%3D%22110%22%20r%3D%221.8%22/%3E%20%3Ccircle%20cx%3D%22880%22%20cy%3D%2250%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22130%22%20r%3D%221.4%22/%3E%3Ccircle%20cx%3D%221140%22%20cy%3D%2270%22%20r%3D%222.4%22/%3E%20%3Ccircle%20cx%3D%22180%22%20cy%3D%22240%22%20r%3D%221.8%22/%3E%3Ccircle%20cx%3D%22340%22%20cy%3D%22300%22%20r%3D%221.2%22/%3E%3Ccircle%20cx%3D%22680%22%20cy%3D%22220%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22280%22%20r%3D%221.6%22/%3E%20%3C/g%3E%20%3C%21--%20Observatory%20Dome%20Silhouette%20atop%20AB1/CDH%20--%3E%20%3Cpath%20d%3D%22M%200%20700%20L%200%20540%20L%20460%20540%20L%20460%20480%20A%20140%20140%200%200%201%20740%20480%20L%20740%20540%20L%201200%20540%20L%201200%20700%20Z%22%20fill%3D%22%2301060e%22/%3E%20%3C%21--%20Dome%20slit%20open%20--%3E%20%3Cpath%20d%3D%22M%20590%20342%20L%20610%20342%20L%20610%20480%20L%20590%20480%20Z%22%20fill%3D%22%2300e5ff%22%20opacity%3D%220.3%22/%3E%20%3Ctext%20x%3D%22600%22%20y%3D%22660%22%20text-anchor%3D%22middle%22%20fill%3D%22%2300e5ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20letter-spacing%3D%223%22%20opacity%3D%220.75%22%3EIISER%20BHOPAL%20CAMPUS%20OBSERVATORY%20FACILITY%20%26bull%3B%20DOME%3C/text%3E%20%3C/svg%3E" alt="Solar Eclipse Observation Session">
-          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Eclipse Session</span>
+          <img src="images/Gallary/Solar System & Moon/unnamed(5).jpg" alt="Annular Solar Eclipse" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Solar Eclipse</span>
         </div>
         <div class="gallery-info">
           <div>
-            <h4 class="gallery-item-title">Solar Eclipse Observation</h4>
-            <p class="gallery-item-desc">
-              Campus-wide solar observation sessions organized with Baader solar filters and projection pinholes.
-            </p>
+            <h4 class="gallery-item-title">Annular Solar Eclipse</h4>
+            <p class="gallery-item-desc">Solar eclipse capture showing the solar crescent through specialized solar filtering equipment.</p>
           </div>
-          <div class="gallery-meta">
-            <span><i class="fa-solid fa-solar-panel"></i> Solar Projection</span>
-            <span><i class="fa-regular fa-calendar-check"></i> Campus Session</span>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Solar Filtered Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 21/06/2020</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Solar Eclipse 21/06/2020 From Surat, Gujarat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 10: Lunar Eclipse Progression -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(10).jpg"
+        data-title="Lunar Eclipse Progression"
+        data-desc="Telescopic frame showing the progression of Earth&#x27;s shadow crossing the lunar surface during the eclipse."
+        data-badge="Lunar Eclipse"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 16/10/2019"
+        data-archive="Lunar Eclipse 16/10/2019">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Solar System & Moon/unnamed(10).jpg" alt="Lunar Eclipse Progression" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Lunar Eclipse</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Lunar Eclipse Progression</h4>
+            <p class="gallery-item-desc">Telescopic frame showing the progression of Earth's shadow crossing the lunar surface during the eclipse.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 16/10/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Lunar Eclipse 16/10/2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 11: Ascent of Moon (Lunar Eclipse) -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(11).jpg"
+        data-title="Ascent of Moon (Lunar Eclipse)"
+        data-desc="Ascent of the Moon rising during the lunar eclipse, displaying atmospheric refraction and reddish shadow tints."
+        data-badge="Lunar Eclipse"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 16/10/2019"
+        data-archive="Ascent of Moon - Lunar Eclipse 16/10/2019">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Solar System & Moon/unnamed(11).jpg" alt="Ascent of Moon (Lunar Eclipse)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Lunar Eclipse</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Ascent of Moon (Lunar Eclipse)</h4>
+            <p class="gallery-item-desc">Ascent of the Moon rising during the lunar eclipse, displaying atmospheric refraction and reddish shadow tints.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 16/10/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Ascent of Moon - Lunar Eclipse 16/10/2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 12: Lunar Eclipse Phase Detail -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(12).jpg"
+        data-title="Lunar Eclipse Phase Detail"
+        data-desc="Close telescopic view of the Moon during the partial phase of the lunar eclipse with prominent limb detail."
+        data-badge="Lunar Eclipse"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> 16/10/2019"
+        data-archive="Lunar Eclipse 16/10/2019">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Solar System & Moon/unnamed(12).jpg" alt="Lunar Eclipse Phase Detail" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Lunar Eclipse</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Lunar Eclipse Phase Detail</h4>
+            <p class="gallery-item-desc">Close telescopic view of the Moon during the partial phase of the lunar eclipse with prominent limb detail.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> 16/10/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Lunar Eclipse 16/10/2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 13: The Great Conjunction -->
+      <div class="gallery-item" data-category="solar-system"
+        data-img="images/Gallary/Solar System & Moon/unnamed(16).jpg"
+        data-title="The Great Conjunction"
+        data-desc="Rare planetary alignment capturing Jupiter with its Galilean moons alongside ringed Saturn in a single frame."
+        data-badge="Planetary Conjunction"
+        data-badge-icon="fa-solid fa-ring"
+        data-meta="<i class='fa-solid fa-ring'></i> Telescopic Astrophotography &amp;bull; <i class='fa-regular fa-calendar'></i> December 2020"
+        data-archive="The Great Conjunction">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Solar System & Moon/unnamed(16).jpg" alt="The Great Conjunction" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-ring"></i> Planetary Conjunction</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">The Great Conjunction</h4>
+            <p class="gallery-item-desc">Rare planetary alignment capturing Jupiter with its Galilean moons alongside ringed Saturn in a single frame.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Telescopic Astrophotography</span>
+              <span><i class="fa-regular fa-calendar"></i> December 2020</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>The Great Conjunction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 14: Talk on General Relativity -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(8).jpg"
+        data-title="Talk on General Relativity"
+        data-desc="Club lecture and seminar on Einstein&#x27;s General Relativity delivered by Parth Nayak in the Lecture Hall Complex (LHC)."
+        data-badge="Club Lecture"
+        data-badge-icon="fa-solid fa-chalkboard-user"
+        data-meta="<i class='fa-solid fa-chalkboard-user'></i> LHC Auditorium &amp;bull; <i class='fa-regular fa-calendar'></i> LHC, IISERB"
+        data-archive="Talk on General Relativity by Parth Nayak in LHC">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(8).jpg" alt="Talk on General Relativity" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-chalkboard-user"></i> Club Lecture</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Talk on General Relativity</h4>
+            <p class="gallery-item-desc">Club lecture and seminar on Einstein's General Relativity delivered by Parth Nayak in the Lecture Hall Complex (LHC).</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> LHC Auditorium</span>
+              <span><i class="fa-regular fa-calendar"></i> LHC, IISERB</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Talk on General Relativity by Parth Nayak in LHC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 15: ASI Meeting Poster Presentation -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(9).jpg"
+        data-title="ASI Meeting Poster Presentation"
+        data-desc="Poster presentation by IBAC members representing astronomy research at the Astronomical Society of India (ASI) meeting."
+        data-badge="Conference"
+        data-badge-icon="fa-solid fa-award"
+        data-meta="<i class='fa-solid fa-award'></i> Academic Poster &amp;bull; <i class='fa-regular fa-calendar'></i> March 2023"
+        data-archive="Poster presentation at Astronomical Society of Inida&#x27;s meeting at IIT Indore, March 2023">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(9).jpg" alt="ASI Meeting Poster Presentation" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-award"></i> Conference</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">ASI Meeting Poster Presentation</h4>
+            <p class="gallery-item-desc">Poster presentation by IBAC members representing astronomy research at the Astronomical Society of India (ASI) meeting.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Academic Poster</span>
+              <span><i class="fa-regular fa-calendar"></i> March 2023</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Poster presentation at Astronomical Society of Inida's meeting at IIT Indore, March 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 16: Parth Nayak with "Dobby" -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(13).jpg"
+        data-title="Parth Nayak with &quot;Dobby&quot;"
+        data-desc="Observation setup session featuring Parth Nayak with IBAC&#x27;s beloved 6-inch Newtonian Dobsonian telescope &quot;Dobby&quot;."
+        data-badge="Observation"
+        data-badge-icon="fa-solid fa-users"
+        data-meta="<i class='fa-solid fa-users'></i> 6&quot; Dobsonian &quot;Dobby&quot; &amp;bull; <i class='fa-regular fa-calendar'></i> Campus Observation"
+        data-archive="Parth Nayak with Dobby">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(13).jpg" alt="Parth Nayak with &quot;Dobby&quot;" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-users"></i> Observation</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Parth Nayak with "Dobby"</h4>
+            <p class="gallery-item-desc">Observation setup session featuring Parth Nayak with IBAC's beloved 6-inch Newtonian Dobsonian telescope "Dobby".</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> 6" Dobsonian "Dobby"</span>
+              <span><i class="fa-regular fa-calendar"></i> Campus Observation</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Parth Nayak with Dobby</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 17: Solar Observation Session -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(14).jpg"
+        data-title="Solar Observation Session"
+        data-desc="Daytime campus observation camp organized for IISER Bhopal students to observe sunspots and solar features."
+        data-badge="Solar Session"
+        data-badge-icon="fa-solid fa-sun"
+        data-meta="<i class='fa-solid fa-sun'></i> Solar Filtered Telescope &amp;bull; <i class='fa-regular fa-calendar'></i> October 2022"
+        data-archive="Solar observation session, October 2022">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(14).jpg" alt="Solar Observation Session" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Solar Session</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Solar Observation Session</h4>
+            <p class="gallery-item-desc">Daytime campus observation camp organized for IISER Bhopal students to observe sunspots and solar features.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Solar Filtered Telescope</span>
+              <span><i class="fa-regular fa-calendar"></i> October 2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Solar observation session, October 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 18: Chandrayaan-3 Landing Screening (L5) -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(17).jpg"
+        data-title="Chandrayaan-3 Landing Screening (L5)"
+        data-desc="Packed audience in lecture hall L5 watching the historic soft landing of ISRO&#x27;s Chandrayaan-3 lunar lander."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-rocket"
+        data-meta="<i class='fa-solid fa-rocket'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 23/08/2023"
+        data-archive="Screening of Chandrayaan 3 Landing live in L5">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(17).jpg" alt="Chandrayaan-3 Landing Screening (L5)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-rocket"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Chandrayaan-3 Landing Screening (L5)</h4>
+            <p class="gallery-item-desc">Packed audience in lecture hall L5 watching the historic soft landing of ISRO's Chandrayaan-3 lunar lander.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 23/08/2023</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening of Chandrayaan 3 Landing live in L5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 19: Chandrayaan-3 Touchdown Celebration -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(18).jpg"
+        data-title="Chandrayaan-3 Touchdown Celebration"
+        data-desc="Overjoyed students celebrating ISRO&#x27;s momentous Vikram lander touchdown during the live campus telecast."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-rocket"
+        data-meta="<i class='fa-solid fa-rocket'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 23/08/2023"
+        data-archive="Screening of Chandrayaan 3 Landing live in L5">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(18).jpg" alt="Chandrayaan-3 Touchdown Celebration" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-rocket"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Chandrayaan-3 Touchdown Celebration</h4>
+            <p class="gallery-item-desc">Overjoyed students celebrating ISRO's momentous Vikram lander touchdown during the live campus telecast.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 23/08/2023</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening of Chandrayaan 3 Landing live in L5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 20: Aditya-L1 Launch Live Screening (Auditorium) -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(19).jpg"
+        data-title="Aditya-L1 Launch Live Screening (Auditorium)"
+        data-desc="IISER Bhopal community gathered in large numbers to witness India&#x27;s first solar mission launch to Lagrange point L1."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-satellite"
+        data-meta="<i class='fa-solid fa-satellite'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 02/09/2023"
+        data-archive="Screening of Aditya L1 launch live in L5">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(19).jpg" alt="Aditya-L1 Launch Live Screening (Auditorium)" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-satellite"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Aditya-L1 Launch Live Screening (Auditorium)</h4>
+            <p class="gallery-item-desc">IISER Bhopal community gathered in large numbers to witness India's first solar mission launch to Lagrange point L1.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 02/09/2023</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening of Aditya L1 launch live in L5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 21: Aditya-L1 Mission Liftoff Viewing -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(20).jpg"
+        data-title="Aditya-L1 Mission Liftoff Viewing"
+        data-desc="Live broadcast screening of ISRO&#x27;s PSLV-C57 carrying the Aditya-L1 solar observatory into space."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-satellite"
+        data-meta="<i class='fa-solid fa-satellite'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 02/09/2023"
+        data-archive="Screening of Aditya L1 launch live in L5">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(20).jpg" alt="Aditya-L1 Mission Liftoff Viewing" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-satellite"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Aditya-L1 Mission Liftoff Viewing</h4>
+            <p class="gallery-item-desc">Live broadcast screening of ISRO's PSLV-C57 carrying the Aditya-L1 solar observatory into space.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 02/09/2023</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening of Aditya L1 launch live in L5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 22: Chandrayaan-2 Landing Live Screening -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(21).jpg"
+        data-title="Chandrayaan-2 Landing Live Screening"
+        data-desc="Audience gathered in AB1-A to watch the live telemetry and landing broadcast of ISRO&#x27;s Chandrayaan-2 lunar mission."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-rocket"
+        data-meta="<i class='fa-solid fa-rocket'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 07/09/2019"
+        data-archive="Screening Of Chandrayaan 2 Landing Live in AB1-A">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(21).jpg" alt="Chandrayaan-2 Landing Live Screening" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-rocket"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Chandrayaan-2 Landing Live Screening</h4>
+            <p class="gallery-item-desc">Audience gathered in AB1-A to watch the live telemetry and landing broadcast of ISRO's Chandrayaan-2 lunar mission.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 07/09/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening Of Chandrayaan 2 Landing Live in AB1-A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 23: Chandrayaan-2 Telecast Gathering in AB1 -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(22).jpg"
+        data-title="Chandrayaan-2 Telecast Gathering in AB1"
+        data-desc="Late night campus screening session in AB1-A filled with passionate students tracking lunar descent telemetry."
+        data-badge="Live Screening"
+        data-badge-icon="fa-solid fa-rocket"
+        data-meta="<i class='fa-solid fa-rocket'></i> Live Telecast &amp;bull; <i class='fa-regular fa-calendar'></i> 07/09/2019"
+        data-archive="Screening Of Chandrayaan 2 Landing Live in AB1-A">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(22).jpg" alt="Chandrayaan-2 Telecast Gathering in AB1" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-rocket"></i> Live Screening</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Chandrayaan-2 Telecast Gathering in AB1</h4>
+            <p class="gallery-item-desc">Late night campus screening session in AB1-A filled with passionate students tracking lunar descent telemetry.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Live Telecast</span>
+              <span><i class="fa-regular fa-calendar"></i> 07/09/2019</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Screening Of Chandrayaan 2 Landing Live in AB1-A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 24: Singularity '22 - Gravitational Lensing Model -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(23).jpg"
+        data-title="Singularity &#x27;22 - Gravitational Lensing Model"
+        data-desc="Interactive gravitational lensing spacetime demo model created in collaboration with the IISERB Physics Club."
+        data-badge="Science Exhibit"
+        data-badge-icon="fa-solid fa-atom"
+        data-meta="<i class='fa-solid fa-atom'></i> Physics Demonstration &amp;bull; <i class='fa-regular fa-calendar'></i> Singularity &#x27;22"
+        data-archive="Model depicting Gravitational Lensing, made in collaboration with Physics club">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(23).jpg" alt="Singularity &#x27;22 - Gravitational Lensing Model" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-atom"></i> Science Exhibit</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Singularity '22 - Gravitational Lensing Model</h4>
+            <p class="gallery-item-desc">Interactive gravitational lensing spacetime demo model created in collaboration with the IISERB Physics Club.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Physics Demonstration</span>
+              <span><i class="fa-regular fa-calendar"></i> Singularity '22</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Model depicting Gravitational Lensing, made in collaboration with Physics club</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 25: Singularity '22 - Retrograde & Interferometer -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(24).jpg"
+        data-title="Singularity &#x27;22 - Retrograde &amp; Interferometer"
+        data-desc="Core team members Roshan and Devang demonstrating retrograde planetary motion and Michelson-Morley interferometer exhibits."
+        data-badge="Science Exhibit"
+        data-badge-icon="fa-solid fa-atom"
+        data-meta="<i class='fa-solid fa-atom'></i> Science Exhibits &amp;bull; <i class='fa-regular fa-calendar'></i> Singularity &#x27;22"
+        data-archive="Core team members (Roshan and Devang) explaining the exhibits demonstrating Retrograde motion and Michelson-Morley interferometer">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(24).jpg" alt="Singularity &#x27;22 - Retrograde &amp; Interferometer" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-atom"></i> Science Exhibit</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Singularity '22 - Retrograde & Interferometer</h4>
+            <p class="gallery-item-desc">Core team members Roshan and Devang demonstrating retrograde planetary motion and Michelson-Morley interferometer exhibits.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Science Exhibits</span>
+              <span><i class="fa-regular fa-calendar"></i> Singularity '22</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Core team members (Roshan and Devang) explaining the exhibits demonstrating Retrograde motion and Michelson-Morley interferometer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 26: Singularity '22 - "Game of Stars!" -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(25).jpg"
+        data-title="Singularity &#x27;22 - &quot;Game of Stars!&quot;"
+        data-desc="Engaging educational game with visiting school students explaining the life cycle, evolution, and fates of stars."
+        data-badge="Outreach Game"
+        data-badge-icon="fa-solid fa-gamepad"
+        data-meta="<i class='fa-solid fa-gamepad'></i> Science Outreach &amp;bull; <i class='fa-regular fa-calendar'></i> Singularity &#x27;22"
+        data-archive="Game of Stars! A fun game with school children which explains the life cycle of stars">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(25).jpg" alt="Singularity &#x27;22 - &quot;Game of Stars!&quot;" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-gamepad"></i> Outreach Game</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Singularity '22 - "Game of Stars!"</h4>
+            <p class="gallery-item-desc">Engaging educational game with visiting school students explaining the life cycle, evolution, and fates of stars.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Science Outreach</span>
+              <span><i class="fa-regular fa-calendar"></i> Singularity '22</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Game of Stars! A fun game with school children which explains the life cycle of stars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 27: Singularity '22 - Exoplanet Transit Model -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(26).jpg"
+        data-title="Singularity &#x27;22 - Exoplanet Transit Model"
+        data-desc="Mechanical interactive model explaining the photometric transit method used by astronomers to detect extrasolar planets."
+        data-badge="Exoplanet Model"
+        data-badge-icon="fa-solid fa-atom"
+        data-meta="<i class='fa-solid fa-atom'></i> Transit Model &amp;bull; <i class='fa-regular fa-calendar'></i> Singularity &#x27;22"
+        data-archive="A model explaining the phenomenon of &#x27;Transit&#x27;, which is used to detect exoplanets">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(26).jpg" alt="Singularity &#x27;22 - Exoplanet Transit Model" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-atom"></i> Exoplanet Model</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Singularity '22 - Exoplanet Transit Model</h4>
+            <p class="gallery-item-desc">Mechanical interactive model explaining the photometric transit method used by astronomers to detect extrasolar planets.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Transit Model</span>
+              <span><i class="fa-regular fa-calendar"></i> Singularity '22</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>A model explaining the phenomenon of 'Transit', which is used to detect exoplanets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 28: IBAC @ Open House 2022 -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(27).png"
+        data-title="IBAC @ Open House 2022"
+        data-desc="Astronomy club booth at IISER Bhopal Open House 2022 welcoming hundreds of enthusiastic campus visitors and school kids."
+        data-badge="Open House"
+        data-badge-icon="fa-solid fa-users"
+        data-meta="<i class='fa-solid fa-users'></i> Club Exhibition &amp;bull; <i class='fa-regular fa-calendar'></i> Open House 2022"
+        data-archive="IBAC @ Open House 2022!">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(27).png" alt="IBAC @ Open House 2022" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-users"></i> Open House</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">IBAC @ Open House 2022</h4>
+            <p class="gallery-item-desc">Astronomy club booth at IISER Bhopal Open House 2022 welcoming hundreds of enthusiastic campus visitors and school kids.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Club Exhibition</span>
+              <span><i class="fa-regular fa-calendar"></i> Open House 2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>IBAC @ Open House 2022!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 29: Open Day Outreach with School Children -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(28).jpg"
+        data-title="Open Day Outreach with School Children"
+        data-desc="Hands-on interaction demonstrating telescope optics, solar system scales, and astronomy experiments to school students."
+        data-badge="School Outreach"
+        data-badge-icon="fa-solid fa-users"
+        data-meta="<i class='fa-solid fa-users'></i> Public Outreach &amp;bull; <i class='fa-regular fa-calendar'></i> Open Day 2022"
+        data-archive="Interaction with school children during Open Day 22">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(28).jpg" alt="Open Day Outreach with School Children" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-users"></i> School Outreach</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Open Day Outreach with School Children</h4>
+            <p class="gallery-item-desc">Hands-on interaction demonstrating telescope optics, solar system scales, and astronomy experiments to school students.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Public Outreach</span>
+              <span><i class="fa-regular fa-calendar"></i> Open Day 2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Interaction with school children during Open Day 22</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 30: Talk on Star Clusters by Devang -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(29).jpg"
+        data-title="Talk on Star Clusters by Devang"
+        data-desc="Astrophysics talk discussing open clusters, globular clusters, Hertzsprung-Russell diagrams, and stellar evolution."
+        data-badge="Club Talk"
+        data-badge-icon="fa-solid fa-chalkboard-user"
+        data-meta="<i class='fa-solid fa-chalkboard-user'></i> Academic Seminar &amp;bull; <i class='fa-regular fa-calendar'></i> Club Seminar"
+        data-archive="Talk on Star Clusters by Devang">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(29).jpg" alt="Talk on Star Clusters by Devang" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-chalkboard-user"></i> Club Talk</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Talk on Star Clusters by Devang</h4>
+            <p class="gallery-item-desc">Astrophysics talk discussing open clusters, globular clusters, Hertzsprung-Russell diagrams, and stellar evolution.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Academic Seminar</span>
+              <span><i class="fa-regular fa-calendar"></i> Club Seminar</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Talk on Star Clusters by Devang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 31: Talk on Celestial Mechanics by Kartik -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(30).jpg"
+        data-title="Talk on Celestial Mechanics by Kartik"
+        data-desc="Interactive lecture covering orbital dynamics, Keplerian orbits, and celestial coordinate systems for amateur observers."
+        data-badge="Club Talk"
+        data-badge-icon="fa-solid fa-chalkboard-user"
+        data-meta="<i class='fa-solid fa-chalkboard-user'></i> Academic Seminar &amp;bull; <i class='fa-regular fa-calendar'></i> Club Seminar"
+        data-archive="Talk on Celestial Mechanics by Kartik">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(30).jpg" alt="Talk on Celestial Mechanics by Kartik" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-chalkboard-user"></i> Club Talk</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Talk on Celestial Mechanics by Kartik</h4>
+            <p class="gallery-item-desc">Interactive lecture covering orbital dynamics, Keplerian orbits, and celestial coordinate systems for amateur observers.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Academic Seminar</span>
+              <span><i class="fa-regular fa-calendar"></i> Club Seminar</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Talk on Celestial Mechanics by Kartik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 32: Talk by Dr. Mayuresh Surnis -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(31).jpg"
+        data-title="Talk by Dr. Mayuresh Surnis"
+        data-desc="Invited astrophysics lecture on Gravitational Wave detection using Pulsar Timing Arrays (PTA) by faculty Dr. Mayuresh Surnis."
+        data-badge="Guest Lecture"
+        data-badge-icon="fa-solid fa-microphone"
+        data-meta="<i class='fa-solid fa-microphone'></i> Guest Lecture &amp;bull; <i class='fa-regular fa-calendar'></i> Faculty Colloquium"
+        data-archive="Talk : Gravitational Wave detection using pulsar timing arrays by Dr. Mayuresh Surnis">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(31).jpg" alt="Talk by Dr. Mayuresh Surnis" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-microphone"></i> Guest Lecture</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Talk by Dr. Mayuresh Surnis</h4>
+            <p class="gallery-item-desc">Invited astrophysics lecture on Gravitational Wave detection using Pulsar Timing Arrays (PTA) by faculty Dr. Mayuresh Surnis.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Guest Lecture</span>
+              <span><i class="fa-regular fa-calendar"></i> Faculty Colloquium</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Talk : Gravitational Wave detection using pulsar timing arrays by Dr. Mayuresh Surnis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 33: Partial Solar Eclipse Observation Session -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(32).jpg"
+        data-title="Partial Solar Eclipse Observation Session"
+        data-desc="Campus-wide observation event on the lawn with students queued up to witness the partial solar eclipse through telescopes."
+        data-badge="Eclipse Camp"
+        data-badge-icon="fa-solid fa-sun"
+        data-meta="<i class='fa-solid fa-sun'></i> Public Telescopes &amp;bull; <i class='fa-regular fa-calendar'></i> October 2022"
+        data-archive="Observation session for a partial solar ecllipse, October 2022">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(32).jpg" alt="Partial Solar Eclipse Observation Session" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-sun"></i> Eclipse Camp</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Partial Solar Eclipse Observation Session</h4>
+            <p class="gallery-item-desc">Campus-wide observation event on the lawn with students queued up to witness the partial solar eclipse through telescopes.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Public Telescopes</span>
+              <span><i class="fa-regular fa-calendar"></i> October 2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Observation session for a partial solar ecllipse, October 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 34: Lunar Eclipse Night Observation Session -->
+      <div class="gallery-item" data-category="events"
+        data-img="images/Gallary/Campus Stargazing & Events/unnamed(33).jpg"
+        data-title="Lunar Eclipse Night Observation Session"
+        data-desc="Students and faculty gathered under the night sky during the total/partial lunar eclipse observation camp at IISER Bhopal."
+        data-badge="Eclipse Camp"
+        data-badge-icon="fa-solid fa-moon"
+        data-meta="<i class='fa-solid fa-moon'></i> Dobsonians &amp; Binoculars &amp;bull; <i class='fa-regular fa-calendar'></i> November 2022"
+        data-archive="Lunar ecllipse observation session, November 2022">
+        <div class="gallery-img-wrap">
+          <img src="images/Gallary/Campus Stargazing & Events/unnamed(33).jpg" alt="Lunar Eclipse Night Observation Session" loading="lazy">
+          <span class="gallery-badge"><i class="fa-solid fa-moon"></i> Eclipse Camp</span>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <h4 class="gallery-item-title">Lunar Eclipse Night Observation Session</h4>
+            <p class="gallery-item-desc">Students and faculty gathered under the night sky during the total/partial lunar eclipse observation camp at IISER Bhopal.</p>
+          </div>
+          <div>
+            <div class="gallery-meta">
+              <span><i class="fa-solid fa-crosshairs"></i> Dobsonians & Binoculars</span>
+              <span><i class="fa-regular fa-calendar"></i> November 2022</span>
+            </div>
+            <div class="gallery-footer-tag" title="Original record from old gallery archive">
+              <i class="fa-solid fa-quote-left"></i>
+              <span>Lunar ecllipse observation session, November 2022</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1150,12 +2128,22 @@
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-content">
       <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Preview">&times;</button>
+      <button class="lightbox-nav-btn lightbox-nav-prev" id="lightboxPrevBtn" aria-label="Previous Photo"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="lightbox-nav-btn lightbox-nav-next" id="lightboxNextBtn" aria-label="Next Photo"><i class="fa-solid fa-chevron-right"></i></button>
       <div class="lightbox-img-box">
         <img id="lightboxImg" src="" alt="Full view">
       </div>
       <div class="lightbox-details">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <span class="gallery-badge" id="lightboxBadge" style="position: static;"><i class="fa-solid fa-star"></i> Showcase</span>
+          <span id="lightboxMeta" style="font-size: 0.85rem; color: var(--accent-cyan);"></span>
+        </div>
         <h3 class="lightbox-title" id="lightboxTitle"></h3>
         <p class="lightbox-desc" id="lightboxDesc"></p>
+        <div id="lightboxArchive" style="margin-top: 14px; font-size: 0.85rem; color: #8da4c4; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 10px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-quote-left" style="color: var(--accent-cyan); flex-shrink: 0;"></i>
+          <span id="lightboxArchiveText"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -1326,20 +2314,104 @@
     });
 
     // Lightbox modal logic
-    function openLightbox(imgSrc, title, desc) {
+    let visibleCards = [];
+    let currentLightboxIndex = -1;
+
+    function updateVisibleCards() {
+      visibleCards = Array.from(document.querySelectorAll('.gallery-item')).filter(
+        item => item.style.display !== 'none'
+      );
+    }
+
+    function openLightboxByIndex(index) {
+      updateVisibleCards();
+      if (index < 0 || index >= visibleCards.length) return;
+      currentLightboxIndex = index;
+      const item = visibleCards[index];
+      
+      const imgSrc = item.getAttribute('data-img');
+      const title = item.getAttribute('data-title');
+      const desc = item.getAttribute('data-desc');
+      const badgeText = item.getAttribute('data-badge');
+      const badgeIcon = item.getAttribute('data-badge-icon');
+      const meta = item.getAttribute('data-meta');
+      const archive = item.getAttribute('data-archive');
+
       const modal = document.getElementById('lightboxModal');
-      document.getElementById('lightboxImg').src = imgSrc;
+      const imgEl = document.getElementById('lightboxImg');
+      imgEl.src = imgSrc;
+      imgEl.alt = title;
       document.getElementById('lightboxTitle').textContent = title;
       document.getElementById('lightboxDesc').textContent = desc;
+
+      const badgeEl = document.getElementById('lightboxBadge');
+      if (badgeEl) {
+        badgeEl.innerHTML = `<i class="${badgeIcon}"></i> ${badgeText}`;
+      }
+      const metaEl = document.getElementById('lightboxMeta');
+      if (metaEl) {
+        metaEl.innerHTML = meta;
+      }
+      const archiveEl = document.getElementById('lightboxArchiveText');
+      if (archiveEl) {
+        archiveEl.textContent = archive ? `Original Record: ${archive}` : '';
+      }
+
       modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
       const modal = document.getElementById('lightboxModal');
       if (modal) {
         modal.classList.remove('active');
+        document.body.style.overflow = '';
       }
     }
+
+    function prevLightbox() {
+      updateVisibleCards();
+      if (visibleCards.length === 0) return;
+      if (currentLightboxIndex > 0) {
+        openLightboxByIndex(currentLightboxIndex - 1);
+      } else {
+        openLightboxByIndex(visibleCards.length - 1);
+      }
+    }
+
+    function nextLightbox() {
+      updateVisibleCards();
+      if (visibleCards.length === 0) return;
+      if (currentLightboxIndex < visibleCards.length - 1) {
+        openLightboxByIndex(currentLightboxIndex + 1);
+      } else {
+        openLightboxByIndex(0);
+      }
+    }
+
+    // Attach click events to gallery items
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        updateVisibleCards();
+        const idx = visibleCards.indexOf(item);
+        if (idx !== -1) {
+          openLightboxByIndex(idx);
+        }
+      });
+    });
+
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevLightbox(); });
+    const nextBtn = document.getElementById('lightboxNextBtn');
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextLightbox(); });
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+    });
 
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('lightboxModal');
