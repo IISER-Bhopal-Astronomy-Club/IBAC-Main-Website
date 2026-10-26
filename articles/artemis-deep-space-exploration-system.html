@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     IBAC ARTICLE TEMPLATE
+     Save a copy per article, e.g. riding-on-fire.html
+     Search this file for "EDIT:" to find every spot you need to change.
+     Keep it in the same folder as index.html so images/ paths work.
+     ============================================================ -->
+
+<title>Artemis Mission: Deep Space Exploration System | IBAC IISER Bhopal</title>
+<meta name="description" content="The systems behind NASA's Artemis programme: the Space Launch System, the Orion spacecraft, Exploration Ground Systems and the Human Landing System. By Himadri Sonowal, BS-MS 2020.">
+<meta property="og:title" content="Artemis Mission: Deep Space Exploration System | IBAC IISER Bhopal">
+<meta property="og:description" content="The systems behind NASA's Artemis programme: the Space Launch System, the Orion spacecraft, Exploration Ground Systems and the Human Landing System. By Himadri Sonowal, BS-MS 2020.">
+<meta property="og:image" content="../images/ibac.png">
+
+<link rel="icon" type="image/png" href="../images/ibac.png">
+<link rel="shortcut icon" href="../images/ibac.png">
+<link rel="apple-touch-icon" href="../images/ibac.png">
+<meta name="theme-color" content="#040b19">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Site tokens (same as articles.html) ---------- */
+:root {
+  --primary-blue: #0056b3;
+  --accent-cyan: #00c6ff;
+  --royal-blue: #0072ff;
+  --deep-navy: #040b19;
+  --midnight-blue: #081226;
+  --footer-bg: #000106;
+  --radius-card: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --prose: #d3e1f5;
+  --prose-strong: #ffffff;
+  --card: rgba(10, 24, 54, 0.75);
+  --card-line: rgba(0, 114, 255, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 90px; }
+body { font-family: 'Lato', 'Inter', sans-serif; background: #060e20; color: #e2ecf9; line-height: 1.6; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+/* ---------- Navbar (identical to site) ---------- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(4, 11, 25, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0, 198, 255, 0.25); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-logo-img { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6)); transition: var(--transition); }
+.brand-logo:hover .brand-logo-img { transform: rotate(15deg) scale(1.05); }
+.brand-title-wrap { display: flex; flex-direction: column; }
+.brand-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 1.5px; line-height: 1.1; }
+.brand-title span { color: var(--accent-cyan); }
+.brand-subtitle { font-size: 0.72rem; color: #8da4c4; text-transform: uppercase; letter-spacing: 1px; }
+.nav-menu { display: flex; list-style: none; gap: 20px; align-items: center; }
+.nav-link { font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500; color: #c9dbf2; text-decoration: none; transition: var(--transition); position: relative; padding: 6px 0; }
+.nav-link:hover, .nav-link.active { color: var(--accent-cyan); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent-cyan); transition: var(--transition); box-shadow: 0 0 8px var(--accent-cyan); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+/* ---------- Voyager progress tracker (the one memorable element) ----------
+   The probe flies along the top of the page as you read and passes the
+   planets of Voyager 2's real Grand Tour: Jupiter, Saturn, Uranus and
+   Neptune, then interstellar space at the end of the article. */
+.journey { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; z-index: 2; background: rgba(0, 198, 255, 0.18); pointer-events: none; }
+.journey-bar { height: 100%; width: 0; background: linear-gradient(90deg, rgba(0,114,255,0), #0072ff 45%, #00c6ff); position: relative; }
+.probe { position: absolute; right: -26px; top: -8px; width: 36px; height: 19px; color: #eaf4ff; filter: drop-shadow(0 0 6px rgba(0, 198, 255, 0.8)); z-index: 3; }
+
+/* Planet waypoints (drawn in CSS, no image files). Dim until Voyager 2 flies past. */
+.wp { position: absolute; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; opacity: 0.4; filter: saturate(0.25); transition: var(--transition); }
+.wp.passed { opacity: 1; filter: none; box-shadow: 0 0 10px rgba(0, 198, 255, 0.55); }
+.wp.jupiter { width: 17px; height: 17px; background: linear-gradient(180deg, #c99a6b 0%, #ead6b6 18%, #b07a4f 33%, #e2c69d 50%, #a56b45 66%, #dcbd93 82%, #b98258 100%); }
+.wp.saturn { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #f3e4b8, #c9ad72); }
+.wp.saturn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 27px; height: 8px; border: 1.5px solid rgba(235, 215, 160, 0.95); border-radius: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
+.wp.uranus { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #d6fbfc, #7fd3d8); }
+.wp.neptune { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #7a9bff, #2646c9); }
+.mission-pill { position: fixed; left: 24px; bottom: 24px; z-index: 900; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 30px; background: rgba(4, 11, 25, 0.88); border: 1px solid rgba(0, 198, 255, 0.3); backdrop-filter: blur(8px); font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #b0cbf2; pointer-events: none; }
+.mission-pill i { color: var(--accent-cyan); }
+.mission-pill b { color: #fff; font-weight: 600; }
+
+/* ---------- Article hero ---------- */
+.article-hero { position: relative; background: radial-gradient(circle at 50% 10%, #0d224d 0%, #040b19 80%); padding: 70px 20px 56px; overflow: hidden; border-bottom: 1px solid rgba(0, 198, 255, 0.2); }
+.stars-overlay { position: absolute; inset: 0; background-image:
+  radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 300px 80px, #fff, rgba(0,0,0,0)),
+  radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 600px 50px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0,0,0,0));
+  background-size: 600px 600px; opacity: 0.65; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+.crumbs { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #79a6db; margin-bottom: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.crumbs a { color: var(--accent-cyan); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 198, 255, 0.12); border: 1px solid rgba(0, 198, 255, 0.35); color: var(--accent-cyan); padding: 5px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; box-shadow: 0 0 15px rgba(0, 198, 255, 0.15); }
+.article-title { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; background: linear-gradient(135deg, #ffffff 35%, #70b8ff 75%, #00c6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.article-subtitle { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.3rem; color: #b2d5ff; line-height: 1.55; max-width: 720px; margin-bottom: 30px; }
+
+.byline { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding-top: 22px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #0072ff, #00c6ff); display: grid; place-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; box-shadow: 0 0 14px rgba(0, 198, 255, 0.4); overflow: hidden; }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.author-name { font-family: 'Poppins', sans-serif; font-weight: 600; color: #fff; font-size: 0.98rem; line-height: 1.2; }
+.author-batch { font-size: 0.82rem; color: #79a6db; }
+.meta-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #9dbbe3; }
+.meta-item i { color: var(--accent-cyan); }
+
+/* ---------- Cover figure ---------- */
+.cover-wrap { max-width: 1100px; margin: -28px auto 0; padding: 0 20px; position: relative; z-index: 3; }
+.cover { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--card-line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); background: var(--midnight-blue); }
+.cover img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+.cover figcaption { padding: 12px 18px; font-size: 0.84rem; color: #8da4c4; border-top: 1px solid var(--card-line); }
+
+/* ---------- Layout: sticky contents rail + reading column ---------- */
+.article-layout { max-width: 1100px; margin: 0 auto; padding: 56px 20px 40px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; }
+.rail { position: sticky; top: 96px; align-self: start; }
+.rail-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; padding-bottom: 8px; }
+.rail-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.toc { list-style: none; border-left: 1px solid rgba(0, 198, 255, 0.2); }
+.toc a { display: block; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: #8fa5c7; text-decoration: none; font-size: 0.9rem; line-height: 1.4; transition: var(--transition); }
+.toc a:hover { color: #fff; }
+.toc a.on { color: var(--accent-cyan); border-left-color: var(--accent-cyan); font-weight: 600; }
+.rail-tools { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+.rail-btn { display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.25); color: #b0cbf2; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: var(--transition); }
+.rail-btn:hover { background: var(--accent-cyan); color: #040b19; border-color: transparent; }
+.rail-btn i { width: 16px; text-align: center; }
+
+/* ---------- Prose ---------- */
+.prose { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.14rem; line-height: 1.85; color: var(--prose); max-width: 68ch; }
+.prose > * + * { margin-top: 1.25em; }
+.prose h2 { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2.4em; scroll-margin-top: 90px; }
+.prose h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: #cfe4ff; margin-top: 1.9em; }
+.prose strong { color: var(--prose-strong); font-weight: 600; }
+.prose em { color: #e8f2ff; }
+.prose a { color: var(--accent-cyan); text-decoration: underline; text-decoration-color: rgba(0, 198, 255, 0.4); text-underline-offset: 3px; transition: var(--transition); }
+.prose a:hover { color: #fff; text-decoration-color: #fff; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.5em; }
+.prose li::marker { color: var(--accent-cyan); }
+.prose sup a { text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.75em; }
+
+/* First paragraph drop cap */
+.prose .lede::first-letter { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 3.9em; float: left; line-height: 0.85; padding: 0.08em 0.12em 0 0; background: linear-gradient(135deg, #fff, #00c6ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Glossary terms: hover or focus for a definition */
+.term { position: relative; border-bottom: 1px dotted var(--accent-cyan); cursor: help; color: #fff; }
+.term::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px); width: max-content; max-width: 260px; padding: 10px 14px; background: #0a1a3a; border: 1px solid var(--accent-cyan); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.5; font-style: normal; font-weight: 400; color: #d6e6ff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; transition: var(--transition); z-index: 20; }
+.term:hover::after, .term:focus::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Fact sheet: an observation-log card for the numbers */
+.factsheet { background: var(--card); border: 1px solid var(--card-line); border-left: 3px solid var(--accent-cyan); border-radius: var(--radius-card); padding: 22px 26px; font-family: 'Inter', sans-serif; backdrop-filter: blur(8px); }
+.factsheet h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.factsheet h4 i { color: var(--accent-cyan); }
+.factsheet dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 22px; font-size: 0.93rem; }
+.factsheet dt { color: #79a6db; }
+.factsheet dd { color: #fff; font-weight: 500; }
+
+/* Callout */
+.callout { background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.1)); border: 1px solid rgba(0, 198, 255, 0.35); border-radius: var(--radius-card); padding: 20px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: #d8e8ff; display: flex; gap: 16px; }
+.callout > i { color: var(--accent-cyan); font-size: 1.3rem; margin-top: 4px; }
+.callout strong { display: block; font-family: 'Poppins', sans-serif; color: #fff; margin-bottom: 4px; }
+
+/* Pull quote */
+.prose blockquote { margin: 2em 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--accent-cyan); font-style: italic; font-size: 1.4rem; line-height: 1.55; color: #fff; }
+.prose blockquote cite { display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.86rem; color: #79a6db; }
+
+/* Equation */
+.equation { text-align: center; padding: 22px 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-line); border-radius: 12px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.5rem; color: #fff; overflow-x: auto; }
+.equation small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.82rem; color: #79a6db; }
+
+/* Figures inside the article */
+.prose figure { margin: 2em 0; }
+.prose figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-line); }
+.prose figcaption { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #8da4c4; line-height: 1.5; }
+.prose figure.wide { margin-left: -4%; margin-right: -4%; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--card-line); border-radius: 12px; }
+.prose table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.93rem; }
+.prose th { text-align: left; background: rgba(0, 114, 255, 0.18); color: #fff; font-weight: 600; padding: 12px 16px; }
+.prose td { padding: 11px 16px; border-top: 1px solid rgba(0, 198, 255, 0.12); color: #cfe0f7; }
+
+/* Key takeaways */
+.takeaways { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px 30px; font-family: 'Inter', sans-serif; }
+.takeaways h3 { margin-top: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+.takeaways ul { font-size: 1rem; line-height: 1.65; color: #cfe0f7; }
+
+/* References */
+.refs { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #9dbbe3; line-height: 1.65; }
+.refs li { word-break: break-word; }
+
+/* Author card + tags */
+.after { max-width: 68ch; margin-top: 3.2em; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.tag { font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; transition: var(--transition); }
+.tag:hover { background: var(--accent-cyan); color: #040b19; }
+.author-card { display: flex; gap: 20px; align-items: flex-start; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px; font-family: 'Inter', sans-serif; }
+.author-card .author-avatar { width: 64px; height: 64px; font-size: 1.3rem; flex-shrink: 0; }
+.author-card h4 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; }
+.author-card .author-batch { margin-bottom: 8px; display: block; }
+.author-card p { font-size: 0.93rem; color: #a4bede; line-height: 1.65; }
+
+/* Prev / Next */
+.pager { max-width: 1100px; margin: 0 auto; padding: 0 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pager a { display: block; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 22px 26px; text-decoration: none; transition: var(--transition); }
+.pager a:hover { transform: translateY(-5px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.pager small { display: block; font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 6px; }
+.pager span { font-family: 'Poppins', sans-serif; font-size: 1.05rem; color: #fff; line-height: 1.35; }
+.pager .next { text-align: right; }
+
+/* Keep exploring */
+.more { padding: 50px 20px 80px; }
+.more-inner { max-width: 1100px; margin: 0 auto; }
+.more h2 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 24px; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+.article-card { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 28px; transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(8px); }
+.article-card:hover { transform: translateY(-6px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.article-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 3px 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.article-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; line-height: 1.35; }
+.article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: #79a6db; margin-bottom: 14px; font-weight: 500; }
+.article-meta i { color: var(--accent-cyan); }
+.article-desc { font-size: 0.94rem; color: #a4bede; line-height: 1.65; margin-bottom: 20px; }
+.article-read-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: var(--transition); }
+.article-read-btn:hover { color: #fff; transform: translateX(4px); }
+
+/* Back-to-top + toast */
+.to-top { position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px; border-radius: 50%; background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.4); color: var(--accent-cyan); font-size: 1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 900; backdrop-filter: blur(8px); }
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { background: var(--accent-cyan); color: #040b19; }
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); background: #0a1a3a; border: 1px solid var(--accent-cyan); color: #fff; padding: 10px 20px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 1200; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Footer (identical to site) ---------- */
+.footer { background: var(--footer-bg); color: #fff; padding: 70px 20px 25px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.inner-footer { max-width: 1350px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+.footer-col { display: flex; flex-direction: column; }
+.footer-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 18px; position: relative; letter-spacing: 0.5px; }
+.footer-heading::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.footer-about-text { color: #8fa5c7; font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-list a { color: #8fa5c7; text-decoration: none; font-size: 0.92rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; }
+.footer-links-list a:hover { color: var(--accent-cyan); transform: translateX(4px); }
+.footer-address { color: #9cb1d6; font-size: 0.92rem; line-height: 1.6; margin-bottom: 15px; }
+.footer-social-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+.footer-social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; transition: var(--transition); }
+.footer-social-btn:hover { background: var(--accent-cyan); color: #040b19; transform: translateY(-3px); }
+.footer-bottom { max-width: 1350px; margin: 0 auto; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #7e94b8; font-size: 0.88rem; }
+.scroll-top-btn { background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.3); color: var(--accent-cyan); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: var(--transition); display: inline-flex; align-items: center; gap: 6px; }
+.scroll-top-btn:hover { background: var(--accent-cyan); color: #040b19; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .article-title { font-size: 2.4rem; }
+  .article-layout { grid-template-columns: 1fr; gap: 0; }
+  .rail { position: static; margin-bottom: 36px; padding: 20px; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); }
+  .rail-tools { flex-direction: row; flex-wrap: wrap; }
+  .inner-footer { grid-template-columns: 1fr 1fr; }
+  .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(4, 11, 25, 0.98); flex-direction: column; padding: 40px 20px; gap: 18px; transition: 0.35s ease; }
+  .nav-menu.show { left: 0; }
+  .mobile-menu-btn { display: block; }
+}
+@media (max-width: 600px) {
+  .mission-pill { display: none; }
+  .article-title { font-size: 1.95rem; }
+  .article-subtitle { font-size: 1.12rem; }
+  .prose { font-size: 1.05rem; }
+  .prose h2 { font-size: 1.4rem; }
+  .prose figure.wide { margin-left: 0; margin-right: 0; }
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { text-align: left; }
+  .author-card { flex-direction: column; }
+  .inner-footer { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  .site-header, .journey, .rail, .pager, .more, .footer, .to-top { display: none; }
+  body, .article-hero { background: #fff; color: #000; }
+  .prose, .prose h2, .article-title { color: #000; -webkit-text-fill-color: #000; }
+  .article-layout { display: block; }
+}
+.figpair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.prose .figpair img { height: 100%; object-fit: cover; }
+.prose pre.eq { white-space: pre-wrap; }
+@media (max-width: 600px) { .figpair { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body id="top">
+
+<!-- ===== Navbar ===== -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html#top" class="brand-logo">
+      <img src="../images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+      <div class="brand-title-wrap">
+        <span class="brand-title">IBAC <span>IISERB</span></span>
+        <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#top" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="articles.html" class="nav-link active">Articles</a></li>
+      <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+      <li><a href="index.html#events" class="nav-link">Events</a></li>
+      <li><a href="index.html#team" class="nav-link">Team</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <!-- Voyager 2 progress tracker: flies the Grand Tour as you read.
+       Planet positions are the "left" values below. -->
+  <div class="journey" aria-hidden="true">
+    <span class="wp jupiter" style="left:20%"></span>
+    <span class="wp saturn" style="left:40%"></span>
+    <span class="wp uranus" style="left:60%"></span>
+    <span class="wp neptune" style="left:80%"></span>
+    <div class="journey-bar" id="journeyBar">
+      <!-- Voyager: dish faces back toward Earth, boom and generator trail behind it -->
+      <svg class="probe" viewBox="0 0 28 15" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 1.5 Q7.5 7.5 3 13.5 Q9.5 7.5 3 1.5Z" fill="currentColor"/>
+        <line x1="5.5" y1="7.5" x2="10" y2="7.5"/>
+        <rect x="10" y="5" width="6" height="5" rx="1" fill="currentColor"/>
+        <line x1="16" y1="7.5" x2="27" y2="7.5"/>
+        <rect x="21" y="6" width="3" height="3" fill="currentColor"/>
+        <line x1="13" y1="5" x2="13" y2="0.8"/>
+        <line x1="13" y1="10" x2="13" y2="14.2"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Article hero ===== -->
+<section class="article-hero">
+  <div class="stars-overlay"></div>
+  <div class="hero-inner">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <a href="articles.html">Articles</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <span>Artemis Mission: Deep Space Exploration System</span>
+    </nav>
+
+    <div class="hero-badge"><i class="fa-solid fa-rocket"></i> Space Exploration</div>
+
+    <h1 class="article-title">Artemis Mission: Deep Space Exploration System</h1>
+    <p class="article-subtitle">Four systems have to work together to put people back on the Moon. A look at the rocket, the capsule, the launch site and the lander.</p>
+
+    <div class="byline">
+      <div class="author">
+        <div class="author-avatar">HS</div>
+        <div>
+          <div class="author-name">Himadri Sonowal</div>
+          <div class="author-batch">BS-MS 2020</div>
+        </div>
+      </div>
+      <!-- EDIT: add the publication date, e.g. <span class="meta-item"><i class="fa-regular fa-calendar"></i> 15 October 2026</span> -->
+      <span class="meta-item"><i class="fa-regular fa-clock"></i> <span id="readTime">-</span> min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Body ===== -->
+<div class="article-layout">
+
+  <!-- Left rail: the contents list is built automatically from the <h2> headings below -->
+  <aside class="rail">
+    <div class="rail-title">In this article</div>
+    <ul class="toc" id="toc"></ul>
+    <div class="rail-tools">
+      <button class="rail-btn" id="copyLink" type="button"><i class="fa-regular fa-copy"></i> Copy link</button>
+      <button class="rail-btn" id="shareBtn" type="button"><i class="fa-solid fa-share-nodes"></i> Share</button>
+      <button class="rail-btn" onclick="window.print()" type="button"><i class="fa-solid fa-print"></i> Print / save PDF</button>
+    </div>
+  </aside>
+
+  <article id="articleBody">
+    <div class="prose">
+
+      <p class="lede">Artemis, as quoted in the last article, is &ldquo;our generation's Apollo 8.&rdquo; Its first mission is a few integrated tests away from being launched into space. A huge role in the Artemis Mission is played by its Deep Space Exploration System, which consists of some very advanced systems.</p>
+
+      <div class="callout">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <div><strong>Written before launch</strong>This article was written ahead of the Artemis I launch, which was then planned for February 2022. The dates and plans below are those at the time of writing. <!-- EDIT: add an update about what has happened since, if you like. --></div>
+      </div>
+
+      <aside class="factsheet">
+        <h4><i class="fa-solid fa-circle-info"></i> Artemis systems at a glance</h4>
+        <dl><dt>System</dt><dd>SLS rocket, Orion spacecraft, EGS, HLS</dd><dt>Artemis I (as planned)</dt><dd>Uncrewed, February 2022</dd><dt>Orion path</dt><dd>40,000 miles beyond the Moon</dd><dt>Re-entry speed</dt><dd>Mach 32, about 24,500 mph</dd><dt>Early lander stays</dt><dd>Up to a week</dd></dl>
+      </aside>
+
+      <h2>The rocket: Space Launch System</h2>
+      <p>NASA, as sources reveal, is supposed to launch its massive Space Launch System (SLS) rocket for the first time in February 2022. The rocket will be part of many Artemis missions and many other missions the future holds. It is said to be the most powerful rocket NASA has ever built and, on completion, is designed to be more flexible and evolvable, increasing the possibilities for payloads and robotic scientific missions to the Moon, Saturn and Jupiter.</p>
+      <p>The Space Launch System is a super-heavy-lift vehicle, and the only rocket capable of sending Orion, astronauts and cargo on a single mission, which makes it the foundation for human exploration beyond Earth's orbit. Artemis will use at least one SLS each year until 2030.</p>
+
+      <figure>
+        <img src="../images/articles/artemis-deep-space-exploration-system/figure-1.png" alt="Orion lifted above the SLS rocket">
+        <figcaption><strong>Figure 1.</strong> The Orion spacecraft for NASA's Artemis I mission, fully assembled with its launch abort system, is lifted above the Space Launch System (SLS) rocket.</figcaption>
+      </figure>
+
+      <h2>The spacecraft: Orion</h2>
+      <figure>
+        <img src="../images/articles/artemis-deep-space-exploration-system/figure-2.png" alt="The Orion spacecraft">
+        
+      </figure>
+      <p>NASA's Orion is meant to take humans farther, and on a deeper exploration of space, than ever before. From transporting the crew into space, to providing emergency abort capabilities, sustaining the crew during space travel, and allowing safe re-entry from deep-space return velocities, Orion will serve as an exploration vessel for many missions to come. For its targeted lift-off in February 2022, it is already mated with the powerful SLS, now nicknamed the mega-moon rocket.</p>
+      <p>On Artemis I, the SLS is to launch an uncrewed Orion into Earth orbit and put it on a course for a lunar distant retrograde orbit, where it will go 40,000 miles beyond the Moon and 280,000 miles from Earth before coming home. This flight test is crucial: it will exhibit the performance of the SLS on its inaugural mission and gather engineering data throughout, before Orion returns on a high-speed Earth re-entry at Mach 32, or 24,500 miles per hour. The top priority is to ensure that return, the high-speed lunar-velocity re-entry, and a very much needed test of the heat shield.</p>
+      <p>Artemis I is an uncrewed configuration, so it has no life support systems or astronaut-supporting elements. Instead it carries data-gathering tools to verify performance and to compare estimated models with actual flight data. Orion will surpass Apollo 13's record for distance travelled from Earth in a spacecraft developed for humans, and will travel an estimated distance of more than 1.4 million miles before returning.</p>
+      <p>The crew module for Artemis I has been tested, assembled and integrated with the European service module. The service module, built by ESA, provides most of the propulsion, power and cooling systems for the crew module, where astronauts will live and work during future Artemis missions.</p>
+
+      <h2>The launch team: Exploration Ground Systems</h2>
+      <figure>
+        <img src="../images/articles/artemis-deep-space-exploration-system/figure-3.png" alt="Exploration Ground Systems at Kennedy Space Center">
+        
+      </figure>
+      <p>Exploration Ground Systems (EGS) is one of three NASA programs based at NASA's Kennedy Space Center in Florida. EGS was established to develop and operate the systems and facilities necessary to process and launch rockets and spacecraft during assembly, transport and launch. Its mission is to transform the centre from a historically government-only launch complex to a spaceport that can handle several different kinds of spacecraft and rockets, both government and commercial.</p>
+
+      <h2>The Human Landing System</h2>
+      <figure>
+        <img src="../images/articles/artemis-deep-space-exploration-system/figure-4.png" alt="Concept image of the Human Landing System">
+        <figcaption><strong>Figure 4.</strong> Concept image from the NASA website.</figcaption>
+      </figure>
+      <p>The Human Landing System (HLS) is the final mode of transportation that will take astronauts to the lunar surface in the Artemis programme. On early missions, astronauts will live inside the pressurised crew cabin of the lander for up to a week. NASA experts will work closely with business partners to build their own human settlements, using decades of human spaceflight experience and commercial speed to achieve the Moon landing planned for 2024.</p>
+      <p>The HLS programme will also carry out improved development and risk-reduction activities, and work in tandem with strategic planning and contractors for the 2024 mission, as well as with the maturity of the programmes required for the construction of sustainable future structures.</p>
+      <p>The Lunar Gateway, though independent, is also a vital part of the Artemis Mission. A brief on the Gateway is given in the article <a href="artemis-humans-to-the-moon-again.html">Artemis Mission: Humans to the Moon Again</a>.</p>
+      <p>NASA is planning an Artemis Base Camp concept that includes a modern lunar cabin, a rover, and even a mobile home. For the first few missions, the HLS will double as lunar lodging, offering life support for a short crew stay on the Moon. In the future, NASA envisions a fixed habitat at the Artemis Base Camp that can house up to four astronauts for a month-long stay.</p>
+
+      <blockquote>Betimes to the Moon, and ere long soon to Mars and beyond.</blockquote>
+      <p>This is still an aspiration that would be thought of as a daydream, if these few developments did not exist.</p>
+
+      <h2>Key takeaways</h2>
+      <div class="takeaways">
+        <h3><i class="fa-solid fa-flag-checkered" style="color:var(--accent-cyan)"></i>&nbsp; What to remember</h3>
+        <ul>
+          <li>The Space Launch System is a super-heavy-lift rocket able to send Orion, astronauts and cargo on a single mission.</li>
+          <li>Orion carries the crew, with a service module built by ESA. Artemis I was planned as an uncrewed test of the heat shield and re-entry.</li>
+          <li>Exploration Ground Systems prepares and launches the vehicles from Kennedy Space Center.</li>
+          <li>The Human Landing System takes astronauts to the surface and doubles as lodging for early missions.</li>
+        </ul>
+      </div>
+
+      <h2>References</h2>
+      <ol class="refs">
+        <li><a href="https://www.nasa.gov/gateway" target="_blank" rel="noopener noreferrer">NASA: Gateway</a></li>
+        <li><a href="https://www.nasa.gov/specials/artemis/" target="_blank" rel="noopener noreferrer">NASA: Artemis</a></li>
+        <li><a href="https://spacenews.com/intuitive-machines-first-lunar-lander-mission-slips-to-2022/" target="_blank" rel="noopener noreferrer">SpaceNews: Intuitive Machines first lunar lander mission slips to 2022</a></li>
+        <li><a href="https://www.nasa.gov/press-release/nasa-publishes-artemis-plan-to-land-first-woman-next-man-on-moon-in-2024" target="_blank" rel="noopener noreferrer">NASA publishes Artemis plan to land first woman, next man on Moon in 2024</a></li>
+      </ol>
+
+    </div>
+
+    <!-- Tags + author card -->
+    <div class="after">
+      <div class="tags">
+        <a class="tag" href="articles.html">Space Exploration</a>
+        <a class="tag" href="articles.html">Artemis</a>
+        <a class="tag" href="articles.html">NASA</a>
+        </div>
+
+      <div class="author-card">
+        <div class="author-avatar">HS</div>
+        <div>
+          <h4>Himadri Sonowal</h4>
+          <span class="author-batch">BS-MS 2020 · IISER Bhopal</span>
+          <!-- EDIT: add a short bio -->
+          <p>Written for the IBAC article series.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<nav class="pager" aria-label="More articles">
+  <a href="oumuamua.html" class="prev"><small><i class="fa-solid fa-arrow-left"></i> Previous</small><span>A Visitor From Outer Space: 'Oumuamua</span></a>
+  <a href="a-leap-out-of-the-galaxy.html" class="next"><small>Next <i class="fa-solid fa-arrow-right"></i></small><span>A Leap Out of the Galaxy</span></a>
+</nav>
+
+<section class="more">
+  <div class="more-inner">
+    <h2>Keep exploring</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Cosmology</span>
+          <h3>A Leap Out of the Galaxy</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Muhammed Roshan · BS-MS 2020</div>
+          <div class="article-desc">Where most of the Universe's ordinary matter hides: the thin gas between galaxies, galactic filaments and cosmic voids.</div>
+        </div>
+        <a href="a-leap-out-of-the-galaxy.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Solar Physics</span>
+          <h3>Basics of Solar Physics, Part II</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Hardik Kuralkar · BS-MS 2020</div>
+          <div class="article-desc">The 11-year solar cycle, theories of sunspots, the standard solar model, and the solar neutrino puzzle.</div>
+        </div>
+        <a href="basics-of-solar-physics-part-2.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<!-- If your footer in articles.html differs from this one, paste that block here instead -->
+<footer class="footer">
+  <div class="inner-footer">
+    <div class="footer-col">
+      <div class="footer-heading">IBAC IISERB</div>
+      <p class="footer-about-text">The IISER Bhopal Astronomy Club fosters amateur astronomy, astrophotography, public science outreach and astrophysical research under the IISERB Science Council and the Department of Physics.</p>
+      <div class="footer-social-row">
+        <a href="https://www.instagram.com/ibac_iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/ibac-iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@ibaciiserbhopal" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ibac.iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Explore</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Visit Us</div>
+      <p class="footer-address"><strong>Club Room:</strong> Room 106, Above Mess-4, IISER Bhopal, Indore-Bypass Road, Bhauri, Bhopal, M.P. 462 066</p>
+      <p class="footer-address"><strong>Observatory:</strong> Above Central Dining Hall (CDH), IISER Bhopal</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:ibac.official@gmail.com"><i class="fa-regular fa-envelope"></i> ibac.official@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</span>
+    <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="mission-pill" id="missionPill" aria-hidden="true"><i class="fa-solid fa-satellite"></i><span>Voyager 2: <b id="missionStage">leaving Earth</b></span></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Mobile menu */
+const navMenu = document.getElementById('navMenu');
+document.getElementById('mobileMenuBtn').addEventListener('click', () => navMenu.classList.toggle('show'));
+
+/* Reading time (about 220 words per minute) */
+const body = document.getElementById('articleBody');
+const words = body.querySelector('.prose').innerText.trim().split(/\s+/).length;
+document.getElementById('readTime').textContent = Math.max(1, Math.round(words / 220));
+
+/* Build "In this article" from the <h2> headings */
+const toc = document.getElementById('toc');
+const heads = [...body.querySelectorAll('.prose h2')];
+heads.forEach((h, i) => {
+  if (!h.id) h.id = 'sec-' + (i + 1) + '-' + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const li = document.createElement('li');
+  li.innerHTML = '<a href="#' + h.id + '"></a>';
+  li.firstChild.textContent = h.textContent;
+  toc.appendChild(li);
+});
+if (!heads.length) document.querySelector('.rail-title').parentElement.querySelectorAll('.rail-title, .toc').forEach(e => e.style.display = 'none');
+
+/* Scroll: progress bar, active section, back-to-top */
+const bar = document.getElementById('journeyBar');
+const waypoints = [[20, 'passing Jupiter'], [40, 'passing Saturn'], [60, 'passing Uranus'], [80, 'passing Neptune'], [97, 'in interstellar space']];
+const wpEls = [...document.querySelectorAll('.journey .wp')];
+const stageEl = document.getElementById('missionStage');
+const toTop = document.getElementById('toTop');
+const tocLinks = [...toc.querySelectorAll('a')];
+function onScroll() {
+  const rect = body.getBoundingClientRect();
+  const total = rect.height - window.innerHeight * 0.6;
+  const done = Math.min(1, Math.max(0, (-rect.top + window.innerHeight * 0.3) / total));
+  bar.style.width = (done * 100) + '%';
+  /* Voyager waypoints: [position along the page, label, distance label] */
+  const stage = [...waypoints].reverse().find(w => done * 100 >= w[0]);
+  stageEl.textContent = stage ? stage[1] : 'leaving Earth';
+  wpEls.forEach((el, i) => el.classList.toggle('passed', done * 100 >= waypoints[i][0]));
+  toTop.classList.toggle('show', window.scrollY > 700);
+  let current = null;
+  heads.forEach(h => { if (h.getBoundingClientRect().top < 140) current = h.id; });
+  tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + current));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
+toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
+
+/* Copy link + share */
+const toast = document.getElementById('toast');
+function say(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
+document.getElementById('copyLink').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(location.href.split('#')[0]); say('Link copied'); }
+  catch (e) { say('Could not copy. Copy it from the address bar.'); }
+});
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const data = { title: document.title, url: location.href.split('#')[0] };
+  if (navigator.share) { try { await navigator.share(data); } catch (e) {} }
+  else { try { await navigator.clipboard.writeText(data.url); say('Link copied'); } catch (e) { say('Sharing is not supported here.'); } }
+});
+</script>
+</body>
+</html>

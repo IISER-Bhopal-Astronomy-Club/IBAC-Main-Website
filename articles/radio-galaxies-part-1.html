@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     IBAC ARTICLE TEMPLATE
+     Save a copy per article, e.g. riding-on-fire.html
+     Search this file for "EDIT:" to find every spot you need to change.
+     Keep it in the same folder as index.html so images/ paths work.
+     ============================================================ -->
+
+<title>Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them | IBAC IISER Bhopal</title>
+<meta name="description" content="The history of radio astronomy and radio galaxies: Jansky, Reber, Ryle and Bolton, synchrotron emission, and how interferometers and aperture synthesis resolve distant radio sources. By Devang Somawanshi, BS-MS 2020.">
+<meta property="og:title" content="Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them | IBAC IISER Bhopal">
+<meta property="og:description" content="The history of radio astronomy and radio galaxies: Jansky, Reber, Ryle and Bolton, synchrotron emission, and how interferometers and aperture synthesis resolve distant radio sources. By Devang Somawanshi, BS-MS 2020.">
+<meta property="og:image" content="../images/ibac.png">
+
+<link rel="icon" type="image/png" href="../images/ibac.png">
+<link rel="shortcut icon" href="../images/ibac.png">
+<link rel="apple-touch-icon" href="../images/ibac.png">
+<meta name="theme-color" content="#040b19">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Site tokens (same as articles.html) ---------- */
+:root {
+  --primary-blue: #0056b3;
+  --accent-cyan: #00c6ff;
+  --royal-blue: #0072ff;
+  --deep-navy: #040b19;
+  --midnight-blue: #081226;
+  --footer-bg: #000106;
+  --radius-card: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --prose: #d3e1f5;
+  --prose-strong: #ffffff;
+  --card: rgba(10, 24, 54, 0.75);
+  --card-line: rgba(0, 114, 255, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 90px; }
+body { font-family: 'Lato', 'Inter', sans-serif; background: #060e20; color: #e2ecf9; line-height: 1.6; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+/* ---------- Navbar (identical to site) ---------- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(4, 11, 25, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0, 198, 255, 0.25); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-logo-img { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6)); transition: var(--transition); }
+.brand-logo:hover .brand-logo-img { transform: rotate(15deg) scale(1.05); }
+.brand-title-wrap { display: flex; flex-direction: column; }
+.brand-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 1.5px; line-height: 1.1; }
+.brand-title span { color: var(--accent-cyan); }
+.brand-subtitle { font-size: 0.72rem; color: #8da4c4; text-transform: uppercase; letter-spacing: 1px; }
+.nav-menu { display: flex; list-style: none; gap: 20px; align-items: center; }
+.nav-link { font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500; color: #c9dbf2; text-decoration: none; transition: var(--transition); position: relative; padding: 6px 0; }
+.nav-link:hover, .nav-link.active { color: var(--accent-cyan); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent-cyan); transition: var(--transition); box-shadow: 0 0 8px var(--accent-cyan); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+/* ---------- Voyager progress tracker (the one memorable element) ----------
+   The probe flies along the top of the page as you read and passes the
+   planets of Voyager 2's real Grand Tour: Jupiter, Saturn, Uranus and
+   Neptune, then interstellar space at the end of the article. */
+.journey { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; z-index: 2; background: rgba(0, 198, 255, 0.18); pointer-events: none; }
+.journey-bar { height: 100%; width: 0; background: linear-gradient(90deg, rgba(0,114,255,0), #0072ff 45%, #00c6ff); position: relative; }
+.probe { position: absolute; right: -26px; top: -8px; width: 36px; height: 19px; color: #eaf4ff; filter: drop-shadow(0 0 6px rgba(0, 198, 255, 0.8)); z-index: 3; }
+
+/* Planet waypoints (drawn in CSS, no image files). Dim until Voyager 2 flies past. */
+.wp { position: absolute; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; opacity: 0.4; filter: saturate(0.25); transition: var(--transition); }
+.wp.passed { opacity: 1; filter: none; box-shadow: 0 0 10px rgba(0, 198, 255, 0.55); }
+.wp.jupiter { width: 17px; height: 17px; background: linear-gradient(180deg, #c99a6b 0%, #ead6b6 18%, #b07a4f 33%, #e2c69d 50%, #a56b45 66%, #dcbd93 82%, #b98258 100%); }
+.wp.saturn { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #f3e4b8, #c9ad72); }
+.wp.saturn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 27px; height: 8px; border: 1.5px solid rgba(235, 215, 160, 0.95); border-radius: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
+.wp.uranus { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #d6fbfc, #7fd3d8); }
+.wp.neptune { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #7a9bff, #2646c9); }
+.mission-pill { position: fixed; left: 24px; bottom: 24px; z-index: 900; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 30px; background: rgba(4, 11, 25, 0.88); border: 1px solid rgba(0, 198, 255, 0.3); backdrop-filter: blur(8px); font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #b0cbf2; pointer-events: none; }
+.mission-pill i { color: var(--accent-cyan); }
+.mission-pill b { color: #fff; font-weight: 600; }
+
+/* ---------- Article hero ---------- */
+.article-hero { position: relative; background: radial-gradient(circle at 50% 10%, #0d224d 0%, #040b19 80%); padding: 70px 20px 56px; overflow: hidden; border-bottom: 1px solid rgba(0, 198, 255, 0.2); }
+.stars-overlay { position: absolute; inset: 0; background-image:
+  radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 300px 80px, #fff, rgba(0,0,0,0)),
+  radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 600px 50px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0,0,0,0));
+  background-size: 600px 600px; opacity: 0.65; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+.crumbs { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #79a6db; margin-bottom: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.crumbs a { color: var(--accent-cyan); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 198, 255, 0.12); border: 1px solid rgba(0, 198, 255, 0.35); color: var(--accent-cyan); padding: 5px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; box-shadow: 0 0 15px rgba(0, 198, 255, 0.15); }
+.article-title { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; background: linear-gradient(135deg, #ffffff 35%, #70b8ff 75%, #00c6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.article-subtitle { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.3rem; color: #b2d5ff; line-height: 1.55; max-width: 720px; margin-bottom: 30px; }
+
+.byline { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding-top: 22px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #0072ff, #00c6ff); display: grid; place-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; box-shadow: 0 0 14px rgba(0, 198, 255, 0.4); overflow: hidden; }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.author-name { font-family: 'Poppins', sans-serif; font-weight: 600; color: #fff; font-size: 0.98rem; line-height: 1.2; }
+.author-batch { font-size: 0.82rem; color: #79a6db; }
+.meta-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #9dbbe3; }
+.meta-item i { color: var(--accent-cyan); }
+
+/* ---------- Cover figure ---------- */
+.cover-wrap { max-width: 1100px; margin: -28px auto 0; padding: 0 20px; position: relative; z-index: 3; }
+.cover { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--card-line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); background: var(--midnight-blue); }
+.cover img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+.cover figcaption { padding: 12px 18px; font-size: 0.84rem; color: #8da4c4; border-top: 1px solid var(--card-line); }
+
+/* ---------- Layout: sticky contents rail + reading column ---------- */
+.article-layout { max-width: 1100px; margin: 0 auto; padding: 56px 20px 40px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; }
+.rail { position: sticky; top: 96px; align-self: start; }
+.rail-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; padding-bottom: 8px; }
+.rail-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.toc { list-style: none; border-left: 1px solid rgba(0, 198, 255, 0.2); }
+.toc a { display: block; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: #8fa5c7; text-decoration: none; font-size: 0.9rem; line-height: 1.4; transition: var(--transition); }
+.toc a:hover { color: #fff; }
+.toc a.on { color: var(--accent-cyan); border-left-color: var(--accent-cyan); font-weight: 600; }
+.rail-tools { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+.rail-btn { display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.25); color: #b0cbf2; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: var(--transition); }
+.rail-btn:hover { background: var(--accent-cyan); color: #040b19; border-color: transparent; }
+.rail-btn i { width: 16px; text-align: center; }
+
+/* ---------- Prose ---------- */
+.prose { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.14rem; line-height: 1.85; color: var(--prose); max-width: 68ch; }
+.prose > * + * { margin-top: 1.25em; }
+.prose h2 { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2.4em; scroll-margin-top: 90px; }
+.prose h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: #cfe4ff; margin-top: 1.9em; }
+.prose strong { color: var(--prose-strong); font-weight: 600; }
+.prose em { color: #e8f2ff; }
+.prose a { color: var(--accent-cyan); text-decoration: underline; text-decoration-color: rgba(0, 198, 255, 0.4); text-underline-offset: 3px; transition: var(--transition); }
+.prose a:hover { color: #fff; text-decoration-color: #fff; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.5em; }
+.prose li::marker { color: var(--accent-cyan); }
+.prose sup a { text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.75em; }
+
+/* First paragraph drop cap */
+.prose .lede::first-letter { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 3.9em; float: left; line-height: 0.85; padding: 0.08em 0.12em 0 0; background: linear-gradient(135deg, #fff, #00c6ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Glossary terms: hover or focus for a definition */
+.term { position: relative; border-bottom: 1px dotted var(--accent-cyan); cursor: help; color: #fff; }
+.term::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px); width: max-content; max-width: 260px; padding: 10px 14px; background: #0a1a3a; border: 1px solid var(--accent-cyan); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.5; font-style: normal; font-weight: 400; color: #d6e6ff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; transition: var(--transition); z-index: 20; }
+.term:hover::after, .term:focus::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Fact sheet: an observation-log card for the numbers */
+.factsheet { background: var(--card); border: 1px solid var(--card-line); border-left: 3px solid var(--accent-cyan); border-radius: var(--radius-card); padding: 22px 26px; font-family: 'Inter', sans-serif; backdrop-filter: blur(8px); }
+.factsheet h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.factsheet h4 i { color: var(--accent-cyan); }
+.factsheet dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 22px; font-size: 0.93rem; }
+.factsheet dt { color: #79a6db; }
+.factsheet dd { color: #fff; font-weight: 500; }
+
+/* Callout */
+.callout { background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.1)); border: 1px solid rgba(0, 198, 255, 0.35); border-radius: var(--radius-card); padding: 20px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: #d8e8ff; display: flex; gap: 16px; }
+.callout > i { color: var(--accent-cyan); font-size: 1.3rem; margin-top: 4px; }
+.callout strong { display: block; font-family: 'Poppins', sans-serif; color: #fff; margin-bottom: 4px; }
+
+/* Pull quote */
+.prose blockquote { margin: 2em 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--accent-cyan); font-style: italic; font-size: 1.4rem; line-height: 1.55; color: #fff; }
+.prose blockquote cite { display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.86rem; color: #79a6db; }
+
+/* Equation */
+.equation { text-align: center; padding: 22px 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-line); border-radius: 12px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.5rem; color: #fff; overflow-x: auto; }
+.equation small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.82rem; color: #79a6db; }
+
+/* Figures inside the article */
+.prose figure { margin: 2em 0; }
+.prose figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-line); }
+.prose figcaption { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #8da4c4; line-height: 1.5; }
+.prose figure.wide { margin-left: -4%; margin-right: -4%; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--card-line); border-radius: 12px; }
+.prose table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.93rem; }
+.prose th { text-align: left; background: rgba(0, 114, 255, 0.18); color: #fff; font-weight: 600; padding: 12px 16px; }
+.prose td { padding: 11px 16px; border-top: 1px solid rgba(0, 198, 255, 0.12); color: #cfe0f7; }
+
+/* Key takeaways */
+.takeaways { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px 30px; font-family: 'Inter', sans-serif; }
+.takeaways h3 { margin-top: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+.takeaways ul { font-size: 1rem; line-height: 1.65; color: #cfe0f7; }
+
+/* References */
+.refs { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #9dbbe3; line-height: 1.65; }
+.refs li { word-break: break-word; }
+
+/* Author card + tags */
+.after { max-width: 68ch; margin-top: 3.2em; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.tag { font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; transition: var(--transition); }
+.tag:hover { background: var(--accent-cyan); color: #040b19; }
+.author-card { display: flex; gap: 20px; align-items: flex-start; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px; font-family: 'Inter', sans-serif; }
+.author-card .author-avatar { width: 64px; height: 64px; font-size: 1.3rem; flex-shrink: 0; }
+.author-card h4 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; }
+.author-card .author-batch { margin-bottom: 8px; display: block; }
+.author-card p { font-size: 0.93rem; color: #a4bede; line-height: 1.65; }
+
+/* Prev / Next */
+.pager { max-width: 1100px; margin: 0 auto; padding: 0 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pager a { display: block; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 22px 26px; text-decoration: none; transition: var(--transition); }
+.pager a:hover { transform: translateY(-5px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.pager small { display: block; font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 6px; }
+.pager span { font-family: 'Poppins', sans-serif; font-size: 1.05rem; color: #fff; line-height: 1.35; }
+.pager .next { text-align: right; }
+
+/* Keep exploring */
+.more { padding: 50px 20px 80px; }
+.more-inner { max-width: 1100px; margin: 0 auto; }
+.more h2 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 24px; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+.article-card { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 28px; transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(8px); }
+.article-card:hover { transform: translateY(-6px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.article-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 3px 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.article-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; line-height: 1.35; }
+.article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: #79a6db; margin-bottom: 14px; font-weight: 500; }
+.article-meta i { color: var(--accent-cyan); }
+.article-desc { font-size: 0.94rem; color: #a4bede; line-height: 1.65; margin-bottom: 20px; }
+.article-read-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: var(--transition); }
+.article-read-btn:hover { color: #fff; transform: translateX(4px); }
+
+/* Back-to-top + toast */
+.to-top { position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px; border-radius: 50%; background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.4); color: var(--accent-cyan); font-size: 1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 900; backdrop-filter: blur(8px); }
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { background: var(--accent-cyan); color: #040b19; }
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); background: #0a1a3a; border: 1px solid var(--accent-cyan); color: #fff; padding: 10px 20px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 1200; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Footer (identical to site) ---------- */
+.footer { background: var(--footer-bg); color: #fff; padding: 70px 20px 25px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.inner-footer { max-width: 1350px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+.footer-col { display: flex; flex-direction: column; }
+.footer-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 18px; position: relative; letter-spacing: 0.5px; }
+.footer-heading::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.footer-about-text { color: #8fa5c7; font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-list a { color: #8fa5c7; text-decoration: none; font-size: 0.92rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; }
+.footer-links-list a:hover { color: var(--accent-cyan); transform: translateX(4px); }
+.footer-address { color: #9cb1d6; font-size: 0.92rem; line-height: 1.6; margin-bottom: 15px; }
+.footer-social-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+.footer-social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; transition: var(--transition); }
+.footer-social-btn:hover { background: var(--accent-cyan); color: #040b19; transform: translateY(-3px); }
+.footer-bottom { max-width: 1350px; margin: 0 auto; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #7e94b8; font-size: 0.88rem; }
+.scroll-top-btn { background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.3); color: var(--accent-cyan); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: var(--transition); display: inline-flex; align-items: center; gap: 6px; }
+.scroll-top-btn:hover { background: var(--accent-cyan); color: #040b19; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .article-title { font-size: 2.4rem; }
+  .article-layout { grid-template-columns: 1fr; gap: 0; }
+  .rail { position: static; margin-bottom: 36px; padding: 20px; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); }
+  .rail-tools { flex-direction: row; flex-wrap: wrap; }
+  .inner-footer { grid-template-columns: 1fr 1fr; }
+  .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(4, 11, 25, 0.98); flex-direction: column; padding: 40px 20px; gap: 18px; transition: 0.35s ease; }
+  .nav-menu.show { left: 0; }
+  .mobile-menu-btn { display: block; }
+}
+@media (max-width: 600px) {
+  .mission-pill { display: none; }
+  .article-title { font-size: 1.95rem; }
+  .article-subtitle { font-size: 1.12rem; }
+  .prose { font-size: 1.05rem; }
+  .prose h2 { font-size: 1.4rem; }
+  .prose figure.wide { margin-left: 0; margin-right: 0; }
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { text-align: left; }
+  .author-card { flex-direction: column; }
+  .inner-footer { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  .site-header, .journey, .rail, .pager, .more, .footer, .to-top { display: none; }
+  body, .article-hero { background: #fff; color: #000; }
+  .prose, .prose h2, .article-title { color: #000; -webkit-text-fill-color: #000; }
+  .article-layout { display: block; }
+}
+.figpair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.prose .figpair img { height: 100%; object-fit: cover; }
+.prose pre.eq { white-space: pre-wrap; }
+@media (max-width: 600px) { .figpair { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body id="top">
+
+<!-- ===== Navbar ===== -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html#top" class="brand-logo">
+      <img src="../images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+      <div class="brand-title-wrap">
+        <span class="brand-title">IBAC <span>IISERB</span></span>
+        <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#top" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="articles.html" class="nav-link active">Articles</a></li>
+      <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+      <li><a href="index.html#events" class="nav-link">Events</a></li>
+      <li><a href="index.html#team" class="nav-link">Team</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <!-- Voyager 2 progress tracker: flies the Grand Tour as you read.
+       Planet positions are the "left" values below. -->
+  <div class="journey" aria-hidden="true">
+    <span class="wp jupiter" style="left:20%"></span>
+    <span class="wp saturn" style="left:40%"></span>
+    <span class="wp uranus" style="left:60%"></span>
+    <span class="wp neptune" style="left:80%"></span>
+    <div class="journey-bar" id="journeyBar">
+      <!-- Voyager: dish faces back toward Earth, boom and generator trail behind it -->
+      <svg class="probe" viewBox="0 0 28 15" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 1.5 Q7.5 7.5 3 13.5 Q9.5 7.5 3 1.5Z" fill="currentColor"/>
+        <line x1="5.5" y1="7.5" x2="10" y2="7.5"/>
+        <rect x="10" y="5" width="6" height="5" rx="1" fill="currentColor"/>
+        <line x1="16" y1="7.5" x2="27" y2="7.5"/>
+        <rect x="21" y="6" width="3" height="3" fill="currentColor"/>
+        <line x1="13" y1="5" x2="13" y2="0.8"/>
+        <line x1="13" y1="10" x2="13" y2="14.2"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Article hero ===== -->
+<section class="article-hero">
+  <div class="stars-overlay"></div>
+  <div class="hero-inner">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <a href="articles.html">Articles</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <span>Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them</span>
+    </nav>
+
+    <div class="hero-badge"><i class="fa-solid fa-satellite-dish"></i> Radio Astronomy</div>
+
+    <h1 class="article-title">Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them</h1>
+    <p class="article-subtitle">From a Bell Labs hiss in the 1930s to arrays that span continents: how radio galaxies were found, and how astronomers see them.</p>
+
+    <div class="byline">
+      <div class="author">
+        <div class="author-avatar">DS</div>
+        <div>
+          <div class="author-name">Devang Somawanshi</div>
+          <div class="author-batch">BS-MS 2020</div>
+        </div>
+      </div>
+      <!-- EDIT: add the publication date, e.g. <span class="meta-item"><i class="fa-regular fa-calendar"></i> 15 October 2026</span> -->
+      <span class="meta-item"><i class="fa-regular fa-clock"></i> <span id="readTime">-</span> min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Body ===== -->
+<div class="article-layout">
+
+  <!-- Left rail: the contents list is built automatically from the <h2> headings below -->
+  <aside class="rail">
+    <div class="rail-title">In this article</div>
+    <ul class="toc" id="toc"></ul>
+    <div class="rail-tools">
+      <button class="rail-btn" id="copyLink" type="button"><i class="fa-regular fa-copy"></i> Copy link</button>
+      <button class="rail-btn" id="shareBtn" type="button"><i class="fa-solid fa-share-nodes"></i> Share</button>
+      <button class="rail-btn" onclick="window.print()" type="button"><i class="fa-solid fa-print"></i> Print / save PDF</button>
+    </div>
+  </aside>
+
+  <article id="articleBody">
+    <div class="prose">
+
+      <p class="lede">Well, readers, when we try to think closely about this word, the first idea we get is that there is a galaxy somewhere in the universe that is emitting radio waves. This notion is partially correct. You might be wondering why it is only partially correct. Hold that thought first; we will try to understand the history behind their discovery.</p>
+
+      <aside class="factsheet">
+        <h4><i class="fa-solid fa-circle-info"></i> Radio galaxies at a glance</h4>
+        <dl><dt>First detected</dt><dd>Karl Jansky, 1933</dd><dt>First radio map</dt><dd>Grote Reber, 1940</dd><dt>Emission type</dt><dd>Polarized synchrotron radiation</dd><dt>Resolution tricks</dt><dd>Interferometry, aperture synthesis, lunar occultation</dd><dt>Largest single dish</dt><dd>FAST, China, 500 m</dd></dl>
+      </aside>
+
+      <h2>The first radio maps</h2>
+      <p>Many people believe that the study of extraterrestrial radio waves started after World War II, when we began to point our radars from detecting enemy aircraft to the interstellar sky. That is not the case. Karl Jansky, who worked at Bell Telephone Laboratories, studied these extraterrestrial radio waves during the early 1930s. In 1933, he concluded that the radio waves he received at 15 m wavelengths were of extraterrestrial origin. He even found that most of the intensity came from the centre of the Milky Way. In 1940, Grote Reber drew the first radio map of the Milky Way. Grote even found two new regions in the night sky, Cassiopeia and Cygnus, from where he received intense radio emission.</p>
+
+      <figure>
+        <div class="figpair"><img src="../images/articles/radio-galaxies-part-1/figure-1.png" alt="Karl Jansky and Grote Reber"><img src="../images/articles/radio-galaxies-part-1/figure-2.png" alt="Karl Jansky and Grote Reber"></div>
+        <figcaption>Karl Jansky (first) and Grote Reber (second).</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-3.png" alt="Reber's radio contour map of the Milky Way">
+        <figcaption><strong>Figure 3.</strong> Reber's radio contour map of the Milky Way.</figcaption>
+      </figure>
+
+      <h2>Discrete radio sources</h2>
+      <p>In 1946, J. S. Hey, S. J. Parsons and J. W. Phillips detected more discrete radio sources. They used the Yagi antenna, which had a beamwidth of 6 by 15. With this, they were able to draw a contour map. So what is a contour map? A map made up of contour lines. Suppose these lines are a function of two variables; the curve that unites points of equal value under the function is a contour line. If you draw this curve, you will see that it joins points with equal values, and such lines make up a contour map.</p>
+      <p>Coming back to the map drawn by our three gentlemen: they identified two regions of intense radio emission, one at the galactic centre and the other in the constellation Cygnus. Hey and others were also able to find radio fluctuations from Cygnus. They concluded that this radio source must be small (tiny, meaning star-like), and such objects are called discrete radio sources.</p>
+      <p>The English and Australians were pioneers in the discovery of these radio objects. J. L. Pawsey and his coworkers mounted an aerial system on a cliff at a seashore and used the sea surface as their reflector for a Lloyd's mirror interferometer. Martin Ryle and Graham Smith (not the cricketer) of England used a radio equivalent of Michelson's optical interferometer. With these instruments, they calculated the angular width of the radio source in terms of the wavelength &lambda; and the distance d between the aerial systems, using the simple formula:</p>
+      <div class="equation">&theta; = &lambda; / d</div>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-4.png" alt="An early radio interferometer">
+        
+        <figcaption><strong>Figure 4.</strong> A sea interferometer (Lloyd&rsquo;s mirror): the antenna receives the direct ray and a ray reflected off the sea, and the path difference between them sets the interference pattern.</figcaption>
+      </figure>
+
+      <p>Two teams created ground-breaking radio telescope devices and used them to precisely locate and image faint radio sources. One was headed by Martin Ryle. The other was led by John Bolton, which determined that discrete radio sources were galaxies or supernova remnants rather than stars. Both studied Cygnus A, and they set an upper limit of 8 arc for its angular width.</p>
+
+      <figure>
+        <div class="figpair"><img src="../images/articles/radio-galaxies-part-1/figure-5.png" alt="John Bolton and Martin Ryle"><img src="../images/articles/radio-galaxies-part-1/figure-6.png" alt="John Bolton and Martin Ryle"></div>
+        <figcaption>John Bolton (first) and Martin Ryle (second).</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-7.png" alt="The 5 kilometre telescope map of Cygnus A">
+        <figcaption><strong>Figure 7.</strong> The 5 kilometre telescope mapped the strong radio galaxy in the constellation Cygnus. The compact outer components are extremely luminous. The core component, which corresponds to the optical galaxy's nucleus, is quite weak, with contours separated at 1/5 the interval.</figcaption>
+      </figure>
+
+      <p>In 1948, Bolton did cutting-edge work by doing a radio survey of the night sky using a sea interferometer. He discovered at least six radio sources, including Taurus A, Coma A, Hercules A and Centaurus A. Radio astronomers in England and Australia raised the number of observed radio sources to thousands. Russia, the U.S.A., Canada, the Netherlands, Japan and India established essential research centres, which increased the number of discovered sources further.</p>
+      <p>These discoveries are fascinating, but it would add to our fascination if we knew their nature. This can be done by optical identification and distance estimation. In this article, we mainly focus on distance estimation. Whatever comes next might sound bizarre, but many radio astronomers at that time were confused about whether these radio objects were present in our solar system or beyond it. This idea was finally struck down by Ryle and Smith. They showed that radio sources like Cygnus A and Cassiopeia A had to lie beyond the solar system. Bolton and his co-workers identified Taurus A (the Crab Nebula), Virgo A and Centaurus A with the Crab Nebula and the external galaxies NGC 4486 and NGC 5128, which put down the idea of these radio objects being in the solar system.</p>
+
+      <figure>
+        <div class="figpair"><img src="../images/articles/radio-galaxies-part-1/figure-8.png" alt="NGC 5128 and NGC 4486"><img src="../images/articles/radio-galaxies-part-1/figure-9.png" alt="NGC 5128 and NGC 4486"></div>
+        <figcaption>NGC 5128 (first) and NGC 4486 (second).</figcaption>
+      </figure>
+
+      <p>During the 1950s, when Rock &amp; Roll and classic pop music were on the rise, Walter Baade and Rudolph Minkowski made the optical identification of these radio sources and found Cygnus A's accurate location. Baade and Minkowski also detected more radio sources optically, such as Puppis A and NGC 1275.</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-10.png" alt="NGC 1275">
+        <figcaption><strong>Figure 10.</strong> NGC 1275.</figcaption>
+      </figure>
+
+      <h2>Can we classify them?</h2>
+      <p>The answer is yes. J. H. Oort, G. Westerbout and their contemporary B. Y. Mills came up with a classification system that put these radio objects into two groups: galactic radio sources and extragalactic radio sources. Baade and Minkowski divided each category into two more types.</p>
+      <ul>
+        <li><strong>Galactic:</strong> (a) supernova remnants such as Taurus A and Puppis A, and (b) hot H<sub>2</sub> regions (massive molecular clouds responsible for star formation).</li>
+        <li><strong>Extragalactic:</strong> (a) normal galaxies like M31 and M101, and (b) strong radio sources, primarily in elliptical galaxies. NGC 5128 and NGC 1316 come under this category.</li>
+      </ul>
+
+      <figure>
+        <div class="figpair"><img src="../images/articles/radio-galaxies-part-1/figure-11.png" alt="NGC 1316 and M101"><img src="../images/articles/radio-galaxies-part-1/figure-12.png" alt="NGC 1316 and M101"></div>
+        <figcaption>NGC 1316 (first) and M101 (second).</figcaption>
+      </figure>
+
+      <h2>Origins</h2>
+      <p>Why are these galaxies called radio galaxies? Strong radio sources emit more radio energy than normal galaxies. You could say that the energy emitted by these sources at radio wavelengths is more than at optical wavelengths, hence the name.</p>
+      <p>Radio galaxies emit radiation in the form of <span class="term" tabindex="0" data-def="Radiation given off by charged particles, usually electrons, as they spiral at close to the speed of light around magnetic field lines.">synchrotron emission</span>. How do we know? Because of the intense polarization of this emission. Magnetobremsstrahlung radiation (don't worry, it is just another name for synchrotron emission) is emitted when a charged particle is accelerated in a direction perpendicular to its velocity. Such radiation carries a clear sign of polarization, so you can now understand why radiation from radio galaxies is strongly polarized.</p>
+      <p>Synchrotron emission implies that the plasma producing these radio waves contains electrons as well as protons and positrons. The problem is that we have no way to find the particle content from the radiation itself. Synchrotron radiation is also not limited to radio wavelengths: if a radio source can accelerate particles to high enough energies, the characteristics seen at radio wavelengths may also be visible in infrared, optical, ultraviolet or even X-ray wavelengths. Other emission processes, such as inverse Compton radiation, happen along with synchrotron emission. To distinguish between them we use polarization and the continuum spectrum, but it is a challenging process.</p>
+
+      <h2>How to identify radio objects</h2>
+      <p>If you want to study a thing, you have to look at it. These radio objects are very far away. Consider NGC 5128: it is almost 60,000 light-years away, but the good thing is that its emission lines are strong and sharp in its spectra. I am emphasising that these sources are very far away. <!-- EDIT: please check the distance. NGC 5128 (Centaurus A) is about 12 million light-years away. --> You need telescopes with high angular resolution and radio sensitivity, but there is a problem: for a telescope with a single antenna, increasing the angular resolution means increasing its diameter. To satisfy radio astronomers, we would require a telescope whose diameter is almost 1.5 km. The largest single-dish telescope in the world is the Five Hundred Meter Aperture Spherical Telescope in China, with a diameter of 500 metres. If you want to build one bigger than that, good luck!</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-13.png" alt="The Five Hundred Meter Aperture Spherical Telescope">
+        <figcaption><strong>Figure 13.</strong> The Five Hundred Meter Aperture Spherical Telescope in China.</figcaption>
+      </figure>
+
+      <p>Radio astronomers found a way to achieve higher angular resolution without building giant telescopes, using three techniques: the radio interferometer, aperture synthesis, and lunar occultation.</p>
+
+      <h3>Radio interferometer</h3>
+      <p>Astronomers link arrays of smaller telescopes together to create a giant aperture telescope. An array of this type is called an <span class="term" tabindex="0" data-def="A set of telescopes whose signals are combined, so the array behaves like one very large telescope.">interferometer</span>. The distance between the telescopes, rather than the size of the individual telescopes, determines the interferometer's resolution. We can thus construct an interferometer with the resolution of a single telescope hundreds of metres across.</p>
+      <p>Instead of collecting pictures of the target, an interferometer records the interference pattern (or interference fringes) formed when light from two or more telescopes is combined. Interference fringes form when light waves interact constructively, resulting in a pattern of light and dark bands. The amplitude of the fringes encodes information about the object's size, shape and brightness distribution.</p>
+      <p>To produce fringes, each telescope's source light must travel the same distance, down to a fraction of a wavelength (less than 1 micron for optical and near-infrared light). The light from the radio source arrives at one telescope before it reaches another, as shown in the diagram below. We transport the light from each telescope through vacuum tubes into a laboratory to correct for the varying lengths it has travelled to reach each telescope.</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-14.png" alt="Interferometer geometry">
+        
+        <figcaption><strong>Figure 14.</strong> How an interferometer works: for two telescopes separated by a baseline B, light from the source arrives with a delay of B sin &theta;, which is compensated by adding path length before the signals are combined.</figcaption>
+      </figure>
+
+      <p>Say you have two radio antennae at a distance d from each other. The signals we receive show an interference pattern at the receiver end. The line joining the two antennae is called the baseline, and its length depends not only on the spacing of the antennae but also on their orientation. At the different baseline sizes, the receiver collects the radio output and integrates it with the help of a Fourier transform.</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-15.png" alt="Jean-Baptiste Fourier">
+        <figcaption><strong>Figure 15.</strong> Jean-Baptiste Fourier.</figcaption>
+      </figure>
+
+      <div class="callout">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div><strong>Fourier alert</strong>The Fourier transform is a mathematical function that transforms a signal from the time domain to the frequency domain. This helps you understand the frequencies present inside the signal.</div>
+      </div>
+
+      <p>The Fourier transform is essential for an interferometer because it improves the efficiency, accuracy and repeatability of the measurement. It also gives valuable information about the diameter and physical nature of radio sources. To get a good angular resolution, we have to increase the length between the telescopes. Such high resolution is made possible by constructing a Very Long Baseline Interferometer (VLBI), which can span countries and even continents. The Jodrell Bank radio astronomy group and the National Radio Astronomy Observatory use the same technique to acquire images of radio objects.</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-16.png" alt="Jodrell Bank Observatory">
+        <figcaption><strong>Figure 16.</strong> Jodrell Bank Observatory.</figcaption>
+      </figure>
+
+      <h3>Aperture synthesis</h3>
+      <p>An aperture synthesis telescope consists of an array of dishes connected in pairs. As the Earth rotates, each pair traces out one ring of a much larger dish, whose diameter is equal to the maximum separation of the pairs. Some dishes may be movable to provide a broader range of separations. It is a technique for achieving excellent angular resolution in radio astronomy, simulating a single large-aperture telescope with an array of telescopes. An aperture of any size can feasibly be generated by moving the two interferometer elements to all possible points in the desired aperture.</p>
+      <p>All synthesis telescopes take advantage of the fact that the Earth's rotation sweeps out half a ring of the synthesised aperture over 12 hours (Earth-rotation synthesis); the other half of the ring is then calculated from the first half's observations. The elements are only moved to sweep out consecutive rings after that. In practice, some aperture-synthesis telescopes use several movable dishes to reduce observing time. Examples include the Multi-Element Radio-Linked Interferometer Network (MERLIN), the Ryle Telescope, the Very Large Array, the Westerbork Synthesis Radio Telescope, and the Giant Metrewave Radio Telescope (GMRT) at Pune.</p>
+
+      <figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-17.png" alt="Westerbork Synthesis Radio Telescope">
+        <figcaption><strong>Figure 17.</strong> Westerbork Synthesis Radio Telescope.</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-18.png" alt="The Very Large Array">
+        <figcaption><strong>Figure 18.</strong> The Very Large Array.</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-19.png" alt="The Giant Metrewave Radio Telescope">
+        <figcaption><strong>Figure 19.</strong> The Giant Metrewave Radio Telescope.</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-20.png" alt="MERLIN">
+        <figcaption><strong>Figure 20.</strong> The Multi-Element Radio Linked Interferometer Network (MERLIN).</figcaption>
+      </figure><figure>
+        <img src="../images/articles/radio-galaxies-part-1/figure-21.png" alt="The Ryle Telescope">
+        <figcaption><strong>Figure 21.</strong> The Ryle Telescope.</figcaption>
+      </figure>
+
+      <h3>Lunar occultation</h3>
+      <p>While observing astronomical objects, some unwanted things can become a problem, such as the Moon itself. The Moon is a headache for optical astronomers, but it is beneficial for radio astronomers. As the Moon travels around us, it blocks the radio waves coming from radio objects. Astronomers study the change in the intensity of the radio flux coming from the source. This occultation helps determine the location and size of the radio object.</p>
+      <p>Astronomers can face problems while using this method:</p>
+      <ul>
+        <li>Only sources that lie on the Moon's path can be studied.</li>
+        <li>Occultation of a particular source happens only once a year, and only for a short time.</li>
+        <li>The Moon also emits radio waves, much more intense than the very weak sources we are trying to study.</li>
+      </ul>
+
+      <h2>Key takeaways</h2>
+      <div class="takeaways">
+        <h3><i class="fa-solid fa-flag-checkered" style="color:var(--accent-cyan)"></i>&nbsp; What to remember</h3>
+        <ul>
+          <li>Radio astronomy began in the early 1930s with Karl Jansky, before World War II.</li>
+          <li>Discrete radio sources were shown to lie beyond the solar system, and many were identified with galaxies and supernova remnants.</li>
+          <li>Radio galaxies emit polarized synchrotron radiation, and emit more energy in radio than in optical wavelengths.</li>
+          <li>Interferometry, aperture synthesis and lunar occultation give high angular resolution without building impossibly large dishes.</li>
+        </ul>
+      </div>
+
+      <h2>References</h2>
+      <ol class="refs">
+        <li><a href="https://www.nature.com/articles/132066a0.pdf" target="_blank" rel="noopener noreferrer">Nature, vol. 132, 66 (1933)</a></li>
+        <li><a href="https://www.nature.com/articles/158234a0.pdf" target="_blank" rel="noopener noreferrer">Nature, vol. 158, 234 (1946)</a></li>
+        <li><a href="http://www.narit.or.th/files/JAHH/2014JAHHvol17/2014JAHH...17..283R.pdf" target="_blank" rel="noopener noreferrer">Journal of Astronomical History and Heritage, vol. 17 (2014)</a></li>
+        <li><a href="https://adsabs.harvard.edu/full/1993AAS...182.8003S" target="_blank" rel="noopener noreferrer">AAS 182 (1993)</a></li>
+        <li><a href="https://adsabs.harvard.edu/full/1999ApJ...525C.569B" target="_blank" rel="noopener noreferrer">ApJ 525 (1999)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Synchrotron_radiation" target="_blank" rel="noopener noreferrer">Wikipedia: Synchrotron radiation</a></li>
+        <li><a href="https://books.google.co.in/books?id=WG-HkqCXhKgC" target="_blank" rel="noopener noreferrer">An Introduction to Astrophysics by Baidyanath Basu</a></li>
+      </ol>
+
+    </div>
+
+    <!-- Tags + author card -->
+    <div class="after">
+      <div class="tags">
+        <a class="tag" href="articles.html">Radio Astronomy</a>
+        <a class="tag" href="articles.html">Radio Galaxies</a>
+        <a class="tag" href="articles.html">Interferometry</a>
+        </div>
+
+      <div class="author-card">
+        <div class="author-avatar">DS</div>
+        <div>
+          <h4>Devang Somawanshi</h4>
+          <span class="author-batch">BS-MS 2020 · IISER Bhopal</span>
+          <!-- EDIT: add a short bio -->
+          <p>Written for the IBAC article series.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<nav class="pager" aria-label="More articles">
+  <a href="neutrinos-here-there-and-everywhere.html" class="prev"><small><i class="fa-solid fa-arrow-left"></i> Previous</small><span>Neutrinos: Here, There and Everywhere</span></a>
+  <a href="contact-part-1-prerequisites.html" class="next"><small>Next <i class="fa-solid fa-arrow-right"></i></small><span>CONTACT, Part I: Prerequisites to Astrobiology</span></a>
+</nav>
+
+<section class="more">
+  <div class="more-inner">
+    <h2>Keep exploring</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Astrobiology</span>
+          <h3>CONTACT, Part I: Prerequisites to Astrobiology</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ranjan Bassi & Anushka Khobragade</div>
+          <div class="article-desc">Extremophiles and the limits of life: tardigrades, life without sunlight, and the six research topics of astrobiology.</div>
+        </div>
+        <a href="contact-part-1-prerequisites.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Interstellar Objects</span>
+          <h3>A Visitor From Outer Space: 'Oumuamua</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ayush Pandey · BS-MS 2020</div>
+          <div class="article-desc">The first confirmed interstellar visitor: its cigar shape, its unexplained acceleration, and theories from outgassing to an alien light sail.</div>
+        </div>
+        <a href="oumuamua.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<!-- If your footer in articles.html differs from this one, paste that block here instead -->
+<footer class="footer">
+  <div class="inner-footer">
+    <div class="footer-col">
+      <div class="footer-heading">IBAC IISERB</div>
+      <p class="footer-about-text">The IISER Bhopal Astronomy Club fosters amateur astronomy, astrophotography, public science outreach and astrophysical research under the IISERB Science Council and the Department of Physics.</p>
+      <div class="footer-social-row">
+        <a href="https://www.instagram.com/ibac_iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/ibac-iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@ibaciiserbhopal" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ibac.iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Explore</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Visit Us</div>
+      <p class="footer-address"><strong>Club Room:</strong> Room 106, Above Mess-4, IISER Bhopal, Indore-Bypass Road, Bhauri, Bhopal, M.P. 462 066</p>
+      <p class="footer-address"><strong>Observatory:</strong> Above Central Dining Hall (CDH), IISER Bhopal</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:ibac.official@gmail.com"><i class="fa-regular fa-envelope"></i> ibac.official@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</span>
+    <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="mission-pill" id="missionPill" aria-hidden="true"><i class="fa-solid fa-satellite"></i><span>Voyager 2: <b id="missionStage">leaving Earth</b></span></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Mobile menu */
+const navMenu = document.getElementById('navMenu');
+document.getElementById('mobileMenuBtn').addEventListener('click', () => navMenu.classList.toggle('show'));
+
+/* Reading time (about 220 words per minute) */
+const body = document.getElementById('articleBody');
+const words = body.querySelector('.prose').innerText.trim().split(/\s+/).length;
+document.getElementById('readTime').textContent = Math.max(1, Math.round(words / 220));
+
+/* Build "In this article" from the <h2> headings */
+const toc = document.getElementById('toc');
+const heads = [...body.querySelectorAll('.prose h2')];
+heads.forEach((h, i) => {
+  if (!h.id) h.id = 'sec-' + (i + 1) + '-' + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const li = document.createElement('li');
+  li.innerHTML = '<a href="#' + h.id + '"></a>';
+  li.firstChild.textContent = h.textContent;
+  toc.appendChild(li);
+});
+if (!heads.length) document.querySelector('.rail-title').parentElement.querySelectorAll('.rail-title, .toc').forEach(e => e.style.display = 'none');
+
+/* Scroll: progress bar, active section, back-to-top */
+const bar = document.getElementById('journeyBar');
+const waypoints = [[20, 'passing Jupiter'], [40, 'passing Saturn'], [60, 'passing Uranus'], [80, 'passing Neptune'], [97, 'in interstellar space']];
+const wpEls = [...document.querySelectorAll('.journey .wp')];
+const stageEl = document.getElementById('missionStage');
+const toTop = document.getElementById('toTop');
+const tocLinks = [...toc.querySelectorAll('a')];
+function onScroll() {
+  const rect = body.getBoundingClientRect();
+  const total = rect.height - window.innerHeight * 0.6;
+  const done = Math.min(1, Math.max(0, (-rect.top + window.innerHeight * 0.3) / total));
+  bar.style.width = (done * 100) + '%';
+  /* Voyager waypoints: [position along the page, label, distance label] */
+  const stage = [...waypoints].reverse().find(w => done * 100 >= w[0]);
+  stageEl.textContent = stage ? stage[1] : 'leaving Earth';
+  wpEls.forEach((el, i) => el.classList.toggle('passed', done * 100 >= waypoints[i][0]));
+  toTop.classList.toggle('show', window.scrollY > 700);
+  let current = null;
+  heads.forEach(h => { if (h.getBoundingClientRect().top < 140) current = h.id; });
+  tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + current));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
+toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
+
+/* Copy link + share */
+const toast = document.getElementById('toast');
+function say(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
+document.getElementById('copyLink').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(location.href.split('#')[0]); say('Link copied'); }
+  catch (e) { say('Could not copy. Copy it from the address bar.'); }
+});
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const data = { title: document.title, url: location.href.split('#')[0] };
+  if (navigator.share) { try { await navigator.share(data); } catch (e) {} }
+  else { try { await navigator.clipboard.writeText(data.url); say('Link copied'); } catch (e) { say('Sharing is not supported here.'); } }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     IBAC ARTICLE TEMPLATE
+     Save a copy per article, e.g. riding-on-fire.html
+     Search this file for "EDIT:" to find every spot you need to change.
+     Keep it in the same folder as index.html so images/ paths work.
+     ============================================================ -->
+
+<title>Neutrinos: Here, There and Everywhere | IBAC IISER Bhopal</title>
+<meta name="description" content="The history and physics of neutrinos: Pauli's idea, beta decay, the first detection, the Homestake solar neutrino experiment, oscillations, supernovae, and the matter-antimatter puzzle. By Samyak Parashar, BS-MS 2021.">
+<meta property="og:title" content="Neutrinos: Here, There and Everywhere | IBAC IISER Bhopal">
+<meta property="og:description" content="The history and physics of neutrinos: Pauli's idea, beta decay, the first detection, the Homestake solar neutrino experiment, oscillations, supernovae, and the matter-antimatter puzzle. By Samyak Parashar, BS-MS 2021.">
+<meta property="og:image" content="../images/ibac.png">
+
+<link rel="icon" type="image/png" href="../images/ibac.png">
+<link rel="shortcut icon" href="../images/ibac.png">
+<link rel="apple-touch-icon" href="../images/ibac.png">
+<meta name="theme-color" content="#040b19">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Site tokens (same as articles.html) ---------- */
+:root {
+  --primary-blue: #0056b3;
+  --accent-cyan: #00c6ff;
+  --royal-blue: #0072ff;
+  --deep-navy: #040b19;
+  --midnight-blue: #081226;
+  --footer-bg: #000106;
+  --radius-card: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --prose: #d3e1f5;
+  --prose-strong: #ffffff;
+  --card: rgba(10, 24, 54, 0.75);
+  --card-line: rgba(0, 114, 255, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 90px; }
+body { font-family: 'Lato', 'Inter', sans-serif; background: #060e20; color: #e2ecf9; line-height: 1.6; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+/* ---------- Navbar (identical to site) ---------- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(4, 11, 25, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0, 198, 255, 0.25); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-logo-img { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6)); transition: var(--transition); }
+.brand-logo:hover .brand-logo-img { transform: rotate(15deg) scale(1.05); }
+.brand-title-wrap { display: flex; flex-direction: column; }
+.brand-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 1.5px; line-height: 1.1; }
+.brand-title span { color: var(--accent-cyan); }
+.brand-subtitle { font-size: 0.72rem; color: #8da4c4; text-transform: uppercase; letter-spacing: 1px; }
+.nav-menu { display: flex; list-style: none; gap: 20px; align-items: center; }
+.nav-link { font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500; color: #c9dbf2; text-decoration: none; transition: var(--transition); position: relative; padding: 6px 0; }
+.nav-link:hover, .nav-link.active { color: var(--accent-cyan); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent-cyan); transition: var(--transition); box-shadow: 0 0 8px var(--accent-cyan); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+/* ---------- Voyager progress tracker (the one memorable element) ----------
+   The probe flies along the top of the page as you read and passes the
+   planets of Voyager 2's real Grand Tour: Jupiter, Saturn, Uranus and
+   Neptune, then interstellar space at the end of the article. */
+.journey { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; z-index: 2; background: rgba(0, 198, 255, 0.18); pointer-events: none; }
+.journey-bar { height: 100%; width: 0; background: linear-gradient(90deg, rgba(0,114,255,0), #0072ff 45%, #00c6ff); position: relative; }
+.probe { position: absolute; right: -26px; top: -8px; width: 36px; height: 19px; color: #eaf4ff; filter: drop-shadow(0 0 6px rgba(0, 198, 255, 0.8)); z-index: 3; }
+
+/* Planet waypoints (drawn in CSS, no image files). Dim until Voyager 2 flies past. */
+.wp { position: absolute; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; opacity: 0.4; filter: saturate(0.25); transition: var(--transition); }
+.wp.passed { opacity: 1; filter: none; box-shadow: 0 0 10px rgba(0, 198, 255, 0.55); }
+.wp.jupiter { width: 17px; height: 17px; background: linear-gradient(180deg, #c99a6b 0%, #ead6b6 18%, #b07a4f 33%, #e2c69d 50%, #a56b45 66%, #dcbd93 82%, #b98258 100%); }
+.wp.saturn { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #f3e4b8, #c9ad72); }
+.wp.saturn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 27px; height: 8px; border: 1.5px solid rgba(235, 215, 160, 0.95); border-radius: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
+.wp.uranus { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #d6fbfc, #7fd3d8); }
+.wp.neptune { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #7a9bff, #2646c9); }
+.mission-pill { position: fixed; left: 24px; bottom: 24px; z-index: 900; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 30px; background: rgba(4, 11, 25, 0.88); border: 1px solid rgba(0, 198, 255, 0.3); backdrop-filter: blur(8px); font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #b0cbf2; pointer-events: none; }
+.mission-pill i { color: var(--accent-cyan); }
+.mission-pill b { color: #fff; font-weight: 600; }
+
+/* ---------- Article hero ---------- */
+.article-hero { position: relative; background: radial-gradient(circle at 50% 10%, #0d224d 0%, #040b19 80%); padding: 70px 20px 56px; overflow: hidden; border-bottom: 1px solid rgba(0, 198, 255, 0.2); }
+.stars-overlay { position: absolute; inset: 0; background-image:
+  radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 300px 80px, #fff, rgba(0,0,0,0)),
+  radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 600px 50px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0,0,0,0));
+  background-size: 600px 600px; opacity: 0.65; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+.crumbs { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #79a6db; margin-bottom: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.crumbs a { color: var(--accent-cyan); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 198, 255, 0.12); border: 1px solid rgba(0, 198, 255, 0.35); color: var(--accent-cyan); padding: 5px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; box-shadow: 0 0 15px rgba(0, 198, 255, 0.15); }
+.article-title { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; background: linear-gradient(135deg, #ffffff 35%, #70b8ff 75%, #00c6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.article-subtitle { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.3rem; color: #b2d5ff; line-height: 1.55; max-width: 720px; margin-bottom: 30px; }
+
+.byline { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding-top: 22px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #0072ff, #00c6ff); display: grid; place-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; box-shadow: 0 0 14px rgba(0, 198, 255, 0.4); overflow: hidden; }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.author-name { font-family: 'Poppins', sans-serif; font-weight: 600; color: #fff; font-size: 0.98rem; line-height: 1.2; }
+.author-batch { font-size: 0.82rem; color: #79a6db; }
+.meta-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #9dbbe3; }
+.meta-item i { color: var(--accent-cyan); }
+
+/* ---------- Cover figure ---------- */
+.cover-wrap { max-width: 1100px; margin: -28px auto 0; padding: 0 20px; position: relative; z-index: 3; }
+.cover { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--card-line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); background: var(--midnight-blue); }
+.cover img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+.cover figcaption { padding: 12px 18px; font-size: 0.84rem; color: #8da4c4; border-top: 1px solid var(--card-line); }
+
+/* ---------- Layout: sticky contents rail + reading column ---------- */
+.article-layout { max-width: 1100px; margin: 0 auto; padding: 56px 20px 40px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; }
+.rail { position: sticky; top: 96px; align-self: start; }
+.rail-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; padding-bottom: 8px; }
+.rail-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.toc { list-style: none; border-left: 1px solid rgba(0, 198, 255, 0.2); }
+.toc a { display: block; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: #8fa5c7; text-decoration: none; font-size: 0.9rem; line-height: 1.4; transition: var(--transition); }
+.toc a:hover { color: #fff; }
+.toc a.on { color: var(--accent-cyan); border-left-color: var(--accent-cyan); font-weight: 600; }
+.rail-tools { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+.rail-btn { display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.25); color: #b0cbf2; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: var(--transition); }
+.rail-btn:hover { background: var(--accent-cyan); color: #040b19; border-color: transparent; }
+.rail-btn i { width: 16px; text-align: center; }
+
+/* ---------- Prose ---------- */
+.prose { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.14rem; line-height: 1.85; color: var(--prose); max-width: 68ch; }
+.prose > * + * { margin-top: 1.25em; }
+.prose h2 { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2.4em; scroll-margin-top: 90px; }
+.prose h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: #cfe4ff; margin-top: 1.9em; }
+.prose strong { color: var(--prose-strong); font-weight: 600; }
+.prose em { color: #e8f2ff; }
+.prose a { color: var(--accent-cyan); text-decoration: underline; text-decoration-color: rgba(0, 198, 255, 0.4); text-underline-offset: 3px; transition: var(--transition); }
+.prose a:hover { color: #fff; text-decoration-color: #fff; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.5em; }
+.prose li::marker { color: var(--accent-cyan); }
+.prose sup a { text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.75em; }
+
+/* First paragraph drop cap */
+.prose .lede::first-letter { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 3.9em; float: left; line-height: 0.85; padding: 0.08em 0.12em 0 0; background: linear-gradient(135deg, #fff, #00c6ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Glossary terms: hover or focus for a definition */
+.term { position: relative; border-bottom: 1px dotted var(--accent-cyan); cursor: help; color: #fff; }
+.term::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px); width: max-content; max-width: 260px; padding: 10px 14px; background: #0a1a3a; border: 1px solid var(--accent-cyan); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.5; font-style: normal; font-weight: 400; color: #d6e6ff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; transition: var(--transition); z-index: 20; }
+.term:hover::after, .term:focus::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Fact sheet: an observation-log card for the numbers */
+.factsheet { background: var(--card); border: 1px solid var(--card-line); border-left: 3px solid var(--accent-cyan); border-radius: var(--radius-card); padding: 22px 26px; font-family: 'Inter', sans-serif; backdrop-filter: blur(8px); }
+.factsheet h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.factsheet h4 i { color: var(--accent-cyan); }
+.factsheet dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 22px; font-size: 0.93rem; }
+.factsheet dt { color: #79a6db; }
+.factsheet dd { color: #fff; font-weight: 500; }
+
+/* Callout */
+.callout { background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.1)); border: 1px solid rgba(0, 198, 255, 0.35); border-radius: var(--radius-card); padding: 20px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: #d8e8ff; display: flex; gap: 16px; }
+.callout > i { color: var(--accent-cyan); font-size: 1.3rem; margin-top: 4px; }
+.callout strong { display: block; font-family: 'Poppins', sans-serif; color: #fff; margin-bottom: 4px; }
+
+/* Pull quote */
+.prose blockquote { margin: 2em 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--accent-cyan); font-style: italic; font-size: 1.4rem; line-height: 1.55; color: #fff; }
+.prose blockquote cite { display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.86rem; color: #79a6db; }
+
+/* Equation */
+.equation { text-align: center; padding: 22px 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-line); border-radius: 12px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.5rem; color: #fff; overflow-x: auto; }
+.equation small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.82rem; color: #79a6db; }
+
+/* Figures inside the article */
+.prose figure { margin: 2em 0; }
+.prose figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-line); }
+.prose figcaption { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #8da4c4; line-height: 1.5; }
+.prose figure.wide { margin-left: -4%; margin-right: -4%; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--card-line); border-radius: 12px; }
+.prose table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.93rem; }
+.prose th { text-align: left; background: rgba(0, 114, 255, 0.18); color: #fff; font-weight: 600; padding: 12px 16px; }
+.prose td { padding: 11px 16px; border-top: 1px solid rgba(0, 198, 255, 0.12); color: #cfe0f7; }
+
+/* Key takeaways */
+.takeaways { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px 30px; font-family: 'Inter', sans-serif; }
+.takeaways h3 { margin-top: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+.takeaways ul { font-size: 1rem; line-height: 1.65; color: #cfe0f7; }
+
+/* References */
+.refs { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #9dbbe3; line-height: 1.65; }
+.refs li { word-break: break-word; }
+
+/* Author card + tags */
+.after { max-width: 68ch; margin-top: 3.2em; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.tag { font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; transition: var(--transition); }
+.tag:hover { background: var(--accent-cyan); color: #040b19; }
+.author-card { display: flex; gap: 20px; align-items: flex-start; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px; font-family: 'Inter', sans-serif; }
+.author-card .author-avatar { width: 64px; height: 64px; font-size: 1.3rem; flex-shrink: 0; }
+.author-card h4 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; }
+.author-card .author-batch { margin-bottom: 8px; display: block; }
+.author-card p { font-size: 0.93rem; color: #a4bede; line-height: 1.65; }
+
+/* Prev / Next */
+.pager { max-width: 1100px; margin: 0 auto; padding: 0 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pager a { display: block; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 22px 26px; text-decoration: none; transition: var(--transition); }
+.pager a:hover { transform: translateY(-5px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.pager small { display: block; font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 6px; }
+.pager span { font-family: 'Poppins', sans-serif; font-size: 1.05rem; color: #fff; line-height: 1.35; }
+.pager .next { text-align: right; }
+
+/* Keep exploring */
+.more { padding: 50px 20px 80px; }
+.more-inner { max-width: 1100px; margin: 0 auto; }
+.more h2 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 24px; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+.article-card { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 28px; transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(8px); }
+.article-card:hover { transform: translateY(-6px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.article-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 3px 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.article-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; line-height: 1.35; }
+.article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: #79a6db; margin-bottom: 14px; font-weight: 500; }
+.article-meta i { color: var(--accent-cyan); }
+.article-desc { font-size: 0.94rem; color: #a4bede; line-height: 1.65; margin-bottom: 20px; }
+.article-read-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: var(--transition); }
+.article-read-btn:hover { color: #fff; transform: translateX(4px); }
+
+/* Back-to-top + toast */
+.to-top { position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px; border-radius: 50%; background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.4); color: var(--accent-cyan); font-size: 1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 900; backdrop-filter: blur(8px); }
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { background: var(--accent-cyan); color: #040b19; }
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); background: #0a1a3a; border: 1px solid var(--accent-cyan); color: #fff; padding: 10px 20px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 1200; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Footer (identical to site) ---------- */
+.footer { background: var(--footer-bg); color: #fff; padding: 70px 20px 25px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.inner-footer { max-width: 1350px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+.footer-col { display: flex; flex-direction: column; }
+.footer-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 18px; position: relative; letter-spacing: 0.5px; }
+.footer-heading::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.footer-about-text { color: #8fa5c7; font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-list a { color: #8fa5c7; text-decoration: none; font-size: 0.92rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; }
+.footer-links-list a:hover { color: var(--accent-cyan); transform: translateX(4px); }
+.footer-address { color: #9cb1d6; font-size: 0.92rem; line-height: 1.6; margin-bottom: 15px; }
+.footer-social-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+.footer-social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; transition: var(--transition); }
+.footer-social-btn:hover { background: var(--accent-cyan); color: #040b19; transform: translateY(-3px); }
+.footer-bottom { max-width: 1350px; margin: 0 auto; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #7e94b8; font-size: 0.88rem; }
+.scroll-top-btn { background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.3); color: var(--accent-cyan); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: var(--transition); display: inline-flex; align-items: center; gap: 6px; }
+.scroll-top-btn:hover { background: var(--accent-cyan); color: #040b19; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .article-title { font-size: 2.4rem; }
+  .article-layout { grid-template-columns: 1fr; gap: 0; }
+  .rail { position: static; margin-bottom: 36px; padding: 20px; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); }
+  .rail-tools { flex-direction: row; flex-wrap: wrap; }
+  .inner-footer { grid-template-columns: 1fr 1fr; }
+  .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(4, 11, 25, 0.98); flex-direction: column; padding: 40px 20px; gap: 18px; transition: 0.35s ease; }
+  .nav-menu.show { left: 0; }
+  .mobile-menu-btn { display: block; }
+}
+@media (max-width: 600px) {
+  .mission-pill { display: none; }
+  .article-title { font-size: 1.95rem; }
+  .article-subtitle { font-size: 1.12rem; }
+  .prose { font-size: 1.05rem; }
+  .prose h2 { font-size: 1.4rem; }
+  .prose figure.wide { margin-left: 0; margin-right: 0; }
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { text-align: left; }
+  .author-card { flex-direction: column; }
+  .inner-footer { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  .site-header, .journey, .rail, .pager, .more, .footer, .to-top { display: none; }
+  body, .article-hero { background: #fff; color: #000; }
+  .prose, .prose h2, .article-title { color: #000; -webkit-text-fill-color: #000; }
+  .article-layout { display: block; }
+}
+.figpair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.prose .figpair img { height: 100%; object-fit: cover; }
+.prose pre.eq { white-space: pre-wrap; }
+@media (max-width: 600px) { .figpair { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body id="top">
+
+<!-- ===== Navbar ===== -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html#top" class="brand-logo">
+      <img src="../images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+      <div class="brand-title-wrap">
+        <span class="brand-title">IBAC <span>IISERB</span></span>
+        <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#top" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="articles.html" class="nav-link active">Articles</a></li>
+      <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+      <li><a href="index.html#events" class="nav-link">Events</a></li>
+      <li><a href="index.html#team" class="nav-link">Team</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <!-- Voyager 2 progress tracker: flies the Grand Tour as you read.
+       Planet positions are the "left" values below. -->
+  <div class="journey" aria-hidden="true">
+    <span class="wp jupiter" style="left:20%"></span>
+    <span class="wp saturn" style="left:40%"></span>
+    <span class="wp uranus" style="left:60%"></span>
+    <span class="wp neptune" style="left:80%"></span>
+    <div class="journey-bar" id="journeyBar">
+      <!-- Voyager: dish faces back toward Earth, boom and generator trail behind it -->
+      <svg class="probe" viewBox="0 0 28 15" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 1.5 Q7.5 7.5 3 13.5 Q9.5 7.5 3 1.5Z" fill="currentColor"/>
+        <line x1="5.5" y1="7.5" x2="10" y2="7.5"/>
+        <rect x="10" y="5" width="6" height="5" rx="1" fill="currentColor"/>
+        <line x1="16" y1="7.5" x2="27" y2="7.5"/>
+        <rect x="21" y="6" width="3" height="3" fill="currentColor"/>
+        <line x1="13" y1="5" x2="13" y2="0.8"/>
+        <line x1="13" y1="10" x2="13" y2="14.2"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Article hero ===== -->
+<section class="article-hero">
+  <div class="stars-overlay"></div>
+  <div class="hero-inner">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <a href="articles.html">Articles</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <span>Neutrinos: Here, There and Everywhere</span>
+    </nav>
+
+    <div class="hero-badge"><i class="fa-solid fa-atom"></i> Particle Astrophysics</div>
+
+    <h1 class="article-title">Neutrinos: Here, There and Everywhere</h1>
+    <p class="article-subtitle">They pass through your body by the trillion every second. The story of the particle invented to save a law of physics, and the experiment that lost two thirds of the Sun's.</p>
+
+    <div class="byline">
+      <div class="author">
+        <div class="author-avatar">SP</div>
+        <div>
+          <div class="author-name">Samyak Parashar</div>
+          <div class="author-batch">BS-MS 2021</div>
+        </div>
+      </div>
+      <span class="meta-item"><i class="fa-regular fa-calendar"></i> 12 August 2022</span>
+      <span class="meta-item"><i class="fa-regular fa-clock"></i> <span id="readTime">-</span> min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Body ===== -->
+<div class="article-layout">
+
+  <!-- Left rail: the contents list is built automatically from the <h2> headings below -->
+  <aside class="rail">
+    <div class="rail-title">In this article</div>
+    <ul class="toc" id="toc"></ul>
+    <div class="rail-tools">
+      <button class="rail-btn" id="copyLink" type="button"><i class="fa-regular fa-copy"></i> Copy link</button>
+      <button class="rail-btn" id="shareBtn" type="button"><i class="fa-solid fa-share-nodes"></i> Share</button>
+      <button class="rail-btn" onclick="window.print()" type="button"><i class="fa-solid fa-print"></i> Print / save PDF</button>
+    </div>
+  </aside>
+
+  <article id="articleBody">
+    <div class="prose">
+
+      <p class="lede">Often, while investigating a scientific phenomenon, the research takes interesting directions. New obstacles and roadblocks are encountered, and new theories and ideas flourish from them. Such was the study of &ldquo;beta decay&rdquo; and, subsequently, the discovery and formulation of the neutrino.</p>
+
+      <p>The saga of neutrinos is an interesting one. So interesting and intriguing that scientists proposed to detonate a nuclear bomb to detect their presence, and what's crazier is that the government approved it.</p>
+
+      <aside class="factsheet">
+        <h4><i class="fa-solid fa-circle-info"></i> Neutrinos at a glance</h4>
+        <dl><dt>Proposed by</dt><dd>Wolfgang Pauli, 1930</dd><dt>Named by</dt><dd>Enrico Fermi, 1933</dd><dt>First detected</dt><dd>Cowan and Reines, 1956</dd><dt>Flavours</dt><dd>Electron, muon, tau</dd><dt>Homestake result</dt><dd>About a third of expected neutrinos seen</dd><dt>Oscillation confirmed</dt><dd>Super-Kamiokande 1998, SNO 2001</dd></dl>
+      </aside>
+
+      <h2>What are neutrinos?</h2>
+      <p>Neutrinos are weakly interacting, neutral particles that travel at essentially the speed of light, pass easily through matter, and have an intrinsic angular momentum of h/4&pi;. There are three distinct types, or flavours, of neutrino, corresponding to the three generations of leptons: the electron neutrino, the muon neutrino and the tau neutrino (&nu;<sub>e</sub>, &nu;<sub>&mu;</sub> and &nu;<sub>&tau;</sub>). Neutrinos oscillate between these three flavours, and the exact mechanism, and why, still eludes physicists to this day. They are the second most abundant particles in the universe, second only to photons.</p>
+      <p>Almost every time atomic nuclei come together or break apart, neutrinos are produced, which means almost everything produces neutrinos. Neutrinos do have mass, but it is so small that we haven't been able to measure it yet. They don't usually interact with other matter and pass straight through it, which makes them incredibly difficult to detect. They are important because they might explain why there is no antimatter around us, and why the universe exists.</p>
+      <p>Wolfgang Pauli (Nobel Laureate in Physics, 1945) postulated the existence of the neutrino in 1930 as a way of carrying away missing energy, momentum and spin in beta decay. In 1933, Enrico Fermi (Nobel Laureate in Physics, 1938) named the neutrino (&ldquo;little neutral one&rdquo; in Italian) and incorporated it into his theory of beta decay.</p>
+      <p>The Sun derives its energy from fusion reactions in which hydrogen is transformed into helium. Every time four protons are turned into a helium nucleus, two neutrinos are produced. These neutrinos take only two seconds to reach the surface of the Sun, and another eight minutes or so to reach the Earth. Thus, neutrinos tell us what happened in the centre of the Sun eight minutes ago.</p>
+      <p>The Sun produces a lot of neutrinos, about 1.8 &times; 10<sup>39</sup> per second. Even at the Earth, 150 million kilometres from the Sun, about 100 billion pass through an average fingernail (1 cm<sup>2</sup>) every second. This goes to show the abundance of neutrinos in the universe. They pass through the Earth as if it weren't there, and the atoms in a human body capture a neutrino about every seventy years, or once in a lifetime.</p>
+      <!-- EDIT: please check the figure of 1.8 x 10^39 neutrinos per second. The commonly quoted figure for the Sun is about 2 x 10^38 per second. -->
+
+      <h2>The idea of the neutrino</h2>
+      <p>In December 1930, Wolfgang Pauli suggested a new elementary particle that he called a &ldquo;neutron&rdquo;, with characteristics partly like those of the nucleon we now call by that name, and partly those of the lepton we now call the neutrino (more precisely, the electron antineutrino). Pauli's neutron-neutrino idea became well known to physicists even before his first publication of it, which is in the discussion section following Heisenberg's report on nuclear structure at the Seventh Solvay Conference, held in Brussels in October 1933. Shortly after attending this conference, Enrico Fermi published his theory of beta decay, which assumes that a neutrino always accompanies the beta-decay electron, and that both are created at their moment of emission.</p>
+
+      <h2>The wild circumstances that led to the neutrino</h2>
+      <p>During the 1920s, physicists came to accept the view that matter is built of only two kinds of elementary particles, electrons and protons, which they often called &ldquo;negative and positive electrons&rdquo;. A neutral atom of mass number A and atomic number Z was supposed to contain A protons, all in the nucleus, and A electrons, A &minus; Z of them in the nucleus and the rest making up the external electron shells. Their belief that both protons and electrons were to be found in the nucleus arose from the observation that protons could be knocked out of light elements by alpha-particle bombardment, while electrons emerged spontaneously (mostly from very heavy nuclei) in radioactive beta decay. Any other elementary constituent of the atom would have been considered superfluous, and to imagine that another might exist was abhorrent to the prevailing natural philosophy. (And now a PhD thesis is incomplete if you don't propose a new fundamental particle.)</p>
+      <p>By the end of 1930, when our story begins, quantum mechanics had triumphed not only in atomic, molecular and crystal physics, but also in its treatment of some nuclear processes, such as alpha-particle radioactivity and the scattering of alpha particles from nuclei. The prevailing electron-proton model posed difficulties, as it often disagreed with quantum mechanics. Based on the Heisenberg uncertainty principle and relativistic electron theory, electrons cannot exist in the nucleus, and the model also failed to meet the symmetry character of the wave function, among a myriad of other flaws.</p>
+      <p>Some physicists, among them Niels Bohr and Werner Heisenberg, took these difficulties to indicate that a new dynamics, possibly even a new type of space-time description, might be appropriate on the scale of nuclear distances and energies, just as quantum mechanics begins to be important on the atomic scale. They were impressed by the similarity of the nuclear radius to the value e<sup>2</sup>/mc<sup>2</sup>, the classical electron radius of H. A. Lorentz. At this distance it had been anticipated that electrodynamics would probably fail (and maybe, with it, the special theory of relativity). Bohr was willing to relinquish the conservation of energy, except as a statistical law, in parallel with the second law of thermodynamics. At the same time, Heisenberg was considering the introduction of a new fundamental length into the theory. It seemed that anything might be considered acceptable as a way out of the dilemma, or perhaps anything except a new elementary particle.</p>
+
+      <figure>
+        <div class="figpair"><img src="../images/articles/neutrinos-here-there-and-everywhere/figure-1.png" alt="Pauli's letter proposing a new particle, in English and German"><img src="../images/articles/neutrinos-here-there-and-everywhere/figure-2.png" alt="Pauli's letter proposing a new particle, in English and German"></div>
+        <figcaption>The letter in which Pauli proposed a new particle (in English, left, and in German, right).</figcaption>
+      </figure>
+
+      <h2>Beta decay</h2>
+      <p>In beta decay, an unstable nucleus transforms into a different nucleus with the same mass but one extra positive charge, emitting an electron in the process. Electric charge is conserved, so far so good. Another quantity that must be conserved in the process is energy.</p>
+      <p>The earlier theories explaining beta decay characterised it as a &ldquo;two-body interaction&rdquo;, because after the decay two bodies are present, the new nucleus and the electron. If the new nucleus isn't moving, then all the energy from the radioactive decay must be carried away by the electron. That would mean every electron produced in beta decay must have the same energy all the time, but that was not the case. Instead, the electrons had a whole range of energies. This posed a massive problem in physics, with some physicists even proposing that the law of conservation of energy might be wrong (I am looking at you, Bohr!).</p>
+      <p>Pauli suggested that beta decay produced an unknown third particle. This would resolve the energy problem, as a three-body interaction would allow some of the energy to be carried away by the third particle, letting the electron take the range of energies that were observed. This particle would have to be electrically neutral, of course, and have very little mass. It would then be named the neutrino. However, these sneaky little things would be very difficult to detect, and wouldn't be detected for the next 25 years.</p>
+
+      <h2>Detection</h2>
+      <p>So far we have said that neutrinos are incredibly hard to detect, but why is that? Firstly, they absolutely do not like interacting with other matter. They neither emit nor absorb radiation, and since they are electrically neutral, they can't be detected through circuits or magnets. Secondly, they are incredibly light, so detecting their gravitational influence is not viable either. The only way to study neutrinos is through their interactions via the weak nuclear force, which are very rare. For every 10 trillion neutrinos that pass through the Earth, only one interacts with an atom inside the Earth. But when a neutrino does interact with an atom, it produces an electron or a photon that we can detect. In short, we look for neutrinos by looking at the particles they produce when they interact with atoms.</p>
+      <p>The first conclusive detection occurred in 1956, by Clyde Cowan and Frederick Reines. The set-up involved observing antineutrinos produced by nuclear fission inside a nuclear reactor, using liquid scintillators. Liquid scintillators are substances that emit flashes of visible light when a charged particle or high-energy photon passes through them, and the more energetic the particle, the brighter the flash. The team took data for five months, and once everything checked out with Pauli's predictions, they sent a telegram confirming the neutrino's existence.</p>
+
+      <figure>
+        <img src="../images/articles/neutrinos-here-there-and-everywhere/figure-3.png" alt="The telegram Cowan and Reines sent to Pauli">
+        <figcaption><strong>Figure 3.</strong> The telegram sent to Pauli: &ldquo;We are happy to inform you that we have definitely detected neutrinos from fission fragments by observing inverse beta decay of protons.&rdquo;</figcaption>
+      </figure>
+
+      <div class="callout">
+        <i class="fa-solid fa-bomb"></i>
+        <div><strong>Project Poltergeist</strong>Before setting up the experiment near a nuclear reactor, Cowan and Reines had proposed detonating a nuclear bomb to detect neutrinos. Nicknamed Project Poltergeist, the experiment was to take place in the Nevada desert. A flux of neutrinos would be created by detonating a 20-kiloton nuclear bomb, comparable to the one dropped on Hiroshima a few years earlier. A deep hole would be dug 40 metres from the detonation site, and a detector dropped into it at the moment of the explosion to catch the flux at its maximum. The experiment was cancelled at the last minute, but not because of environmental or safety concerns. They worked out that although the reactor would deliver a neutrino flux three orders of magnitude lower than the bomb, it offered a better way of distinguishing signal from noise.</div>
+      </div>
+
+      <h2>Types of neutrinos and their interactions</h2>
+      <p>By 1960, physicists knew that neutrinos existed, but they believed only one type exists (the one they detected was the electron neutrino). In fact there are three different types: the electron neutrino, the muon neutrino and the tau neutrino (&nu;<sub>e</sub>, &nu;<sub>&mu;</sub> and &nu;<sub>&tau;</sub>). Physicists group particles according to the standard model, which looks like this.</p>
+
+      <figure>
+        <img src="../images/articles/neutrinos-here-there-and-everywhere/figure-4.png" alt="The Standard Model of elementary particles">
+        <figcaption><strong>Figure 4.</strong> The Standard Model of elementary particles.</figcaption>
+      </figure>
+
+      <p>Neutrinos, as you can see, belong to the lepton group. The electron, the muon and the tau also belong to this group, with the latter two being significantly heavier than the electron. These three leptons each have a corresponding neutrino. When electron neutrinos interact with matter, they produce electrons. Similarly, muons and taus are produced when their corresponding neutrinos interact with matter.</p>
+      <p>Modern experiments can produce, and therefore study, electron and muon neutrinos fairly easily. Tau neutrinos, however, owing to the larger mass and therefore larger energy of production of the tau, are extremely difficult to produce, and so hard to study. A tau lepton is over 3,000 times heavier than an electron, which means that most sources of neutrinos, including the Sun, supernovae and particle accelerators, don't have enough energy to produce one. When a tau neutrino does create a tau lepton, the tau produced has very low energy, so we cannot study it and often cannot even detect it.</p>
+
+      <h2>The Homestake experiment</h2>
+      <p>The Homestake experiment lasted for nearly three decades before it came to a halt. It started in 1967 and continued until the late 1990s. Its primary purpose was to detect and count neutrinos emitted by the nuclear fusion reactions taking place in the Sun.</p>
+
+      <h3>Experiment design</h3>
+      <p>Ray Davis began working on a radiochemical experiment for detecting neutrinos using a method suggested by Pontecorvo in 1946: capturing neutrinos with the reaction</p>
+      <div class="equation"><sup>37</sup>Cl + &nu;<sub>e</sub> &rarr; <sup>37</sup>Ar + e<sup>&minus;</sup></div>
+      <p>In the Pontecorvo method, neutrino capture on <sup>37</sup>Cl makes <sup>37</sup>Ar, a radioactive isotope that decays back to <sup>37</sup>Cl by the inverse of the capture process, with a half-life of 35 days. The threshold for the capture reaction is 0.814 MeV, so neutrinos with energies below that will not be captured. Davis first tested this reaction at a nuclear reactor, but to little avail, as a reactor produces antineutrinos and not neutrinos. He did, however, conclude that a neutrino is not its own antiparticle, unlike the &pi;<sup>0</sup> and the photon. The chlorine-argon experiment did not detect all the neutrinos produced by the Sun, only those produced by specific nuclear reactions.</p>
+
+      <h3>Energy generation in the Sun</h3>
+      <figure>
+        <img src="../images/articles/neutrinos-here-there-and-everywhere/figure-5.png" alt="The proton-proton chain and its branches">
+        <figcaption><strong>Figure 5.</strong> The proton&ndash;proton chain and its branches, with the neutrino-producing reactions (pp, pep, hep, <sup>7</sup>Be and <sup>8</sup>B) marked.</figcaption>
+      </figure>
+      <p>Most of the time, two protons react to make a deuteron, a positron and an electron neutrino, but these neutrinos are below the threshold of the chlorine capture reaction (they are known as pp neutrinos). One time in 400, two protons react with an electron to make a deuteron and a neutrino. These so-called &ldquo;pep&rdquo; neutrinos are quite energetic, but there are not very many of them. All the deuterons react with a proton to make <sup>3</sup>He, and most of the <sup>3</sup>He nuclei react with one another to make <sup>4</sup>He and two protons. This reaction occurs 85% of the time, and this major branch is usually called the PPI chain.</p>
+      <p>Fifteen percent of the time, however, <sup>3</sup>He and <sup>4</sup>He nuclei react to make <sup>7</sup>Be. Nearly all of the <sup>7</sup>Be then captures an electron to make <sup>7</sup>Li and a neutrino. The <sup>7</sup>Li captures a proton to make two <sup>4</sup>He nuclei, completing the PPII chain. But one in 10,000 <sup>7</sup>Be nuclei captures a proton to make <sup>8</sup>B. Boron-8 decays to <sup>8</sup>Be, which splits to make two <sup>4</sup>He nuclei, a positron and an electron neutrino, completing the PPIII chain. It is these <sup>8</sup>B neutrinos that produce most of the solar neutrino signal Davis detected, with some contribution from pep and <sup>7</sup>Be neutrinos.</p>
+      <p>In the 1950s, it was thought that the PPI chain was the only significant source of neutrinos, but the energy of the dominant pp neutrinos was too low to detect with the <sup>37</sup>Cl reaction. The branch to make <sup>7</sup>Be was thought not to be significant, occurring only 0.015% of the time. The CNO cycle, in which four protons make a <sup>4</sup>He nucleus, could produce energetic neutrinos from the <sup>13</sup>N(e<sup>+</sup>, &nu;<sub>e</sub>)<sup>13</sup>C and <sup>15</sup>O(e<sup>+</sup>, &nu;<sub>e</sub>)<sup>15</sup>N reactions, but it was not clear that the CNO cycle operated in the Sun. An experiment to detect solar neutrinos did not seem feasible at the time.</p>
+      <p>This changed dramatically when Holmgren and Johnston (1958) reported that the rate of the reaction <sup>3</sup>He + <sup>4</sup>He &rarr; <sup>7</sup>Be + &gamma; is 1,000 times greater than previously thought. It was immediately recognised that the path to <sup>7</sup>Be, now about 15% of the time rather than one in 7,000, was significant. Furthermore, the <sup>7</sup>Be could react with a proton and become <sup>8</sup>B. <sup>7</sup>Be and <sup>8</sup>B are sources of energetic neutrinos. The relative rates of electron and proton capture on <sup>7</sup>Be were not measured, but estimated rates allowed for the possibility that virtually all <sup>7</sup>Be captured a proton to make <sup>8</sup>B. The decay of <sup>8</sup>B to <sup>8</sup>Be would be accompanied by neutrinos with typical energies of 7 MeV. The neutrino flux from these sources could be detected by the chlorine-argon method, with a predicted production rate of 4 to 11 <sup>37</sup>Ar atoms per day in 100,000 gallons (378,000 litres) of perchloroethylene.</p>
+
+      <h3>The detector</h3>
+      <p>The <sup>37</sup>Cl detector was built deep underground to avoid background radiation from cosmic rays. The neutrino target was 2.2 &times; 10<sup>30</sup> atoms of <sup>37</sup>Cl in the form of 100,000 gallons (3.8 &times; 10<sup>5</sup> litres) of liquid tetrachloroethylene (C<sub>2</sub>Cl<sub>4</sub>), a common cleaning fluid. The tank was a cylinder about 6 m in diameter and 14.5 m long, located 1.5 km underground in the Homestake Gold Mine in Lead, South Dakota. The neutrino absorption reaction used to detect solar neutrinos was &nu;<sub>e</sub> + <sup>37</sup>Cl &rarr; e<sup>&minus;</sup> + <sup>37</sup>Ar, with a threshold energy of 0.814 MeV.</p>
+
+      <figure>
+        <img src="../images/articles/neutrinos-here-there-and-everywhere/figure-6.png" alt="Cutaway diagram of the Homestake chlorine detector">
+        <figcaption><strong>Figure 6.</strong> The Homestake detector, with its 100,000-gallon tank, helium purge system and shielding.</figcaption>
+      </figure>
+
+      <p><sup>37</sup>Cl was chosen as a target because of its favourable physical and chemical characteristics:</p>
+      <ul>
+        <li>The absorption reaction has a relatively low threshold, permitting detection of all solar neutrino sources except the pp neutrinos.</li>
+        <li>The capture rate of <sup>8</sup>B neutrinos on <sup>37</sup>Cl is enhanced by more than an order of magnitude by transitions to excited states of <sup>37</sup>Cl.</li>
+        <li>24.23% of naturally occurring chlorine atoms are <sup>37</sup>Cl, a significant fraction.</li>
+        <li>Tetrachloroethylene is commonly used in dry-cleaning, and is manufactured on a large scale and is relatively inexpensive.</li>
+        <li>The capture process creates <sup>37</sup>Ar atoms with enough energy to break free from the parent molecules. These argon atoms dissolve in the liquid and are easily removed by purging with helium gas.</li>
+        <li>The lifetime of <sup>37</sup>Ar is 35 days. This is long enough that chemical extractions did not need to be done too often, and short enough that many exposures could be obtained. Runs typically lasted one to three months.</li>
+      </ul>
+      <p>A small (about 0.1 cm<sup>3</sup>) known amount of isotopically pure <sup>36</sup>Ar (or <sup>38</sup>Ar), a non-radioactive isotope of argon, was added to the tank and allowed to dissolve in the liquid before each exposure. The amount of argon recovered at the end of each run gave a direct measure of the efficiency of extraction of the <sup>37</sup>Ar produced by neutrino capture. The argon was removed from the liquid by bubbling large quantities (about 4 &times; 10<sup>5</sup> litres) of helium gas through the system. It was then separated from the helium by passing the gas through a condenser at 241 K, a molecular sieve at room temperature, and finally a charcoal trap kept at 77 K. Purging the tank for 22 hours would usually recover 95% of the argon, which was retained on the charcoal trap. The trap was heated to release the argon, which was then purified, and its volume measured to calculate the recovery efficiency. The isotopic composition of the sample was determined later by mass spectrometry.</p>
+
+      <h3>Counting in SNU</h3>
+      <p>For convenience, neutrino capture rates are expressed in a special unit, the solar neutrino unit, or SNU (pronounced &ldquo;snew&rdquo;). A SNU is the product of neutrino flux and neutrino cross section. One SNU equals 10<sup>&minus;36</sup> captures per target atom per second. For the Homestake <sup>37</sup>Cl experiment, one atom of <sup>37</sup>Ar produced per day in the tank equals 5.35 SNU. The capture rates predicted in 1968 were:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>If the Sun's energy comes mainly from&hellip;</th><th>Estimated in 1968</th><th>Recent calculated value</th></tr></thead>
+          <tbody>
+            <tr><td>The CNO cycle</td><td>35 SNU</td><td>28 SNU</td></tr>
+            <tr><td>The pp chain</td><td>6 SNU</td><td>7.6 (+1.3, &minus;1.1) SNU (1&sigma; errors)</td></tr>
+            <tr><td><strong>Observed at Homestake</strong></td><td colspan="2"><strong>2.56 &plusmn; 0.23 SNU (1&sigma; error)</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The Homestake experiment found direct evidence that thermonuclear fusion is responsible for energy generation in the Sun, achieving the goal proposed in 1964, and that the dominant sequence of reactions is the pp chain. Over its three decades of operation, it continued to observe fewer neutrinos than predicted. The most recently published observed capture rate was 2.56 &plusmn; 0.23 SNU, so about one third of the neutrinos appear to be missing.</p>
+
+      <h3>Why the mines?</h3>
+      <p>The experiment was conducted in a mine because on the Earth's surface there are too many confounding signals. For example, particles called muons, created when cosmic rays hit the Earth's atmosphere, can hit the detector and flip a chlorine atom into an argon atom. Muons are blocked by rock, so Davis built his experiment at level 4850 of the Homestake mine, giving him nearly 5,000 feet (around 1,500 metres) of rock overhead as protection.</p>
+
+      <h3>Problems it ran into</h3>
+      <p>Quadrillions of neutrinos arrived at the underground detector every second, and more often than not they passed completely unaffected. The team was able to detect one argon atom every few days. The experiment worked great: the scientists were able to prove conclusively that nuclear fusion reactions were taking place in the Sun. But there was a problem. They detected only a third of the neutrinos they expected.</p>
+      <p>At first, many assumed that Davis's experiment was flawed and that he was not able to extract all the argon atoms. But the experiment ran for 20 years and he consistently got the same results. Similar experiments conducted underground in Japan and Canada backed up Davis's claims. Some pointed fingers at the models of the Sun and believed something was wrong with them, but that line of thought also proved to be wrong. So a bunch of neutrinos really were missing, the experiment ran well, and there was no problem with the model of the Sun.</p>
+      <p>The fusion reactions in the Sun's core generate only electron neutrinos. But if these neutrinos could oscillate between flavours, that would explain the apparent discrepancy, as the experiment was designed to detect only electron neutrinos. This was proved in 2001 by an experiment at the Sudbury Neutrino Observatory. In 1998, the Super-Kamiokande experiment was measuring muon neutrinos made in the atmosphere, and observed that they seemingly disappeared when they travelled a certain distance, meaning that neutrinos oscillate in a very specific back-and-forth way. This confirmed neutrino oscillations.</p>
+
+      <h2>Cosmology and neutrinos</h2>
+      <h3>1. Supernovae</h3>
+      <p>Supernovae emit an unfathomable amount of energy, so much that one in our galaxy would be visible even during the day. Yet that is just a tiny fraction of the energy these explosions release, as about 99% of it is actually carried away by neutrinos, not photons. The neutrinos emitted by a supernova in one second exceed those emitted by that star in its entire lifetime. Collapsing stars could end up as a neutron star or a black hole, but we don't fully understand how that happens. What we can do is study and map the journey of a supernova by the neutrinos it emits. To do precisely this, SNEWS (the Supernova Early Detection Warning System) has been established. When a supernova forms in our galaxy, there would be a simultaneous spike in neutrino detections across its 7 detectors, signalling the event.</p>
+      <p>These neutrinos would also be detected several hours before the photons, even though they are slightly slower than the speed of light. This is because neutrinos interact only through the weak nuclear force and gravity, while photons also interact electromagnetically on top of that. Despite astronomers detecting hundreds of supernovae every year, SNEWS has never detected one, because those supernovae are too far away for their neutrinos to be detected. If we could see all the neutrinos from a supernova over the whole explosion, it would help us understand how core-collapse supernovae happen. All the detections so far have been of electron neutrinos only.</p>
+
+      <h3>2. Mean free path</h3>
+      <p>The <span class="term" tabindex="0" data-def="The average distance a particle travels before a collision substantially changes its direction or energy.">mean free path</span> is the average distance over which a moving particle travels before substantially changing its direction or energy, typically as a result of one or more successive collisions with other particles. Neutrinos are interesting to astronomers because they can reach us from otherwise inaccessible regions where photons are trapped. In the Sun, for example, the mean free path of a photon is about 10<sup>&minus;10</sup> times the radius of the Sun, so short that it takes them several million years to diffuse from the solar interior to the surface. Neutrinos interact weakly with matter and can escape directly from the solar core. Their mean free path in matter is of the order of several light-years.</p>
+      <p>Neutrinos provide the only means of directly studying the processes that drive energy generation in the Sun's interior. They are the signatures of the fusion reactions that create them. About 3% of the Sun's energy is radiated in the form of neutrinos, and the solar neutrino flux at the Earth's surface is about 10<sup>11</sup> cm<sup>&minus;2</sup> s<sup>&minus;1</sup>.</p>
+
+      <h3>3. Where did the antimatter go?</h3>
+      <p>A particle and its antiparticle have the same mass, but all other quantum mechanical properties are reversed. When they meet, they annihilate each other. We think the Big Bang should have created equal amounts of matter and antimatter, which would have annihilated each other, meaning we should not exist. It is assumed that the universe started with slightly more matter than antimatter. So where is the antimatter? Neutrinos might help us answer this question, though this domain is very much a work in progress, and for now it is just a line of thought.</p>
+      <p>To explain the existence of the universe, scientists like to explore a wrinkle in the symmetry of the universe, called <span class="term" tabindex="0" data-def="The idea that physics would work the same if every particle were swapped for its antiparticle and the whole picture were mirrored.">CP symmetry</span>: if all left-handed particles were transformed into right-handed antiparticles, it would make no difference to how physics works. If CP symmetry is not violated, the matter and antimatter produced in equal amounts in the early universe would have annihilated, leaving behind only radiation. Theories with CP violation can explain why, as the universe evolved, a little more matter survived than antimatter, and that makes up the matter we see.</p>
+      <p>There is strong evidence that quarks (which make up protons and neutrons) do violate CP symmetry. Still, the amount of violation is not enough to explain the excess of matter. So physicists have begun looking for CP violation in other classes of particles, such as leptons. We want to find instances of this symmetry being broken: particle and antiparticle pairs that don't behave quite the same. Antineutrinos can oscillate between their different types just like neutrinos. If neutrinos follow the symmetry rules, then antineutrinos should follow them as well, but recent experiments have hinted that this is not the case.</p>
+      <p>This is where DUNE (at Fermilab) comes in. It is going to see whether neutrinos and antineutrinos oscillate in the same manner. &ldquo;If they don't, that's an indication that CP has been violated.&rdquo; This could be a hint of the imbalance that existed in the early universe, which led to the full-fledged universe as it is today.</p>
+
+      <h2>Key takeaways</h2>
+      <div class="takeaways">
+        <h3><i class="fa-solid fa-flag-checkered" style="color:var(--accent-cyan)"></i>&nbsp; What to remember</h3>
+        <ul>
+          <li>Pauli proposed the neutrino in 1930 to save energy conservation in beta decay. Cowan and Reines detected it in 1956.</li>
+          <li>There are three flavours, and neutrinos oscillate between them. Neutrinos barely interact, so detectors must be huge and deep underground.</li>
+          <li>The Homestake experiment saw only about a third of the expected solar neutrinos. Oscillation, confirmed by Super-Kamiokande (1998) and SNO (2001), explained why.</li>
+          <li>Neutrinos carry away most of a supernova's energy and escape the Sun's core directly, and they may hold the clue to why the universe contains more matter than antimatter.</li>
+        </ul>
+      </div>
+
+      <h2>References</h2>
+      <ol class="refs">
+        <li>Lowe, Andrew John. &ldquo;Neutrino Physics: The Solar Neutrino Problem.&rdquo; arXiv preprint arXiv:0907.3658 (2009).</li>
+        <li>Davis Jr, Raymond. &ldquo;Nobel Lecture: A half-century with solar neutrinos.&rdquo; <em>Reviews of Modern Physics</em>.</li>
+        <li>Reines, Frederick. &ldquo;The neutrino.&rdquo; <em>Nature</em> 178, no. 4531 (1956): 446&ndash;449.</li>
+        <li>Brown, Laurie M. &ldquo;The idea of the neutrino.&rdquo; <em>Physics Today</em>.</li>
+        <li>Ananthaswamy, Anil. &ldquo;Physicists dig deep to seek the origin of matter.&rdquo; <em>Proceedings of the National Academy of Sciences</em>.</li>
+        <li><a href="https://neutrinos.fnal.gov/" target="_blank" rel="noopener noreferrer">Fermilab neutrino website</a></li>
+      </ol>
+
+    </div>
+
+    <!-- Tags + author card -->
+    <div class="after">
+      <div class="tags">
+        <a class="tag" href="articles.html">Particle Astrophysics</a>
+        <a class="tag" href="articles.html">Neutrinos</a>
+        <a class="tag" href="articles.html">Solar Neutrinos</a>
+        </div>
+
+      <div class="author-card">
+        <div class="author-avatar">SP</div>
+        <div>
+          <h4>Samyak Parashar</h4>
+          <span class="author-batch">BS-MS 2021 · IISER Bhopal</span>
+          <!-- EDIT: add a short bio -->
+          <p>Written for the IBAC article series.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<nav class="pager" aria-label="More articles">
+  <a href="data-calibration-in-optical-telescopes.html" class="prev"><small><i class="fa-solid fa-arrow-left"></i> Previous</small><span>Data Calibration in Optical Telescopes</span></a>
+  <a href="radio-galaxies-part-1.html" class="next"><small>Next <i class="fa-solid fa-arrow-right"></i></small><span>Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them</span></a>
+</nav>
+
+<section class="more">
+  <div class="more-inner">
+    <h2>Keep exploring</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Radio Astronomy</span>
+          <h3>Radio Galaxies, Part 1: Fantastic Bursts and How to Find Them</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Devang Somawanshi · BS-MS 2020</div>
+          <div class="article-desc">How radio galaxies were discovered, from Jansky and Reber to Ryle and Bolton, and how interferometers and aperture synthesis resolve them.</div>
+        </div>
+        <a href="radio-galaxies-part-1.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Astrobiology</span>
+          <h3>CONTACT, Part I: Prerequisites to Astrobiology</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Ranjan Bassi & Anushka Khobragade</div>
+          <div class="article-desc">Extremophiles and the limits of life: tardigrades, life without sunlight, and the six research topics of astrobiology.</div>
+        </div>
+        <a href="contact-part-1-prerequisites.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<!-- If your footer in articles.html differs from this one, paste that block here instead -->
+<footer class="footer">
+  <div class="inner-footer">
+    <div class="footer-col">
+      <div class="footer-heading">IBAC IISERB</div>
+      <p class="footer-about-text">The IISER Bhopal Astronomy Club fosters amateur astronomy, astrophotography, public science outreach and astrophysical research under the IISERB Science Council and the Department of Physics.</p>
+      <div class="footer-social-row">
+        <a href="https://www.instagram.com/ibac_iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/ibac-iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@ibaciiserbhopal" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ibac.iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Explore</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Visit Us</div>
+      <p class="footer-address"><strong>Club Room:</strong> Room 106, Above Mess-4, IISER Bhopal, Indore-Bypass Road, Bhauri, Bhopal, M.P. 462 066</p>
+      <p class="footer-address"><strong>Observatory:</strong> Above Central Dining Hall (CDH), IISER Bhopal</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:ibac.official@gmail.com"><i class="fa-regular fa-envelope"></i> ibac.official@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</span>
+    <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="mission-pill" id="missionPill" aria-hidden="true"><i class="fa-solid fa-satellite"></i><span>Voyager 2: <b id="missionStage">leaving Earth</b></span></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Mobile menu */
+const navMenu = document.getElementById('navMenu');
+document.getElementById('mobileMenuBtn').addEventListener('click', () => navMenu.classList.toggle('show'));
+
+/* Reading time (about 220 words per minute) */
+const body = document.getElementById('articleBody');
+const words = body.querySelector('.prose').innerText.trim().split(/\s+/).length;
+document.getElementById('readTime').textContent = Math.max(1, Math.round(words / 220));
+
+/* Build "In this article" from the <h2> headings */
+const toc = document.getElementById('toc');
+const heads = [...body.querySelectorAll('.prose h2')];
+heads.forEach((h, i) => {
+  if (!h.id) h.id = 'sec-' + (i + 1) + '-' + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const li = document.createElement('li');
+  li.innerHTML = '<a href="#' + h.id + '"></a>';
+  li.firstChild.textContent = h.textContent;
+  toc.appendChild(li);
+});
+if (!heads.length) document.querySelector('.rail-title').parentElement.querySelectorAll('.rail-title, .toc').forEach(e => e.style.display = 'none');
+
+/* Scroll: progress bar, active section, back-to-top */
+const bar = document.getElementById('journeyBar');
+const waypoints = [[20, 'passing Jupiter'], [40, 'passing Saturn'], [60, 'passing Uranus'], [80, 'passing Neptune'], [97, 'in interstellar space']];
+const wpEls = [...document.querySelectorAll('.journey .wp')];
+const stageEl = document.getElementById('missionStage');
+const toTop = document.getElementById('toTop');
+const tocLinks = [...toc.querySelectorAll('a')];
+function onScroll() {
+  const rect = body.getBoundingClientRect();
+  const total = rect.height - window.innerHeight * 0.6;
+  const done = Math.min(1, Math.max(0, (-rect.top + window.innerHeight * 0.3) / total));
+  bar.style.width = (done * 100) + '%';
+  /* Voyager waypoints: [position along the page, label, distance label] */
+  const stage = [...waypoints].reverse().find(w => done * 100 >= w[0]);
+  stageEl.textContent = stage ? stage[1] : 'leaving Earth';
+  wpEls.forEach((el, i) => el.classList.toggle('passed', done * 100 >= waypoints[i][0]));
+  toTop.classList.toggle('show', window.scrollY > 700);
+  let current = null;
+  heads.forEach(h => { if (h.getBoundingClientRect().top < 140) current = h.id; });
+  tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + current));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
+toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
+
+/* Copy link + share */
+const toast = document.getElementById('toast');
+function say(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
+document.getElementById('copyLink').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(location.href.split('#')[0]); say('Link copied'); }
+  catch (e) { say('Could not copy. Copy it from the address bar.'); }
+});
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const data = { title: document.title, url: location.href.split('#')[0] };
+  if (navigator.share) { try { await navigator.share(data); } catch (e) {} }
+  else { try { await navigator.clipboard.writeText(data.url); say('Link copied'); } catch (e) { say('Sharing is not supported here.'); } }
+});
+</script>
+</body>
+</html>

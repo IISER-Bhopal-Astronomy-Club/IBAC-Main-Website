@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     IBAC ARTICLE TEMPLATE
+     Save a copy per article, e.g. riding-on-fire.html
+     Search this file for "EDIT:" to find every spot you need to change.
+     Keep it in the same folder as index.html so images/ paths work.
+     ============================================================ -->
+
+<title>Variable Stars | IBAC IISER Bhopal</title>
+<meta name="description" content="A guide to variable stars: pulsating Cepheids, eruptive novae and supernovae, eclipsing binaries and rotating variables. By Mudit Parakh, BS-MS 2023.">
+<meta property="og:title" content="Variable Stars | IBAC IISER Bhopal">
+<meta property="og:description" content="A guide to variable stars: pulsating Cepheids, eruptive novae and supernovae, eclipsing binaries and rotating variables. By Mudit Parakh, BS-MS 2023.">
+<meta property="og:image" content="../images/ibac.png">
+
+<link rel="icon" type="image/png" href="../images/ibac.png">
+<link rel="shortcut icon" href="../images/ibac.png">
+<link rel="apple-touch-icon" href="../images/ibac.png">
+<meta name="theme-color" content="#040b19">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Site tokens (same as articles.html) ---------- */
+:root {
+  --primary-blue: #0056b3;
+  --accent-cyan: #00c6ff;
+  --royal-blue: #0072ff;
+  --deep-navy: #040b19;
+  --midnight-blue: #081226;
+  --footer-bg: #000106;
+  --radius-card: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --prose: #d3e1f5;
+  --prose-strong: #ffffff;
+  --card: rgba(10, 24, 54, 0.75);
+  --card-line: rgba(0, 114, 255, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 90px; }
+body { font-family: 'Lato', 'Inter', sans-serif; background: #060e20; color: #e2ecf9; line-height: 1.6; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+/* ---------- Navbar (identical to site) ---------- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(4, 11, 25, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0, 198, 255, 0.25); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-logo-img { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.6)); transition: var(--transition); }
+.brand-logo:hover .brand-logo-img { transform: rotate(15deg) scale(1.05); }
+.brand-title-wrap { display: flex; flex-direction: column; }
+.brand-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 1.5px; line-height: 1.1; }
+.brand-title span { color: var(--accent-cyan); }
+.brand-subtitle { font-size: 0.72rem; color: #8da4c4; text-transform: uppercase; letter-spacing: 1px; }
+.nav-menu { display: flex; list-style: none; gap: 20px; align-items: center; }
+.nav-link { font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500; color: #c9dbf2; text-decoration: none; transition: var(--transition); position: relative; padding: 6px 0; }
+.nav-link:hover, .nav-link.active { color: var(--accent-cyan); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent-cyan); transition: var(--transition); box-shadow: 0 0 8px var(--accent-cyan); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+/* ---------- Voyager progress tracker (the one memorable element) ----------
+   The probe flies along the top of the page as you read and passes the
+   planets of Voyager 2's real Grand Tour: Jupiter, Saturn, Uranus and
+   Neptune, then interstellar space at the end of the article. */
+.journey { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; z-index: 2; background: rgba(0, 198, 255, 0.18); pointer-events: none; }
+.journey-bar { height: 100%; width: 0; background: linear-gradient(90deg, rgba(0,114,255,0), #0072ff 45%, #00c6ff); position: relative; }
+.probe { position: absolute; right: -26px; top: -8px; width: 36px; height: 19px; color: #eaf4ff; filter: drop-shadow(0 0 6px rgba(0, 198, 255, 0.8)); z-index: 3; }
+
+/* Planet waypoints (drawn in CSS, no image files). Dim until Voyager 2 flies past. */
+.wp { position: absolute; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; opacity: 0.4; filter: saturate(0.25); transition: var(--transition); }
+.wp.passed { opacity: 1; filter: none; box-shadow: 0 0 10px rgba(0, 198, 255, 0.55); }
+.wp.jupiter { width: 17px; height: 17px; background: linear-gradient(180deg, #c99a6b 0%, #ead6b6 18%, #b07a4f 33%, #e2c69d 50%, #a56b45 66%, #dcbd93 82%, #b98258 100%); }
+.wp.saturn { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #f3e4b8, #c9ad72); }
+.wp.saturn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 27px; height: 8px; border: 1.5px solid rgba(235, 215, 160, 0.95); border-radius: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
+.wp.uranus { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #d6fbfc, #7fd3d8); }
+.wp.neptune { width: 11px; height: 11px; background: radial-gradient(circle at 35% 30%, #7a9bff, #2646c9); }
+.mission-pill { position: fixed; left: 24px; bottom: 24px; z-index: 900; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 30px; background: rgba(4, 11, 25, 0.88); border: 1px solid rgba(0, 198, 255, 0.3); backdrop-filter: blur(8px); font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #b0cbf2; pointer-events: none; }
+.mission-pill i { color: var(--accent-cyan); }
+.mission-pill b { color: #fff; font-weight: 600; }
+
+/* ---------- Article hero ---------- */
+.article-hero { position: relative; background: radial-gradient(circle at 50% 10%, #0d224d 0%, #040b19 80%); padding: 70px 20px 56px; overflow: hidden; border-bottom: 1px solid rgba(0, 198, 255, 0.2); }
+.stars-overlay { position: absolute; inset: 0; background-image:
+  radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 150px 120px, #00c6ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 300px 80px, #fff, rgba(0,0,0,0)),
+  radial-gradient(2px 2px at 450px 220px, #a8d4ff, rgba(0,0,0,0)),
+  radial-gradient(1px 1px at 600px 50px, #fff, rgba(0,0,0,0)),
+  radial-gradient(1.5px 1.5px at 750px 180px, #00c6ff, rgba(0,0,0,0));
+  background-size: 600px 600px; opacity: 0.65; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+.crumbs { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #79a6db; margin-bottom: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.crumbs a { color: var(--accent-cyan); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 198, 255, 0.12); border: 1px solid rgba(0, 198, 255, 0.35); color: var(--accent-cyan); padding: 5px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px; box-shadow: 0 0 15px rgba(0, 198, 255, 0.15); }
+.article-title { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; background: linear-gradient(135deg, #ffffff 35%, #70b8ff 75%, #00c6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.article-subtitle { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.3rem; color: #b2d5ff; line-height: 1.55; max-width: 720px; margin-bottom: 30px; }
+
+.byline { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding-top: 22px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #0072ff, #00c6ff); display: grid; place-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; box-shadow: 0 0 14px rgba(0, 198, 255, 0.4); overflow: hidden; }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.author-name { font-family: 'Poppins', sans-serif; font-weight: 600; color: #fff; font-size: 0.98rem; line-height: 1.2; }
+.author-batch { font-size: 0.82rem; color: #79a6db; }
+.meta-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #9dbbe3; }
+.meta-item i { color: var(--accent-cyan); }
+
+/* ---------- Cover figure ---------- */
+.cover-wrap { max-width: 1100px; margin: -28px auto 0; padding: 0 20px; position: relative; z-index: 3; }
+.cover { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--card-line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); background: var(--midnight-blue); }
+.cover img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+.cover figcaption { padding: 12px 18px; font-size: 0.84rem; color: #8da4c4; border-top: 1px solid var(--card-line); }
+
+/* ---------- Layout: sticky contents rail + reading column ---------- */
+.article-layout { max-width: 1100px; margin: 0 auto; padding: 56px 20px 40px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; }
+.rail { position: sticky; top: 96px; align-self: start; }
+.rail-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; padding-bottom: 8px; }
+.rail-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.toc { list-style: none; border-left: 1px solid rgba(0, 198, 255, 0.2); }
+.toc a { display: block; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: #8fa5c7; text-decoration: none; font-size: 0.9rem; line-height: 1.4; transition: var(--transition); }
+.toc a:hover { color: #fff; }
+.toc a.on { color: var(--accent-cyan); border-left-color: var(--accent-cyan); font-weight: 600; }
+.rail-tools { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+.rail-btn { display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.25); color: #b0cbf2; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: var(--transition); }
+.rail-btn:hover { background: var(--accent-cyan); color: #040b19; border-color: transparent; }
+.rail-btn i { width: 16px; text-align: center; }
+
+/* ---------- Prose ---------- */
+.prose { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.14rem; line-height: 1.85; color: var(--prose); max-width: 68ch; }
+.prose > * + * { margin-top: 1.25em; }
+.prose h2 { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2.4em; scroll-margin-top: 90px; }
+.prose h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: #cfe4ff; margin-top: 1.9em; }
+.prose strong { color: var(--prose-strong); font-weight: 600; }
+.prose em { color: #e8f2ff; }
+.prose a { color: var(--accent-cyan); text-decoration: underline; text-decoration-color: rgba(0, 198, 255, 0.4); text-underline-offset: 3px; transition: var(--transition); }
+.prose a:hover { color: #fff; text-decoration-color: #fff; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.5em; }
+.prose li::marker { color: var(--accent-cyan); }
+.prose sup a { text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.75em; }
+
+/* First paragraph drop cap */
+.prose .lede::first-letter { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 3.9em; float: left; line-height: 0.85; padding: 0.08em 0.12em 0 0; background: linear-gradient(135deg, #fff, #00c6ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Glossary terms: hover or focus for a definition */
+.term { position: relative; border-bottom: 1px dotted var(--accent-cyan); cursor: help; color: #fff; }
+.term::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px); width: max-content; max-width: 260px; padding: 10px 14px; background: #0a1a3a; border: 1px solid var(--accent-cyan); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.5; font-style: normal; font-weight: 400; color: #d6e6ff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; transition: var(--transition); z-index: 20; }
+.term:hover::after, .term:focus::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Fact sheet: an observation-log card for the numbers */
+.factsheet { background: var(--card); border: 1px solid var(--card-line); border-left: 3px solid var(--accent-cyan); border-radius: var(--radius-card); padding: 22px 26px; font-family: 'Inter', sans-serif; backdrop-filter: blur(8px); }
+.factsheet h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.factsheet h4 i { color: var(--accent-cyan); }
+.factsheet dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 22px; font-size: 0.93rem; }
+.factsheet dt { color: #79a6db; }
+.factsheet dd { color: #fff; font-weight: 500; }
+
+/* Callout */
+.callout { background: linear-gradient(135deg, rgba(0, 114, 255, 0.16), rgba(0, 198, 255, 0.1)); border: 1px solid rgba(0, 198, 255, 0.35); border-radius: var(--radius-card); padding: 20px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: #d8e8ff; display: flex; gap: 16px; }
+.callout > i { color: var(--accent-cyan); font-size: 1.3rem; margin-top: 4px; }
+.callout strong { display: block; font-family: 'Poppins', sans-serif; color: #fff; margin-bottom: 4px; }
+
+/* Pull quote */
+.prose blockquote { margin: 2em 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--accent-cyan); font-style: italic; font-size: 1.4rem; line-height: 1.55; color: #fff; }
+.prose blockquote cite { display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.86rem; color: #79a6db; }
+
+/* Equation */
+.equation { text-align: center; padding: 22px 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-line); border-radius: 12px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.5rem; color: #fff; overflow-x: auto; }
+.equation small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.82rem; color: #79a6db; }
+
+/* Figures inside the article */
+.prose figure { margin: 2em 0; }
+.prose figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-line); }
+.prose figcaption { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #8da4c4; line-height: 1.5; }
+.prose figure.wide { margin-left: -4%; margin-right: -4%; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--card-line); border-radius: 12px; }
+.prose table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.93rem; }
+.prose th { text-align: left; background: rgba(0, 114, 255, 0.18); color: #fff; font-weight: 600; padding: 12px 16px; }
+.prose td { padding: 11px 16px; border-top: 1px solid rgba(0, 198, 255, 0.12); color: #cfe0f7; }
+
+/* Key takeaways */
+.takeaways { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px 30px; font-family: 'Inter', sans-serif; }
+.takeaways h3 { margin-top: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+.takeaways ul { font-size: 1rem; line-height: 1.65; color: #cfe0f7; }
+
+/* References */
+.refs { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #9dbbe3; line-height: 1.65; }
+.refs li { word-break: break-word; }
+
+/* Author card + tags */
+.after { max-width: 68ch; margin-top: 3.2em; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.tag { font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; transition: var(--transition); }
+.tag:hover { background: var(--accent-cyan); color: #040b19; }
+.author-card { display: flex; gap: 20px; align-items: flex-start; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 26px; font-family: 'Inter', sans-serif; }
+.author-card .author-avatar { width: 64px; height: 64px; font-size: 1.3rem; flex-shrink: 0; }
+.author-card h4 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; }
+.author-card .author-batch { margin-bottom: 8px; display: block; }
+.author-card p { font-size: 0.93rem; color: #a4bede; line-height: 1.65; }
+
+/* Prev / Next */
+.pager { max-width: 1100px; margin: 0 auto; padding: 0 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pager a { display: block; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 22px 26px; text-decoration: none; transition: var(--transition); }
+.pager a:hover { transform: translateY(-5px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.pager small { display: block; font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 6px; }
+.pager span { font-family: 'Poppins', sans-serif; font-size: 1.05rem; color: #fff; line-height: 1.35; }
+.pager .next { text-align: right; }
+
+/* Keep exploring */
+.more { padding: 50px 20px 80px; }
+.more-inner { max-width: 1100px; margin: 0 auto; }
+.more h2 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 24px; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+.article-card { background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); padding: 28px; transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(8px); }
+.article-card:hover { transform: translateY(-6px); border-color: var(--accent-cyan); box-shadow: 0 12px 35px rgba(0, 198, 255, 0.2); }
+.article-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 198, 255, 0.12); border-radius: 20px; padding: 3px 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.article-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; line-height: 1.35; }
+.article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: #79a6db; margin-bottom: 14px; font-weight: 500; }
+.article-meta i { color: var(--accent-cyan); }
+.article-desc { font-size: 0.94rem; color: #a4bede; line-height: 1.65; margin-bottom: 20px; }
+.article-read-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: var(--transition); }
+.article-read-btn:hover { color: #fff; transform: translateX(4px); }
+
+/* Back-to-top + toast */
+.to-top { position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px; border-radius: 50%; background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.4); color: var(--accent-cyan); font-size: 1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 900; backdrop-filter: blur(8px); }
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { background: var(--accent-cyan); color: #040b19; }
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); background: #0a1a3a; border: 1px solid var(--accent-cyan); color: #fff; padding: 10px 20px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.9rem; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 1200; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Footer (identical to site) ---------- */
+.footer { background: var(--footer-bg); color: #fff; padding: 70px 20px 25px; border-top: 1px solid rgba(0, 198, 255, 0.2); }
+.inner-footer { max-width: 1350px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+.footer-col { display: flex; flex-direction: column; }
+.footer-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 18px; position: relative; letter-spacing: 0.5px; }
+.footer-heading::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent-cyan); }
+.footer-about-text { color: #8fa5c7; font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-list a { color: #8fa5c7; text-decoration: none; font-size: 0.92rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; }
+.footer-links-list a:hover { color: var(--accent-cyan); transform: translateX(4px); }
+.footer-address { color: #9cb1d6; font-size: 0.92rem; line-height: 1.6; margin-bottom: 15px; }
+.footer-social-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+.footer-social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; transition: var(--transition); }
+.footer-social-btn:hover { background: var(--accent-cyan); color: #040b19; transform: translateY(-3px); }
+.footer-bottom { max-width: 1350px; margin: 0 auto; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #7e94b8; font-size: 0.88rem; }
+.scroll-top-btn { background: rgba(0, 198, 255, 0.15); border: 1px solid rgba(0, 198, 255, 0.3); color: var(--accent-cyan); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: var(--transition); display: inline-flex; align-items: center; gap: 6px; }
+.scroll-top-btn:hover { background: var(--accent-cyan); color: #040b19; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .article-title { font-size: 2.4rem; }
+  .article-layout { grid-template-columns: 1fr; gap: 0; }
+  .rail { position: static; margin-bottom: 36px; padding: 20px; background: var(--card); border: 1px solid var(--card-line); border-radius: var(--radius-card); }
+  .rail-tools { flex-direction: row; flex-wrap: wrap; }
+  .inner-footer { grid-template-columns: 1fr 1fr; }
+  .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(4, 11, 25, 0.98); flex-direction: column; padding: 40px 20px; gap: 18px; transition: 0.35s ease; }
+  .nav-menu.show { left: 0; }
+  .mobile-menu-btn { display: block; }
+}
+@media (max-width: 600px) {
+  .mission-pill { display: none; }
+  .article-title { font-size: 1.95rem; }
+  .article-subtitle { font-size: 1.12rem; }
+  .prose { font-size: 1.05rem; }
+  .prose h2 { font-size: 1.4rem; }
+  .prose figure.wide { margin-left: 0; margin-right: 0; }
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { text-align: left; }
+  .author-card { flex-direction: column; }
+  .inner-footer { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  .site-header, .journey, .rail, .pager, .more, .footer, .to-top { display: none; }
+  body, .article-hero { background: #fff; color: #000; }
+  .prose, .prose h2, .article-title { color: #000; -webkit-text-fill-color: #000; }
+  .article-layout { display: block; }
+}
+.figpair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.prose .figpair img { height: 100%; object-fit: cover; }
+.prose pre.eq { white-space: pre-wrap; }
+@media (max-width: 600px) { .figpair { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body id="top">
+
+<!-- ===== Navbar ===== -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html#top" class="brand-logo">
+      <img src="../images/ibac.png" alt="IBAC Logo" class="brand-logo-img">
+      <div class="brand-title-wrap">
+        <span class="brand-title">IBAC <span>IISERB</span></span>
+        <span class="brand-subtitle">IISER Bhopal Astronomy Club</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#top" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="research.html" class="nav-link">Research (IBARG)</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="articles.html" class="nav-link active">Articles</a></li>
+      <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+      <li><a href="index.html#events" class="nav-link">Events</a></li>
+      <li><a href="index.html#team" class="nav-link">Team</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <!-- Voyager 2 progress tracker: flies the Grand Tour as you read.
+       Planet positions are the "left" values below. -->
+  <div class="journey" aria-hidden="true">
+    <span class="wp jupiter" style="left:20%"></span>
+    <span class="wp saturn" style="left:40%"></span>
+    <span class="wp uranus" style="left:60%"></span>
+    <span class="wp neptune" style="left:80%"></span>
+    <div class="journey-bar" id="journeyBar">
+      <!-- Voyager: dish faces back toward Earth, boom and generator trail behind it -->
+      <svg class="probe" viewBox="0 0 28 15" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 1.5 Q7.5 7.5 3 13.5 Q9.5 7.5 3 1.5Z" fill="currentColor"/>
+        <line x1="5.5" y1="7.5" x2="10" y2="7.5"/>
+        <rect x="10" y="5" width="6" height="5" rx="1" fill="currentColor"/>
+        <line x1="16" y1="7.5" x2="27" y2="7.5"/>
+        <rect x="21" y="6" width="3" height="3" fill="currentColor"/>
+        <line x1="13" y1="5" x2="13" y2="0.8"/>
+        <line x1="13" y1="10" x2="13" y2="14.2"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Article hero ===== -->
+<section class="article-hero">
+  <div class="stars-overlay"></div>
+  <div class="hero-inner">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <a href="articles.html">Articles</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i>
+      <span>Variable Stars</span>
+    </nav>
+
+    <div class="hero-badge"><i class="fa-solid fa-star"></i> Stellar Physics</div>
+
+    <h1 class="article-title">Variable Stars</h1>
+    <p class="article-subtitle">Stars that brighten, fade, pulse, erupt and eclipse. A tour of the variable stars and what each type tells us.</p>
+
+    <div class="byline">
+      <div class="author">
+        <div class="author-avatar">MP</div>
+        <div>
+          <div class="author-name">Mudit Parakh</div>
+          <div class="author-batch">BS-MS 2023</div>
+        </div>
+      </div>
+      <!-- EDIT: add the publication date, e.g. <span class="meta-item"><i class="fa-regular fa-calendar"></i> 15 October 2026</span> -->
+      <span class="meta-item"><i class="fa-regular fa-clock"></i> <span id="readTime">-</span> min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Body ===== -->
+<div class="article-layout">
+
+  <!-- Left rail: the contents list is built automatically from the <h2> headings below -->
+  <aside class="rail">
+    <div class="rail-title">In this article</div>
+    <ul class="toc" id="toc"></ul>
+    <div class="rail-tools">
+      <button class="rail-btn" id="copyLink" type="button"><i class="fa-regular fa-copy"></i> Copy link</button>
+      <button class="rail-btn" id="shareBtn" type="button"><i class="fa-solid fa-share-nodes"></i> Share</button>
+      <button class="rail-btn" onclick="window.print()" type="button"><i class="fa-solid fa-print"></i> Print / save PDF</button>
+    </div>
+  </aside>
+
+  <article id="articleBody">
+    <div class="prose">
+
+      <p class="lede">When we look up at the night sky it is easy to imagine that the stars are unchanging. Apart from twinkling due to the effects of our atmosphere, stars appear fixed and constant to the untrained eye. Careful observations, some even done with the naked eye, show that some stars do in fact change in brightness over time. Some exhibit periodic behaviour, brightening quickly and then diminishing slowly, only to repeat themselves. With some, these changes take place over several days, whilst others occur in a matter of hours or many months. Other stars exhibit a once-off dramatic change in brightness by orders of magnitude before fading into obscurity.</p>
+
+      <aside class="factsheet">
+        <h4><i class="fa-solid fa-circle-info"></i> Variable stars at a glance</h4>
+        <dl><dt>Definition</dt><dd>A star whose brightness or another property changes over time</dd><dt>Two families</dt><dd>Intrinsic (pulsating, eruptive) and extrinsic (eclipsing, rotating)</dd><dt>First one found</dt><dd>Mira (o Ceti), 1638</dd><dt>Distance tool</dt><dd>Cepheids, via Leavitt's period&ndash;luminosity relation</dd><dt>Official catalogue</dt><dd>General Catalogue of Variable Stars (GCVS)</dd></dl>
+      </aside>
+
+      <p>All of these are examples of what are termed variable stars. A variable star is simply one whose brightness (or other physical property such as radius or spectral type) changes over time. At a fundamental level, all stars are variable as they evolve and change over time (from a main sequence star to a red giant, as in the Sun's case). Furthermore, we can infer that all stars are likely to vary their light output to some extent due to phenomena such as sunspots.</p>
+
+      <h2>Discovery</h2>
+      <p>An ancient Egyptian calendar of lucky and unlucky days composed some 3,200 years ago may be the oldest preserved historical document of the discovery of a variable star, the eclipsing binary Algol. Aboriginal Australians are also known to have observed the variability of Betelgeuse and Antares, incorporating these brightness changes into narratives that are passed down through oral tradition.</p>
+      <p>Among modern astronomers, the first variable star was identified in 1638 when Johannes Holwarda noticed that o Ceti (later named Mira) pulsated in a cycle taking 11 months. The star had previously been described as a nova by David Fabricius in 1596. This discovery, combined with the supernovae observed in 1572 and 1604, proved that the starry sky was not eternally invariable as Aristotle and other ancient philosophers had taught. In this way, the discovery of variable stars contributed to the astronomical revolution of the sixteenth and early seventeenth centuries.</p>
+      <p>The second variable star to be described was the eclipsing variable Algol, by Geminiano Montanari in 1669; John Goodricke gave the correct explanation of its variability in 1784. χ Cygni was identified in 1686 by G. Kirch, then R Hydrae in 1704 by G. D. Maraldi. By 1786, ten variable stars were known. John Goodricke himself discovered δ Cephei and β Lyrae. Since 1850, the number of known variable stars has increased rapidly, especially after 1890, when it became possible to identify variable stars by means of photography.</p>
+
+      <h2>Certification</h2>
+      <p>Once a variable star has been discovered, it is considered for official &lsquo;certification&rsquo;. Prior to World War II, this was done by the Commission on Variable Stars of the Astronomische Gesellschaft in Germany. From then until 1952, it was done by a subcommission of the International Astronomical Union (IAU). Since 1952, it has been done by the compilers of the General Catalogue of Variable Stars (GCVS) in the USSR and now in Russia.</p>
+      <p>The criteria for certification are quite strict in principle: there must be definite evidence of variability; the brightness must be determined reliably; an accurate position must be given; and the type of variability must be known.</p>
+
+      <h2>Nomenclature</h2>
+      <p>After a variable star is certified, it is given an official name. Name lists of new variable stars are included at regular intervals in the Information Bulletin on Variable Stars, published by the Konkoly Observatory in Hungary on behalf of the IAU Division of Variable Stars. The name lists give alternate designations of the stars and references to the discovery papers.</p>
+      <p>The standard system of variable star nomenclature was developed by Argelander (see Hoffleit, 1987, for a brief history). Stars that have a Greek-letter name (such as δ Cephei) or a small Roman-letter name (such as g Herculis) keep that name and are listed at the end of the list of variable stars in their constellation in the GCVS. All other stars are designated by one or two capital letters, followed by the genitive case of the constellation's Latin name (such as Cephei or Cygni). The letters are assigned in the order in which the variables are discovered, starting with R, S, ... Z, RR, RS ... RZ, SS, ST ... SZ through to ZZ, then AA ... AZ, through to QZ, omitting J. (The letters A through Q had already been used in the naming of non-variable stars in the newly charted southern constellations.) This system provides 334 designations per constellation; subsequent variables are called V335, V336, etc., followed by the genitive form of the constellation name.</p>
+      <p>There are many other designations that can be assigned to a variable star, both before and after certification. Variables discovered in large-scale surveys are often designated according to the observatory at which they were discovered. HV, for instance, means &lsquo;Harvard variable&rsquo;, and BV means &lsquo;Bamberg variable&rsquo;. The star may already be listed in the Henry Draper Catalogue (HD) or Bright Star Catalogue (BS); stars in the latter catalogue are usually referred to by their HR (Harvard Revised) number. The variable may be designated by its position at a given epoch, either accurately or in a shorthand notation. For example, the Harvard system of designations, used by the AAVSO in its database, is based on the right ascension and declination of the star for the epoch 1900. A finder chart for the variable can be provided; this is especially useful for faint stars in crowded fields such as clusters, the Milky Way, and other galaxies.</p>
+      <p>Novae may initially be given a special designation, before being given their variable star name, consisting of the constellation and year of discovery: Nova Delphini 1967 (HR Delphini), for instance. There is a special system of nomenclature for supernovae.</p>
+
+      <h2>Classification</h2>
+      <figure>
+        <img src="../images/articles/variable-stars/figure-1.png" alt="Classification of variable stars">
+        <figcaption><strong>Figure 1.</strong> Classification of variable stars.</figcaption>
+      </figure>
+      <p>Variable stars fall into two broad families. <strong>Intrinsic variables</strong> change brightness because of something happening inside the star. <strong>Extrinsic variables</strong> change brightness because of something outside the star, or because the star rotates.</p>
+
+      <h2>Intrinsic variables</h2>
+      <p>These are stars that vary their light output, and hence their brightness, by some change within the star itself. They are an extremely important and useful group of stars to astronomers, as they provide a wealth of information about the internal structure of stars and models of stellar evolution. Perhaps their greatest value is the role of some types, such as Cepheids and supernovae, in distance determination. Intrinsic variables are further classified as to whether they exhibit periodic pulsations or are more explosive or eruptive events, as in cataclysmic variables.</p>
+
+      <h3>Pulsating variables</h3>
+      <p>Pulsating variable stars are intrinsic variables because their variation in brightness is due to a physical change within the star: the periodic expansion and contraction of the surface layers. The star actually increases and decreases in size periodically. The different types of pulsating variables are distinguished by their periods of pulsation and the shapes of their light curves. These in turn are a function of the mass and evolutionary stage of a given star.</p>
+
+      <h3>Cepheids</h3>
+      <p>Cepheids are yellow supergiant pulsating variable stars that lie in a narrow instability strip in the middle of the H&ndash;R diagram. Their temperatures are 6000&ndash;8000 K, and their periods are 1&ndash;100 days or more. We now know that there are two distinct classes of Cepheids: the classical Cepheids, which are young stars more massive than the Sun, and the Population II Cepheids or W Virginis stars, which are old stars less massive than the Sun.</p>
+      <p>The first Cepheids to be discovered were η Aquilae (by Edward Pigott on 10 September 1784) and the prototype δ Cephei (by John Goodricke a month later). At that time, the cause of the variability was not clear. A rotational mechanism was first suggested, and in the late nineteenth century the variability was thought to be caused by some form of eclipse. A. Belopolsky discovered in 1894 that δ Cephei showed radial velocity variations with the same period as the brightness variations, and in 1899 Karl Schwarzschild discovered that variations in temperature also occurred. Following theoretical studies of stellar pulsation by August Ritter, Harlow Shapley in 1914 showed that the brightness, temperature, and velocity variations in Cepheids were consistent with radial pulsation (Figure 2).</p>
+      <p>At about the same time, the relation between period and luminosity was discovered by Henrietta Leavitt, from observations of 25 Cepheids in the Small Magellanic Cloud (part of a study of over 1700 variables in the Clouds). She noted a relation between the period and the apparent brightness which, because all of the stars were at the same distance, reflected the true brightness or luminosity of the stars. Thereafter, much effort went into calibrating this relation, using Cepheids of known distance.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-2.png" alt="Light curve, temperature, radius and radial velocity of delta Cephei">
+        <figcaption><strong>Figure 2.</strong> The magnitude, temperature (deduced from the colour), radius (deduced from the magnitude and temperature), and radial velocity of the prototype Cepheid δ Cephei. The radial velocity variations confirm that the star is pulsating, and are consistent with the variations in radius. (Based on a diagram produced by the author for Scientific American.)</figcaption>
+      </figure>
+
+      <div class="callout">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div><strong>Why Cepheids measure distance</strong>The longer the period of a classical Cepheid, the more intrinsically luminous it is. Measure the period, and you know the true brightness. Compare that with how bright it looks, and you know how far away it is. That makes Cepheids <span class="term" tabindex="0" data-def="Objects whose true brightness is known, so their apparent brightness reveals their distance.">standard candles</span> for distance determination.</div>
+      </div>
+
+      <h3>Types of Cepheid variables</h3>
+      <p><strong>Type I: classical Cepheids.</strong> These stars take their name from δ Cephei. Most have a period of between 5 and 10 days and an amplitude range of 0.5 to 2.0 magnitudes in visible light. The variations are less pronounced at infrared wavebands. They are 1.5 to 2 magnitudes more luminous than Type II Cepheids. Classical Cepheids follow a well-defined period&ndash;luminosity relationship, which allows them to be used as standard candles. They are located on the instability strip of an H&ndash;R diagram and are massive supergiant stars.</p>
+      <p><strong>Type II: W Virginis.</strong> Type II Cepheids are named after the first star identified in this group, W Virginis. It has a period of 17.2736 days, a magnitude range of 9.46&ndash;10.75, and a spectral class range of F0Ib&ndash;G0Ib. W Virginis-type Cepheids are intrinsically less luminous by 1.5 to 2 magnitudes than the Type I classical Cepheids and have typical periods of 12&ndash;30 days. As they are older stars, their spectra are characterised by lower <span class="term" tabindex="0" data-def="The fraction of a star made of elements heavier than helium.">metallicities</span>. Type II light curves show a characteristic bump on the decline side, and they have an amplitude range of 0.3&ndash;1.2 magnitudes. As with Type I, they display a well-defined period&ndash;luminosity relationship and can be used for distance determination.</p>
+
+      <h3>RV Tauri variables</h3>
+      <p>RV Tauri stars are pulsating yellow supergiant stars whose light curves are characterised by alternating deep and shallow minima. They have spectral types F to G at maximum light, and K to M at minimum. The period from one deep minimum to the next (the &lsquo;double&rsquo; or &lsquo;formal&rsquo; period) ranges from 30 to 150 days. The complete light amplitudes can reach 3&ndash;4 magnitudes in V. RV Tauri stars are executing blue loops from the asymptotic giant branch (AGB), or are in their final transition from the AGB to the white dwarf stage.</p>
+
+      <h3>RR Lyrae variables</h3>
+      <p>RR Lyrae stars are pulsating variables with periods of 0.1 to 1 day, ranges in V of up to 1.5 magnitudes, spectral types A5 to F5, absolute visual magnitudes of about +0.5, masses about half a solar mass, and low metal abundances Z of 0.00001 to 0.01, depending upon their age. The variability of RR Lyrae itself was discovered by Williamina Fleming around 1900. It has a period of about 0.567 days, which shows small increases and decreases. By 1916, Richard Prager and Harlow Shapley had independently discovered that its light curve was modulated in amplitude and shape in a period of 41 days. They had discovered the Blazhko effect, which remains a mystery even today.</p>
+      <p>In practice, these stars are defined by their evolutionary state. Having spent most of their lives burning hydrogen in their cores, they have exhausted that fuel and begun to burn helium in the core. Stars in this stage have a wide range of temperatures but a narrow range of luminosities. They therefore occupy a &lsquo;horizontal branch&rsquo; in the H&ndash;R diagram. If their temperature lies between about 6000 and 7500 K, they are unstable against pulsation. Their narrow range of temperatures and luminosities explains their small range of periods.</p>
+
+      <h3>Long-period variables (LPVs)</h3>
+      <p>The first pulsating variable discovered was the long-period variable Mira. LPVs are cool red giants or supergiants and have periods of months to years. Their luminosities can range from 10 to 10,000 times that of the Sun. They are further classified according to whether they exhibit regular periodicity, such as the Miras, or more irregular behaviour.</p>
+      <p><strong>Mira variables.</strong> Miras have stable periods of 100&ndash;1000 days, with most between 150 and 450 days. The visual amplitudes are greater than 2.5 magnitudes by definition and can be up to ten magnitudes (Figure 3). Being so conspicuous, they are the most numerous variables in the GCVS, but with modern surveys able to detect smaller-amplitude variables more easily, other types are catching up. Miras are highly evolved stars, with masses between about 0.6 and a few solar masses. They have radii of up to several hundred solar radii; if placed in the solar system where the Sun is, they would extend beyond the Earth's orbit! For these stars, however, the concept of &lsquo;radius&rsquo; is complicated. The atmosphere is very extended, and the star will look much larger in regions of the spectrum (such as V) at which the atmosphere is opaque. Some Miras are Population I stars, others are Population II; some of the latter are found in globular clusters.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-3.png" alt="Light curve of Mira, 1978 to 2004">
+        <figcaption><strong>Figure 3.</strong> The 1978&ndash;2004 light curve of Mira, based on visual measurements from the AAVSO International Database. Note the variable magnitude at maximum. The magnitude at minimum is approximately constant because of the presence of the close hot binary companion. (From AAVSO.)</figcaption>
+      </figure>
+
+      <p><strong>Semiregular variables.</strong> As their name implies, these stars show some periodicity and variations in brightness, but also exhibit irregularities where they appear to be stable. They are giant and supergiant stars with periods ranging from a few days to several years, and the change in brightness is typically less than two magnitudes. The light curves of semiregulars have a variety of shapes. Prominent examples include Antares (α Scorpii) and Betelgeuse (α Orionis).</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-4.png" alt="Location of pulsating variables on the H-R diagram">
+        <figcaption><strong>Figure 4.</strong> The location of the types of pulsating variables on the H&ndash;R diagram.</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Type</th><th>Period</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Classical Cepheids</td><td>Mostly 5&ndash;10 days</td><td>Young, massive supergiants. Follow a period&ndash;luminosity relation</td></tr>
+            <tr><td>Type II Cepheids (W Virginis)</td><td>Typically 12&ndash;30 days</td><td>Older and fainter than classical Cepheids. Bump on the decline</td></tr>
+            <tr><td>RR Lyrae</td><td>0.1&ndash;1 day</td><td>Horizontal branch stars burning helium in the core</td></tr>
+            <tr><td>RV Tauri</td><td>30&ndash;150 days (double period)</td><td>Alternating deep and shallow minima</td></tr>
+            <tr><td>Mira</td><td>100&ndash;1000 days</td><td>Cool red giants. Amplitudes up to ten magnitudes</td></tr>
+            <tr><td>Semiregular</td><td>A few days to several years</td><td>Giants and supergiants. Amplitude usually under two magnitudes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Why do stars pulsate?</h2>
+      <p>We tend to think of stars as stable and unchanging. Stars undergo several stages in their existence, but main sequence stars such as our Sun are basically stable, exhibiting no dramatic changes in size or brightness. They are in what is called <span class="term" tabindex="0" data-def="The balance between gravity pulling the star inwards and pressure pushing outwards.">hydrostatic equilibrium</span>: the gravitational force pulling the star's material inwards is balanced by the radiation pressure and the gas pressure. The radiation pressure acts outwards and arises from the production of photons in the core by fusion. Gas pressure is much the same as any gas on Earth resisting attempts to compress it.</p>
+      <p>Why then do some stars pulsate? Despite what you might think, pulsation is not due to increased radiation pressure from higher rates of fusion in the core. The rate of fusion remains constant. Pulsations instead arise from variations in the rate at which radiation can escape from the star. The steps involved are:</p>
+      <ol>
+        <li>If the outward pressure exceeds the inward gravitational force, the outer layers of the star expand outwards.</li>
+        <li>As the star expands, its inward gravitational force diminishes, but its outward pressure drops at an even greater rate (think of what happens to a gas as it expands).</li>
+        <li>Eventually the star reaches a position at which hydrostatic equilibrium occurs: gravity equals pressure. However, the outward-moving layers still have momentum, so they resist a change in motion. This momentum carries the layer past the equilibrium position.</li>
+        <li>The gravitational force acts on the layer and slows it down. A point is reached where it stops, but now the outward gas and radiation pressure is weaker than the inward-acting gravitational force.</li>
+        <li>The imbalance of forces causes the star's outer layers to collapse inwards.</li>
+        <li>As the layers collapse, gravity increases, but the pressure increases at a greater rate.</li>
+        <li>With the outward pressure exceeding the inward gravitational force, the collapsing layer slows down and eventually stops.</li>
+        <li>We are now back at the start, where the outward pressure is greater than gravity, so the pulsation cycle begins again.</li>
+      </ol>
+      <p>A pulsating star is thus not in equilibrium but is always trying to regain it, shooting past the point each time. It is a harmonic oscillator. Analysis of light curves comprising many periods can often reveal more than one harmonic mode of oscillation for some types of pulsating variable. This information in turn allows astronomers to learn more about the interiors of those stars, in much the same way as the analysis of seismic waves helps geologists probe the Earth's interior.</p>
+
+      <h2>Eruptive or cataclysmic variables</h2>
+      <p>Eruptive variables can exhibit significant and rapid changes in luminosity due to violent outbursts caused by processes within the star. There is a wide variety of them. Some events, as the term cataclysmic implies, result in the destruction of the star, whilst others can recur one or more times.</p>
+
+      <h3>Supernovae</h3>
+      <p>A supernova is a star which, within a few days, brightens by 10 to 20 magnitudes, reaching a peak absolute magnitude of &minus;15 to &minus;20 or brighter, then slowly fades. In the process, the star is irreversibly transformed into a rapidly expanding shell (a supernova remnant) and/or a collapsed core: a neutron star or possibly a black hole. Despite a superficial resemblance between novae and supernovae, the eruption mechanism and the consequences are totally different. A supernova explosion &lsquo;is forever&rsquo;.</p>
+      <p>Supernovae are caused by one of two main mechanisms. The first takes place when accreting material falling onto a white dwarf in a binary system takes it over the mass set by the Chandrasekhar limit. The resulting instability triggers a runaway thermonuclear explosion that destroys the star and releases large amounts of radioactive and heavy elements into space. The second occurs in very massive stars once all the material in their core has been fused into iron. As fusion cannot occur in elements heavier than iron, the drop in outward radiation pressure means that gravitational collapse overwhelms the core, which rapidly implodes. The core material gets crushed to form degenerate neutron-density material, whilst the extreme temperature and pressure in the surrounding layers cause rapid (r-process) nuclear reactions that synthesise the heaviest elements. A huge flux of neutrinos is thought to interact with the superdense material, ripping the star apart. Such core-collapse supernovae may result in neutron stars and black holes forming from the remaining core material.</p>
+      <p>Observationally, supernovae are classified according to their spectra. Type I supernovae exhibit no hydrogen lines in spectra taken soon after the event. Those with silicon lines present are further classified as Type Ia and are thought to be due to thermonuclear explosions of accreting white dwarfs. If no Si lines are present, they are Type Ib or Ic, depending on the high or low abundance of He lines respectively. These types occur due to core collapse following the stripping away of the outer layers in Wolf&ndash;Rayet or binary stars.</p>
+      <p>Type II supernovae show hydrogen lines in their early spectra. They are all examples of core-collapse events, most arising from a massive progenitor star exhausting its core fuel. Perhaps the best-known example is Supernova 1987A, the first supernova visible to the naked eye since Kepler's supernova of 1604. It took place in the Large Magellanic Cloud, a satellite galaxy of our own about 50,000 pc distant. Although we expect two or three stars to go supernova in our galaxy each century, these may not be visible in optical wavebands due to absorption and scattering by the galaxy's dust lanes, so the occurrence of a supernova in a nearby galaxy was a major boon for astronomers. Observations of SN 1987A continue today at many wavebands.</p>
+
+      <h3>Novae</h3>
+      <p>A nova occurs in a close binary system and is characterised by a rapid and unpredictable rise in brightness of 7&ndash;16 magnitudes within a few days. The eruption is followed by a steady decline back to the pre-nova magnitude over a few months. This suggests that the event causing the nova does not destroy the original star. Our model for novae is that of an accreting white dwarf. It draws material off its close binary companion for about 10,000 to 100,000 years until there is sufficient material to trigger a thermonuclear explosion that blasts the shell of material off into space. Nova Aquilae 1918 (V603 Aquilae), at its brightest, was outshone only by Sirius. Novae thus look like a &lsquo;new star&rsquo;, hence the name nova, meaning new.</p>
+      <p>Most galactic novae belong to intermediate or old Population I, but that is a biased sample. One of the most complete extragalactic samples is that of Neill and Shara (2004) for M81; it clearly shows that the M81 novae are primarily Population II. A few galactic novae have been identified in globular clusters and are therefore also Population II.</p>
+      <p>Novae are designated by their constellation and year of discovery, and later receive an official variable star designation; Nova Cygni 1975 is also V1500 Cygni.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-5.png" alt="Light curve of Nova Cygni 1975">
+        <figcaption><strong>Figure 5.</strong> The light curve of Nova Cygni 1975 (V1500 Cygni), based on visual measurements from the AAVSO International Database. The nova was independently discovered by dozens of amateur astronomers, including the author's 11-year-old daughter. Note the amplitude, duration, and very smooth shape of the light curve. (From AAVSO.)</figcaption>
+      </figure>
+
+      <h3>Recurrent novae</h3>
+      <p>Recurrent novae are novae that are known to have erupted more than once. They have a change in magnitude of 7&ndash;16 and a period of outburst of up to about 200 days.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-6.png" alt="Light curve of RS Ophiuchi">
+        <figcaption><strong>Figure 6.</strong> The light curve of RS Ophiuchi, a recurrent nova, from 1957 to 1991, based on visual measurements from the AAVSO International Database. Three outbursts are visible, of up to eight magnitudes. There are also interesting variations, of one or two magnitudes, at minimum. (From AAVSO.)</figcaption>
+      </figure>
+
+      <h3>Dwarf novae</h3>
+      <p>Dwarf novae (DNe) are defined as hot dwarf variables that suddenly brighten by up to six magnitudes. They do so repeatedly, at irregular intervals of a few weeks. Three subtypes are identified: U Geminorum, Z Camelopardalis, and SU Ursae Majoris stars. As with other types of variables, the class name is normally based on the first such star discovered, so the U Geminorum type is named after the star U Geminorum.</p>
+      <p>As with other types of novae, dwarf novae are close binaries with a white dwarf as one of the component stars. The most popular model explaining their outbursts is the disk instability model, in which thermal instabilities in the accretion disk cause outbursts but no explosion. There is no significant ejection of material in these events.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-7.png" alt="Light curve of SS Cygni">
+        <figcaption><strong>Figure 7.</strong> The light curve of SS Cygni, the prototype U Geminorum type of dwarf nova, based on visual observations from the AAVSO International Database. Note the amplitude, duration, spacing, and shape of the outbursts. (From AAVSO.)</figcaption>
+      </figure>
+
+      <h3>Symbiotic stars</h3>
+      <p>A symbiotic star is one whose spectrum shows the simultaneous presence of features from a cool star (such as absorption lines from molecules) and from a hot object (such as high-excitation emission lines). Observed at short wavelengths, they appear as hot stars; observed at longer (near-infrared) wavelengths, they appear as cool stars! The first examples (CI Cygni, RW Hydrae, and AX Persei) were noted in 1932. Symbiotic stars turn out to be binary systems consisting of a cool giant (usually M type) and either a hot main sequence star or, more usually, a white dwarf with an accretion disc. There is a tendency to include in this class any interacting binary with a hot component and a cool one, which certainly complicates the discussion. Variable symbiotic stars (and almost all of them are variable) are called Z Andromedae stars. The variability of this star was discovered around 1900.</p>
+      <p>There is also an interesting class of symbiotic novae: eruptive variables consisting of a red giant (often a pulsating variable) and a hot, compact object, usually a white dwarf. They erupt every few centuries, then decline over a period of years to decades.</p>
+
+      <figure>
+        <img src="../images/articles/variable-stars/figure-8.png" alt="Light curve of AX Persei">
+        <figcaption><strong>Figure 8.</strong> The light curve of AX Persei, based on visual observations from the AAVSO International Database. Two aspects of the variability can be seen: a pronounced brightening at the start, and eclipses separated by the binary period of 682.1 days. (From AAVSO.)</figcaption>
+      </figure>
+
+      <h3>R Coronae Borealis stars</h3>
+      <p>Unlike most variable stars, R Coronae Borealis stars spend most of their time at maximum brightness, but sometimes decrease in brightness by up to 9 magnitudes at irregular intervals. They then take a few months or a year to return to their normal maximum brightness. These rare stars are carbon-rich.</p>
+
+      <h2>Extrinsic variables</h2>
+      <p>Extrinsic variables are those in which the light output varies either due to processes external to the star itself, or due to the rotation of the star. The two main classes are eclipsing binaries and rotating variables.</p>
+
+      <h3>Eclipsing binaries</h3>
+      <p>Eclipsing variables are binary stars in which the observer sees the orbit almost edge-on. One star periodically eclipses the other, and at these times the total brightness of the pair decreases. The brightness change is a geometrical effect; there is not necessarily any physical or intrinsic change in the stars. (In close binary stars, however, there may be.)</p>
+      <p>Binary stars are of interest for several reasons. First, at least half of all stars are binary or multiple stars, so they are a normal occurrence in our universe. At least 3 percent of bright stars are eclipsing variables, based on the sample of the 300 brightest stars. Eclipsing binaries are also of interest because they normally consist of stars in close orbit. If the stars were far from each other, eclipses could be seen only if the observer was almost exactly in the orbit plane, which would be unlikely. If the stars are close to each other, the observer can be further from the orbit plane and eclipses can still be seen. Stars close to each other will also exert tidal forces, distorting each other's shape and possibly pulling material from one star to another.</p>
+
+      <p><strong>Classification of eclipsing binaries.</strong> As with other types of variable stars, the traditional classification scheme for eclipsing variables is based on the outward appearance of the light curves, which reflects the presence or absence of the complications discussed above. At one time, any variable star with brief minima was suspected to be an eclipsing variable. The GCVS still recognises the following classes:</p>
+      <ul>
+        <li><strong>Algol (EA in the GCVS)</strong> has light curves with almost flat maxima; the stars are almost undistorted.</li>
+        <li><strong>Beta Lyrae (EB in the GCVS)</strong> variables have light curves that are slightly rounded; the stars are distorted into ellipsoids.</li>
+        <li><strong>W Ursae Majoris (EW in the GCVS)</strong> variables have light curves which vary continuously; the stars are essentially in contact. The periods are short, generally less than a day, the minima are approximately equal in depth (a few tenths of a magnitude), and the stars are usually F to G type or later.</li>
+      </ul>
+      <p>This classification is almost obsolete, and is rather misleading. Beta Lyrae is so bizarre that it should not be a prototype for any class. The EA and EW stars do, however, represent two ends of a spectrum. Algol binaries are now recognised as semi-detached systems, whereas they used to be considered together with detached binaries. EA is now taken to mean &lsquo;detached&rsquo; and EB is associated with &lsquo;semi-detached&rsquo;.</p>
+      <p>Modern classification of eclipsing variables (and binary stars in general) is based on the concept of Lagrangian surfaces and <span class="term" tabindex="0" data-def="The region around a star within which its own gravity dominates. Material outside it can fall onto the companion.">Roche lobes</span>. Binaries can thus be classified as follows:</p>
+      <ul>
+        <li><strong>Detached binaries:</strong> both components are well within their Roche lobes. Tidal distortion is minimal, and the stars are almost spherical. The masses, radii, and temperatures can be determined reliably from eclipse light curves and from radial velocities.</li>
+        <li><strong>Semi-detached binaries</strong> (SD in the GCVS4): one component fills its Roche lobe; the other is well within its Roche lobe. The former star is distorted and is probably losing mass through the inner Lagrangian point; the latter star is almost spherical.</li>
+        <li><strong>Contact binaries</strong> (K in the GCVS4): both components fill their Roche lobes and are essentially in contact. There may also be a common envelope of material surrounding the two stars, blurring their individual identities. In that case, they are referred to as over-contact binaries. The GCVS4 subclassifies them as hot (KE) or cool (KW).</li>
+      </ul>
+
+      <h3>Rotating variables</h3>
+      <p>Only in theory are stars bland, featureless spheres. In the case of the Sun, we can directly observe its complex, ever-changing surface: sunspots, flares, magnetic fields, low-level pulsation, and seething convection cells, which are bubbles of rising and falling gas. On other stars we cannot &lsquo;see&rsquo; the appearance, but we can deduce it.</p>
+      <p>As the star rotates, regions of different brightness (and colour, and magnetic field strength, and other properties) will pass into the observer's field of view, and these properties will appear to vary. The period of variation is the period of rotation. Since all stars rotate, any star with a patchy surface will be a rotating variable, unless the patches are symmetrical about the axis of rotation, or unless the axis of rotation points at the observer. The variations will be both photometric and spectroscopic.</p>
+      <p>There are two especially important and interesting groups of rotating variable stars: peculiar A (Ap) stars and their relatives, and sunlike stars with starspots. The Ap stars have global, approximately dipole magnetic fields, like the Earth. Sunlike stars have magnetic fields which are concentrated primarily in small regions called starspots, though the Sun does have a weak global magnetic field of about one gauss.</p>
+
+      <h2>Key takeaways</h2>
+      <div class="takeaways">
+        <h3><i class="fa-solid fa-flag-checkered" style="color:var(--accent-cyan)"></i>&nbsp; What to remember</h3>
+        <ul>
+          <li>A variable star is one whose brightness (or another property) changes over time. Intrinsic variables change from within. Extrinsic variables change from outside, or by rotating.</li>
+          <li>Pulsating variables swell and shrink in a cycle. Cepheids obey a period&ndash;luminosity relation, so they act as standard candles for measuring distance.</li>
+          <li>Eruptive variables, such as novae and supernovae, change brightness in violent outbursts. Novae do not destroy the star, but supernovae do.</li>
+          <li>Eclipsing binaries dim when one star passes in front of the other, which lets astronomers measure their masses and sizes.</li>
+        </ul>
+      </div>
+
+      <h2>References</h2>
+      <ol class="refs">
+        <li>John R. Percy, <em>Understanding Variable Stars</em></li>
+        <li><a href="https://atnf.csiro.au" target="_blank" rel="noopener noreferrer">CSIRO Australia Telescope National Facility</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Variable_star" target="_blank" rel="noopener noreferrer">Wikipedia: Variable star</a></li>
+      </ol>
+
+    </div>
+
+    <!-- Tags + author card -->
+    <div class="after">
+      <div class="tags">
+        <a class="tag" href="articles.html">Stellar Physics</a>
+        <a class="tag" href="articles.html">Variable Stars</a>
+        <a class="tag" href="articles.html">Cepheids</a>
+        </div>
+
+      <div class="author-card">
+        <div class="author-avatar">MP</div>
+        <div>
+          <h4>Mudit Parakh</h4>
+          <span class="author-batch">BS-MS 2023 · IISER Bhopal</span>
+          <!-- EDIT: add a short bio -->
+          <p>Written for the IBAC article series.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<nav class="pager" aria-label="More articles">
+  <a href="riding-on-fire.html" class="prev"><small><i class="fa-solid fa-arrow-left"></i> Previous</small><span>Riding on Fire</span></a>
+  <a href="hubble-sequence-of-galaxy-classification.html" class="next"><small>Next <i class="fa-solid fa-arrow-right"></i></small><span>Hubble Sequence of Galaxy Classification</span></a>
+</nav>
+
+<section class="more">
+  <div class="more-inner">
+    <h2>Keep exploring</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Galactic Morphology</span>
+          <h3>Hubble Sequence of Galaxy Classification</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Vedant Girnare · BS-MS 2022</div>
+          <div class="article-desc">The Hubble tuning fork: ellipticals, lenticulars, spirals, barred spirals and irregulars, and how colour and star formation change along the sequence.</div>
+        </div>
+        <a href="hubble-sequence-of-galaxy-classification.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="article-card">
+        <div>
+          <span class="article-badge">Observational Guide</span>
+          <h3>Charting the Heavens</h3>
+          <div class="article-meta"><i class="fa-solid fa-user-pen"></i> Mohit Mahapatra · BS 2022</div>
+          <div class="article-desc">A starfarer's guide to the six Keplerian orbital elements, with Pluto's orbit as the worked example.</div>
+        </div>
+        <a href="charting-the-heavens.html" class="article-read-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<!-- If your footer in articles.html differs from this one, paste that block here instead -->
+<footer class="footer">
+  <div class="inner-footer">
+    <div class="footer-col">
+      <div class="footer-heading">IBAC IISERB</div>
+      <p class="footer-about-text">The IISER Bhopal Astronomy Club fosters amateur astronomy, astrophotography, public science outreach and astrophysical research under the IISERB Science Council and the Department of Physics.</p>
+      <div class="footer-social-row">
+        <a href="https://www.instagram.com/ibac_iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/ibac-iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@ibaciiserbhopal" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ibac.iiserb/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Explore</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Visit Us</div>
+      <p class="footer-address"><strong>Club Room:</strong> Room 106, Above Mess-4, IISER Bhopal, Indore-Bypass Road, Bhauri, Bhopal, M.P. 462 066</p>
+      <p class="footer-address"><strong>Observatory:</strong> Above Central Dining Hall (CDH), IISER Bhopal</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:ibac.official@gmail.com"><i class="fa-regular fa-envelope"></i> ibac.official@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 IISER Bhopal Astronomy Club (IBAC). All rights reserved.</span>
+    <a href="#top" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="mission-pill" id="missionPill" aria-hidden="true"><i class="fa-solid fa-satellite"></i><span>Voyager 2: <b id="missionStage">leaving Earth</b></span></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Mobile menu */
+const navMenu = document.getElementById('navMenu');
+document.getElementById('mobileMenuBtn').addEventListener('click', () => navMenu.classList.toggle('show'));
+
+/* Reading time (about 220 words per minute) */
+const body = document.getElementById('articleBody');
+const words = body.querySelector('.prose').innerText.trim().split(/\s+/).length;
+document.getElementById('readTime').textContent = Math.max(1, Math.round(words / 220));
+
+/* Build "In this article" from the <h2> headings */
+const toc = document.getElementById('toc');
+const heads = [...body.querySelectorAll('.prose h2')];
+heads.forEach((h, i) => {
+  if (!h.id) h.id = 'sec-' + (i + 1) + '-' + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const li = document.createElement('li');
+  li.innerHTML = '<a href="#' + h.id + '"></a>';
+  li.firstChild.textContent = h.textContent;
+  toc.appendChild(li);
+});
+if (!heads.length) document.querySelector('.rail-title').parentElement.querySelectorAll('.rail-title, .toc').forEach(e => e.style.display = 'none');
+
+/* Scroll: progress bar, active section, back-to-top */
+const bar = document.getElementById('journeyBar');
+const waypoints = [[20, 'passing Jupiter'], [40, 'passing Saturn'], [60, 'passing Uranus'], [80, 'passing Neptune'], [97, 'in interstellar space']];
+const wpEls = [...document.querySelectorAll('.journey .wp')];
+const stageEl = document.getElementById('missionStage');
+const toTop = document.getElementById('toTop');
+const tocLinks = [...toc.querySelectorAll('a')];
+function onScroll() {
+  const rect = body.getBoundingClientRect();
+  const total = rect.height - window.innerHeight * 0.6;
+  const done = Math.min(1, Math.max(0, (-rect.top + window.innerHeight * 0.3) / total));
+  bar.style.width = (done * 100) + '%';
+  /* Voyager waypoints: [position along the page, label, distance label] */
+  const stage = [...waypoints].reverse().find(w => done * 100 >= w[0]);
+  stageEl.textContent = stage ? stage[1] : 'leaving Earth';
+  wpEls.forEach((el, i) => el.classList.toggle('passed', done * 100 >= waypoints[i][0]));
+  toTop.classList.toggle('show', window.scrollY > 700);
+  let current = null;
+  heads.forEach(h => { if (h.getBoundingClientRect().top < 140) current = h.id; });
+  tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + current));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
+toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
+
+/* Copy link + share */
+const toast = document.getElementById('toast');
+function say(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
+document.getElementById('copyLink').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(location.href.split('#')[0]); say('Link copied'); }
+  catch (e) { say('Could not copy. Copy it from the address bar.'); }
+});
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const data = { title: document.title, url: location.href.split('#')[0] };
+  if (navigator.share) { try { await navigator.share(data); } catch (e) {} }
+  else { try { await navigator.clipboard.writeText(data.url); say('Link copied'); } catch (e) { say('Sharing is not supported here.'); } }
+});
+</script>
+</body>
+</html>
